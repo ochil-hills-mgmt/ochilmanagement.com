@@ -1055,6 +1055,13 @@ a, button, [role="button"], input, textarea, select {
   accent-color: var(--color-primary);
 }
 
+/* ===== FORM ROW ===== */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
 /* ===== DIVIDER IMAGE ===== */
 .divider-image {
   width: 100%;
@@ -1529,4 +1536,454 @@ a, button, [role="button"], input, textarea, select {
 
 .case-study__section {
   overflow: hidden;
+}
+
+/* ============================================================
+   COMPREHENSIVE RESPONSIVE BREAKPOINTS
+   Breakpoints: 480px (small mobile), 768px (tablet), 1024px (small desktop)
+   ============================================================ */
+
+/* ---- SMALL MOBILE (up to 480px) ---- */
+@media (max-width: 480px) {
+  /* Container: tighter padding on small screens */
+  .container {
+    padding-inline: var(--space-4);
+  }
+
+  /* Hero adjustments */
+  .hero { min-height: 60vh; }
+  .hero--full { min-height: 70vh; }
+  .hero--sub { min-height: 35vh; }
+
+  .hero__content {
+    padding: var(--space-10) var(--space-4);
+  }
+
+  .hero__title {
+    font-size: clamp(1.75rem, 6vw, 2.25rem);
+    max-width: 100%;
+  }
+
+  .hero--sub .hero__title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .hero__subtitle {
+    font-size: var(--text-sm);
+    max-width: 100%;
+  }
+
+  .hero__badge {
+    font-size: 0.65rem;
+    padding: var(--space-1) var(--space-3);
+  }
+
+  .hero__actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Section spacing reduced on mobile */
+  .section {
+    padding-block: var(--space-10);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .section-header__title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  .section-header__desc {
+    font-size: var(--text-sm);
+  }
+
+  /* Cards: full-width stacking, reduced padding */
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .card {
+    padding: var(--space-6);
+  }
+
+  .card__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: var(--space-4);
+  }
+
+  .card__icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Value badges: vertical stack */
+  .value-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+  }
+
+  /* Why grid */
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .why-item {
+    padding: var(--space-4);
+  }
+
+  /* Portfolio cards */
+  .portfolio-card__header {
+    padding: var(--space-6) var(--space-6) var(--space-3);
+  }
+
+  .portfolio-card__body {
+    padding: 0 var(--space-6) var(--space-6);
+  }
+
+  .portfolio-card__title {
+    font-size: var(--text-lg);
+  }
+
+  .portfolio-card__stats {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  .stat__value {
+    font-size: var(--text-lg);
+  }
+
+  /* Team section */
+  .team-member__img {
+    width: 160px;
+    height: 200px;
+  }
+
+  /* FAQ: smaller text */
+  .faq-item__question {
+    font-size: var(--text-base);
+    padding: var(--space-4) 0;
+  }
+
+  /* CTA banner */
+  .cta-banner {
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+  }
+
+  .cta-banner__title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+
+  /* Footer */
+  .footer {
+    padding-block: var(--space-10) var(--space-6);
+  }
+
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-2);
+  }
+
+  /* Journey steps */
+  .journey-step {
+    min-width: unset;
+    padding: var(--space-4);
+  }
+
+  /* Insights grid */
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .insight-card {
+    padding: var(--space-6);
+  }
+
+  /* Split layout on mobile */
+  .split {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .split--reverse { direction: ltr; }
+
+  /* Service detail items: single column */
+  .service-detail__items {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .service-item {
+    padding: var(--space-4);
+  }
+
+  /* Bio section */
+  .bio-section {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding-block: var(--space-8);
+  }
+
+  .bio-section__img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  /* Case study */
+  .case-study {
+    padding-block: var(--space-8);
+  }
+
+  .case-study__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .case-study__title {
+    font-size: var(--text-lg);
+  }
+
+  .case-study__results {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3);
+  }
+
+  /* Values grid */
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .value-card {
+    padding: var(--space-6);
+  }
+
+  /* Visual break */
+  .visual-break {
+    height: 150px;
+  }
+
+  .image-band {
+    height: 150px;
+  }
+
+  .divider-image {
+    height: 120px;
+  }
+
+  /* Forms */
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-checkbox-group {
+    grid-template-columns: 1fr;
+  }
+
+  /* Buttons: full-width on small mobile */
+  .btn--lg {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-sm);
+  }
+
+  /* Header adjustments */
+  .header__inner {
+    padding-inline: var(--space-4);
+    padding-block: var(--space-3);
+  }
+
+  .header__logo-text {
+    font-size: var(--text-base);
+  }
+
+  .logo-img {
+    height: 36px;
+  }
+
+  /* Force hide desktop CTA on small mobile */
+  .btn.header__cta--desktop {
+    display: none !important;
+  }
+}
+
+/* ---- TABLET (481px to 768px) ---- */
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding-inline: var(--space-6);
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .hero__content {
+    padding: var(--space-12) var(--space-6);
+  }
+
+  .section-header__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .portfolio-card__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case-study__results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .split {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .split--reverse { direction: ltr; }
+
+  .service-detail__items {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .value-badges {
+    gap: var(--space-4);
+  }
+
+  .cta-banner__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+}
+
+/* ---- SMALL DESKTOP (769px to 1024px) ---- */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .insights-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .bio-section {
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-8);
+  }
+
+  .case-study__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- GENERAL MOBILE REFINEMENTS (max 768px, supplements existing queries) ---- */
+@media (max-width: 768px) {
+  /* Ensure all grids properly collapse */
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Prevent SVGs from growing too large on mobile */
+  .card__icon svg,
+  .value-card__icon svg,
+  .value-badge__icon svg {
+    max-width: 24px;
+    max-height: 24px;
+  }
+
+  .value-card__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Tighten section spacing */
+  .section {
+    padding-block: var(--space-10);
+  }
+
+  /* Ensure readable hero text */
+  .hero__title {
+    max-width: 100%;
+  }
+
+  /* Tighter card padding */
+  .card {
+    padding: var(--space-6);
+  }
+
+  /* Portfolio */
+  .portfolio-card__header {
+    padding: var(--space-6) var(--space-6) var(--space-3);
+  }
+
+  .portfolio-card__body {
+    padding: 0 var(--space-6) var(--space-6);
+  }
+
+  /* CTA Banner responsive */
+  .cta-banner {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure all text wraps */
+  h1, h2, h3, h4, h5, h6, p, li, span, a {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  /* Footer cleanup */
+  .footer__bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  /* Force hide desktop CTA */
+  .btn.header__cta--desktop {
+    display: none !important;
+  }
 }
