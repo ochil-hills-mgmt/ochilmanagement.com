@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ochilmanagement.com/sitemap.xml
