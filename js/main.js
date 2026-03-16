@@ -29,11 +29,13 @@
 (function(){
   const toggle = document.querySelector('.mobile-toggle');
   const navList = document.querySelector('.header__nav-list');
+  const header = document.querySelector('.header');
   
-  if (toggle && navList) {
+  if (toggle && navList && header) {
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('active');
       navList.classList.toggle('active');
+      header.classList.toggle('nav-open');
       document.body.style.overflow = navList.classList.contains('active') ? 'hidden' : '';
     });
     
@@ -42,6 +44,7 @@
       link.addEventListener('click', () => {
         toggle.classList.remove('active');
         navList.classList.remove('active');
+        header.classList.remove('nav-open');
         document.body.style.overflow = '';
       });
     });

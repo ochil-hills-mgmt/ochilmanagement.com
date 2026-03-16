@@ -357,29 +357,54 @@ a, button, [role="button"], input, textarea, select {
 .mobile-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 @media (max-width: 768px) {
-  .mobile-toggle { display: flex; }
+  /* When nav is open, remove backdrop-filter so it stops creating a containing block
+     that traps position:fixed children inside the header */
+  .header.nav-open {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: #faf5ed;
+  }
+  [data-theme="dark"] .header.nav-open {
+    background: #1f2937;
+  }
+
+  .mobile-toggle { display: flex; z-index: 1001; position: relative; }
+
   .header__nav-list {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-8);
-    background: var(--color-bg);
-    z-index: 200;
+    gap: var(--space-6);
+    background: #faf5ed;
+    z-index: 1000;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  [data-theme="dark"] .header__nav-list {
+    background: #1f2937;
   }
   .header__nav-list.active {
     opacity: 1;
     pointer-events: all;
   }
   .header__nav-link {
-    font-size: var(--text-xl);
+    font-size: 1.5rem;
+    color: #262628;
+    padding: var(--space-3) var(--space-6);
+    display: block;
+  }
+  [data-theme="dark"] .header__nav-link {
+    color: #e8e4dc;
   }
   .header__cta--desktop { display: none; }
 }
@@ -1869,11 +1894,11 @@ a, button, [role="button"], input, textarea, select {
 
   /* Hero adjustments */
   .hero { min-height: 60vh; }
-  .hero--full { min-height: 70vh; }
+  .hero--full { min-height: auto; }
   .hero--sub { min-height: 35vh; }
 
   .hero__content {
-    padding: var(--space-10) var(--space-4);
+    padding: var(--space-10) var(--space-4) var(--space-8);
   }
 
   .hero__title {
@@ -1888,6 +1913,7 @@ a, button, [role="button"], input, textarea, select {
   .hero__subtitle {
     font-size: var(--text-sm);
     max-width: 100%;
+    margin-bottom: var(--space-6);
   }
 
   .hero__badge {
