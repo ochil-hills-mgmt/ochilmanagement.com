@@ -1245,6 +1245,91 @@ a, button, [role="button"], input, textarea, select {
   color: var(--color-primary);
 }
 
+/* ===== LEGAL PAGES (Terms, Privacy) ===== */
+.legal {
+  padding: var(--space-12) 0 var(--space-20);
+}
+
+.legal__container {
+  max-width: var(--content-default);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.legal__updated {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.legal h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+  color: var(--color-text);
+}
+
+.legal h3 {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 600;
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+  color: var(--color-text);
+}
+
+.legal p {
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.legal ul, .legal ol {
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+.legal li {
+  margin-bottom: var(--space-2);
+}
+
+.legal a {
+  color: var(--color-heather);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal a:hover {
+  color: var(--color-heather-hover);
+}
+
+/* Uppercase disclaimer blocks */
+.legal__disclaimer {
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-border);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-4) 0 var(--space-6);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: var(--text-xs);
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+[data-theme="dark"] .legal__disclaimer {
+  background: var(--color-surface-2);
+  border-left-color: var(--color-text-muted);
+}
+
 /* ===== ARTICLE / BLOG ===== */
 .article {
   padding: var(--space-16) 0 var(--space-20);

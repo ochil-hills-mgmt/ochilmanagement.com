@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    // Track time on article (30s, 60s, 120s, 300s)
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/pages/terms">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | Ochil Hills Management</title>
+<meta name="description" content="Terms of Service governing your use of CAIRN, the CFO Analytics, Insights &amp; Real-time Numbers platform by Ochil Hills Management LLC.">
+<meta property="og:title" content="Terms of Service | Ochil Hills Management">
+<meta property="og:description" content="Terms of Service governing your use of CAIRN, the CFO Analytics, Insights &amp; Real-time Numbers platform by Ochil Hills Management LLC.">
+<meta property="og:image" content="../images/hero-home.webp">
+<meta property="og:url" content="https://ochilmanagement.com/pages/terms">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Terms of Service | Ochil Hills Management">
+<meta name="twitter:description" content="Terms of Service governing your use of CAIRN, the CFO Analytics, Insights &amp; Real-time Numbers platform by Ochil Hills Management LLC.">
+<meta name="twitter:image" content="../images/hero-home.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Terms of Service",
+  "description": "Terms of Service governing your use of CAIRN, the CFO Analytics, Insights & Real-time Numbers platform by Ochil Hills Management LLC.",
+  "url": "https://ochilmanagement.com/pages/terms",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Ochil Hills Management",
+    "url": "https://ochilmanagement.com"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+ <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+ <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+ <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+ <ul class="header__nav-list" role="list">
+ <li><a href="../" class="header__nav-link">Home</a></li>
+ <li><a href="services" class="header__nav-link">Services</a></li>
+ <li><a href="about" class="header__nav-link">About</a></li>
+ <li><a href="portfolio" class="header__nav-link">Portfolio</a></li>
+ <li><a href="insights" class="header__nav-link">Insights</a></li>
+ <li><a href="contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+ </ul>
+ </nav>
+ <div class="header__actions">
+ <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+ <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub" style="min-height:30vh;">
+  <div class="hero__bg">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg, #163725 0%, #233D2E 100%);"></div>
+    <div class="hero__overlay"></div>
+  </div>
+  <div class="hero__content container" style="text-align:center;">
+    <h1 class="hero__title" style="color:#fff;max-width:none;">Terms of Service</h1>
+  </div>
+</section>
+
+<section class="legal">
+  <div class="legal__container">
+    <p class="legal__updated">Ochil Hills Management LLC &mdash; CAIRN (CFO Analytics, Insights &amp; Real-time Numbers)<br>Last Updated: March 18, 2026</p>
+
+    <h2>1. Introduction and Acceptance of Terms</h2>
+    <p>These Terms of Service (&ldquo;Terms&rdquo;) constitute a legally binding agreement between you (&ldquo;Client,&rdquo; &ldquo;you,&rdquo; or &ldquo;your&rdquo;) and Ochil Hills Management LLC, a Washington limited liability company (&ldquo;Ochil Hills,&rdquo; &ldquo;Company,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;), governing your access to and use of CAIRN &mdash; CFO Analytics, Insights &amp; Real-time Numbers (the &ldquo;Platform&rdquo;), including any associated websites, applications, APIs, and services.</p>
+    <p>By accessing or using the Platform, creating an account, or clicking &ldquo;I Accept&rdquo; when prompted, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you are accepting these Terms on behalf of a company or other legal entity, you represent and warrant that you have the authority to bind such entity to these Terms.</p>
+    <p>If you do not agree to these Terms, you may not access or use the Platform.</p>
+
+    <h2>2. Description of Services</h2>
+    <p>The Platform is a financial planning and analysis (FP&amp;A) tool that aggregates, transforms, and displays financial information from third-party accounting systems to provide business intelligence dashboards, reports, and analytics.</p>
+    <p>The Platform is not accounting software and is not intended to replace your general ledger, bookkeeping system, or any system of record. The Platform sits downstream of your accounting system and provides analytical views of your financial data. Your accounting system remains the authoritative source of truth for all financial records.</p>
+    <p>Due to the nature of data extraction, transformation, currency conversion, and consolidation processes, minor variances may exist between Platform outputs and source system data. You acknowledge that such variances are inherent in any data analytics platform and that you are solely responsible for verifying all Platform outputs against your source accounting systems before relying on them for any business decision.</p>
+    <p>The Platform is designed to assist with financial reporting and analysis. The Platform does not provide financial advice, tax advice, legal advice, investment advice, or any other professional advice. The Platform is a tool to organize and display your financial data; all business decisions remain solely your responsibility.</p>
+
+    <h2>3. No Professional Advice Disclaimer</h2>
+
+    <h3>3.1 Not Financial or Legal Advice</h3>
+    <div class="legal__disclaimer">THE PLATFORM AND ALL INFORMATION, DATA, REPORTS, DASHBOARDS, ANALYTICS, AND OTHER CONTENT PROVIDED THROUGH THE PLATFORM (COLLECTIVELY, &ldquo;PLATFORM CONTENT&rdquo;) ARE PROVIDED FOR INFORMATIONAL AND OPERATIONAL PURPOSES ONLY. PLATFORM CONTENT DOES NOT CONSTITUTE, AND SHALL NOT BE CONSTRUED AS:
+      <ol type="a">
+        <li>Financial, accounting, or bookkeeping advice;</li>
+        <li>Tax advice or tax preparation services;</li>
+        <li>Legal advice or legal services;</li>
+        <li>Investment advice or securities recommendations;</li>
+        <li>Audit or assurance services; or</li>
+        <li>Any other form of professional advice requiring licensure or certification.</li>
+      </ol>
+    </div>
+
+    <h3>3.2 Consult Qualified Professionals</h3>
+    <p>You acknowledge and agree that you should consult with qualified professionals, including licensed accountants (CPAs), tax advisors, attorneys, and financial advisors, before making any financial, tax, legal, or business decisions. Ochil Hills is not a licensed accounting firm, law firm, or registered investment advisor.</p>
+
+    <h3>3.3 No Fiduciary Relationship</h3>
+    <p>Nothing in these Terms or your use of the Platform creates a fiduciary relationship between you and Ochil Hills. We do not owe you any fiduciary duties with respect to your use of the Platform.</p>
+
+    <h3>3.4 Accuracy of Data</h3>
+    <p>While we strive to accurately display information from your connected accounting systems, we do not guarantee the accuracy, completeness, or timeliness of any Platform Content. You are solely responsible for verifying all data and reports against your source accounting systems and records.</p>
+    <p>The accuracy of Platform outputs, including consolidated financial statements, entity roll-ups, intercompany eliminations, and currency translations, is directly dependent on the accuracy and completeness of the data in your source accounting systems. If your underlying accounting records contain errors, miscategorizations, unreconciled transactions, or incomplete entries, those errors will be reflected in Platform outputs.</p>
+    <p>Where Ochil Hills does not provide bookkeeping services to you, Ochil Hills bears no responsibility for the accuracy of your underlying accounting data. You are solely responsible for maintaining accurate books and records in your source accounting systems, and you acknowledge that the Platform can only be as accurate as the data it receives.</p>
+
+    <h2>4. Data Ownership and Rights</h2>
+
+    <h3>4.1 Your Data</h3>
+    <p>You retain all right, title, and interest in and to all data, information, and content that you provide, upload, or make available through the Platform, including all financial data imported from your connected accounting systems (&ldquo;Your Data&rdquo;). These Terms do not grant Ochil Hills any ownership rights in Your Data.</p>
+
+    <h3>4.2 License to Your Data</h3>
+    <p>You grant Ochil Hills a limited, non-exclusive, royalty-free license to access, use, process, copy, store, transmit, and display Your Data solely for the purposes of:</p>
+    <ol type="a">
+      <li>Providing the Platform and services to you;</li>
+      <li>Maintaining and improving the Platform;</li>
+      <li>Providing customer support; and</li>
+      <li>Complying with applicable law.</li>
+    </ol>
+    <p>This license terminates upon termination of your access to the Platform, subject to Section 4.4.</p>
+
+    <h3>4.3 Aggregated and Anonymized Data</h3>
+    <p>Notwithstanding the foregoing, Ochil Hills may use, aggregate, and anonymize Your Data for purposes of improving the Platform, conducting research, and generating benchmarks, provided that such aggregated or anonymized data does not identify you or any individual. Ochil Hills owns all right, title, and interest in such aggregated and anonymized data.</p>
+
+    <h3>4.4 Data Retention and Deletion</h3>
+    <p>Upon termination of your access to the Platform, we will retain Your Data for a period of thirty (30) days, during which you may request an export of Your Data. After such period, we may delete Your Data from our systems, except as required to comply with legal obligations, resolve disputes, or enforce our agreements.</p>
+
+    <h2>5. Confidentiality</h2>
+
+    <h3>5.1 Confidential Information</h3>
+    <p>Each party acknowledges that it may receive or have access to confidential and proprietary information of the other party (&ldquo;Confidential Information&rdquo;). Your Confidential Information includes Your Data and any non-public business information you provide to us. Our Confidential Information includes the Platform, its underlying technology, algorithms, methodologies, and any non-public business information we provide to you.</p>
+
+    <h3>5.2 Obligations</h3>
+    <p>The receiving party agrees to:</p>
+    <ol type="a">
+      <li>Hold all Confidential Information in strict confidence;</li>
+      <li>Not disclose Confidential Information to any third party except as expressly permitted herein or with the disclosing party&rsquo;s prior written consent;</li>
+      <li>Use Confidential Information only for the purposes contemplated by these Terms;</li>
+      <li>Protect Confidential Information using at least the same degree of care it uses to protect its own confidential information, but in no event less than reasonable care; and</li>
+      <li>Limit access to Confidential Information to those employees, contractors, and agents who have a need to know and who are bound by confidentiality obligations at least as protective as those herein.</li>
+    </ol>
+
+    <h3>5.3 Exceptions</h3>
+    <p>Confidential Information does not include information that:</p>
+    <ol type="a">
+      <li>Is or becomes publicly available through no fault of the receiving party;</li>
+      <li>Was rightfully in the receiving party&rsquo;s possession prior to disclosure;</li>
+      <li>Is rightfully obtained by the receiving party from a third party without restriction; or</li>
+      <li>Is independently developed by the receiving party without use of or reference to the disclosing party&rsquo;s Confidential Information.</li>
+    </ol>
+
+    <h3>5.4 Required Disclosures</h3>
+    <p>The receiving party may disclose Confidential Information to the extent required by applicable law, regulation, or legal process, provided that the receiving party (to the extent legally permitted) gives the disclosing party prompt written notice and cooperates with the disclosing party&rsquo;s efforts to obtain protective treatment for such information.</p>
+
+    <h3>5.5 Security Measures</h3>
+    <p>Ochil Hills maintains administrative, technical, and physical safeguards designed to protect Your Data and Confidential Information, including encryption of data in transit and at rest, access controls, and regular security assessments.</p>
+
+    <h2>6. Intellectual Property</h2>
+
+    <h3>6.1 Ochil Hills Property</h3>
+    <p>The Platform, including all software, code, algorithms, data models, data transformation logic, financial consolidation methodologies, dashboard designs, user interfaces, documentation, and all improvements and derivatives thereof, is the sole and exclusive property of Ochil Hills Management LLC and is protected by copyright, trade secret, and other intellectual property laws (collectively, &ldquo;Ochil Hills IP&rdquo;). These Terms do not grant you any right, title, or interest in the Ochil Hills IP except for the limited license to use the Platform as expressly set forth herein.</p>
+
+    <h3>6.2 License to Use Platform</h3>
+    <p>Subject to your compliance with these Terms and payment of all applicable fees, Ochil Hills grants you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to access and use the Platform solely for your internal business purposes during the term of your subscription.</p>
+
+    <h3>6.3 Restrictions</h3>
+    <p>You shall not, and shall not permit any third party to:</p>
+    <ol type="a">
+      <li>Copy, modify, adapt, translate, or create derivative works of the Platform;</li>
+      <li>Reverse engineer, disassemble, decompile, or otherwise attempt to derive the source code, data models, transformation logic, or algorithms of the Platform;</li>
+      <li>Sublicense, lease, rent, sell, resell, or otherwise transfer rights to the Platform;</li>
+      <li>Remove, alter, or obscure any proprietary notices on the Platform;</li>
+      <li>Use the Platform to build a competitive product or service, or to benchmark the Platform against competing products;</li>
+      <li>Use the Platform for any unlawful purpose or in violation of any applicable law;</li>
+      <li>Access the Platform through any automated means, except as expressly authorized; or</li>
+      <li>Share, distribute, or make available any screenshots, exports, reports, or other outputs of the Platform to any third party, except for your internal business purposes or as expressly authorized by Ochil Hills in writing.</li>
+    </ol>
+
+    <h3>6.4 Feedback</h3>
+    <p>If you provide any suggestions, ideas, feedback, or recommendations regarding the Platform (&ldquo;Feedback&rdquo;), you hereby assign to Ochil Hills all right, title, and interest in such Feedback, and Ochil Hills may use and incorporate such Feedback without any obligation to you.</p>
+
+    <h2>7. Third-Party Services and Integrations</h2>
+
+    <h3>7.1 Third-Party Dependencies</h3>
+    <p>The Platform integrates with and depends upon third-party services, including but not limited to accounting platforms, payment processors, payroll systems, banking platforms, and data infrastructure providers (collectively, &ldquo;Third-Party Services&rdquo;). Ochil Hills does not control, operate, or maintain these Third-Party Services.</p>
+
+    <h3>7.2 No Responsibility for Third-Party Services</h3>
+    <p>Ochil Hills is not responsible for the availability, accuracy, reliability, or performance of any Third-Party Services. Changes to Third-Party Service APIs, terms of service, data formats, or availability may affect Platform functionality, and Ochil Hills shall not be liable for any interruption, data loss, or inaccuracy resulting from such changes.</p>
+
+    <h3>7.3 Client Responsibility</h3>
+    <p>You are responsible for maintaining your own accounts, credentials, and subscriptions with all Third-Party Services. You are responsible for ensuring that your Third-Party Service accounts are properly configured and that data flows from those services are authorized.</p>
+
+    <h2>8. Account Responsibility and Acceptable Use</h2>
+
+    <h3>8.1 Account Security</h3>
+    <p>You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You must notify Ochil Hills immediately of any unauthorized access to or use of your account.</p>
+
+    <h3>8.2 Authorized Users</h3>
+    <p>You may permit your employees and authorized contractors to access the Platform under your account, provided that you are responsible for ensuring all such users comply with these Terms. You are liable for all actions taken by any person who accesses the Platform using your credentials, whether or not such access was authorized by you.</p>
+
+    <h3>8.3 Acceptable Use</h3>
+    <p>You agree not to use the Platform in any manner that could damage, disable, overburden, or impair the Platform, or interfere with any other party&rsquo;s use of the Platform.</p>
+
+    <h2>9. Limitation of Liability</h2>
+
+    <h3>9.1 Disclaimer of Warranties</h3>
+    <div class="legal__disclaimer">THE PLATFORM IS PROVIDED &ldquo;AS IS&rdquo; AND &ldquo;AS AVAILABLE&rdquo; WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, OCHIL HILLS DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
+      <br><br>
+      WITHOUT LIMITING THE FOREGOING, OCHIL HILLS DOES NOT WARRANT THAT:
+      <ol type="a">
+        <li>THE PLATFORM WILL MEET YOUR REQUIREMENTS OR EXPECTATIONS;</li>
+        <li>THE PLATFORM WILL BE UNINTERRUPTED, TIMELY, SECURE, OR ERROR-FREE;</li>
+        <li>THE RESULTS OBTAINED FROM THE PLATFORM WILL BE ACCURATE, RELIABLE, OR COMPLETE;</li>
+        <li>ANY ERRORS IN THE PLATFORM WILL BE CORRECTED;</li>
+        <li>THE PLATFORM IS FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS; OR</li>
+        <li>DATA TRANSFORMATIONS, INCLUDING CURRENCY CONVERSIONS, ENTITY CONSOLIDATIONS, INTERCOMPANY ELIMINATIONS, AND FINANCIAL STATEMENT ROLL-UPS, WILL BE FREE FROM ERROR OR VARIANCE.</li>
+      </ol>
+    </div>
+
+    <h3>9.2 Limitation of Liability</h3>
+    <div class="legal__disclaimer">TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL OCHIL HILLS, ITS OFFICERS, DIRECTORS, MEMBERS, EMPLOYEES, AGENTS, OR AFFILIATES BE LIABLE FOR ANY:
+      <ol type="a">
+        <li>INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES;</li>
+        <li>LOSS OF PROFITS, REVENUE, BUSINESS, GOODWILL, OR ANTICIPATED SAVINGS;</li>
+        <li>LOSS OF DATA OR DATA BREACH;</li>
+        <li>COST OF PROCUREMENT OF SUBSTITUTE SERVICES; OR</li>
+        <li>ANY OTHER DAMAGES ARISING OUT OF OR RELATED TO THESE TERMS OR YOUR USE OF THE PLATFORM, WHETHER BASED ON WARRANTY, CONTRACT, TORT (INCLUDING NEGLIGENCE), STRICT LIABILITY, OR ANY OTHER LEGAL THEORY, EVEN IF OCHIL HILLS HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.</li>
+      </ol>
+    </div>
+
+    <h3>9.3 Cap on Liability</h3>
+    <div class="legal__disclaimer">TO THE EXTENT PERMITTED BY APPLICABLE LAW, OCHIL HILLS&rsquo; TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATED TO THESE TERMS OR YOUR USE OF THE PLATFORM SHALL NOT EXCEED THE TOTAL FEES PAID BY YOU TO OCHIL HILLS IN THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO THE CLAIM, OR ONE THOUSAND DOLLARS ($1,000), WHICHEVER IS GREATER.</div>
+
+    <h3>9.4 Essential Purpose</h3>
+    <div class="legal__disclaimer">YOU ACKNOWLEDGE THAT THE LIMITATIONS OF LIABILITY IN THIS SECTION ARE AN ESSENTIAL ELEMENT OF THE BARGAIN BETWEEN YOU AND OCHIL HILLS, AND THAT OCHIL HILLS WOULD NOT PROVIDE THE PLATFORM WITHOUT SUCH LIMITATIONS.</div>
+
+    <h3>9.5 Jurisdictional Limitations</h3>
+    <div class="legal__disclaimer">SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OF CERTAIN WARRANTIES OR THE LIMITATION OR EXCLUSION OF LIABILITY FOR CERTAIN TYPES OF DAMAGES. ACCORDINGLY, SOME OF THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU. IN SUCH JURISDICTIONS, OCHIL HILLS&rsquo; LIABILITY SHALL BE LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW.</div>
+
+    <h2>10. Indemnification</h2>
+    <p>You agree to indemnify, defend, and hold harmless Ochil Hills and its officers, directors, members, employees, agents, and affiliates from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to:</p>
+    <ol type="a">
+      <li>Your use of the Platform;</li>
+      <li>Your violation of these Terms;</li>
+      <li>Your violation of any applicable law or regulation;</li>
+      <li>Your violation of any third-party rights, including intellectual property rights; or</li>
+      <li>Any dispute between you and any third party related to Your Data or your use of the Platform.</li>
+    </ol>
+
+    <h2>11. Term and Termination</h2>
+
+    <h3>11.1 Term</h3>
+    <p>These Terms are effective upon your acceptance and continue until terminated as provided herein.</p>
+
+    <h3>11.2 Termination by You</h3>
+    <p>You may terminate these Terms at any time by discontinuing your use of the Platform and providing written notice to Ochil Hills. Termination does not relieve you of any obligation to pay fees incurred prior to termination.</p>
+
+    <h3>11.3 Termination by Ochil Hills</h3>
+    <p>Ochil Hills may terminate or suspend your access to the Platform at any time for cause upon written notice to you. Ochil Hills may terminate your access without cause upon thirty (30) days&rsquo; prior written notice. If we terminate your access without cause, we will provide a pro-rata refund of any prepaid fees for the unused portion of your subscription.</p>
+
+    <h3>11.4 Effect of Termination</h3>
+    <p>Upon termination:</p>
+    <ol type="a">
+      <li>Your license to use the Platform immediately terminates;</li>
+      <li>You must cease all use of the Platform;</li>
+      <li>Sections 3, 4.1, 4.3, 5, 6.1, 7, 9, 10, 11.4, 12, and 13 shall survive termination; and</li>
+      <li>Ochil Hills will handle Your Data in accordance with Section 4.4.</li>
+    </ol>
+
+    <h2>12. Governing Law and Dispute Resolution</h2>
+
+    <h3>12.1 Governing Law</h3>
+    <p>These Terms and any dispute arising out of or related to these Terms or the Platform shall be governed by and construed in accordance with the laws of the State of Washington, without regard to its conflict of laws principles.</p>
+
+    <h3>12.2 Venue</h3>
+    <p>Any legal action or proceeding arising out of or related to these Terms shall be brought exclusively in the state or federal courts located in King County, Washington, and each party irrevocably consents to the personal jurisdiction of such courts.</p>
+
+    <h3>12.3 Informal Resolution</h3>
+    <p>Before initiating any formal dispute resolution proceeding, you agree to first contact Ochil Hills at the address below to attempt to resolve the dispute informally. We will attempt to resolve the dispute by contacting you via email. If a dispute is not resolved within thirty (30) days of submission, either party may proceed to formal dispute resolution.</p>
+
+    <h2>13. General Provisions</h2>
+
+    <h3>13.1 Entire Agreement</h3>
+    <p>These Terms, together with any applicable Master Service Agreement, Statement of Work, or other written agreement between you and Ochil Hills, constitute the entire agreement between you and Ochil Hills regarding the Platform and supersede all prior agreements, understandings, and communications, whether written or oral. In the event of a conflict between these Terms and any Master Service Agreement, the Master Service Agreement shall control.</p>
+
+    <h3>13.2 Scope of Terms</h3>
+    <p>These Terms govern your use of the Platform only. Any fractional CFO, fractional COO, consulting, bookkeeping, or other advisory services provided by Ochil Hills are governed by a separate Master Service Agreement or Statement of Work. If you receive advisory services from Ochil Hills without a separate written agreement in place, these Terms do not create any obligations or liability on the part of Ochil Hills with respect to such services.</p>
+
+    <h3>13.3 Amendment</h3>
+    <p>Ochil Hills reserves the right to modify these Terms at any time. We will notify you of material changes by posting the updated Terms on our website and updating the &ldquo;Last Updated&rdquo; date. Your continued use of the Platform after such changes constitutes your acceptance of the modified Terms.</p>
+
+    <h3>13.4 Waiver</h3>
+    <p>No failure or delay by either party in exercising any right under these Terms shall constitute a waiver of that right. Any waiver must be in writing and signed by the waiving party.</p>
+
+    <h3>13.5 Severability</h3>
+    <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect. The invalid provision shall be modified to the minimum extent necessary to make it valid and enforceable while preserving the parties&rsquo; original intent.</p>
+
+    <h3>13.6 Assignment</h3>
+    <p>You may not assign or transfer these Terms or any rights hereunder without Ochil Hills&rsquo; prior written consent. Ochil Hills may assign these Terms without restriction. These Terms shall bind and inure to the benefit of the parties and their permitted successors and assigns.</p>
+
+    <h3>13.7 Independent Contractors</h3>
+    <p>The parties are independent contractors. Nothing in these Terms creates a partnership, joint venture, employment, or agency relationship between the parties.</p>
+
+    <h3>13.8 Notices</h3>
+    <p>All notices under these Terms shall be in writing and shall be deemed given when delivered personally, sent by confirmed email, or sent by certified mail, return receipt requested, to the addresses specified herein or such other addresses as the parties may designate in writing.</p>
+
+    <h3>13.9 Force Majeure</h3>
+    <p>Neither party shall be liable for any failure or delay in performance due to causes beyond its reasonable control, including acts of God, natural disasters, war, terrorism, labor disputes, government actions, failures or disruptions of third-party services (including accounting platforms, cloud infrastructure providers, and data integration services), internet outages, or cyberattacks.</p>
+
+    <h3>13.10 No Uptime Guarantee</h3>
+    <p>The Platform is provided without any guarantee of uptime, availability, or service level. Ochil Hills will use commercially reasonable efforts to maintain Platform availability but does not commit to any specific uptime percentage or response time.</p>
+
+    <h2>14. Contact Information</h2>
+    <p>If you have any questions about these Terms, please contact us at:</p>
+    <p>Ochil Hills Management LLC<br>Email: <a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a><br>Website: <a href="https://ochilmanagement.com">https://ochilmanagement.com</a></p>
+
+    <h2>15. Acknowledgment</h2>
+    <div class="legal__disclaimer">BY USING THE PLATFORM, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS OF SERVICE, UNDERSTAND THEM, AND AGREE TO BE BOUND BY THEM. IF YOU DO NOT AGREE TO THESE TERMS, YOU MAY NOT ACCESS OR USE THE PLATFORM.</div>
+
+    <p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="services">Services</a></li><li><a href="about">About</a></li><li><a href="portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="insights">Insights</a></li><li><a href="faq">FAQ</a></li><li><a href="contact">Contact</a></li><li><a href="client-portal">Client Portal</a></li><li><a href="terms">Terms of Service</a></li><li><a href="privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
