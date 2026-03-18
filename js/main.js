@@ -39,8 +39,8 @@
       document.body.style.overflow = navList.classList.contains('active') ? 'hidden' : '';
     });
     
-    // Close mobile menu on nav link click
-    navList.querySelectorAll('.header__nav-link').forEach(link => {
+    // Close mobile menu on nav link or mobile CTA click
+    navList.querySelectorAll('.header__nav-link, .header__nav-mobile-ctas .btn').forEach(link => {
       link.addEventListener('click', () => {
         toggle.classList.remove('active');
         navList.classList.remove('active');
