@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    // Track time on article (30s, 60s, 120s, 300s)
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-cost">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fractional CFO Cost: 2026 Pricing Guide | Ochil Hills</title>
+<meta name="description" content="How much does a fractional CFO cost? Typically $175–$450/hr or $3,000–$12,000/month. See 2026 pricing by business size, models, and what drives the cost.">
+<meta property="og:title" content="How Much Does a Fractional CFO Cost? 2026 Pricing Guide">
+<meta property="og:description" content="Fractional CFO pricing typically ranges from $3,000–$12,000/month on retainer. See cost by business size, pricing models, and how it compares to a full-time hire.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-cost">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Much Does a Fractional CFO Cost? 2026 Pricing Guide">
+<meta name="twitter:description" content="Fractional CFO pricing typically ranges from $3,000–$12,000/month on retainer. See cost by business size, pricing models, and how it compares to a full-time hire.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How Much Does a Fractional CFO Cost? 2026 Pricing Guide",
+ "description": "A complete guide to fractional CFO pricing in 2026 — hourly rates, monthly retainers, cost by business size, and how fractional compares to a full-time CFO hire.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-03-23",
+ "dateModified": "2026-03-23",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-cost",
+ "creator": {"@type": "SoftwareApplication", "name": "Perplexity Computer", "url": "https://www.perplexity.ai/computer"}
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What is the typical hourly rate for a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Fractional CFO hourly rates typically range from $175 to $450 per hour depending on experience level, industry specialisation, and engagement scope. Entry-level fractional CFOs (5–10 years experience) charge $150–$250/hr; mid-tier (10–15 years) charge $250–$350/hr; and senior practitioners with 15+ years typically charge $350–$500/hr."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How much does a part-time CFO cost per month?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A part-time or fractional CFO on a monthly retainer typically costs $3,000–$12,000 per month, with the most common range falling between $5,000 and $7,500. The exact cost depends on hours engaged, business complexity, and scope of deliverables."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Is a fractional CFO worth the cost?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "For most businesses between $500K and $15M in revenue, yes. A fractional CFO delivers strategic financial leadership — cash flow management, financial modelling, KPI reporting, and capital planning — at 20–40% of the cost of a full-time hire. Most engagements achieve breakeven ROI within 3–6 months through improved margin visibility, cash flow control, and better capital allocation decisions."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How do fractional CFO fees compare to a full-time hire?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A full-time CFO costs $250,000–$500,000+ annually when loaded (base salary, benefits, equity, and recruiting costs). A fractional CFO engagement costs $36,000–$180,000 per year depending on hours. For companies under $25M in revenue, the fractional model delivers comparable strategic output at a fraction of the cost."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Does a fractional CFO cost the same as an accounting firm?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "No — they serve different functions. An accounting firm provides bookkeeping, tax preparation, and compliance work, typically at $500–$5,000/month. A fractional CFO provides financial strategy: forecasting, capital allocation, KPI design, and growth planning. Most growing businesses need both, and they complement rather than substitute for each other."
+     }
+   }
+ ],
+ "creator": {"@type": "SoftwareApplication", "name": "Perplexity Computer", "url": "https://www.perplexity.ai/computer"}
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing strategic financial growth" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Financial Strategy</p>
+   <h1 class="hero__title" style="max-width:22ch;">How Much Does a Fractional CFO Cost?</h1>
+   <p class="hero__subtitle">2026 Pricing Guide</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-03-23">March 23, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">8 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: March 23, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>Fractional CFO services typically cost between $175 and $450 per hour, or $3,000 to $12,000 per month on a retainer basis. The total investment depends on your business's complexity, the scope of services, and the CFO's experience level — significantly less than the $250,000–$500,000+ annual cost of a full-time CFO.</p>
+     </div>
+
+     <p>If you're evaluating fractional CFO services for the first time, the range in pricing can be disorienting. Some firms quote $2,000/month. Others quote $15,000. Both can be right, depending entirely on what's included and how complex your business is. This guide breaks down how pricing actually works, what drives costs up or down, and what you should expect to get at each tier.</p>
+
+     <p>If you're still exploring whether a fractional CFO is the right fit, <a href="what-is-a-fractional-cfo">our complete guide to what a fractional CFO does</a> is a useful starting point before you dig into pricing.</p>
+
+     <h2>How Are Fractional CFO Services Priced?</h2>
+
+     <p>There are three primary pricing structures in the fractional CFO market. Each has a different risk profile for the client and the provider, and each suits a different engagement type.</p>
+
+     <h3>Hourly Rate Model</h3>
+
+     <p>Hourly billing is common for advisory-only relationships — a founder who wants a senior finance professional available for ad hoc questions, occasional model reviews, or board meeting prep without a standing scope of work. According to <a href="https://graphitefinancial.com/blog/fractional-cfo-hourly-rates/" target="_blank" rel="noopener noreferrer">Graphite Financial</a>, hourly rates for fractional CFO services range from $175 to $450 per hour across the market, with the most common working range sitting between $200 and $350 per hour. Experience tiers generally break down as follows: entry-level practitioners (5–10 years) at $150–$250/hr; mid-career CFOs (10–15 years) at $250–$350/hr; and senior, industry-specialised operators with 15+ years at $350–$500/hr.</p>
+
+     <p><strong>Pros:</strong> Maximum flexibility. Pay only for time used. Good fit for occasional strategic input.<br>
+     <strong>Cons:</strong> No accountability to a defined scope. Hours can creep. Doesn't build institutional knowledge the way a retained engagement does.</p>
+
+     <h3>Monthly Retainer Model</h3>
+
+     <p>The retainer is the industry standard for ongoing fractional CFO work — and for good reason. A defined monthly scope creates consistency: the CFO shows up every week, builds context over time, and delivers a structured set of outputs rather than reacting to inbound requests. According to <a href="https://k38consulting.com/fractional-cfo-pricing-guide-2025/" target="_blank" rel="noopener noreferrer">K-38 Consulting's 2025 pricing analysis</a>, monthly retainer pricing typically falls into three tiers: basic packages at $2,000–$4,500/month for 8–12 hours; standard packages at $4,500–$8,000/month for 15–20 hours; and premium packages at $8,000–$14,500/month for 25–30 hours.</p>
+
+     <p><strong>Pros:</strong> Predictable cost. Defined deliverables. Builds institutional financial knowledge. Aligns incentives around outcomes rather than hours.<br>
+     <strong>Cons:</strong> Fixed monthly commitment regardless of seasonality. Requires clear scope definition upfront to avoid scope creep or gaps.</p>
+
+     <h3>Project-Based Pricing</h3>
+
+     <p>Some engagements are defined by a single deliverable: a fundraising financial model, a full data room build, a 3-year integrated forecast, or a post-acquisition financial integration. Project-based pricing typically runs $5,000–$25,000 depending on complexity and timeline. This model is most common for one-time capital raises or companies that need a specific financial infrastructure built before transitioning to ongoing advisory support.</p>
+
+     <p><strong>Pros:</strong> Clear scope, clear budget, clear endpoint.<br>
+     <strong>Cons:</strong> Less continuity. Not suited for businesses that need ongoing strategic financial leadership.</p>
+
+     <h2>What Does a Fractional CFO Cost by Business Size?</h2>
+
+     <p>The single biggest driver of fractional CFO pricing is the complexity of your business — and complexity correlates closely with revenue. Here's how engagement scope and cost typically scale across revenue bands:</p>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th>Revenue Band</th>
+             <th>Monthly Investment</th>
+             <th>Typical Hours/Month</th>
+             <th>Scope of Engagement</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>$500K–$1M</td>
+             <td>$1,500–$3,500</td>
+             <td>8–15 hrs</td>
+             <td>Monthly financial reporting, basic 13-week cash flow forecast, budget vs. actuals review</td>
+           </tr>
+           <tr>
+             <td>$1M–$3M</td>
+             <td>$3,500–$6,500</td>
+             <td>15–30 hrs</td>
+             <td>Full reporting package, KPI dashboard, annual planning, scenario modelling, strategic guidance</td>
+           </tr>
+           <tr>
+             <td>$3M–$7M</td>
+             <td>$6,500–$12,000</td>
+             <td>30–50 hrs</td>
+             <td>Full CFO engagement, board/investor reporting, multi-year growth modelling, capital structure planning</td>
+           </tr>
+           <tr>
+             <td>$7M–$15M</td>
+             <td>$10,000–$20,000</td>
+             <td>50+ hrs</td>
+             <td>Near-full-time fractional engagement, possible interim CFO scope, M&amp;A support, lender relationships</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <p>Note that these ranges reflect industry-wide benchmarks. The right engagement scope for your business depends on factors beyond revenue alone — more on that below.</p>
+
+     <p>It is also worth noting that the fractional CFO model remains cost-effective well beyond the $7M range. <a href="https://theceosrighthand.co/resources/fractional-cfo-cost-calculator/" target="_blank" rel="noopener noreferrer">The CEO's Right Hand</a> cites industry consensus that most businesses do not require a full-time, in-house CFO until revenue approaches $25M — meaning the fractional model can deliver strong ROI across a wide revenue range.</p>
+
+     <h2>How Does a Fractional CFO Compare to a Full-Time CFO?</h2>
+
+     <p>The cost comparison is the most persuasive data point for most operators evaluating the fractional model. A full-time CFO is not simply a salary — it is a fully loaded employment cost that compounds quickly.</p>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th>Cost Component</th>
+             <th>Full-Time CFO</th>
+             <th>Fractional CFO</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>Base Salary</td>
+             <td>$200,000–$350,000</td>
+             <td>N/A</td>
+           </tr>
+           <tr>
+             <td>Benefits (health, dental, 401k)</td>
+             <td>$30,000–$60,000</td>
+             <td>N/A</td>
+           </tr>
+           <tr>
+             <td>Equity / Long-Term Incentives</td>
+             <td>Commonly 0.5–2%+ of company</td>
+             <td>Rarely required</td>
+           </tr>
+           <tr>
+             <td>Recruiting &amp; Onboarding</td>
+             <td>$25,000–$50,000 one-time</td>
+             <td>N/A</td>
+           </tr>
+           <tr>
+             <td>Total Annual Cost</td>
+             <td>$250,000–$500,000+</td>
+             <td>$36,000–$180,000</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <p>According to <a href="https://cfoadvisors.com/blog/fractional-cfo-roi-calculator-vs-full-time-cfo-salary_-a-2025-cost-benefit-walk-through-for-5-10-m-arr-companies" target="_blank" rel="noopener noreferrer">CFO Advisors' 2025 cost-benefit analysis</a>, a typical fractional engagement at 20 hours per month costs approximately $60,000 per year, compared to roughly $400,000 in total loaded cost for a full-time CFO at a $5–10M revenue company — a savings exceeding 70% with comparable strategic output.</p>
+
+     <p>The math is straightforward: for businesses under $25M in revenue, you are paying for a full-time person to sit in a seat for 2,000+ hours per year when the strategic CFO work requires 150–600 hours per year. A fractional model pays for the actual work, not the seat.</p>
+
+     <p>For a deeper comparison of the two roles — including when a full-time hire actually becomes justified — see our article on <a href="fractional-cfo-vs-coo">the difference between a fractional CFO and COO engagement</a>.</p>
+
+     <h2>What Drives the Cost Up or Down?</h2>
+
+     <p>Two businesses at the same revenue can have very different fractional CFO costs. Here are the five variables that most commonly push an engagement toward the higher or lower end of the range:</p>
+
+     <h3>Business Complexity and Entity Structure</h3>
+     <p>A single-entity business with one revenue stream and a clean chart of accounts is straightforward to serve. A holding company with four operating subsidiaries, intercompany transactions, and consolidated reporting is a significantly larger scope. Each additional legal entity adds reporting complexity, reconciliation overhead, and financial modelling requirements. Expect 30–50% higher engagement costs for multi-entity structures compared to single-entity businesses at the same revenue level.</p>
+
+     <h3>Fundraising or Acquisition Activity</h3>
+     <p>Capital raises and acquisitions are time-intensive events that consume disproportionate CFO hours. Building an investor-grade 3-year financial model, preparing a data room, running due diligence support, and managing lender or investor communication can add 20–40 additional hours to a monthly engagement during an active raise. Some providers scope this separately as a project fee; others build it into a temporarily elevated retainer.</p>
+
+     <h3>BI Dashboard and Data Infrastructure Build-Out</h3>
+     <p>If your business needs a real-time financial command center — live dashboards connecting your operating data to financial KPIs — there is upfront build time involved. Depending on the complexity of your data environment, this can represent 15–40 hours of technical and analytical work before the ongoing monitoring phase begins. Providers who offer this capability will typically charge for an implementation phase separately from the ongoing monthly retainer.</p>
+
+     <h3>Industry Specialisation</h3>
+     <p>Fractional CFOs who specialise in specific verticals — SaaS, professional services, real estate, manufacturing, healthcare — command a premium because they arrive with a working mental model of your business. A CFO who has served ten SaaS companies understands MRR cohorts, NDR, and CAC payback without a learning curve. That experience has real value, and it's priced accordingly. Expect a 15–25% premium for genuinely specialised practitioners over generalists at the same experience level.</p>
+
+     <h3>Geography and Time Zone Alignment</h3>
+     <p>While most fractional CFO work is conducted remotely, some clients require on-site presence for board meetings, lender presentations, or team offsites. CFOs who offer in-person availability in major metro markets (New York, San Francisco, Seattle, Chicago) may price that premium into their retainer or charge separately for travel days.</p>
+
+     <h2>What's Included in an Ochil Hills Management Engagement?</h2>
+
+     <p>We think transparency about what's included — and what isn't — is the most useful thing a fractional CFO firm can offer at the evaluation stage. Here is what a standard Ochil Hills Management engagement delivers.</p>
+
+     <h3>Monthly Deliverables</h3>
+     <p>Every engagement includes a defined monthly reporting package: a complete financial statement set (P&amp;L, balance sheet, cash flow statement), a management commentary memo translating the numbers into plain-language operational insight, a rolling 13-week cash flow forecast, and a KPI scorecard tracking the metrics that actually drive your business. These are not static PDFs — they are live outputs from our financial infrastructure that update as data changes.</p>
+
+     <h3>Real-Time Financial Command Center</h3>
+     <p>Every client engagement includes access to a proprietary data pipeline we call CAIRN — a real-time command center that integrates your financial data, operational metrics, and key performance indicators into a single, live dashboard environment. Rather than waiting for a monthly close to understand your financial position, you have a continuously updated view of cash position, revenue trends, margin by service line, and variance against forecast. This is the difference between a rearview-mirror financial report and a forward-facing instrument panel. Most fractional CFO engagements do not include real-time data infrastructure — ours does, by default.</p>
+
+     <h3>Strategic Advisory and Planning</h3>
+     <p>Beyond the monthly deliverables, every engagement includes standing time for strategic advisory: annual budget and planning sessions, scenario modelling for major decisions (hiring, pricing changes, capital investment, new market entry), and ongoing access for questions that arise between formal deliverables. We work with a limited client roster by design — so when something comes up, we are available, not backlogged.</p>
+
+     <h3>Onboarding Process</h3>
+     <p>Every new engagement begins with a structured onboarding sprint: financial data audit, chart of accounts review, existing reporting assessment, and CAIRN implementation. We aim to have a baseline financial picture and initial dashboard operational within 30 days of engagement start. The onboarding phase is designed to surface historical data gaps, reconciliation issues, and reporting blind spots — so that by month two, we are working from clean, reliable data rather than discovering problems reactively.</p>
+
+     <p>To understand the full scope of what we offer, visit our <a href="../pages/services">Fractional CFO &amp; COO services page</a>.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What is the typical hourly rate for a fractional CFO?</summary>
+         <p>Fractional CFO hourly rates range from $175 to $450 per hour across the market, according to <a href="https://graphitefinancial.com/blog/fractional-cfo-hourly-rates/" target="_blank" rel="noopener noreferrer">Graphite Financial</a>. The most active working range is $200–$350/hr. Experience level is the primary driver: entry-level practitioners (5–10 years) typically charge $150–$250/hr, mid-career CFOs $250–$350/hr, and senior operators with 15+ years of experience $350–$500/hr. Industry specialisation, engagement complexity, and geographic market also influence where a specific practitioner sits within this range.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How much does a part-time CFO cost per month?</summary>
+         <p>A part-time or fractional CFO on a monthly retainer typically costs $3,000–$12,000 per month, with the most common range falling between $5,000 and $7,500 per month for a mid-scope engagement, per <a href="https://k38consulting.com/fractional-cfo-pricing-guide-2025/" target="_blank" rel="noopener noreferrer">K-38 Consulting's 2025 analysis</a>. At the lower end of the market, basic advisory-only packages can start as low as $2,000/month for 8–10 hours. At the premium end, full-engagement packages with real-time dashboards, board reporting, and strategic advisory can reach $14,500–$20,000/month for high-complexity or near-full-time engagements.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Is a fractional CFO worth the cost?</summary>
+         <p>For most businesses between $500K and $15M in revenue, yes — particularly if cash flow is unpredictable, financial data is opaque, or major decisions (hiring, pricing, capital) are being made without forward-looking financial models. <a href="https://cfoadvisors.com/blog/fractional-cfo-roi-calculator-vs-full-time-cfo-salary_-a-2025-cost-benefit-walk-through-for-5-10-m-arr-companies" target="_blank" rel="noopener noreferrer">CFO Advisors</a> cites industry experience showing that most engagements achieve breakeven ROI within 3–6 months through improved margin visibility, working capital optimisation, and more disciplined capital allocation. The question is not whether the cost is justified — it's whether the scope is matched to your actual complexity and growth stage.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How do fractional CFO fees compare to a full-time hire?</summary>
+         <p>A full-time CFO at a $5–10M revenue company typically costs $250,000–$500,000 per year in total loaded cost (base salary, benefits, equity, and recruiting fees). A fractional engagement covering 20 hours per month costs approximately $36,000–$72,000 per year at mid-market rates — a savings of 70% or more, as documented by <a href="https://cfoadvisors.com/blog/fractional-cfo-roi-calculator-vs-full-time-cfo-salary_-a-2025-cost-benefit-walk-through-for-5-10-m-arr-companies" target="_blank" rel="noopener noreferrer">CFO Advisors</a>. The fractional model pays for the strategic CFO work your business actually needs — not a full-time seat for a role that requires 150–400 hours of executive attention per year, not 2,000.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Does a fractional CFO cost the same as an accounting firm?</summary>
+         <p>No — and confusing the two is one of the most common evaluation mistakes. An accounting firm provides bookkeeping, tax preparation, and compliance work (backward-looking, typically $500–$5,000/month depending on scope). A fractional CFO provides financial strategy: forecasting, capital allocation, KPI design, and growth planning (forward-looking). The two roles are complementary, not interchangeable. Most growing businesses need both a bookkeeper or CPA and a fractional CFO — they serve different functions and answer different questions about your business.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Ready to Talk Numbers?</h3>
+       <p>If your business is between $500K and $15M in revenue and you want to understand what a fractional CFO engagement would actually cost for your specific situation, we're direct about scope and pricing from the first conversation. No sales process — just a 30-minute call to assess fit.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="fractional-cfo-vs-coo">Fractional CFO vs COO: What's the Difference?</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p>
+      <p style="margin-top:var(--space-1);font-size:var(--text-xs);opacity:0.6;"><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color:inherit;">Created with Perplexity Computer</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://ochilmanagement.com/pages/insights</loc>
-    <lastmod>2026-03-15</lastmod>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -75,6 +75,18 @@
   <url>
     <loc>https://ochilmanagement.com/blog/strategy-without-execution-fails</loc>
     <lastmod>2026-03-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ochilmanagement.com/blog/fractional-cfo-cost</loc>
+    <lastmod>2026-03-23</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ochilmanagement.com/blog/data-driven-fractional-cfo</loc>
+    <lastmod>2026-03-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
