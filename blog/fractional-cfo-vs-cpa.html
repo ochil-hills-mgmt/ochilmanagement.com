@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Perplexity Computer — Created by Perplexity Computer (https://www.perplexity.ai/computer) for Ochil Hills Management -->
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    // Track time on article (30s, 60s, 120s, 300s)
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-vs-cpa">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fractional CFO vs CPA: 2026 Comparison | Ochil Hills</title>
+<meta name="description" content="What's the difference between a fractional CFO and a CPA? A complete side-by-side comparison of roles, costs, and when you need each — or both.">
+<meta property="og:title" content="Fractional CFO vs CPA: A Complete Side-by-Side Comparison">
+<meta property="og:description" content="What's the difference between a fractional CFO and a CPA? A complete side-by-side comparison of roles, costs, and when you need each — or both.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-vs-cpa">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fractional CFO vs CPA: A Complete Side-by-Side Comparison">
+<meta name="twitter:description" content="What's the difference between a fractional CFO and a CPA? A complete side-by-side comparison of roles, costs, and when you need each — or both.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Fractional CFO vs CPA: A Complete Side-by-Side Comparison",
+ "description": "A complete side-by-side comparison of a fractional CFO and a CPA — roles, costs, credentials, time orientation, and when a growing business needs each, or both.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-03-31",
+ "dateModified": "2026-03-31",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-vs-cpa",
+ "creator": {"@type": "SoftwareApplication", "name": "Perplexity Computer", "url": "https://www.perplexity.ai/computer"}
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What's the difference between a CPA and a CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A CPA (Certified Public Accountant) is a licensed credential held by accounting professionals whose primary work involves tax compliance, auditing, and historical financial reporting. A CFO (Chief Financial Officer) is an executive leadership role focused on forward-looking financial strategy — forecasting, capital allocation, cash flow management, and business intelligence. A CPA tells you what happened. A CFO helps you decide what to do next."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Can my accountant be my fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Technically yes — a CPA can hold a fractional CFO role if they have the right operating experience and strategic orientation. But CPA credentials alone are not what qualifies someone for fractional CFO work. The role requires financial forecasting, scenario modelling, capital allocation experience, and the ability to translate financial data into strategic decisions. Many excellent CPAs lack this skill set, and many effective fractional CFOs are not CPAs. Filter for operating experience and strategic thinking, not credentials."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Does a fractional CFO do taxes?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "No. Tax preparation and compliance are CPA functions, not CFO functions. A fractional CFO may coordinate with your CPA on tax strategy as part of broader capital planning, but the CFO does not prepare returns, manage compliance filings, or conduct audits. These are distinct roles that serve different purposes — and both are typically needed by a growing business."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Do I need both a CPA and a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Most growing businesses do. A CPA ensures your taxes are filed correctly, your financials are compliant, and your historical records are accurate. A fractional CFO uses that financial data to drive forward-looking decisions — forecasting, cash flow management, growth planning, and investor preparation. They answer different questions and operate on different time horizons. The two roles are complementary, not interchangeable."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How much does a CPA charge compared to a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "External CPA engagements for small and mid-sized businesses typically cost $2,000–$15,000 per year for tax preparation and compliance work. Fractional CFO engagements typically cost $3,000–$15,000 per month for ongoing strategic financial leadership. The cost difference reflects the difference in scope and time commitment: a CPA's work is largely project-based and seasonal, while a fractional CFO is an ongoing strategic role integrated into your leadership team."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What qualifies someone to be a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "There is no required credential for a fractional CFO role — it is an experience-based position, not a licensed one. What qualifies someone is operating experience in a CFO or senior finance leadership role, demonstrated ability to build financial forecasts and scenario models, fluency with business intelligence and data interpretation, and experience advising on capital allocation, fundraising, or growth strategy. CPA credentials are not required, though some fractional CFOs hold them."
+     }
+   }
+ ],
+ "creator": {"@type": "SoftwareApplication", "name": "Perplexity Computer", "url": "https://www.perplexity.ai/computer"}
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing strategic financial growth" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Financial Strategy</p>
+   <h1 class="hero__title" style="max-width:18ch;">Fractional CFO vs CPA</h1>
+   <p class="hero__subtitle">A Complete Side-by-Side Comparison</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-03-31">March 31, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">7 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: March 31, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>A CPA handles tax compliance, auditing, and historical financial statements. A fractional CFO provides forward-looking financial strategy — forecasting, cash flow management, growth planning, and business intelligence. Most growing businesses need both. They serve different purposes and answer fundamentally different questions about your business.</p>
+     </div>
+
+     <p>The confusion between CPAs and fractional CFOs is understandable — both work with financial data, both are expensive if misallocated, and both can claim the word "financial" in their title. But the two roles operate on entirely different time horizons, produce entirely different outputs, and serve entirely different functions in a business. Getting this wrong is costly: companies that hire a CPA when they need a CFO end up with accurate historical records and no forward-looking visibility. Companies that hire a fractional CFO when they need a CPA end up with strategic insight and a compliance problem.</p>
+
+     <p>This guide breaks down exactly what each role does, where they differ, and how to determine which one — or both — your business actually needs right now.</p>
+
+     <p>If you're still getting oriented on what a fractional CFO does in practice, our <a href="what-is-a-fractional-cfo">complete guide to the fractional CFO role</a> is a useful foundation before diving into this comparison.</p>
+
+     <h2>What Does a CPA Actually Do?</h2>
+
+     <p>CPA stands for Certified Public Accountant — a state-licensed credential that requires passing a four-part exam, completing 150 semester hours of education, and meeting ongoing continuing education requirements. It is a regulated credential, which matters: a CPA has legal authority to sign audited financial statements and represent clients before the IRS.</p>
+
+     <p>In practice, a CPA's work is almost entirely backward-looking. Their primary outputs are:</p>
+
+     <ul>
+       <li><strong>Tax preparation:</strong> Personal and business returns (1040, 1120, 1065, Schedule C, etc.), quarterly estimates, and multi-state filings where applicable.</li>
+       <li><strong>Audit and assurance:</strong> Independent verification of financial statements for lenders, investors, or regulatory compliance. Most SMBs need compiled or reviewed financials rather than a full audit, but a CPA is the only professional who can provide these.</li>
+       <li><strong>Bookkeeping oversight:</strong> Many CPAs review or supervise bookkeeping operations, ensure the chart of accounts is structured correctly, and provide guidance on accounting treatment questions.</li>
+       <li><strong>Tax strategy:</strong> Within the bounds of compliance, a CPA can advise on entity structure, timing of income and deductions, retirement account contributions, and other tax-minimisation strategies.</li>
+     </ul>
+
+     <p>What CPAs are <em>not</em> typically trained to do: forward-looking financial strategy, scenario modelling, cash flow forecasting, capital allocation analysis, KPI design, or investor-grade financial modelling. These skills are not part of the CPA curriculum and are not tested on the CPA exam. Some CPAs develop them through experience in corporate finance or advisory roles — but the credential itself does not imply them.</p>
+
+     <p>In terms of cost, the average CPA salary in the US runs $80,000–$100,000, according to <a href="https://www.becker.com/blog/career/cpa-salary-insights" target="_blank" rel="noopener noreferrer">Becker's 2026 CPA salary analysis</a>. For businesses engaging an external CPA firm rather than employing one in-house, the typical annual cost runs $2,000–$15,000 per year for tax preparation and compliance services at the SMB level, according to <a href="https://www.1cfo.ai/blog/cfo-vs-cpa" target="_blank" rel="noopener noreferrer">1CFO.ai's CFO vs CPA comparison</a>.</p>
+
+     <h2>What Does a Fractional CFO Do?</h2>
+
+     <p>A fractional CFO is a senior finance executive who provides CFO-level strategic leadership on a part-time or retainer basis rather than as a full-time employee. The role is entirely forward-looking: the fractional CFO's job is to take your financial data and use it to help you make better decisions about where the business is going.</p>
+
+     <p>The core functions of a fractional CFO engagement include:</p>
+
+     <ul>
+       <li><strong>Strategic financial planning and forecasting:</strong> Building and maintaining annual operating plans, rolling 13-week cash flow forecasts, and multi-year growth models that allow the business to make capital and headcount decisions with clear financial visibility.</li>
+       <li><strong>KPI measurement and dashboard reporting:</strong> Designing the metrics that actually measure business performance — not just accounting outputs — and delivering them in a format that drives operational decision-making at the leadership level.</li>
+       <li><strong>Cash flow management:</strong> Modelling cash position under multiple scenarios, identifying cash gaps before they become crises, and structuring working capital to support the business's growth plans.</li>
+       <li><strong>Fundraising and investor preparation:</strong> Building investor-grade financial models, preparing data rooms, and serving as the financial counterpart in due diligence or lender conversations.</li>
+       <li><strong>Capital allocation decision support:</strong> Providing analytical frameworks for major investment decisions — new hires, pricing changes, market expansion, equipment purchases — so the business can evaluate tradeoffs with financial rigour rather than intuition alone.</li>
+     </ul>
+
+     <p>Demand for this type of leadership has grown sharply. According to <a href="https://the-cfo.io/2026/01/23/the-rise-of-the-fractional-cfo/" target="_blank" rel="noopener noreferrer">The CFO (January 2026)</a>, demand for interim financial leadership surged 103% as CFO turnover reached a three-year high in 2024. The fractional model has become the standard solution for businesses that need executive-level financial leadership but are not ready for — or cannot justify — a full-time hire at $200,000–$350,000 or more, per <a href="https://www.growthlabfinancial.com/what-is-the-difference-between-a-cfo-vs-cpa" target="_blank" rel="noopener noreferrer">Growth Lab Financial</a>.</p>
+
+     <p>Fractional CFO engagements typically cost $3,000–$15,000 per month depending on scope, business complexity, and hours engaged — compared to the $2,000–$15,000 per <em>year</em> typical of an external CPA engagement. The difference in cost reflects the difference in scope: a CPA's work is largely seasonal and project-based, while a fractional CFO is an ongoing strategic role integrated into the leadership team. For a full breakdown of what drives fractional CFO pricing, see our <a href="fractional-cfo-cost">Fractional CFO Cost Guide</a>.</p>
+
+     <h2>Fractional CFO vs CPA: Side-by-Side Comparison</h2>
+
+     <p>The clearest way to understand these two roles is to map them across the dimensions that matter most for a business evaluating which one it needs.</p>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th>Dimension</th>
+             <th>CPA</th>
+             <th>Fractional CFO</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><strong>Primary Focus</strong></td>
+             <td>Tax compliance &amp; audit</td>
+             <td>Financial strategy &amp; growth</td>
+           </tr>
+           <tr>
+             <td><strong>Time Orientation</strong></td>
+             <td>Backward-looking (what happened)</td>
+             <td>Forward-looking (what should happen)</td>
+           </tr>
+           <tr>
+             <td><strong>Primary Output</strong></td>
+             <td>Tax returns, audited financials</td>
+             <td>Forecasts, dashboards, strategic plans</td>
+           </tr>
+           <tr>
+             <td><strong>Typical Engagement</strong></td>
+             <td>Annual/quarterly projects</td>
+             <td>Ongoing strategic role</td>
+           </tr>
+           <tr>
+             <td><strong>Credential Required</strong></td>
+             <td>State-licensed (CPA exam)</td>
+             <td>No specific credential (experience-based)</td>
+           </tr>
+           <tr>
+             <td><strong>Cost (SMB)</strong></td>
+             <td>$2,000–$15,000/year</td>
+             <td>$3,000–$15,000/month</td>
+           </tr>
+           <tr>
+             <td><strong>Best For</strong></td>
+             <td>Compliance, tax optimisation</td>
+             <td>Strategy, cash flow, growth planning</td>
+           </tr>
+           <tr>
+             <td><strong>Reports To</strong></td>
+             <td>External engagement</td>
+             <td>Part of leadership team</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <p>The most important row in that table is time orientation. A CPA's job is to accurately record and report what has already happened — with precision, compliance, and regulatory integrity. A fractional CFO's job is to take that historical record and project it forward: where is this business going, what decisions need to be made, and what does the data tell us about the right path? These are complementary questions, not competing ones.</p>
+
+     <h2>Do You Need a CPA, a Fractional CFO, or Both?</h2>
+
+     <p>The clearest way to determine which role you actually need is to look at the question you're trying to answer.</p>
+
+     <p><strong>Scenario 1: "I just need my taxes filed correctly."</strong><br>
+     This is a CPA problem. Tax preparation, entity structure optimisation, compliance filings — these are the CPA's domain. A fractional CFO is not the right engagement for this need.</p>
+
+     <p><strong>Scenario 2: "I need to understand why my margins are declining."</strong><br>
+     This is a fractional CFO problem. Margin analysis, cost structure review, pricing model evaluation, and profitability by product line or service are strategic financial questions that require forward-looking analytical work — not compliance expertise. A CPA can tell you what your margins were. A fractional CFO can tell you why they moved and what to do about it.</p>
+
+     <p><strong>Scenario 3: "I'm raising a $2M round and need investor-ready financials."</strong><br>
+     This is a fractional CFO problem. Building a three-year integrated financial model, structuring a data room, preparing for due diligence, and serving as the financial counterpart in investor conversations all require CFO-level capital markets experience. A CPA can prepare the historical financial statements that go into the data room — the CFO builds the story and the forecast around them.</p>
+
+     <p><strong>Scenario 4: "I need tax planning AND financial strategy."</strong><br>
+     This requires both. Most businesses at the growth stage — typically $1M–$15M in revenue — benefit from a CPA handling compliance and a fractional CFO handling strategy. They work in parallel: the CPA ensures the historical record is clean and tax-efficient; the fractional CFO uses that clean data to drive forward-looking decisions.</p>
+
+     <p>The data underscores why both roles matter. According to research cited by <a href="https://compassapp.ai/research/smb-financial-planning-technology-adoption-2025" target="_blank" rel="noopener noreferrer">Cherry Bekaert's 2025 Middle Market CFO Survey</a>, 49% of CFOs report being blocked from making critical financial decisions by poor data quality. Clean, compliant historical data — the CPA's output — is the foundation on which strategic financial work is built. Neither role is effective without the other.</p>
+
+     <h2>Can a CPA Be a Fractional CFO?</h2>
+
+     <p>The short answer is yes — but the CPA credential is not the relevant filter.</p>
+
+     <p>A CPA who has spent a decade in corporate finance, built financial models for capital raises, managed FP&amp;A functions, and advised on capital structure decisions can absolutely serve as a fractional CFO. The credential is not the disqualifier. The experience is what matters.</p>
+
+     <p>What qualifies someone for a fractional CFO role is not a license or a certification — it is a specific combination of operating experience and analytical capability:</p>
+
+     <ul>
+       <li>Experience in a CFO, VP Finance, or senior FP&amp;A role with actual decision-making accountability</li>
+       <li>The ability to build and defend multi-year financial forecasts and scenario models</li>
+       <li>Fluency with business intelligence tools and data interpretation at the operational level</li>
+       <li>Experience advising on or executing capital raises, debt financings, or M&amp;A transactions</li>
+       <li>The ability to translate financial data into strategic recommendations for non-financial operators</li>
+     </ul>
+
+     <p>A CPA who has only ever worked in public accounting — preparing returns and auditing financials for clients — likely has not developed these skills, regardless of how strong their technical accounting knowledge is. Conversely, many of the most effective fractional CFOs working today do not hold CPA credentials. They come from investment banking, private equity, corporate development, or operating CFO roles where forward-looking financial work was the core function.</p>
+
+     <p>The analogy that captures this best comes from <a href="https://www.growthlabfinancial.com/what-is-the-difference-between-a-cfo-vs-cpa" target="_blank" rel="noopener noreferrer">Growth Lab Financial</a>: think of the CPA as the scorekeeper and the CFO as the head coach. A scorekeeper's job is to record what happened accurately and completely. The head coach's job is to use that information to decide what plays to run next. Both roles are essential — and they require fundamentally different skill sets.</p>
+
+     <p>When evaluating a fractional CFO, filter for operating experience, strategic track record, and data fluency. The presence or absence of a CPA credential tells you very little about whether someone can do the job.</p>
+
+     <p>For a deeper look at the signs that suggest your business is ready for fractional CFO support, see our guide on the <a href="signs-you-need-a-fractional-cfo">10 signs your business needs a fractional CFO</a>.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What's the difference between a CPA and a CFO?</summary>
+         <p>A CPA (Certified Public Accountant) is a licensed credential held by accounting professionals whose primary work involves tax compliance, auditing, and historical financial reporting. A CFO (Chief Financial Officer) is an executive leadership role focused on forward-looking financial strategy — forecasting, capital allocation, cash flow management, and business intelligence. A CPA tells you what happened. A CFO helps you decide what to do next. The two roles are complementary: clean historical data produced by a CPA is the foundation on which a CFO builds forward-looking strategy.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Can my accountant be my fractional CFO?</summary>
+         <p>Technically yes — but CPA credentials alone are not what qualifies someone for fractional CFO work. The role requires financial forecasting, scenario modelling, capital allocation experience, and the ability to translate financial data into strategic decisions. Many excellent CPAs lack this skill set, and many effective fractional CFOs are not CPAs. If your accountant has also served in a CFO or senior FP&amp;A role with operating decision-making responsibility, the conversation is worth having. If they have spent their career in public accounting, you likely need a different profile for CFO work.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Does a fractional CFO do taxes?</summary>
+         <p>No. Tax preparation and compliance are CPA functions, not CFO functions. A fractional CFO may coordinate with your CPA on the tax implications of capital structure decisions, timing of income, or entity structure changes — but the CFO does not prepare returns, manage compliance filings, or conduct audits. These are distinct roles that serve different purposes. Most growing businesses maintain both: a CPA or accounting firm for compliance and a fractional CFO for strategic financial leadership.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Do I need both a CPA and a fractional CFO?</summary>
+         <p>Most growing businesses do. A CPA ensures your taxes are filed correctly, your financials are compliant, and your historical records are accurate. A fractional CFO uses that financial data to drive forward-looking decisions — forecasting, cash flow management, growth planning, and investor preparation. The two roles operate on different time horizons and answer different questions. If you are at the stage where financial strategy is materially affecting business outcomes — cash flow gaps, margin erosion, capital decisions, fundraising — you likely need both running in parallel.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How much does a CPA charge compared to a fractional CFO?</summary>
+         <p>External CPA engagements for SMBs typically cost $2,000–$15,000 per year for tax preparation and compliance work, according to <a href="https://www.1cfo.ai/blog/cfo-vs-cpa" target="_blank" rel="noopener noreferrer">1CFO.ai</a>. Fractional CFO engagements typically cost $3,000–$15,000 per month for ongoing strategic financial leadership. The cost difference reflects the difference in scope and time commitment: CPA work is largely seasonal and project-based, while a fractional CFO operates as an ongoing member of the leadership team. A full-time CFO, by comparison, costs $200,000–$350,000 or more in base salary alone per <a href="https://www.growthlabfinancial.com/what-is-the-difference-between-a-cfo-vs-cpa" target="_blank" rel="noopener noreferrer">Growth Lab Financial</a> — making the fractional model the cost-effective path for businesses under $25M in revenue.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What qualifies someone to be a fractional CFO?</summary>
+         <p>There is no required credential for a fractional CFO role — it is an experience-based position, not a licensed one. What qualifies someone is a combination of: operating experience in a CFO or senior finance leadership role, demonstrated ability to build financial forecasts and scenario models, fluency with business intelligence and data interpretation, and experience advising on capital allocation, fundraising, or growth strategy. CPA credentials are not required, though some fractional CFOs hold them. When evaluating a fractional CFO, ask about their track record in operating roles — not their certifications.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Not Sure Which You Need?</h3>
+       <p>If you're trying to determine whether your business needs a CPA, a fractional CFO, or both — we can help you think through it. We work with a limited client roster and we're direct about what makes sense for your situation.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="fractional-cfo-cost">How Much Does a Fractional CFO Cost? 2026 Pricing Guide</a></li>
+         <li><a href="signs-you-need-a-fractional-cfo">10 Signs Your Business Needs a Fractional CFO</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p>
+      <p style="margin-top:var(--space-1);font-size:var(--text-xs);opacity:0.6;"><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color:inherit;">Created with Perplexity Computer</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

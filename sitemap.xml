@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://ochilmanagement.com/pages/insights</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -87,6 +87,18 @@
   <url>
     <loc>https://ochilmanagement.com/blog/data-driven-fractional-cfo</loc>
     <lastmod>2026-03-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ochilmanagement.com/blog/signs-you-need-a-fractional-cfo</loc>
+    <lastmod>2026-03-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ochilmanagement.com/blog/fractional-cfo-vs-cpa</loc>
+    <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
