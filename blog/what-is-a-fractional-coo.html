@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Created with Perplexity Computer — https://www.perplexity.ai/computer -->
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    // Track time on article (30s, 60s, 120s, 300s)
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/what-is-a-fractional-coo">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is a Fractional COO? Complete 2026 Guide | Ochil Hills</title>
+<meta name="description" content="A fractional COO designs the operational systems, processes, and team structure that let growing businesses scale. Cost, responsibilities, and when to hire one.">
+<meta property="og:title" content="What Is a Fractional COO? The Complete Guide for Growing Businesses">
+<meta property="og:description" content="A fractional COO designs the operational systems, processes, and team structure that let growing businesses scale. Cost, responsibilities, and when to hire one.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/what-is-a-fractional-coo">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is a Fractional COO? The Complete Guide for Growing Businesses">
+<meta name="twitter:description" content="A fractional COO designs the operational systems, processes, and team structure that let growing businesses scale. Cost, responsibilities, and when to hire one.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "What Is a Fractional COO? The Complete Guide for Growing Businesses",
+ "description": "A fractional COO is an experienced Chief Operating Officer who works with your business on a part-time or contract basis — designing the operational systems, processes, and teams that allow a growing business to scale without the founder becoming the bottleneck.",
+ "author": {
+   "@type": "Person",
+   "name": "Kylie Kaiser",
+   "jobTitle": "Fractional COO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-04-09",
+ "dateModified": "2026-04-09",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/what-is-a-fractional-coo",
+ "creator": {"@type": "SoftwareApplication", "name": "Perplexity Computer", "url": "https://www.perplexity.ai/computer"}
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What is a fractional COO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional COO is an experienced Chief Operating Officer who works with your business on a part-time or contract basis. They design and manage the operational systems, processes, and teams that allow a growing business to scale without the founder becoming the bottleneck. Typical cost is $5,000–$15,000 per month on a retainer basis."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Is a fractional COO the same as an outsourced COO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The terms are often used interchangeably, but there is a meaningful distinction. A fractional COO implies embedded operational leadership — they function as a genuine part of your leadership team, attending meetings, owning outcomes, and building institutional knowledge over time. An outsourced or consulting COO tends to operate at arm's length, providing recommendations without direct accountability for execution. The fractional model is closer to a part-time internal hire than a consultant relationship."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What is the difference between a fractional COO and a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO owns financial strategy — forecasting, cash flow, capital allocation, and investor reporting. A fractional COO owns operational execution — process design, team structure, project management, and systems implementation. The two roles are complementary: financial strategy requires operational capacity to deliver on it. For businesses that have both a financial clarity gap and an operational execution gap, both roles are often needed simultaneously."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How many hours per week does a fractional COO typically work?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional COO typically works 15–30 hours per week depending on engagement scope, business complexity, and phase of growth. Early-stage engagements focused on process documentation and team structuring often run toward the higher end. More mature engagements in steady-state operational management may require fewer hours. Engagement scope is defined upfront and adjusted as the business's needs evolve."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Do I need both a fractional CFO and a fractional COO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "If your business has both a financial clarity gap and an operational execution gap — which is common for growth-stage businesses between $1M and $10M in revenue — then yes, both roles add distinct and non-overlapping value. The CFO ensures you know where you stand financially and where you're headed. The COO ensures the business has the operational capacity to get there. When the two roles are integrated rather than siloed, the impact compounds: financial strategy is grounded in operational reality, and operational decisions are informed by financial discipline."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "When should a business hire a fractional COO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The most common triggers: the founder is the operational bottleneck for every decision; revenue is growing but delivery quality is slipping; onboarding is inconsistent or nonexistent; key processes exist only in the founder's head; projects stall because nobody owns the operational outcome; technology systems are disconnected and creating redundant work; or the business needs to scale capacity without proportionally scaling headcount."
+     }
+   }
+ ],
+ "creator": {"@type": "SoftwareApplication", "name": "Perplexity Computer", "url": "https://www.perplexity.ai/computer"}
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing operational systems and business growth" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Operations &amp; Growth</p>
+   <h1 class="hero__title" style="max-width:18ch;">What Is a Fractional COO?</h1>
+   <p class="hero__subtitle">The Complete Guide for Growing Businesses</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Kylie Kaiser, Fractional COO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-04-09">April 9, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">12 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: April 9, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>A fractional COO is an experienced Chief Operating Officer who works with your business on a part-time or contract basis. They design and manage the operational systems, processes, and teams that allow a growing business to scale without the founder becoming the bottleneck. Typical cost: $5,000–$15,000 per month.</p>
+     </div>
+
+     <p>Most founders reach a point where the business is growing but everything still runs through them. Every hiring decision, every client escalation, every process question — it all lands at one desk. Revenue is increasing, but the operational infrastructure hasn't kept pace. The founder is no longer just leading the business; they've become the business's primary operating system.</p>
+
+     <p>That's the problem a fractional COO is built to solve. This guide covers what a fractional COO actually does, how the role differs from a full-time hire or an operations manager, what it costs, and when it makes sense to bring one in. If you're weighing the COO role against fractional financial leadership, our <a href="what-is-a-fractional-cfo">complete guide to what a fractional CFO does</a> is a useful companion read.</p>
+
+     <h2>What Does a Fractional COO Do?</h2>
+
+     <p>The fractional COO is the operational architect of your business. Where the founder builds the product and generates the vision, the COO builds the infrastructure that delivers on it — repeatedly, consistently, and without requiring the founder's direct involvement in every step. Their job is not to manage what already exists. Their job is to build the systems your business doesn't yet have.</p>
+
+     <p>In practice, that work spans six core domains:</p>
+
+     <h3>Process Design and Systemisation</h3>
+
+     <p>Growing businesses run on tribal knowledge. Processes live in people's heads, not on paper. When a key team member leaves, they take the process with them. When you try to onboard someone new, there's no documentation to hand them. Every delivery cycle requires the same conversations, the same decision points, the same reinvention of the wheel.</p>
+
+     <p>A fractional COO audits existing workflows, identifies the gaps, and designs repeatable systems that don't depend on any single person — including the founder. This means documenting how work gets done, creating standard operating procedures, mapping decision rights, and building the operational playbooks that let your team execute consistently. The goal is to move the business from founder-dependent to system-dependent — where the founder sets direction but the organisation delivers without requiring their direct involvement in each step.</p>
+
+     <h3>Team Structure and Hiring</h3>
+
+     <p>Operational chaos often isn't a people problem — it's a structure problem. Responsibilities are unclear. Reporting lines are informal. Nobody knows who owns what. When something falls through the cracks, there's no clean accountability.</p>
+
+     <p>A fractional COO designs the organisational structure your business actually needs — not the one that emerged organically as you hired. That means defining roles with clarity, designing an org chart that reflects how work actually flows, building hiring plans tied to revenue and capacity milestones, and creating onboarding systems that bring new team members up to speed quickly and consistently. It also means establishing performance frameworks: how you measure whether people are succeeding in their roles, and how you course-correct when they're not.</p>
+
+     <h3>Operational KPI Tracking and Reporting</h3>
+
+     <p>Most growing businesses track financial outcomes — revenue, gross margin, cash position. What they often lack is visibility into the operational metrics that drive those outcomes: delivery cycle time, client onboarding completion rates, team utilisation, rework rates, process exceptions. By the time a financial problem appears on a P&amp;L, the operational root cause has often been in play for months.</p>
+
+     <p>A fractional COO designs the operational KPI framework — identifying which metrics actually measure the health of your operations, not just the results. They build the reporting cadences and dashboards that give leadership a real-time view of how the business is performing against its operational commitments, and surface leading indicators before they become lagging problems.</p>
+
+     <h3>Vendor and Partner Oversight</h3>
+
+     <p>As businesses scale, their supplier and partner ecosystems grow in complexity. Contracts accumulate. SLAs go unmonitored. Vendor performance drifts. Procurement decisions happen reactively rather than strategically. At some point, the cost and risk embedded in vendor relationships starts to meaningfully affect operational performance.</p>
+
+     <p>A fractional COO brings discipline to vendor management: reviewing existing contracts for risk and value alignment, establishing SLA monitoring processes, building procurement frameworks that create accountability, and managing supplier relationships with the same rigour applied to internal operations. For businesses with significant vendor exposure — technology providers, outsourced services, logistics partners — this alone can represent meaningful cost savings and risk reduction.</p>
+
+     <h3>Project and Initiative Management</h3>
+
+     <p>Most growth-stage businesses have more initiatives than they have operational capacity to execute. New market entries, system migrations, product launches, restructuring efforts — each one competes for the same finite pool of leadership attention and organisational bandwidth. Without clear ownership, accountability structures, and milestone tracking, strategic initiatives stall.</p>
+
+     <p>A fractional COO owns the operational execution of cross-functional initiatives. That means defining scope, assigning clear ownership, building milestone plans, running accountability cadences, and managing the inevitable friction that arises when major changes hit a live organisation. The COO is the person who ensures that a strategic decision actually becomes a completed project — not a slide in a deck that gets revisited every quarter.</p>
+
+     <h3>Technology and Systems Implementation</h3>
+
+     <p>Most growing businesses accumulate technology rather than architect it. A tool gets added to solve an immediate problem, then another, then another — until the tech stack is a patchwork of disconnected systems creating more work than they save. Data lives in silos. Manual handoffs between systems multiply. The team spends time managing tools rather than delivering work.</p>
+
+     <p>A fractional COO evaluates the existing technology environment, identifies redundancy and integration gaps, and leads the selection and implementation of operational tools that actually support scale. That includes project management systems, CRM and client operations platforms, workflow automation, and the integrations that tie them together. The goal is a coherent, intentional tech stack — not technical debt disguised as functionality.</p>
+
+     <h2>Fractional COO vs Full-Time COO: What's the Difference?</h2>
+
+     <p>The case for fractional over full-time is straightforward at the growth stage. A full-time COO is a significant fixed overhead commitment — appropriate for businesses with the revenue, operational complexity, and sustained need to justify a permanent C-suite hire. For businesses between $500K and $10M, that level of commitment rarely makes financial sense when the operational leadership requirement can be met at 20–30% of the cost.</p>
+
+     <p>According to <a href="https://kamyarshah.com/fractional-coo-rates-cost-breakdown/" target="_blank" rel="noopener noreferrer">Kamyar Shah's 2026 analysis of fractional COO rates</a>, a fractional COO typically costs 60%–75% less than a full-time equivalent — delivering comparable operational leadership without the fixed overhead of a permanent hire.</p>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th>Dimension</th>
+             <th>Fractional COO</th>
+             <th>Full-Time COO</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>Monthly Cost</td>
+             <td>$5,000–$15,000</td>
+             <td>$15,000–$50,000+</td>
+           </tr>
+           <tr>
+             <td>Annual Cost</td>
+             <td>$60,000–$180,000</td>
+             <td>$180,000–$620,000+</td>
+           </tr>
+           <tr>
+             <td>Time Commitment</td>
+             <td>15–30 hours/week</td>
+             <td>40–50+ hours/week</td>
+           </tr>
+           <tr>
+             <td>Best For</td>
+             <td>Growth-stage SMBs ($500K–$10M)</td>
+             <td>Established companies ($10M+)</td>
+           </tr>
+           <tr>
+             <td>Engagement Length</td>
+             <td>6–18 months typical</td>
+             <td>Permanent hire</td>
+           </tr>
+           <tr>
+             <td>Flexibility</td>
+             <td>Scale up/down as needed</td>
+             <td>Fixed overhead</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <p>A full-time COO at a mid-market company costs $370,000–$620,000 per year in salary alone, according to <a href="https://accountabilitynow.net/fractional-coo-2025-guide/" target="_blank" rel="noopener noreferrer">Accountability Now's 2025 fractional COO guide</a>. When benefits, equity, and recruiting costs are included, the total loaded cost often exceeds that range significantly. For a business at $3M–$7M in revenue, that level of investment in a single operational hire is rarely the highest-return use of capital.</p>
+
+     <h2>Fractional COO vs Operations Manager: Understanding the Difference</h2>
+
+     <p>The distinction matters, and it's commonly misunderstood. In short: an operations manager manages existing systems. A fractional COO builds the systems your business doesn't yet have.</p>
+
+     <p>An operations manager is a tactical executor. They keep the current machine running — managing existing processes, supervising the team responsible for delivery, handling day-to-day exceptions, and escalating issues that require leadership attention. They are essential once the systems exist. They are the wrong hire when the systems haven't been built yet.</p>
+
+     <p>A fractional COO is a strategic operations architect who also drives execution. They diagnose what the business needs structurally, design the systems, build the infrastructure for scale, and then — critically — create the conditions where an operations manager can take over sustainably. Many engagements end with the fractional COO having hired and developed the internal operations leader who will carry the work forward.</p>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th>Dimension</th>
+             <th>Operations Manager</th>
+             <th>Fractional COO</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>Primary orientation</td>
+             <td>Tactical execution</td>
+             <td>Strategic design + execution</td>
+           </tr>
+           <tr>
+             <td>Core function</td>
+             <td>Manages existing processes</td>
+             <td>Builds systems that don't yet exist</td>
+           </tr>
+           <tr>
+             <td>Reporting level</td>
+             <td>Typically reports to COO or CEO</td>
+             <td>C-suite peer of CEO/CFO</td>
+           </tr>
+           <tr>
+             <td>Scope</td>
+             <td>Defined function or department</td>
+             <td>Cross-functional and company-wide</td>
+           </tr>
+           <tr>
+             <td>Hiring/org design</td>
+             <td>Manages existing team</td>
+             <td>Designs org structure and hiring plans</td>
+           </tr>
+           <tr>
+             <td>Best-fit stage</td>
+             <td>Post-infrastructure build</td>
+             <td>Infrastructure build and scale phase</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <p>The two roles are sequential, not competing. Many engagements follow the same arc: a fractional COO builds the infrastructure, hires or develops the operations manager, and transitions responsibility once the systems are stable and the internal leader is equipped to run them.</p>
+
+     <h2>How Much Does a Fractional COO Cost?</h2>
+
+     <p>Fractional COO pricing follows three primary models, each suited to a different engagement type and business need:</p>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th>Pricing Model</th>
+             <th>Typical Range</th>
+             <th>Best For</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>Hourly</td>
+             <td>$200–$400/hour</td>
+             <td>Short-term consulting, diagnostics</td>
+           </tr>
+           <tr>
+             <td>Monthly Retainer</td>
+             <td>$5,000–$15,000/month</td>
+             <td>Ongoing operational leadership</td>
+           </tr>
+           <tr>
+             <td>Project-Based</td>
+             <td>$15,000–$75,000</td>
+             <td>Defined initiatives (ERP, restructuring)</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <p>The retainer model is the industry standard for ongoing fractional COO work. According to <a href="https://kamyarshah.com/fractional-coo-rates-cost-breakdown/" target="_blank" rel="noopener noreferrer">Kamyar Shah's research</a>, 73% of ongoing fractional COO clients use a monthly retainer model, with average engagements running 14 months. The retainer creates consistency — the COO builds context over time, maintains accountability across initiatives, and delivers structured outcomes rather than responding to ad hoc requests.</p>
+
+     <p>The right investment level scales with your revenue stage:</p>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th>Revenue Stage</th>
+             <th>Recommended Model</th>
+             <th>Typical Investment</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td>Under $500K</td>
+             <td>Not yet — focus on bookkeeper/VA</td>
+             <td>N/A</td>
+           </tr>
+           <tr>
+             <td>$500K–$2M</td>
+             <td>Part-time retainer</td>
+             <td>$5,000–$8,000/month</td>
+           </tr>
+           <tr>
+             <td>$2M–$7M</td>
+             <td>Fractional COO (ongoing)</td>
+             <td>$8,000–$15,000/month</td>
+           </tr>
+           <tr>
+             <td>$7M+</td>
+             <td>Fractional transitioning to full-time</td>
+             <td>$12,000–$20,000/month</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <p>To put these figures in context: a full-time COO costs $370,000–$620,000 per year in salary alone (<a href="https://accountabilitynow.net/fractional-coo-2025-guide/" target="_blank" rel="noopener noreferrer">Accountability Now</a>). A fractional engagement delivering comparable operational leadership costs $60,000–$180,000 annually — a savings of 60%–75% for growth-stage businesses that don't yet require a permanent C-suite operations hire.</p>
+
+     <h2>When Should You Hire a Fractional COO?</h2>
+
+     <p>The decision to bring in fractional operational leadership is usually triggered by a specific pain point — often something that has been building for months before it becomes undeniable. <a href="https://www.forbes.com/councils/forbesbusinesscouncil/2026/03/02/founders-can-be-the-biggest-bottleneck-to-their-own-growth/" target="_blank" rel="noopener noreferrer">Forbes put it well in March 2026</a>: "Companies don't outgrow founders; they outgrow their schedules." The capacity constraint is almost always time and attention, not talent or vision.</p>
+
+     <p>Here are the seven most common triggers we see:</p>
+
+     <ol>
+       <li><strong>The founder is the operational bottleneck.</strong> Every decision — hiring, client escalation, process exception, vendor issue — runs through one person. The business cannot execute without founder involvement at every step, and the founder's calendar has become the primary constraint on growth.</li>
+
+       <li><strong>Revenue is growing but delivery quality is slipping.</strong> Sales are working. The pipeline is healthy. But the operational infrastructure can't keep pace — client experience is inconsistent, delivery timelines are stretching, and the team is scrambling rather than executing.</li>
+
+       <li><strong>Hiring is happening but onboarding is inconsistent or nonexistent.</strong> The business is adding headcount, but new team members take too long to become effective — or never fully do — because there's no structured onboarding process. Every new hire is a reinvention of the wheel.</li>
+
+       <li><strong>Processes exist in the founder's head, not on paper.</strong> Key workflows are undocumented. When someone asks how something gets done, the answer is "ask [founder's name]." When a team member leaves, institutional knowledge leaves with them.</li>
+
+       <li><strong>Projects stall because nobody owns the operational outcome.</strong> Strategic initiatives get launched and then quietly die. The problem isn't commitment or resources — it's accountability. Nobody is holding the operational outcome, running the weekly cadences, or managing the cross-functional dependencies that make a project actually land.</li>
+
+       <li><strong>Technology systems are disconnected and creating redundant work.</strong> The team is manually moving data between systems, maintaining spreadsheets alongside software tools, and spending significant time on operational overhead that should be automated. The tech stack has grown organically and is now a source of friction rather than leverage.</li>
+
+       <li><strong>You need to scale capacity without proportionally scaling headcount.</strong> Growth is on the horizon — a new market, a product expansion, a significant new client — and the current operational model cannot absorb it without a proportional increase in headcount that isn't financially justified. The answer is systems, not just people.</li>
+     </ol>
+
+     <p>It's also worth noting the broader context: according to <a href="https://thryvedigest.com/smallbusiness/business-bottleneck-small-business-systems/" target="_blank" rel="noopener noreferrer">Bureau of Labor Statistics data compiled by Thryve Digest</a>, nearly half of all small businesses don't survive past five years. The common thread in operational failures isn't lack of revenue — it's lack of systems. Businesses stall when the founder's personal operating capacity becomes the ceiling on organisational performance.</p>
+
+     <h2>How a Fractional COO and Fractional CFO Work Together</h2>
+
+     <p>This is where we think the conversation gets genuinely interesting — and where the Ochil Hills Management model is meaningfully different from what most fractional executive firms offer.</p>
+
+     <p>Financial strategy and operational execution are not parallel tracks that can be managed independently. A financial forecast is only as good as the operational capacity to deliver on it. A CFO can model three years of revenue growth with precision — but if the operational infrastructure can't support that growth, the model is fiction. Conversely, an operationally excellent business without financial discipline can scale its way into a cash crisis.</p>
+
+     <p>The two roles are designed to work together. The CFO sets the financial direction — capital allocation, margin targets, growth investment thresholds. The COO builds the road — the processes, the team structure, the systems that allow the business to actually execute against those financial commitments. When they're aligned, strategic decisions are grounded in both financial and operational reality. When they're not, the CFO's recommendations sit on a shelf while the COO solves problems without financial context.</p>
+
+     <p>When the CFO and COO come from different firms, alignment becomes a constant overhead. Conflicting priorities. Separate reporting cadences. Incompatible dashboards. Each executive is optimising for their own domain without full visibility into the other's constraints. The founder ends up serving as the integration layer — translating between financial and operational perspectives that were never designed to talk to each other.</p>
+
+     <p>According to <a href="https://digitaldefynd.com/IQ/cfo-coo-role-merge/" target="_blank" rel="noopener noreferrer">DigitalDefynd's global enterprise research</a>, 62% of organisations rate cross-functional collaboration as a top driver of operational efficiency. And per the <a href="https://www.lek.com/sites/default/files/insights/pdf-attachments/cfo-align-ldrs-ivstrs-ei.pdf" target="_blank" rel="noopener noreferrer">L.E.K. Consulting 2025 Office of the CFO Survey</a>, nearly two-thirds of CFOs now say their responsibilities overlap with the COO role — reflecting how inseparable financial and operational leadership have become in practice.</p>
+
+     <p>At Ochil Hills Management, Financial Leadership and Operational Leadership sit in the same room — literally. We are a husband-and-wife veteran team, aligned from day one. Our CFO and COO share the same client context, the same reporting infrastructure, the same strategic priorities. There is no translation overhead. The financial model and the operational plan are built together, not reconciled after the fact.</p>
+
+     <p>For more on how these roles compare and when you need each — or both — see our complete <a href="fractional-cfo-vs-coo">CFO vs COO comparison</a>.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What is a fractional COO?</summary>
+         <p>A fractional COO is an experienced Chief Operating Officer who works with your business on a part-time or contract basis. They design and manage the operational systems, processes, and teams that allow a growing business to scale without the founder becoming the bottleneck. Unlike a consultant who provides recommendations, a fractional COO takes embedded operational ownership — attending leadership meetings, running accountability cadences, and being directly responsible for operational outcomes. Typical cost is $5,000–$15,000 per month on a retainer.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Is a fractional COO the same as an outsourced COO?</summary>
+         <p>The terms are often used interchangeably, but the distinction matters. A fractional COO implies embedded operational leadership — they function as a genuine part of your leadership team, attending meetings, owning outcomes, and building institutional knowledge over time. An outsourced or consulting COO tends to operate at arm's length: providing recommendations without direct accountability for execution. The fractional model is closer to a part-time internal hire than a traditional consulting relationship. If the person isn't in your leadership meetings and doesn't own operational outcomes, it's consulting, not fractional.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What is the difference between a fractional COO and a fractional CFO?</summary>
+         <p>A fractional CFO owns financial strategy — forecasting, cash flow management, capital allocation, and investor reporting. A fractional COO owns operational execution — process design, team structure, project management, and systems implementation. The roles are complementary rather than competing: financial strategy requires operational capacity to deliver on it. For businesses with both a financial clarity gap and an operational execution gap — common between $1M and $10M in revenue — both roles add distinct and non-overlapping value. See our <a href="fractional-cfo-vs-coo">fractional CFO vs COO comparison</a> for a full breakdown of when you need each.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How many hours per week does a fractional COO typically work?</summary>
+         <p>A fractional COO typically works 15–30 hours per week depending on engagement scope, business complexity, and phase of growth. Early-stage engagements — focused on process documentation, org design, and system implementation — often run toward the higher end. More mature engagements in steady-state operational management may require fewer hours. Engagement scope is defined upfront and adjusted as the business's needs evolve. Most engagements run 6–18 months, with 14 months being the industry average according to <a href="https://kamyarshah.com/fractional-coo-rates-cost-breakdown/" target="_blank" rel="noopener noreferrer">Kamyar Shah's research</a>.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Do I need both a fractional CFO and a fractional COO?</summary>
+         <p>If your business has both a financial clarity gap and an operational execution gap — which is common for growth-stage businesses between $1M and $10M in revenue — then yes, both roles add distinct and non-overlapping value. The CFO ensures you know where you stand financially and where you're headed. The COO ensures the business has the operational capacity to get there. When the two roles are integrated rather than siloed, the impact compounds: financial strategy is grounded in operational reality, and operational decisions are informed by financial discipline. The risk of separating them is a coordination tax that falls on the founder.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Is Operations Your Bottleneck?</h3>
+       <p>If you're spending more time managing day-to-day operations than growing your business, a conversation might be worth your time. We work with a limited client roster — when we engage, we engage fully.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="fractional-cfo-vs-coo">Fractional CFO vs COO: Which Does Your Business Need?</a></li>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="strategy-without-execution-fails">Why Strategy Without Execution Fails</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p>
+      <p style="margin-top:var(--space-1);font-size:var(--text-xs);opacity:0.6;"><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color:inherit;">Created with Perplexity Computer</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
