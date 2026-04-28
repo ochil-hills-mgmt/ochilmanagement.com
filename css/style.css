@@ -2521,4 +2521,9 @@ a, button, [role="button"], input, textarea, select {
   .article__sep {
     display: none;
   }
+  .article__cta-box .btn {
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
+  }
 }
