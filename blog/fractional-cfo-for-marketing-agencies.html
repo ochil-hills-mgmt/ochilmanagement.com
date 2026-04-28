@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Perplexity Computer — Created by Perplexity Computer (https://www.perplexity.ai/computer) for Ochil Hills Management -->
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    // Track time on article (30s, 60s, 120s, 300s)
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-for-marketing-agencies">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fractional CFO for Marketing Agencies | Ochil Hills</title>
+<meta name="description" content="Most agencies grow revenue while margins compress. A fractional CFO builds the client profitability intelligence and cash flow systems that fix that.">
+<meta property="og:title" content="Fractional CFO for Marketing Agencies: The Financial Strategy Guide for Agency Owners">
+<meta property="og:description" content="Most agencies grow revenue while margins compress. A fractional CFO builds the client profitability intelligence and cash flow systems that fix that.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-for-marketing-agencies">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fractional CFO for Marketing Agencies: The Financial Strategy Guide for Agency Owners">
+<meta name="twitter:description" content="Most agencies grow revenue while margins compress. A fractional CFO builds the client profitability intelligence and cash flow systems that fix that.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Fractional CFO for Marketing Agencies: The Financial Strategy Guide for Agency Owners",
+ "description": "Most agencies grow revenue while margins compress. A fractional CFO builds the client profitability intelligence and cash flow systems that fix that.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-04-28",
+ "dateModified": "2026-04-28",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-for-marketing-agencies"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {"@type":"Question","name":"What financial problems are unique to marketing agencies?","acceptedAnswer":{"@type":"Answer","text":"Marketing agencies face three financial challenges that most other service businesses do not encounter in the same combination: project-based revenue recognition that creates lumpy cash flow, labor as the primary and largely fixed cost (making utilization rate the direct driver of margin), and client concentration risk that is invisible without client-level profitability tracking. An agency can grow revenue at 40% while margin declines — and the standard income statement will not show why until the problem is embedded in the cost structure."}},
+   {"@type":"Question","name":"How does a fractional CFO help an agency grow profitably?","acceptedAnswer":{"@type":"Answer","text":"A fractional CFO builds the financial infrastructure that converts agency activity data into business decisions: a client profitability model that identifies which clients are generating margin and which are consuming capacity at a loss; a rolling 13-week cash flow forecast that prevents cash gaps from becoming crises; a pricing analysis that connects rate changes to margin outcomes; and a headcount model that answers the hiring question with data rather than instinct."}},
+   {"@type":"Question","name":"What does utilization rate mean for a marketing agency?","acceptedAnswer":{"@type":"Answer","text":"Utilization rate measures the percentage of a team member's available working hours that are billed to clients. If a team member has 160 available hours in a month and bills 112 of them, their utilization rate is 70%. The industry benchmark for healthy utilization is 65–80% for billable staff. Below 65%, the agency is carrying labor overhead without sufficient revenue to cover it. Above 85%, burnout and quality risk increase and begin to erode the talent advantage the agency's margins depend on."}},
+   {"@type":"Question","name":"How much does a fractional CFO for a marketing agency cost?","acceptedAnswer":{"@type":"Answer","text":"A fractional CFO engagement for a marketing agency between $1M and $7M in revenue typically runs $3,000–$8,000 per month. The specific scope determines where in that range the engagement falls. The relevant comparison is not the absolute cost — it is the cost relative to the margin recovery that client profitability analysis and pricing discipline typically produce. For most agencies, the engagement recovers its cost within the first two quarters."}},
+   {"@type":"Question","name":"Should my agency have a full-time CFO or a fractional CFO?","acceptedAnswer":{"@type":"Answer","text":"A full-time CFO makes sense when the agency has reached a scale where financial complexity — multiple offices, complex ownership structures, active M&A, or institutional investors — requires dedicated senior finance leadership. For most agencies under $15M in revenue, a fractional CFO delivers 90% of the strategic value at 20–40% of the fully-loaded cost. Agencies at the $1M–$7M range typically do not need a finance leader 40 hours per week — they need consistent financial intelligence and the ability to scale the engagement as complexity grows."}}
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing strategic financial growth" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Industry Guide</p>
+   <h1 class="hero__title" style="max-width:28ch;">Fractional CFO for Marketing Agencies: The Financial Strategy Guide for Agency Owners</h1>
+   <p class="hero__subtitle">Profitability Visibility, Utilization Intelligence, and Cash Flow Control for Growing Agencies</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-04-28">April 28, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">10 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: April 28, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>A fractional CFO for marketing agencies provides the strategic financial layer that agency operators rarely have in-house: real-time client profitability tracking, utilization rate optimization, cash flow management for project-based revenue cycles, and financial intelligence that turns your team's activity data into business decisions.</p>
+     </div>
+
+     <p>Marketing agency owners face a financial management problem that general business advice does not solve. The standard income statement does not tell you which clients are profitable and which are consuming capacity at a loss. Standard cash flow forecasting tools do not account for the lumpy, project-based revenue patterns that define agency income. And the standard hiring instinct — bring in a bookkeeper, then a controller, then eventually a CFO — misses the strategic layer entirely until the agency is already large enough to feel the cost of having missed it.</p>
+
+     <p>According to <a href="https://prometheanresearch.com/how-profitable-are-digital-agencies/" target="_blank" rel="noopener noreferrer">Promethean Research's 2025 Digital Agency Industry Report</a>, the average net profit margin across marketing agencies is 13%. That figure conceals an enormous range: agencies under 10 full-time employees average 19% margin, while agencies above 50 employees average 8%. The compression that happens as agencies scale is not accidental. It is the predictable result of growing revenue without building the financial infrastructure to manage labor costs, utilization rates, and client profitability as complexity increases.</p>
+
+     <p>A fractional CFO for marketing agencies is not a bookkeeper with a better title. The role provides the strategic financial layer that converts your agency's activity data into decisions — which clients to keep, which to reprice, when to hire, and how to structure your cash flow so that project-based income does not create quarterly crises. This guide covers what that engagement looks like in practice, what it costs, and when it makes sense for a growing agency to bring one in.</p>
+
+     <h2>Why Agency Finance Is Different</h2>
+
+     <p>Most financial management frameworks assume a business with predictable, recurring revenue, moderate labor costs, and clients whose individual profitability is roughly similar. None of those assumptions hold for marketing agencies. The financial structure of an agency business creates three distinct problems that require purpose-built financial management to solve.</p>
+
+     <p>The first is revenue lumpiness. Project-based income does not arrive in smooth monthly increments. Retainer revenue provides a base, but project work arrives in uneven cycles that create cash flow gaps even when the annual revenue number looks healthy. A rolling 13-week cash flow forecast is not optional for agency operators; it is the difference between a managed shortfall and a payroll crisis.</p>
+
+     <p>The second is labor as a fixed cost against variable revenue. Labor typically represents 50–70% of agency revenue. When revenue fluctuates and headcount does not, margins compress immediately. The lever that connects labor cost to revenue is utilization rate — the percentage of available hours billed to clients — and most agencies track it loosely if at all. According to <a href="https://agencyanalytics.com/blog/marketing-agency-benchmarks-2025" target="_blank" rel="noopener noreferrer">AgencyAnalytics' 2025 Marketing Agency Benchmarks Report</a>, the target utilization range for billable staff is 65–80%. Below 65%, the agency is paying for hours it is not monetizing. Above 85%, burnout risk erodes the service quality and talent retention the agency's margins depend on.</p>
+
+     <p>The third is client concentration risk. Many agencies have three clients representing 60% or more of their revenue — and do not know which of those clients is generating margin and which is consuming capacity at a loss. The standard income statement does not answer that question. Only a client-level profitability model does. An agency can grow revenue at 40% annually while margin declines, and the standard financial reporting will not identify why until the cost structure has already compressed margins for years.</p>
+
+     <h2>The 6 Financial KPIs Every Agency Must Track</h2>
+
+     <p>Most agency owners track revenue, aggregate project profitability, and cash balance. These metrics are necessary but insufficient. The six KPIs below are what agency financial management actually requires — and what a fractional CFO builds infrastructure to monitor consistently.</p>
+
+     <p><strong>Utilization rate</strong> is the percentage of available billable hours actually billed to clients. The 65–80% target range is the primary operational signal for whether the agency's labor model is working. Below 65%, the agency is carrying overhead without sufficient revenue coverage.</p>
+
+     <p><strong>Effective bill rate</strong> is the blended actual rate per billable hour — total revenue divided by total billable hours. When effective bill rate declines while stated rates hold steady, scope creep and unbilled overruns are the likely cause.</p>
+
+     <p><strong>Client gross margin</strong> measures profitability at the client level: revenue minus direct labor and direct costs per client, per period. Without client-level margin data, the income statement averages profitable and unprofitable clients into a single figure that obscures the actual cost structure.</p>
+
+     <p><strong>Cash flow coverage ratio</strong> compares available cash and near-term receivables to committed payroll and overhead obligations. Agencies with strong annual revenue can still face payroll risk in specific weeks when project payments are delayed and retainer invoices are pending.</p>
+
+     <p><strong>Revenue concentration</strong> measures what percentage of total revenue comes from the top three clients. Concentration above 50% creates fragility: the loss of one client is a financial event, not a sales setback.</p>
+
+     <p><strong>Days sales outstanding (DSO)</strong> measures how long it takes to collect payment after invoicing. According to <a href="https://www.unit4.com/blog/reducing-days-sales-outstanding-dso-increases-profitability" target="_blank" rel="noopener noreferrer">SPI Research's Professional Services Maturity Benchmark</a>, the average DSO for professional services firms is approximately 47 days. Agencies running consistently above that threshold are financing their clients' operations with their own cash.</p>
+
+     <h2>How a Fractional CFO Transforms Agency Financial Management</h2>
+
+     <p>A fractional CFO engagement for a marketing agency operates across four functional areas that most agencies have never had access to at the strategic level. For a full overview of what the role entails across all business types, see <a href="what-is-a-fractional-cfo">our complete guide to the fractional CFO role</a>.</p>
+
+     <p><strong>Client profitability modelling.</strong> The foundation of agency financial intelligence is a model that calculates gross margin at the client level — revenue minus direct labor and direct costs, per client, per period. This model identifies which clients generate margin and which consume capacity at a loss. It turns pricing conversations from subjective negotiations into data-supported decisions, and it makes client retention and offboarding decisions financially legible.</p>
+
+     <p><strong>Utilization rate management.</strong> A fractional CFO builds the reporting infrastructure that connects time-tracking data to financial outcomes: dashboards showing utilization by team member, by client, and by service line, updated regularly enough to allow operational adjustments before the financial impact is irreversible. High-margin agencies manage utilization actively. Agencies without this infrastructure discover the problem in the financial statements after the margin has already compressed.</p>
+
+     <p><strong>Cash flow forecasting for project-based revenue cycles.</strong> A rolling 13-week cash flow forecast, rebuilt and reviewed regularly, is the operational tool that prevents cash gaps from becoming crises. For a broader look at how financial forecasting works at the small business level, see <a href="financial-forecasting-small-business">our guide to financial forecasting for small businesses</a>.</p>
+
+     <p><strong>Pricing and rate analysis.</strong> Rate increases, scope adjustments, and new contract structures all have quantifiable margin impacts. A fractional CFO connects those decisions to outcomes with data. Agencies that price on instinct or competitive benchmarks alone typically leave margin on the table — or accept clients at rates that look viable in the proposal and prove unprofitable in delivery.</p>
+
+     <h2>OHM's Agency Financial Intelligence Stack</h2>
+
+     <p>Ochil Hills Management's fractional CFO service for marketing agencies integrates the tools agencies already use — time tracking, project management, and accounting — into a unified reporting model that gives agency operators the financial visibility best-in-class agencies have built internally. For a look at how data-driven financial management works in practice, see <a href="data-driven-fractional-cfo">our guide to the data-driven fractional CFO approach</a>.</p>
+
+     <p><strong>Financial systems integration.</strong> For agencies whose time tracking, project management, and accounting systems are not yet connected, OHM can build the integration layer that consolidates this data into a single reporting model. Without it, client profitability and utilization analysis require manual assembly that is never consistent enough to be actionable. Whether this integration is part of the engagement scope depends on the agency's existing infrastructure and priorities.</p>
+
+     <p><strong>Client profitability dashboard.</strong> A monthly report showing gross margin per client — revenue minus direct labor and direct costs — ranked from most to least profitable. This is the primary tool for pricing reviews, client renewal decisions, and capacity planning conversations.</p>
+
+     <p><strong>Utilization dashboard.</strong> A weekly or biweekly view of billable hours versus available hours, broken down by team member and by client. This gives leadership the data to make staffing and project assignment adjustments before utilization trends become margin problems.</p>
+
+     <p><strong>Rolling 13-week cash flow model.</strong> A forward-looking cash flow forecast rebuilt and reviewed monthly, incorporating committed revenue, expected project receipts, payroll obligations, and operating expenses — the tool that eliminates cash surprises.</p>
+
+     <p><strong>Monthly management reporting.</strong> A structured financial review combining income statement performance, cash flow position, KPI results, and forward-looking indicators — delivered in a format designed for operational decision-making, not compliance.</p>
+
+     <h2>What a Fractional CFO Costs for a Marketing Agency</h2>
+
+     <p>A fractional CFO engagement for a marketing agency between $1M and $7M in revenue typically runs $3,000–$8,000 per month, depending on scope. That figure compares to a full-time Finance Director at $150,000–$220,000 in base salary — plus benefits, equity, and the management overhead of a full-time hire. For a full breakdown of fractional CFO pricing across engagement types, see <a href="fractional-cfo-cost">our complete guide to fractional CFO cost</a>.</p>
+
+     <p>The relevant financial question is not the cost in absolute terms. It is the cost relative to the margin recovery that client profitability analysis and pricing discipline typically produce. Agencies that identify one significantly underpriced retainer and reprice the engagement to reflect actual delivery costs often recover the full cost of the engagement within the first quarter. The financial infrastructure built during the engagement — the dashboards, the cash flow model, the reporting cadence — remains after the engagement scope adjusts.</p>
+
+     <!-- CASE STUDY: Please confirm specific metrics (margin improvement %, new client count added) before publishing -->
+     <p>A digital marketing agency at $3.2M in revenue engaged Ochil Hills Management after two consecutive years of growing revenue without proportional margin improvement. The initial client profitability analysis identified two long-standing clients whose effective margin, once direct labor was allocated properly, was below 8%. After repricing one client and transitioning the second at contract renewal, the freed capacity was redirected to two new clients at the agency's standard rates. Over the following two quarters, overall gross margin improved materially. The transformation was not a revenue story. It was a financial intelligence story.</p>
+
+     <p>For most agencies between $1M and $7M, a fractional CFO delivers 90% of the strategic value of a full-time Finance Director at 20–40% of the fully-loaded cost. The engagement scales with the agency: lighter during stable periods, more intensive during growth transitions, pricing changes, or capital events. For context on whether your business is at the right stage for this kind of engagement, see <a href="signs-you-need-a-fractional-cfo">our guide on signs your business needs a fractional CFO</a>.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What financial problems are unique to marketing agencies?</summary>
+         <p>Marketing agencies face three financial challenges in combination that most other service businesses do not: project-based revenue that creates lumpy cash flow, labor as the primary and largely fixed cost (making utilization rate the direct driver of margin), and client concentration risk that is invisible without client-level profitability tracking. An agency can grow revenue at 40% while margin declines — and the standard income statement will not show why until the problem is embedded in the cost structure.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How does a fractional CFO help an agency grow profitably?</summary>
+         <p>A fractional CFO builds the financial infrastructure that converts agency activity data into business decisions: a client profitability model that identifies which clients are generating margin and which are consuming capacity at a loss; a rolling 13-week cash flow forecast that prevents cash gaps from becoming crises; a pricing analysis that connects rate changes to margin outcomes; and a headcount model that answers the hiring question with data rather than instinct.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What does utilization rate mean for a marketing agency?</summary>
+         <p>Utilization rate measures the percentage of a team member's available working hours that are billed to clients. The industry benchmark for healthy utilization is 65–80% for billable staff. Below 65%, the agency is carrying labor overhead without sufficient revenue to cover it. Above 85%, burnout and quality risk increase and begin to erode the talent advantage the agency's margins depend on.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How much does a fractional CFO for a marketing agency cost?</summary>
+         <p>A fractional CFO engagement for a marketing agency between $1M and $7M in revenue typically runs $3,000–$8,000 per month. The relevant comparison is not the absolute cost — it is the cost relative to the margin recovery that client profitability analysis and pricing discipline typically produce. For most agencies, the engagement recovers its cost within the first two quarters.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Should my agency have a full-time CFO or a fractional CFO?</summary>
+         <p>A full-time CFO makes sense when the agency has reached a scale where financial complexity — multiple offices, complex ownership structures, active M&amp;A, or institutional investors — requires dedicated senior finance leadership. For most agencies under $15M in revenue, a fractional CFO delivers 90% of the strategic value at 20–40% of the fully-loaded cost. Agencies at the $1M–$7M range typically do not need a finance leader 40 hours per week — they need consistent financial intelligence and the ability to scale the engagement as complexity grows.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Ready to Build Real Profitability Visibility Into Your Agency?</h3>
+       <p>If your agency is between $1M and $7M in revenue and you are growing without clarity on which clients are actually profitable, we should talk. We work with a limited client roster and we are direct about what makes sense for your situation.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="fractional-cfo-cost">How Much Does a Fractional CFO Cost? 2026 Pricing Guide</a></li>
+         <li><a href="data-driven-fractional-cfo">The Data-Driven Fractional CFO: BI and Financial Intelligence</a></li>
+         <li><a href="signs-you-need-a-fractional-cfo">10 Signs Your Business Needs a Fractional CFO</a></li>
+         <li><a href="fractional-cfo-vs-cpa">Fractional CFO vs CPA: A Complete Side-by-Side Comparison</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p>
+      <p style="margin-top:var(--space-1);font-size:var(--text-xs);opacity:0.6;"><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer" style="color:inherit;">Created with Perplexity Computer</a></p>
+    </div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
