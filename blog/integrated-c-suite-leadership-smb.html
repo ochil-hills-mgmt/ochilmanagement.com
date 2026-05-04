@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/integrated-c-suite-leadership-smb">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integrated C-Suite Leadership for SMBs | Ochil Hills Management</title>
+<meta name="description" content="Most growth initiatives stall between financial strategy and execution. Integrated C-suite leadership closes that gap — CFO and COO working as one team.">
+<meta property="og:title" content="The Power of Integrated C-Suite Leadership for SMBs">
+<meta property="og:description" content="Most growth initiatives stall between financial strategy and execution. Integrated C-suite leadership closes that gap — CFO and COO working as one team.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/integrated-c-suite-leadership-smb">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Power of Integrated C-Suite Leadership for SMBs">
+<meta name="twitter:description" content="Most growth initiatives stall between financial strategy and execution. Integrated C-suite leadership closes that gap — CFO and COO working as one team.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "The Power of Integrated C-Suite Leadership for SMBs",
+ "description": "Most growth initiatives stall between financial strategy and execution. Integrated C-suite leadership closes that gap — CFO and COO working as one team.",
+ "author": [
+   {
+     "@type": "Person",
+     "name": "Matt Kaiser",
+     "jobTitle": "Fractional CFO",
+     "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+   },
+   {
+     "@type": "Person",
+     "name": "Kylie Kaiser",
+     "jobTitle": "Fractional COO",
+     "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+   }
+ ],
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-05-06",
+ "dateModified": "2026-05-06",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/integrated-c-suite-leadership-smb"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What is integrated C-suite leadership?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Integrated C-suite leadership is a model in which the CFO and COO function as a coordinated team, working from the same financial model, the same operational data, and the same 90-day priority set. Financial decisions account for operational capacity before they are finalized, and operational changes are evaluated for financial impact before implementation. It is distinct from engaging a fractional CFO and a fractional COO separately — the integration is built into the engagement structure, not assembled from two independent advisory relationships."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What is the difference between a fractional CFO and a fractional COO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO owns financial strategy: cash flow management, financial modeling, forecasting, capital allocation, and the financial intelligence that drives business decisions. A fractional COO owns operational execution: process design, team structure, systems implementation, and the infrastructure that translates strategy into daily results. Both functions are essential for a growth-stage business. The gap between them — where financial plans meet operational reality — is where most growth initiatives stall."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Can one firm provide both fractional CFO and COO services?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Yes. Ochil Hills Management provides both fractional CFO and fractional COO services as a single integrated engagement. Matt Kaiser leads financial strategy; Kylie Kaiser leads operational execution. Because both principals operate within the same firm and the same engagement, the coordination between financial and operational priorities happens internally before reaching the client — eliminating the friction and re-explanation cost of managing two separate advisory relationships."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How does a husband-wife CFO and COO team work in practice?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The husband-wife team structure produces integration advantages that are structural, not incidental. There are no organizational politics between the CFO and COO functions, no competing incentives to protect separate domains, and no communication lag between a financial decision and its operational implications. Matt and Kylie share the same values, coordinate in real time, and hold joint accountability to every client engagement. For a business that needs both functions aligned, this structure eliminates the coordination overhead that makes separate-advisor arrangements inefficient."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What does an integrated C-suite engagement cost?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "An integrated fractional CFO and COO engagement is priced on a monthly retainer basis, scoped to the specific needs and scale of the business. For context: a full-time CFO commands $200,000 to $350,000 in base salary and a full-time COO commands $150,000 to $250,000 — a combined base of $350,000 to $600,000 annually before benefits and equity. A fractional integrated engagement delivers both functions at a fraction of that cost. Contact us directly for current integrated engagement pricing."
+     }
+   }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing the alignment of strategy and execution" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Integrated C-Suite</p>
+   <h1 class="hero__title" style="max-width:22ch;">The Power of Integrated C-Suite Leadership for SMBs</h1>
+   <p class="hero__subtitle">Why Financial Strategy and Operational Execution Must Work as One</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO &amp; Kylie Kaiser, Fractional COO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-05-06">May 6, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">8 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: May 6, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <p>You built the financial plan. You hired the people. You set the 90-day targets. Six months later, nothing has moved the way it should &mdash; not because the strategy was wrong, but because the financial plan and the operational reality were never actually aligned. The CFO&rsquo;s model assumed 30% revenue growth driven by a new service line; the operations team was already stretched at current volume. The plan made sense on paper. It broke down between the plan and the work.</p>
+
+     <p>That&rsquo;s the strategy-execution gap. And it isn&rsquo;t a sign that your advisors are wrong &mdash; it&rsquo;s what happens when financial strategy and operational execution are managed as separate workstreams by people who don&rsquo;t share a model of the business.</p>
+
+     <div class="article__answer-capsule">
+       <p>Integrated C-suite leadership means your CFO and COO work from the same financial model, the same operational data, and the same 90-day priorities &mdash; in real-time coordination. For SMBs between $1M and $7M in revenue, this model closes the strategy-execution gap where most growth initiatives stall: not because the strategy was flawed, but because no one owned the bridge between the plan and the execution.</p>
+     </div>
+
+     <h2>The Strategy-Execution Gap Is a Structural Problem, Not a Personnel Problem</h2>
+
+     <p>The failure rate of growth strategies is not a new finding &mdash; but recent research confirms the gap has not narrowed. A 2025 study by the <a href="https://www.pmi.org/about/press-media/2025/new-pmi-research-reveals-strategy-execution-gap-is-undermining-transformation-and-how-to-close-it" target="_blank" rel="noopener noreferrer">Project Management Institute</a>, drawing on responses from more than 5,800 project and strategy professionals, found that 61% of executives acknowledge their firms struggle to bridge the gap between strategy formulation and execution &mdash; and that only half of projects meet a modern definition of success. The failure is not in the quality of the strategies. It is in the gap between planning and doing.</p>
+
+     <p>For growth-stage businesses, this gap is structural. The CFO optimizes for financial outcomes: cash position, margins, capital efficiency, and the financial intelligence that supports strategic decisions. The COO optimizes for operational throughput: process reliability, team capacity, delivery quality, and the systems that convert plans into results. When those two functions are managed by separate advisors without a shared model of the business, financial decisions routinely underestimate operational constraints, and operational changes routinely generate unintended financial consequences.</p>
+
+     <p>The Federal Reserve&rsquo;s <a href="https://www.fedsmallbusiness.org/reports/survey/2025/2025-report-on-employer-firms" target="_blank" rel="noopener noreferrer">2024 Small Business Credit Survey</a>, covering 7,653 small employer firms, found that 65% of small employer firms expected revenue to increase in the coming year, yet only 46% were profitable that year. That 19-point gap between expectation and outcome does not arise from bad strategies. It arises from strategies that were financially sound in isolation and operationally unexecutable in practice &mdash; strategies that never crossed the bridge from plan to result.</p>
+
+     <p>The coordination cost of separate advisory relationships is compounding and largely invisible. Every financial model the CFO builds must be re-explained to the COO for operational validation. Every operational change the COO proposes must be re-evaluated by the CFO for financial impact. Decisions arrive at the owner&rsquo;s desk having passed through two separate analytical frameworks, with no guarantee those frameworks are calibrated to the same model of the business. The result is advisory relationships that perform well in isolation and create friction in combination.</p>
+
+     <h2>What &ldquo;Integrated C-Suite&rdquo; Actually Means</h2>
+
+     <p>Integrated C-suite leadership is not two fractional advisors who share the same client name and meet occasionally to compare notes. It is a single engagement in which the CFO and COO work from the same financial model, the same operational data, and the same 90-day priority set &mdash; with real-time coordination built into the engagement structure from day one.</p>
+
+     <p>In practical terms, financial decisions account for operational capacity before they are finalized. If the financial model projects a 30% revenue increase driven by a new service line, the COO has already validated whether current team capacity can support that volume &mdash; or has already defined what additional infrastructure is required and at what cost &mdash; before that projection is presented to the client. The model reflects operational reality, not theoretical assumptions.</p>
+
+     <p>Operational changes are evaluated for financial impact before implementation. Before a new hire is recommended, before a vendor contract is restructured, before a process redesign is committed to, the fully loaded financial implications &mdash; cost, cash timing, margin impact &mdash; are already mapped. The client receives a complete recommendation: not a financial view and an operational view to be reconciled separately, but a single integrated analysis.</p>
+
+     <h2>The OHM Model: Two Operators, One Integrated Engagement</h2>
+
+     <p class="article__speaker"><strong>Matt Kaiser, Fractional CFO</strong></p>
+
+     <p>I built my career managing complexity at scale. First in the military and then as a program manager for rocket propulsion systems. My background is in aerospace engineering &mdash; BS in Mechanical Engineering from United States Military Academy and MS in Aerospace Engineering from University of Washington. This gives me a unique technical perspective alongside real-life experience managing teams in highly dynamic environments. The analytical discipline of mission-critical environments, where the cost of a wrong financial assumption or operational misstep is not a missed quarter but a failed mission, became the foundation for how I approach financial strategy. Every forecast I build is designed to be tested against a worst case, not only validated against a best case. The financial intelligence infrastructure I run &mdash; the CAIRN platform &mdash; takes raw accounting data and converts it into real-time decision intelligence: current cash position, project-level profitability, forward-looking scenario models, all available without waiting for a month-end close.</p>
+
+     <p class="article__speaker"><strong>Kylie Kaiser, Fractional COO</strong></p>
+
+     <p>My expertise has been developed in operational environments where failure was not an option. I began my career in military aviation as an Apache helicopter pilot before transitioning into operations leadership roles within growth-stage private-sector businesses. Across each of these environments, my mandate has remained consistent: to make complex systems sufficiently predictable for leaders to maintain control. I focus on designing operational infrastructure ahead of demand &mdash; before strain exposes gaps, rather than in response to it. My approach prioritizes proactive planning over reactive firefighting, using clarity as the foundation for achieving and sustaining control.</p>
+
+     <p>We built Ochil Hills Management as an integrated firm because we believe this is the right structure for growth-stage businesses &mdash; not because it&rsquo;s a convenient offering, but because we&rsquo;ve sat in both seats and seen what happens when financial strategy and operational execution aren&rsquo;t aligned. The engagement structure we run is the one we would have wanted as clients.</p>
+
+     <p>The husband-wife team dynamic is not incidental &mdash; it&rsquo;s structural. There are no organizational politics between the CFO and COO functions here, no competing incentives to protect separate domains, and no lag between a financial decision and its operational implications. When Matt models a 90-day financial plan, I have already stress-tested it against operational capacity. When I design a process change, Matt has already evaluated the financial impact. The integration happens before it reaches you.</p>
+
+     <p>Ochil Hills Management is veteran-owned and Washington State certified. The discipline and accountability that define military service are the professional standards we apply to every client engagement.</p>
+
+     <h2>What an Integrated Engagement Looks Like in Practice</h2>
+
+     <p>Here&rsquo;s what the first 90 days actually look like, because &ldquo;integrated C-suite leadership&rdquo; only becomes real when you can see how it operates week by week.</p>
+
+     <p>Weeks 1 and 2 are a combined diagnostic. Matt runs the financial health assessment: cash position, margin analysis, forecasting infrastructure, and the quality of the financial model the business is currently making decisions from. Kylie runs the operational capacity assessment: process documentation, team structure, decision-making bottlenecks, and the gap between current systems and what the growth trajectory actually requires. We run these in parallel and compare findings before reporting back to you &mdash; because the most important insights tend to live at the intersection of the two domains, not inside either one alone.</p>
+
+     <p>Month 1 produces an integrated 90-day plan. Not a financial plan and an operational plan assembled by separate advisors and handed to you to reconcile. A single plan, with financial priorities and operational priorities aligned against the same resource constraints and the same 90-day horizon &mdash; telling you what to act on first, what to defer, and why, with both the financial logic and the operational logic already built together.</p>
+
+     <p>Ongoing, the structure is designed for real-time alignment. There&rsquo;s a standing weekly coordination between Matt and Kylie that keeps both workstreams current. There&rsquo;s a monthly integrated reporting package to you covering financial performance, operational metrics, and the 30-60-90 day forward view in a single document. And you have direct access to both of us, depending on the question.</p>
+
+     <p>Can you see why this structure produces better decisions than managing two separate advisory relationships? Because every input is already validated against the other domain before it reaches you &mdash; not after you&rsquo;ve already committed to a direction.</p>
+
+     <h2>The Financial Case for Integration</h2>
+
+     <p>The cost comparison for full-time executive leadership is direct. A full-time CFO commands a base salary of $200,000 to $350,000, according to <a href="https://www.growthlabfinancial.com/what-is-the-difference-between-a-cfo-vs-cpa" target="_blank" rel="noopener noreferrer">Growth Lab Financial&rsquo;s compensation analysis</a>. A full-time COO at comparable scope commands $150,000 to $250,000, per <a href="https://www.glassdoor.com/Salaries/chief-operating-officer-salary-SRCH_KO0,23.htm" target="_blank" rel="noopener noreferrer">Glassdoor&rsquo;s 2026 COO salary data</a>. Combined base compensation runs $350,000 to $600,000 annually before benefits, payroll taxes, and equity. For a business between $1M and $7M in revenue, that scale of full-time executive overhead is not financially viable &mdash; and it does not inherently resolve the integration problem. Two full-time executives in separate organizational domains are not more aligned simply because they share an org chart.</p>
+
+     <p>The fractional model resolves both constraints simultaneously. According to <a href="https://www.eaglerockcfo.com/blog/research/fractional-cfo-industry-report" target="_blank" rel="noopener noreferrer">Eagle Rock CFO&rsquo;s 2026 industry report</a>, demand for fractional financial leaders has grown 310% since 2020, with the market projected to reach $3.2 billion in 2026. That growth is not driven by cost savings alone. It is driven by the recognition that advisory-only financial leadership is insufficient for businesses that need execution embedded in the engagement.</p>
+
+     <p>Furthermore, the value of integration is not captured in any single decision &mdash; it compounds across every decision the business makes over the engagement. Financial models built on verified operational assumptions produce better results than models built on theoretical ones. Operational changes evaluated for financial impact before implementation generate fewer reversals and fewer unintended consequences. The Federal Reserve survey data documents the expectation-to-outcome gap at 19 percentage points for the broader SMB market. Aligned strategy and execution, sustained over a multi-month engagement, is the mechanism that closes it.</p>
+
+     <h2>Is Integrated C-Suite Leadership Right for Your Business?</h2>
+
+     <p>The integrated model is the right structure for a specific stage and a specific set of conditions. It is not the right structure for every business at every size.</p>
+
+     <p>The businesses where this model produces the greatest return share a common profile: $1M to $7M in revenue, growing faster than current infrastructure supports, managing multiple simultaneous priorities that span both financial and operational domains, with a founder or leadership team stretched across finance, operations, and business development without executive depth in any of them. The challenge is not a lack of talent or ambition &mdash; it is a structural gap between the scale of what the business is trying to accomplish and the executive infrastructure available to accomplish it.</p>
+
+     <p>Below $500,000 in revenue, the scope of advisory work warrants a focused fractional CFO or fractional COO engagement, not both simultaneously. The financial modeling and cash management needs of a business at that stage are manageable within a single advisory relationship. See our guides on <a href="what-is-a-fractional-cfo">What Is a Fractional CFO?</a> and <a href="what-is-a-fractional-coo">What Is a Fractional COO?</a> to determine which function your business needs first.</p>
+
+     <p>Above $7M to $10M in revenue, the volume and complexity of financial and operational decisions often warrants evaluating full-time executive hires. The fractional model is the right structure for the stage between single-function advisory and full-time executive scale &mdash; not an indefinite substitute for either.</p>
+
+     <p>The question is not whether your business needs integrated C-suite leadership. The question is whether you build it deliberately &mdash; or continue to manage the strategy-execution gap as an unavoidable cost of growth.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What is integrated C-suite leadership?</summary>
+         <p>Integrated C-suite leadership is a model in which the CFO and COO function as a coordinated team, working from the same financial model, the same operational data, and the same 90-day priority set. Financial decisions account for operational capacity before they are finalized, and operational changes are evaluated for financial impact before implementation. It is distinct from engaging a fractional CFO and a fractional COO separately &mdash; the integration is built into the engagement structure, not assembled from two independent advisory relationships.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What is the difference between a fractional CFO and a fractional COO?</summary>
+         <p>A fractional CFO owns financial strategy: cash flow management, financial modeling, forecasting, capital allocation, and the financial intelligence that drives business decisions. A fractional COO owns operational execution: process design, team structure, systems implementation, and the infrastructure that translates strategy into daily results. Both functions are essential for a growth-stage business. The gap between them &mdash; where financial plans meet operational reality &mdash; is where most growth initiatives stall. For a full comparison, see <a href="fractional-cfo-vs-coo">Fractional CFO vs COO: Which Does Your Business Need?</a></p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Can one firm provide both fractional CFO and COO services?</summary>
+         <p>Yes. Ochil Hills Management provides both fractional CFO and fractional COO services as a single integrated engagement. Matt Kaiser leads financial strategy; Kylie Kaiser leads operational execution. Because both principals operate within the same firm and the same engagement, the coordination between financial and operational priorities happens internally before reaching the client &mdash; eliminating the friction and re-explanation cost of managing two separate advisory relationships.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How does a husband-wife CFO and COO team work in practice?</summary>
+         <p>The husband-wife team structure produces integration advantages that are structural, not incidental. There are no organizational politics between the CFO and COO functions, no competing incentives to protect separate domains, and no communication lag between a financial decision and its operational implications. Matt and Kylie share the same values, coordinate in real time, and hold joint accountability to every client engagement. For a business that needs both functions aligned, this structure eliminates the coordination overhead that makes separate-advisor arrangements inefficient.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What does an integrated C-suite engagement cost?</summary>
+         <p>An integrated fractional CFO and COO engagement is priced on a monthly retainer basis, scoped to the specific needs and scale of the business. For context: a full-time CFO commands $200,000 to $350,000 in base salary and a full-time COO commands $150,000 to $250,000 &mdash; a combined base of $350,000 to $600,000 annually before benefits and equity. A fractional integrated engagement delivers both functions at a fraction of that cost. For full pricing context, see our <a href="fractional-cfo-cost">2026 Fractional CFO Pricing Guide</a>, or contact us directly for current integrated engagement pricing.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Ready to Close the Strategy-Execution Gap?</h3>
+       <p>If your business is between $1M and $7M in revenue and your financial strategy and operational execution are not working from the same model, we should talk. We run a combined diagnostic that maps both the financial and operational gaps in a single engagement, and produces an integrated 90-day plan you can act on immediately.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="strategy-without-execution-fails">Why Strategy Without Execution Fails</a></li>
+         <li><a href="fractional-cfo-vs-coo">Fractional CFO vs COO: Which Does Your Business Need?</a></li>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="what-is-a-fractional-coo">What Is a Fractional COO? The Complete Guide</a></li>
+         <li><a href="data-driven-fractional-cfo">The Data-Driven Fractional CFO: BI and Financial Intelligence</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
