@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/financial-reporting-small-business">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Reporting for Small Business | Ochil Hills</title>
+<meta name="description" content="A complete monthly small business financial report has four parts: P&L, balance sheet, cash flow, and KPI dashboard. How to read each one and what to act on.">
+<meta property="og:title" content="Financial Reporting for Small Business: What Every Monthly Report Should Include">
+<meta property="og:description" content="A complete monthly small business financial report has four parts: P&L, balance sheet, cash flow, and KPI dashboard. How to read each one and what to act on.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/financial-reporting-small-business">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Financial Reporting for Small Business: What Every Monthly Report Should Include">
+<meta name="twitter:description" content="A complete monthly small business financial report has four parts: P&L, balance sheet, cash flow, and KPI dashboard. How to read each one and what to act on.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Financial Reporting for Small Business: What Every Monthly Report Should Include",
+ "description": "A complete monthly small business financial report has four parts: P&L, balance sheet, cash flow, and KPI dashboard. How to read each one and what to act on.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-05-12",
+ "dateModified": "2026-05-12",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/financial-reporting-small-business"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What financial reports should a small business produce every month?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A complete monthly package for a small business has four components — a profit and loss statement, a balance sheet, a cash flow statement, and a KPI dashboard tied to the operational drivers of the business. The first three are produced from the accounting system. The fourth is produced from the operational systems and the accounting system together. Most small businesses receive the first two, sometimes the third, and rarely the fourth."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What is the difference between a P&L and a cash flow statement?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A profit and loss statement records revenue and expenses for a period and reports net income. A cash flow statement records the actual movement of cash in and out of the business and reconciles net income to the change in cash. The two reports answer different questions. Net income can be positive in a month where cash declined, and cash can grow in a month where the business posted a loss. Both happen routinely in small businesses with growing receivables, inventory cycles, or seasonal revenue."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How does a fractional CFO improve monthly reporting?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO converts compliance reporting into strategic reporting by adding three layers — a forward-looking forecast view, segmentation of the historical results by the dimensions that matter for the specific business, and integration of operational KPIs with the financial result. The base reports come from the bookkeeper or accountant. The strategic layer is what makes the package usable for decision-making rather than only for tax and audit purposes."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How fast should a small business close its books each month?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "APQC benchmark data on more than 2,300 firms shows a median monthly close of 6.4 calendar days, with top-quartile performers closing in 4.8 days or less. For a small business, a five-business-day close is a reasonable target. A close that consistently extends beyond ten business days delays every downstream decision the report should inform and is itself a signal that the financial infrastructure needs work."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How often should a small business review financial reports?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Monthly review of the full package is the floor. For businesses between $1 million and $10 million in revenue with growth or hiring decisions in flight, weekly cash flow review and real-time KPI tracking are also required. Monthly reporting tells the owner what happened. Weekly cash review and real-time KPIs surface problems early enough to act on them."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What KPIs should a small business track?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The right KPIs are business-model specific. A professional services firm tracks utilization, realization, and revenue per employee. A subscription business tracks net revenue retention, customer acquisition cost, and churn. A product business tracks gross margin, inventory turns, and contribution margin by SKU. The selection of KPIs is one of the higher-value exercises a fractional CFO completes early in an engagement, because the metrics chosen determine which operational levers the business will manage to."
+     }
+   }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing structured, strategic financial reporting" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Financial Strategy</p>
+   <h1 class="hero__title" style="max-width:22ch;">Financial Reporting for Small Business</h1>
+   <p class="hero__subtitle">What Every Monthly Report Should Include</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-05-12">May 12, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">8 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: May 12, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>A complete monthly financial report for a small business has four components: a profit and loss statement, a balance sheet, a cash flow statement, and a KPI dashboard tied to the operational drivers of the business. Together they answer three questions &mdash; did the business make money, what does it own and owe, and which operating levers moved the result.</p>
+     </div>
+
+     <p>Most small businesses receive a monthly report from their bookkeeper or accountant that documents what happened. Few receive a report that tells them what to do next. The difference is structural, not cosmetic. A compliance-grade report records transactions for tax and audit purposes. A strategic-grade report records transactions and translates them into the decisions a business owner has to make in the next thirty, sixty, and ninety days. Both have value. Only one moves the business forward.</p>
+
+     <p>The cost of that gap is visible in the data. According to the <a href="https://quickbooks.intuit.com/r/small-business-data/small-business-insights/" target="_blank" rel="noopener noreferrer">Intuit QuickBooks Small Business Insights survey</a> conducted in January 2026, 42% of U.S. small businesses describe cash flow as a minor or major problem, and a single late payment threatened payroll or bills for 39% of owners in the past year. The Federal Reserve&rsquo;s <a href="https://www.fedsmallbusiness.org/reports/survey/2026/2026-report-on-employer-firms" target="_blank" rel="noopener noreferrer">2026 Report on Employer Firms</a>, drawing on more than 6,500 small employer firms surveyed September to November 2025, found that revenue expectations for the coming year fell to their lowest level since the 2020 survey, with the revenue expectations index dropping from 39 to 33. Owners are making forward-looking decisions in a tightening environment, on backward-looking reports that do not surface the operational drivers that determine whether the strategy will work.</p>
+
+     <h2>What Should Every Monthly Financial Report Include?</h2>
+
+     <p>A complete monthly financial report has four components. Each answers a different question about the state of the business. Skipping any one of them produces a partial picture, and partial pictures lead to partial decisions.</p>
+
+     <h3>1. Profit and Loss Statement</h3>
+
+     <p>The profit and loss statement records revenue, cost of goods sold, operating expenses, and net income for the month. The question it answers is whether the business made money and where the margin came from.</p>
+
+     <p>For a small business, the value of the profit and loss statement is in the segmentation. A single revenue number is information. Revenue segmented by service line, by client tier, by referral source, or by salesperson is intelligence. The same applies to expenses. A consolidated payroll line tells the owner how much was spent on people. Payroll segmented by department, by billable versus non-billable role, or by client engagement tells the owner whether the team is profitable.</p>
+
+     <p>A monthly profit and loss statement should compare actual results against budget and against the prior period. Without that comparison, the numbers are absolute when they need to be relative.</p>
+
+     <h3>2. Balance Sheet</h3>
+
+     <p>The balance sheet records what the business owns, what it owes, and the equity remaining for the owners as of the last day of the month. The question it answers is the financial position of the business at that point in time.</p>
+
+     <p>Owners often skim the balance sheet because they associate it with audit and compliance work. That is a mistake. The balance sheet contains the most operationally relevant numbers a small business produces &mdash; cash position, accounts receivable aging, accounts payable aging, debt outstanding, and inventory or work-in-progress balances. Each of these is a leading indicator of what is about to happen to cash.</p>
+
+     <p>A balance sheet that does not segment receivables and payables by aging bucket is a balance sheet missing its most useful column. The <a href="https://quickbooks.intuit.com/r/small-business-data/small-business-late-payments-report-2025/" target="_blank" rel="noopener noreferrer">2025 Intuit QuickBooks U.S. Small Business Late Payments Report</a> found that 56% of U.S. small businesses surveyed were owed money from unpaid invoices, averaging $17,500 per business, with 47% reporting that a portion of their invoices were overdue by more than thirty days. Without aging visibility on the balance sheet, that overdue exposure is invisible until it converts into a cash shortfall.</p>
+
+     <h3>3. Cash Flow Statement</h3>
+
+     <p>The cash flow statement reconciles net income from the profit and loss statement to the actual change in cash on the balance sheet. The question it answers is where the cash actually went during the month.</p>
+
+     <p>This is the report most often missing from a small business monthly package, and it is the one most directly tied to survival. The Federal Reserve&rsquo;s 2026 Report on Employer Firms found that 60% of firms applied for financing in the twelve months leading up to the survey, with 56% of those firms citing operating expenses as the reason and only 42% receiving the full amount sought. Sage research conducted with the Centre for Economics and Business Research, <a href="https://www.sage.com/en-gb/company/digital-newsroom/2025/05/14/addressing-late-payments-could-unlock-112-billion-in-cashflow-for-small-businesses/" target="_blank" rel="noopener noreferrer">released in May 2025</a> and based on 1.2 million invoices from more than 31,000 customers, found that 44% of invoices were paid late. The numbers describe the same root problem from two angles &mdash; revenue and cash are not the same thing, and the gap between them is invisible unless someone is measuring it.</p>
+
+     <p>A monthly cash flow statement broken into operating, investing, and financing activities lets the owner see whether the business is generating cash from operations, consuming cash to fund growth, or covering a gap with debt and owner contributions. Each path has different implications for the next ninety days. For a deeper treatment of the forward-looking view that a cash flow statement enables, see our guide to <a href="financial-forecasting-small-business">financial forecasting for small business</a>.</p>
+
+     <h3>4. KPI Dashboard</h3>
+
+     <p>A KPI dashboard records the operational metrics that drive the financial result &mdash; utilization rate, customer acquisition cost, revenue per employee, project margin, sales cycle length, churn, or whatever metrics translate operational activity into financial outcomes for this specific business.</p>
+
+     <p>The financial statements record what happened. The KPI dashboard records why. Without the operational metrics, the owner can see that gross margin compressed but cannot tell whether the cause was pricing, mix, labor cost, or production efficiency. With the dashboard, the cause is on the page next to the result.</p>
+
+     <p>The right KPIs are business-model specific. A professional services firm tracks utilization and realization. A subscription business tracks net revenue retention and customer acquisition cost. A product business tracks gross margin and inventory turns. Building the dashboard requires deciding which two to four metrics actually predict the financial result for this business &mdash; not adopting a generic small business dashboard from a template. Our work on <a href="data-driven-fractional-cfo">data-driven fractional CFO infrastructure</a> covers the dashboard build in more detail.</p>
+
+     <h2>What Most Small Businesses Get vs What They Need</h2>
+
+     <p>The standard small business monthly package, as produced by a bookkeeper or general accountant, includes a profit and loss statement and a balance sheet. The cash flow statement is sometimes included, often not. The KPI dashboard is rarely included because it requires data the bookkeeping system does not capture.</p>
+
+     <p>The reports that do exist are produced for compliance purposes. The accounts are correct. The categories are consistent. The numbers tie out. None of that is wrong. It is, however, insufficient for an owner trying to make forward-looking decisions about hiring, pricing, capital allocation, and growth.</p>
+
+     <p>Strategic reporting layers three things on top of the compliance package &mdash; forward-looking forecasts, segmentation of the historical results, and operational metrics linked to the financial outcomes. A small business making decisions on a compliance package alone is operating with the wrong tool for the job.</p>
+
+     <h2>How a Fractional CFO Changes Monthly Reporting</h2>
+
+     <p>A fractional CFO inherits the compliance reporting from the bookkeeper or accountant and converts it into a strategic package. The conversion has three components.</p>
+
+     <p>The first is a forward view. A monthly package that closes the books and reports last month&rsquo;s result is half a package. The other half is a thirteen-week rolling cash flow forecast, an updated full-year forecast against budget, and a scenario view that shows what happens if revenue is plus or minus 10%. The forward view is what the owner uses to make decisions. The historical view is what validates whether the previous decisions worked. The <a href="https://www.pwc.com/us/en/library/pulse-survey/finding-opportunity-in-business-reinvention/cfo.html" target="_blank" rel="noopener noreferrer">PwC Pulse Survey of CFOs</a> fielded in May 2025 &mdash; 678 executives including 83 CFOs &mdash; found that 58% of CFOs are focused on cash and liquidity forecasting and 65% are adjusting financial forecasts and budgets in response to current market volatility. The work of a CFO is forward-looking. The reports the CFO produces should be too.</p>
+
+     <p>The second is segmentation. The fractional CFO restructures the chart of accounts and the reporting layout to surface the dimensions that matter for this specific business. Revenue by service line. Margin by client tier. Labor cost as a percentage of revenue, broken out by department. The compliance reports become strategic reports because the cuts of the data align with the decisions the owner has to make.</p>
+
+     <p>The third is operational integration. The KPI dashboard is built on top of the financial reporting, drawing data from the operational systems &mdash; the CRM, the project management tool, the time tracking system, the e-commerce platform &mdash; and integrating those metrics with the financial result. The owner sees the financial outcome and the operational drivers on the same page. According to <a href="https://www.eaglerockcfo.com/blog/research/fractional-cfo-industry-report" target="_blank" rel="noopener noreferrer">Eagle Rock CFO&rsquo;s 2026 industry report</a>, demand for fractional financial leaders has grown 310% since 2020, with the market projected to reach $3.2 billion in 2026. That growth is concentrated in this layer of work, where reporting becomes intelligence.</p>
+
+     <h2>How to Read a Monthly Financial Report</h2>
+
+     <p>A complete monthly report should be read in a specific sequence, because each report informs how the next one is interpreted.</p>
+
+     <p>Start with the cash flow statement. Cash is the constraint that determines whether the business can act on anything else the report shows. If cash is contracting, the rest of the report is read in the context of that constraint. If cash is expanding, the rest of the report is read in the context of growth.</p>
+
+     <p>Move to the profit and loss statement. Compare actual results against budget and against the prior period. The variances are the story. A revenue line that hit budget is not interesting. A revenue line that beat budget by 15% with margin compressing by three points is interesting, because the question becomes why margin compressed and whether the same dynamics will hold.</p>
+
+     <p>Move to the balance sheet. Look at receivables aging and payables aging. The trend in these two numbers predicts cash position over the next sixty days. Look at debt levels and remaining loan capacity. These determine the financing options available if cash tightens.</p>
+
+     <p>Close with the KPI dashboard. The operational metrics explain the financial result. If the financial result is strong, the dashboard tells the owner which operational levers produced it and whether those levers are sustainable. If the financial result is weak, the dashboard isolates which lever broke.</p>
+
+     <p>The full read should answer three questions about what just happened, what is about to happen in the next sixty days, and what needs to change in the next thirty.</p>
+
+     <h2>When Monthly Reporting Is Not Enough</h2>
+
+     <p>Monthly reporting is the floor, not the ceiling. For a business operating below $1 million in revenue with stable cash flow, monthly reporting is sufficient. For a business between $1 million and $10 million in revenue with growth, hiring decisions, or capital decisions in front of it, monthly reporting alone is insufficient &mdash; and the timeliness of the monthly close is itself a constraint. <a href="https://www.apqc.org/resource-library/resource/cycle-time-perform-monthly-close" target="_blank" rel="noopener noreferrer">APQC&rsquo;s benchmark study of more than 2,300 firms</a> found a median cycle time to perform the monthly close of 6.4 calendar days, with top-quartile performers closing in 4.8 days or less and bottom-quartile performers taking ten days or more. A monthly report that arrives ten business days after month-end is two weeks late for the decision being made.</p>
+
+     <p>Two additions close the gap. The first is a weekly cash review. A thirteen-week rolling cash flow forecast, updated weekly with actual receipts and disbursements, gives the owner a forward view that monthly reporting cannot produce. Cash decisions happen on a weekly cadence in a growing business, and a monthly report is two to four weeks late for the decision being made.</p>
+
+     <p>The second is a real-time KPI dashboard. The metrics that drive the financial result do not wait until month-end to move. Pipeline coverage, utilization, project margin, and customer acquisition cost can be tracked daily or weekly, and the leading indicators surface problems weeks before they appear in the monthly financial reports. Acting on the leading indicators is what separates businesses that hit their forecasts from those that explain why they missed. The signals that a business has outgrown monthly-only reporting are the same ones that suggest a fractional CFO engagement is in order &mdash; see our guide on <a href="signs-you-need-a-fractional-cfo">signs you need a fractional CFO</a>.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What financial reports should a small business produce every month?</summary>
+         <p>A complete monthly package for a small business has four components &mdash; a profit and loss statement, a balance sheet, a cash flow statement, and a KPI dashboard tied to the operational drivers of the business. The first three are produced from the accounting system. The fourth is produced from the operational systems and the accounting system together. Most small businesses receive the first two, sometimes the third, and rarely the fourth.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What is the difference between a P&amp;L and a cash flow statement?</summary>
+         <p>A profit and loss statement records revenue and expenses for a period and reports net income. A cash flow statement records the actual movement of cash in and out of the business and reconciles net income to the change in cash. The two reports answer different questions. Net income can be positive in a month where cash declined, and cash can grow in a month where the business posted a loss. Both happen routinely in small businesses with growing receivables, inventory cycles, or seasonal revenue.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How does a fractional CFO improve monthly reporting?</summary>
+         <p>A fractional CFO converts compliance reporting into strategic reporting by adding three layers &mdash; a forward-looking forecast view, segmentation of the historical results by the dimensions that matter for the specific business, and integration of operational KPIs with the financial result. The base reports come from the bookkeeper or accountant. The strategic layer is what makes the package usable for decision-making rather than only for tax and audit purposes.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How fast should a small business close its books each month?</summary>
+         <p>APQC benchmark data on more than 2,300 firms shows a median monthly close of 6.4 calendar days, with top-quartile performers closing in 4.8 days or less. For a small business, a five-business-day close is a reasonable target. A close that consistently extends beyond ten business days delays every downstream decision the report should inform and is itself a signal that the financial infrastructure needs work.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How often should a small business review financial reports?</summary>
+         <p>Monthly review of the full package is the floor. For businesses between $1 million and $10 million in revenue with growth or hiring decisions in flight, weekly cash flow review and real-time KPI tracking are also required. Monthly reporting tells the owner what happened. Weekly cash review and real-time KPIs surface problems early enough to act on them.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What KPIs should a small business track?</summary>
+         <p>The right KPIs are business-model specific. A professional services firm tracks utilization, realization, and revenue per employee. A subscription business tracks net revenue retention, customer acquisition cost, and churn. A product business tracks gross margin, inventory turns, and contribution margin by SKU. The selection of KPIs is one of the higher-value exercises a fractional CFO completes early in an engagement, because the metrics chosen determine which operational levers the business will manage to.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Build the Strategic Layer Above Your Accounting</h3>
+       <p>If your business is between $1 million and $10 million in revenue and your monthly financial package is documenting last month rather than informing the next ninety days, the gap is not in your accounting &mdash; it is in the strategic layer above it. We build that layer as part of every fractional CFO engagement, and the standard package includes the four-report monthly close plus a weekly cash review and a real-time KPI dashboard.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="financial-forecasting-small-business">Financial Forecasting for Small Business</a></li>
+         <li><a href="signs-you-need-a-fractional-cfo">7 Signs You Need a Fractional CFO</a></li>
+         <li><a href="data-driven-fractional-cfo">The Data-Driven Fractional CFO: BI and Financial Intelligence</a></li>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="fractional-cfo-cost">2026 Fractional CFO Pricing Guide</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
