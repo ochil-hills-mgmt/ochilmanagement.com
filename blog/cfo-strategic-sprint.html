@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/cfo-strategic-sprint">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is a CFO Strategic Sprint? | Ochil Hills Management</title>
+<meta name="description" content="A CFO Strategic Sprint solves one specific financial challenge in 2 to 6 weeks &mdash; defined deliverable, fixed scope, no ongoing commitment. The 5 most common sprint types explained.">
+<meta property="og:title" content="What Is a CFO Strategic Sprint? The Low-Commitment Way to Get Expert Financial Help">
+<meta property="og:description" content="A CFO Strategic Sprint solves one specific financial challenge in 2 to 6 weeks &mdash; defined deliverable, fixed scope, no ongoing commitment. The 5 most common sprint types explained.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/cfo-strategic-sprint">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is a CFO Strategic Sprint? The Low-Commitment Way to Get Expert Financial Help">
+<meta name="twitter:description" content="A CFO Strategic Sprint solves one specific financial challenge in 2 to 6 weeks &mdash; defined deliverable, fixed scope, no ongoing commitment. The 5 most common sprint types explained.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "What Is a CFO Strategic Sprint? The Low-Commitment Way to Get Expert Financial Help",
+ "description": "A CFO Strategic Sprint solves one specific financial challenge in 2 to 6 weeks — defined deliverable, fixed scope, no ongoing commitment. The 5 most common sprint types explained.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-05-06",
+ "dateModified": "2026-05-06",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/cfo-strategic-sprint"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What is a CFO strategic sprint?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A CFO Strategic Sprint is a focused, single-project engagement in which an experienced fractional CFO solves one specific financial challenge in a defined timeframe — typically 2 to 6 weeks. Unlike an ongoing retainer, a sprint has a clear deliverable, a fixed scope, and a defined end date. Common sprint types include building a 13-week cash flow forecast, designing a KPI dashboard, preparing financials for a funding round, documenting core operating processes, and building a 3-year financial model for a major business decision."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How long does a fractional CFO sprint take?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Most CFO Strategic Sprints run 2 to 6 weeks from kickoff to deliverable handoff, depending on the sprint type and the complexity of the business. A Cash Flow Reset or KPI Dashboard sprint typically completes in 2 to 3 weeks. A Funding Readiness or Financial Model sprint typically runs 4 to 6 weeks. The sprint proposal defines the timeline before work begins so there are no surprises."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How much does a CFO sprint cost?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Sprint investments are scoped to the specific deliverable and complexity of the engagement. For full context on fractional CFO pricing, see our 2026 Fractional CFO Pricing Guide. Contact us directly for current sprint pricing — the scoping call is free and produces a written proposal with a defined scope, timeline, and investment before any work begins."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Can a CFO sprint lead to an ongoing fractional engagement?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Many sprint clients choose to continue into a fractional CFO retainer after the sprint completes. The sprint is the right entry point for business owners who want to experience fractional CFO-level work before committing to an ongoing engagement. There is no obligation to continue — the value of the sprint stands on its own, and the deliverable is designed to be used and updated independently after the engagement ends."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What is the difference between a CFO sprint and consulting?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A CFO Strategic Sprint is project-based consulting with a defined deliverable — a financial model, a cash flow forecast, a KPI dashboard, or an operations playbook that the client owns and operates after the engagement ends. It differs from open-ended consulting in that the scope, deliverable, timeline, and investment are fixed before work begins. The sprint ends when the deliverable is handed off; there is no hourly billing or undefined scope creep."
+     }
+   }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling hills representing focused, defined financial work" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Strategic Sprints</p>
+   <h1 class="hero__title" style="max-width:24ch;">What Is a CFO Strategic Sprint? The Low-Commitment Way to Get Expert Financial Help</h1>
+   <p class="hero__subtitle">One Deliverable. Fixed Scope. Defined Timeline.</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-05-06">May 6, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">6 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: May 6, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>A CFO Strategic Sprint is a focused, single-project engagement in which an experienced fractional CFO solves one specific financial challenge in a defined timeframe &mdash; typically 2 to 6 weeks. Unlike an ongoing retainer, a sprint has a clear deliverable, a fixed scope, and a defined end date. Common sprint types include building a 13-week cash flow forecast, designing a KPI dashboard, preparing financials for a funding round, documenting core operating processes, and building a 3-year financial model for a major business decision.</p>
+     </div>
+
+     <p>Most businesses do not need a fractional CFO on retainer to solve their most pressing financial problem. They need the right expertise, applied to a specific challenge, for long enough to produce a result. That is what a CFO Strategic Sprint delivers: a bounded engagement with a defined output, designed to be used and operated independently after the engagement ends.</p>
+
+     <p>The Federal Reserve&rsquo;s <a href="https://www.fedsmallbusiness.org/reports/survey/2025/2025-report-on-employer-firms" target="_blank" rel="noopener noreferrer">2024 Small Business Credit Survey</a> found that 51% of small employer firms cited uneven cash flows as a financial challenge, and 43% applied for financing in the prior year. Both problems &mdash; cash flow visibility and funding readiness &mdash; are exactly what sprint engagements are designed to solve: not with ongoing advisory, but with a defined deliverable that closes the specific gap.</p>
+
+     <h2>What Makes a Sprint Different From a Fractional CFO Retainer?</h2>
+
+     <p>A retainer is the right structure when a business needs continuous financial oversight: ongoing cash flow monitoring, monthly reporting, board support, and evolving strategic planning across multiple priorities. A sprint is the right structure when a business has one specific, bounded problem and needs it solved well, quickly, and with a deliverable that stands on its own.</p>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th></th>
+             <th>CFO Strategic Sprint</th>
+             <th>Fractional CFO Retainer</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><strong>Scope</strong></td>
+             <td>One specific deliverable</td>
+             <td>Ongoing strategic oversight</td>
+           </tr>
+           <tr>
+             <td><strong>Duration</strong></td>
+             <td>2&ndash;6 weeks</td>
+             <td>Typically 6&ndash;12+ months</td>
+           </tr>
+           <tr>
+             <td><strong>Commitment</strong></td>
+             <td>None after sprint completes</td>
+             <td>Monthly engagement</td>
+           </tr>
+           <tr>
+             <td><strong>Deliverable</strong></td>
+             <td>A specific output you own and operate</td>
+             <td>Continuous advisory and reporting</td>
+           </tr>
+           <tr>
+             <td><strong>Best for</strong></td>
+             <td>One urgent, bounded problem</td>
+             <td>Ongoing financial leadership</td>
+           </tr>
+           <tr>
+             <td><strong>Revenue stage</strong></td>
+             <td>$300K&ndash;$3M+</td>
+             <td>$500K&ndash;$7M</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <h2>The 5 Most Common OHM Sprint Types</h2>
+
+     <p>Because Ochil Hills Management provides both fractional CFO and fractional COO capabilities, OHM sprints span both financial and operational domains. Each sprint type is scoped to a specific deliverable that the client owns and operates independently after the engagement ends.</p>
+
+     <p><strong>1. The Cash Flow Reset.</strong> The most common sprint type. Your business has a cash flow problem &mdash; money is coming in, but not when you need it, and the gap is not visible until it has already arrived. A Cash Flow Reset sprint builds your 13-week rolling cash flow forecast, maps every inflow and outflow to actual expected bank dates, and produces a model you can update weekly. Deliverable: a live, owner-operated 13-week cash flow model. Duration: 2 to 3 weeks.</p>
+
+     <p><strong>2. The KPI Dashboard.</strong> You are tracking activity, but you do not have financial visibility at the operational level &mdash; revenue per client, project profitability, utilization rates, or trailing performance against targets. A KPI Dashboard sprint designs and builds a real-time financial dashboard connected to your accounting system and sized to your business model. Deliverable: a live dashboard that refreshes without manual input. Duration: 2 to 4 weeks.</p>
+
+     <p><strong>3. The Operations Playbook.</strong> Your business works &mdash; but only because you are in the middle of everything. Processes that depend on tribal knowledge and founder presence do not scale. An Operations Playbook sprint documents your core business processes, defines decision authorities, and produces an operational reference that your team can execute without you in the room. Deliverable: a complete operations playbook your team can use and maintain. Duration: 3 to 5 weeks.</p>
+
+     <p><strong>4. The Funding Readiness Sprint.</strong> A lender or investor has asked for financials, and your books are not in the state you want them to be. A Funding Readiness sprint cleans up your accounting records, produces investor-ready financial statements, and builds the financial model that supports your funding ask. Deliverable: clean historical financials plus a presentation-ready financial package. Duration: 4 to 6 weeks.</p>
+
+     <p><strong>5. The Financial Model Sprint.</strong> You are facing a major decision &mdash; evaluating an acquisition, entering a new market, committing to a significant capital investment &mdash; and you need a financial model built specifically for that decision. A Financial Model Sprint builds the 3-year projection model with scenario logic across best, most likely, and worst cases. Deliverable: a decision-ready financial model with full scenario analysis. Duration: 3 to 5 weeks.</p>
+
+     <h2>Who Is a Sprint Right For?</h2>
+
+     <p>A sprint is the right engagement structure when three conditions are present: the problem is specific and bounded rather than a general financial oversight need; there is a deadline or decision that creates urgency; and the business owner wants to experience fractional CFO-level work before committing to an ongoing retainer.</p>
+
+     <p>Revenue stage is not a strict qualifier for sprint engagements. The Federal Reserve survey found that 43% of small employer firms applied for financing in the prior year &mdash; businesses preparing for a funding conversation are sprint candidates regardless of their current revenue stage. A business at $400,000 preparing for its first significant capital raise needs funding-ready financials. A $4M business evaluating an acquisition needs a financial model built for that specific decision. The sprint is structured to serve both.</p>
+
+     <p>The sprint is also the appropriate entry point for business owners who recognize the case for fractional CFO leadership but are not yet ready to commit to an ongoing engagement. Demand for fractional C-suite roles grew 68% between 2023 and 2024, per <a href="https://fractionus.com/blog/fractional-work-statistics-2025-income-market-data" target="_blank" rel="noopener noreferrer">Fractionus&rsquo;s 2025 fractional work research</a> &mdash; a pace of adoption that reflects how many business owners are evaluating fractional leadership for the first time rather than arriving with a mandate for an ongoing retainer. Many of those relationships begin with one defined problem solved well, not with a long-term commitment made before the client has seen what the work produces.</p>
+
+     <h2>What Happens After a Sprint?</h2>
+
+     <p>The deliverable from a sprint is designed to be used independently after the engagement ends. A cash flow model you update weekly. A KPI dashboard that pulls data automatically. A financial model you stress-test with different assumptions as conditions change. The sprint is complete when the deliverable is handed off and you can operate it without us.</p>
+
+     <p>Many sprint clients choose to continue into a fractional CFO retainer. The sprint is the entry point for a land-and-expand model: one bounded problem solved well leads to an ongoing engagement because the sprint produced visible results and demonstrated what continuous fractional financial leadership looks like in practice. There is no pressure to convert. The value of the sprint stands independently.</p>
+
+     <p>The compounding value is real, however. A cash flow model built once and updated weekly becomes the foundation for every hiring, spending, and investment decision the business makes. A KPI dashboard that runs automatically removes the manual overhead of monthly reporting and replaces it with real-time visibility. A financial model built for one acquisition decision becomes the template for the next one. The deliverable lives beyond the sprint &mdash; which is precisely how it was designed.</p>
+
+     <h2>The OHM Sprint Process</h2>
+
+     <p>Sprint engagements follow a defined four-step process with no ambiguity about scope, timeline, or investment before work begins.</p>
+
+     <p><strong>Step 1 &mdash; Scoping call (30 minutes).</strong> A direct conversation about the specific problem, the deliverable required, and the timeframe in play. This call is free and produces the information needed to write the proposal.</p>
+
+     <p><strong>Step 2 &mdash; Sprint proposal.</strong> A written scope of work defining the deliverable, timeline, inputs required from you, and the investment. No work begins until the proposal is agreed.</p>
+
+     <p><strong>Step 3 &mdash; Execution.</strong> The sprint runs on the agreed timeline with a midpoint check-in to confirm direction, address any data gaps, and validate that the deliverable is tracking to scope.</p>
+
+     <p><strong>Step 4 &mdash; Handoff.</strong> Deliverable transfer plus a 60-minute working session to walk through the output, answer questions, and confirm the deliverable can be operated independently. The engagement is complete at handoff.</p>
+
+     <p>Total duration from scoping call to handoff: 2 to 6 weeks, depending on sprint type and complexity. For pricing context on fractional CFO engagements more broadly, see our <a href="fractional-cfo-cost">2026 Fractional CFO Pricing Guide</a>.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What is a CFO strategic sprint?</summary>
+         <p>A CFO Strategic Sprint is a focused, single-project engagement in which an experienced fractional CFO solves one specific financial challenge in a defined timeframe &mdash; typically 2 to 6 weeks. Unlike an ongoing retainer, a sprint has a clear deliverable, a fixed scope, and a defined end date. Common sprint types include building a 13-week cash flow forecast, designing a KPI dashboard, preparing financials for a funding round, documenting core operating processes, and building a 3-year financial model for a major business decision.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How long does a fractional CFO sprint take?</summary>
+         <p>Most CFO Strategic Sprints run 2 to 6 weeks from kickoff to deliverable handoff, depending on the sprint type and the complexity of the business. A Cash Flow Reset or KPI Dashboard sprint completes in 2 to 3 weeks. A Funding Readiness or Financial Model sprint runs 4 to 6 weeks. The sprint proposal defines the timeline before work begins so there are no surprises at either end of the engagement.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How much does a CFO sprint cost?</summary>
+         <p>Sprint investments are scoped to the specific deliverable and complexity of the engagement. For full context on fractional CFO pricing, see our <a href="fractional-cfo-cost">2026 Fractional CFO Pricing Guide</a>. Contact us directly for current sprint pricing &mdash; the scoping call is free and produces a written proposal with a defined scope, timeline, and investment before any work begins.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Can a CFO sprint lead to an ongoing fractional engagement?</summary>
+         <p>Many sprint clients choose to continue into a fractional CFO retainer after the sprint completes. The sprint is the right entry point for business owners who want to experience fractional CFO-level work before committing to an ongoing engagement. There is no obligation to continue &mdash; the value of the sprint stands independently, and the deliverable is designed to be used and updated without ongoing support from us. For context on what an ongoing retainer looks like, see <a href="what-is-a-fractional-cfo">What Is a Fractional CFO?</a></p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What is the difference between a CFO sprint and consulting?</summary>
+         <p>A CFO Strategic Sprint is project-based work with a defined deliverable &mdash; a financial model, a cash flow forecast, a KPI dashboard, or an operations playbook that the client owns and operates after the engagement ends. It differs from open-ended consulting in that the scope, deliverable, timeline, and investment are fixed before work begins. The engagement ends when the deliverable is handed off. There is no hourly billing and no undefined scope expansion.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Have a Specific Financial Problem That Needs Solving?</h3>
+       <p>If your business has a bounded financial challenge &mdash; a cash flow gap, a funding conversation coming up, a major decision that needs a model &mdash; a CFO Strategic Sprint is the right scope. The scoping call is 30 minutes and costs nothing. If the scope fits, we produce a written proposal. If the timing is not right, you leave with a clearer picture of the problem and what solving it requires.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Scoping Call</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="fractional-cfo-cost">How Much Does a Fractional CFO Cost? 2026 Pricing Guide</a></li>
+         <li><a href="financial-forecasting-small-business">Financial Forecasting for Small Business</a></li>
+         <li><a href="signs-you-need-a-fractional-cfo">10 Signs Your Business Needs a Fractional CFO</a></li>
+         <li><a href="integrated-c-suite-leadership-smb">The Power of Integrated C-Suite Leadership for SMBs</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
