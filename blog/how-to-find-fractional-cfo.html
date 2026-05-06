@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', {
+    page_title: document.title,
+    send_page_view: true
+  });
+</script>
+
+<!-- OHM Custom Event Tracking -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+
+  // ─── CTA Click Tracking ───
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      gtag('event', 'cta_click', {
+        event_category: 'engagement',
+        event_label: this.textContent.trim(),
+        link_url: this.href,
+        link_location: this.closest('section')?.className || 'unknown'
+      });
+    });
+  });
+
+  // ─── Contact Form Submission Tracking ───
+  var contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+      var revenue = document.getElementById('revenue');
+      var services = [];
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+        services.push(cb.value);
+      });
+      gtag('event', 'form_submission', {
+        event_category: 'conversion',
+        event_label: 'contact_form',
+        revenue_range: revenue ? revenue.value : 'not_specified',
+        services_interested: services.join(', ') || 'not_specified'
+      });
+      gtag('event', 'generate_lead', {
+        currency: 'USD',
+        value: 1
+      });
+    });
+  }
+
+  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) {
+        scrollMarkers[marker] = true;
+        gtag('event', 'scroll_depth', {
+          event_category: 'engagement',
+          event_label: marker + '_percent',
+          percent_scrolled: marker
+        });
+      }
+    });
+  });
+
+  // ─── Blog Article Engagement ───
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    var timeMarkers = [30, 60, 120, 300];
+    var startTime = Date.now();
+    timeMarkers.forEach(function(seconds) {
+      setTimeout(function() {
+        if (!document.hidden) {
+          gtag('event', 'article_engagement', {
+            event_category: 'content',
+            event_label: document.title,
+            time_on_page: seconds
+          });
+        }
+      }, seconds * 1000);
+    });
+  }
+
+  // ─── External Link Tracking ───
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) {
+      link.addEventListener('click', function() {
+        gtag('event', 'outbound_click', {
+          event_category: 'engagement',
+          event_label: this.href,
+          link_text: this.textContent.trim()
+        });
+      });
+    }
+  });
+
+  // ─── Phone/Email Click Tracking ───
+  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
+      gtag('event', type, {
+        event_category: 'conversion',
+        event_label: this.href
+      });
+    });
+  });
+
+  // ─── FAQ Accordion Tracking ───
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() {
+      var question = this.querySelector('summary, .faq-question, h3, h4');
+      if (question) {
+        gtag('event', 'faq_interaction', {
+          event_category: 'engagement',
+          event_label: question.textContent.trim().substring(0, 100)
+        });
+      }
+    });
+  });
+
+  // ─── Service Tier Interest Tracking ───
+  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var tierName = this.querySelector('h2, h3, .tier-name');
+      if (tierName) {
+        gtag('event', 'service_tier_view', {
+          event_category: 'interest',
+          event_label: tierName.textContent.trim()
+        });
+      }
+    });
+  });
+
+});
+</script>
+
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/how-to-find-fractional-cfo">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Find and Hire a Fractional CFO | Ochil Hills</title>
+<meta name="description" content="A seven-step framework for hiring a fractional CFO: define need, strategic fit, sourcing, diligence questions, red flags, onboarding, and ROI measurement.">
+<meta property="og:title" content="How to Find and Hire a Fractional CFO: Step-by-Step">
+<meta property="og:description" content="A seven-step framework for hiring a fractional CFO: define need, strategic fit, sourcing, diligence questions, red flags, onboarding, and ROI measurement.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/how-to-find-fractional-cfo">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Find and Hire a Fractional CFO: Step-by-Step">
+<meta name="twitter:description" content="A seven-step framework for hiring a fractional CFO: define need, strategic fit, sourcing, diligence questions, red flags, onboarding, and ROI measurement.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How to Find and Hire a Fractional CFO: Step-by-Step",
+ "description": "A seven-step framework for hiring a fractional CFO: define need, strategic fit, sourcing, diligence questions, red flags, onboarding, and ROI measurement.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-05-14",
+ "dateModified": "2026-05-14",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/how-to-find-fractional-cfo"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "How do I find a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The highest-quality candidates come from three sources — referrals from operators who have used a fractional CFO, fractional CFO firms with a partnership model and rigorous engagement scoping, and industry-specific advisor networks for businesses in defined verticals. LinkedIn, generic directories, and cold outreach produce candidates but transfer the diligence burden entirely to the buyer."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Does a fractional CFO need to be a CPA?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "No. A CPA credential signals depth in audit, tax, and compliance work, but not the work a growth-stage fractional CFO does day to day. The work is forecasting, scenario modeling, capital allocation, hiring decisions, and the operational integration of financial data. PwC's 2025 CFO Pulse Survey found that 58% of CFOs are focused on cash and liquidity forecasting and 65% are adjusting financial forecasts and budgets in response to market volatility — none of which are CPA-credential disciplines. Filter for operator experience inside a growth-stage business, not for the CPA letters. Many strong fractional CFOs are CPAs, but the credential should not be the primary filter."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What questions should I ask before hiring a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Six questions surface the information that matters: What is the specific output in the first 30 days? What does the monthly reporting package look like — can I see a sample? What technology infrastructure do you build on? Have you operated inside a business at this stage and scale? How is the engagement priced and scoped? Can you connect me with two existing clients for reference checks?"
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What are red flags when hiring a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Five signals predict an underperforming engagement — hourly billing without defined outputs or scope, generic engagement proposals without specific outputs, no operational integration with the business, excessive scope expansion without renegotiated agreements, and unwillingness to provide client references. Strong fractional CFOs hold scope, define outputs in advance, and produce references on request."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How long does it take to onboard a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The first 90 days follow a defined arc. Weeks 1 to 2 are diagnostic — assessing financial infrastructure and immediate priorities. Weeks 3 to 6 are infrastructure build, in which the 13-week cash flow forecast, KPI dashboard, monthly reporting package, and forecast model are completed. Weeks 7 to 12 are decision support, in which the infrastructure is used for hiring, pricing, and capital allocation decisions."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How much does a fractional CFO cost compared to a full-time hire?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The Robert Half 2026 Salary Guide projects starting compensation for a first-time CFO at $195,500, a CFO with moderate experience at $269,750, and an experienced CFO at $321,750 — base only, before benefits, payroll taxes, and equity. Datarails research from May 2026 found that average CFO tenure at large U.S. public companies is 2.12 years with year-over-year turnover up 17%. A growth-stage business hiring a full-time CFO commits to the full salary, the full ramp, and a real probability of turnover within the first three years. A fractional engagement delivers the strategic work at a fraction of that cost and without the retention risk."
+     }
+   }
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+ <li class="header__nav-mobile-ctas">
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+ </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+    <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing structured executive hiring" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Hiring a Fractional CFO</p>
+   <h1 class="hero__title" style="max-width:22ch;">How to Find and Hire a Fractional CFO</h1>
+   <p class="hero__subtitle">A Seven-Step Hiring Guide</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-05-14">May 14, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">8 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: May 14, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>Hiring a fractional CFO is a seven-step process &mdash; define what you actually need, decide what strategic fit looks like for your business, identify where to find candidates, ask the right diligence questions, recognize the red flags, structure the first 90 days, and measure return on investment. The most common hiring mistake is filtering for a CPA credential when the work requires an operator, because those are different jobs.</p>
+     </div>
+
+     <p>The fractional CFO market has grown faster than the hiring conventions for it, and the broader CFO talent market has tightened underneath it. According to <a href="https://www.eaglerockcfo.com/blog/research/fractional-cfo-industry-report" target="_blank" rel="noopener noreferrer">Eagle Rock CFO&rsquo;s 2026 industry report</a>, demand for fractional financial leaders has grown 310% since 2020, with the market projected to reach $3.2 billion in 2026. At the same time, <a href="https://www.prnewswire.com/news-releases/cfo-salaries-surge-as-tenures-plummet-at-americas-largest-companies-datarails-research-302762473.html" target="_blank" rel="noopener noreferrer">Datarails research published in May 2026</a>, drawing on more than 10,000 SEC proxy filings from 1,991 of the largest U.S. public companies, found that average CFO tenure has fallen to 2.12 years, that more than 60% of those companies experienced at least one CFO change during the study window, and that year-over-year turnover for the top finance role increased 17% in the most recent year. The fractional model is growing because the full-time CFO is harder to retain and harder to afford for a growth-stage business that needs the work done now.</p>
+
+     <p>Most business owners hiring their first fractional CFO are doing it without a playbook. The playbook that exists for full-time CFO hires does not transfer cleanly. Fractional engagements are scoped differently, priced differently, and require a different evaluation framework. This is the framework I use when business owners ask me how to hire someone in my role. It is the same framework I would apply if I were hiring a fractional CFO myself.</p>
+
+     <h2>Step 1: Define What You Actually Need</h2>
+
+     <p>Before evaluating candidates, define the work. Most business owners conflate three roles that are sequentially additive &mdash; bookkeeper, controller, and fractional CFO.</p>
+
+     <p>A bookkeeper records transactions, reconciles accounts, and produces the raw financial data. A controller oversees the bookkeeping function, enforces internal controls, and produces the monthly close. A fractional CFO sits above both, interpreting the financial data, building the forecasts, supporting strategic decisions, and translating financial results into operational guidance. For a fuller treatment of the role itself, see <a href="what-is-a-fractional-cfo">What Is a Fractional CFO?</a></p>
+
+     <p>If the books are not closing on time or the reports are inaccurate, the gap is at the bookkeeping or controller layer, and a fractional CFO will not solve it. Hiring a fractional CFO before the lower layers function is the most common reason engagements underperform &mdash; the CFO ends up doing controller work, the strategic layer is never built, and the owner concludes fractional CFOs do not deliver value.</p>
+
+     <p>For most growth-stage businesses between $1 million and $10 million in revenue, the right structure is a competent bookkeeper or accounting service handling the transactional work, plus a fractional CFO handling the strategic layer. The two roles are complementary, not redundant. The <a href="https://www.jpmorgan.com/about-us/corporate-news/2026/businessleadersoutlook2026" target="_blank" rel="noopener noreferrer">JPMorganChase 2026 Business Leaders Outlook</a>, surveying 2,471 small and middle market business owners with annual revenues between $100,000 and $20 million, found that 47% of small business owners are building cash reserves heading into 2026 and 36% are renegotiating supplier terms. Both priorities are CFO work, not bookkeeping work. If you are uncertain whether the strategic layer is the right fit at your stage, our guide on <a href="signs-you-need-a-fractional-cfo">signs you need a fractional CFO</a> walks through the decision criteria.</p>
+
+     <h2>Step 2: Decide What Strategic Fit Looks Like for Your Business</h2>
+
+     <p>Strategic fit is the second filter, and it is the one most business owners get wrong. The default assumption is that a fractional CFO needs to be a CPA. That assumption is incorrect for most growth-stage engagements.</p>
+
+     <p>A CPA credential signals depth in audit, tax, and compliance work &mdash; important domains, but not the work a fractional CFO does day to day. The work of a growth-stage fractional CFO is forecasting, scenario modeling, capital allocation, hiring decisions, pricing strategy, and the operational integration of financial data. None of those domains are taught in the CPA exam, and many CPAs build careers without ever doing them. The full case for the operator-not-CPA filter is in our piece on <a href="why-fractional-cfo-not-cpa">why a fractional CFO is not a CPA</a>.</p>
+
+     <p>The data on what CFOs actually spend their time on supports the operator filter. The <a href="https://www.pwc.com/us/en/library/pulse-survey/finding-opportunity-in-business-reinvention/cfo.html" target="_blank" rel="noopener noreferrer">PwC Pulse Survey of CFOs</a>, fielded in May 2025 with 678 executives including 83 CFOs, found that 58% of CFOs are focused on cash and liquidity forecasting, 65% are adjusting financial forecasts and budgets in response to current market volatility, and 58% are investing in AI and analytics infrastructure. None of those are CPA-credential disciplines. They are operator disciplines, applied to a finance function.</p>
+
+     <p>The right filter is operator experience. The relevant question is whether the candidate has run a finance function inside a growth-stage business, built a forecast that drove a hiring decision, sat across the table from a lender or an investor with their own financials in hand, and worked with operations leaders to validate that the financial plan was operationally executable. Those experiences predict performance in a fractional CFO seat. A CPA credential does not.</p>
+
+     <p>This is not an argument against CPAs. Many strong fractional CFOs are CPAs. It is an argument against using the credential as a filter, because the filter eliminates a substantial portion of the strongest operator candidates. Filter for the work, not the letters after the name.</p>
+
+     <h2>Step 3: Where to Find Fractional CFOs</h2>
+
+     <p>Three sources produce the highest-quality fractional CFO candidates for a small business hiring search.</p>
+
+     <p>The first is referrals from operators who have used a fractional CFO. Other founders, fellow business owners, and trusted advisors who have engaged a fractional CFO and seen the work firsthand are the most reliable signal. The referral comes with context &mdash; what the engagement scope was, what the outputs looked like, whether the work produced results.</p>
+
+     <p>The second is fractional CFO firms with a partnership model. Independent solo practitioners are one structure; integrated firms with multiple principals are another. Firms scope engagements more rigorously, hold more sophisticated diligence processes, and offer continuity if the lead consultant becomes unavailable. The trade-off is that firm engagements are often priced at the higher end of the market.</p>
+
+     <p>The third is industry-specific networks. If the business operates in a defined vertical &mdash; agencies, SaaS, professional services, manufacturing &mdash; vertical-specific advisor networks produce candidates with relevant industry experience. The Federal Reserve&rsquo;s <a href="https://www.fedsmallbusiness.org/reports/survey/2026/2026-report-on-employer-firms" target="_blank" rel="noopener noreferrer">2026 Report on Employer Firms</a>, drawing on more than 6,500 small employer firms surveyed in late 2025, found that 60% of firms applied for financing in the prior twelve months and only 42% received the full amount sought. The financing landscape and the operational drivers behind it vary significantly by industry. A fractional CFO with vertical experience starts with the right mental model for the business and the right relationships on the financing side.</p>
+
+     <p>LinkedIn, generic directories, and cold outreach are lower-quality channels. They produce candidates, but the diligence burden falls entirely on the buyer.</p>
+
+     <h2>Step 4: Questions to Ask Before Hiring</h2>
+
+     <p>The diligence conversation is where strategic fit gets tested. Six questions surface the information that matters.</p>
+
+     <p><strong>What is the specific output in the first 30 days?</strong> A strong fractional CFO answers this with specifics &mdash; financial diagnostic completed, 13-week cash flow forecast in place, baseline KPI dashboard built. A weak answer is generic, such as "establishing a relationship" or "understanding the business." The first 30 days should produce something concrete the business can use.</p>
+
+     <p><strong>What does the monthly reporting package look like?</strong> Ask to see a sample. The package should include a profit and loss statement, balance sheet, cash flow statement, KPI dashboard, and a forward-looking forecast view. If the sample is only historical reports, the engagement will be backward-looking.</p>
+
+     <p><strong>What technology infrastructure do you build on?</strong> A modern fractional CFO operates on top of integrated data &mdash; accounting system, operational systems, dashboards. The answer should reference specific tools, not generic phrases like "we use the latest technology."</p>
+
+     <p><strong>Have you operated inside a business at this stage and scale?</strong> Operator experience predicts whether the candidate can translate financial guidance into operationally executable recommendations. The Project Management Institute&rsquo;s <a href="https://www.pmi.org/about/press-media/2025/new-pmi-research-reveals-strategy-execution-gap-is-undermining-transformation-and-how-to-close-it" target="_blank" rel="noopener noreferrer">2025 strategy-execution research</a>, drawing on more than 5,800 professionals, found that 61% of executives acknowledge their firms struggle to bridge the gap between strategy formulation and execution. Operator experience is the difference between strategy that gets executed and strategy that does not.</p>
+
+     <p><strong>How is the engagement priced and scoped?</strong> The pricing structure should match the work. Monthly retainer for ongoing engagements. Defined fee for sprint engagements. Hourly billing without a defined scope is a red flag &mdash; it transfers scope risk to the buyer.</p>
+
+     <p><strong>Can you connect me with two existing clients?</strong> Reference checks with current clients &mdash; not former clients carefully selected &mdash; produce the most accurate picture of how the engagement actually runs.</p>
+
+     <h2>Step 5: Red Flags to Watch For</h2>
+
+     <p>Five signals predict an underperforming engagement.</p>
+
+     <p>The first is unscoped pricing. Hourly billing without a defined output, scope, or timeline transfers the financial risk of the engagement to the buyer. The fractional CFO model works because scope and price are bounded.</p>
+
+     <p>The second is generic outputs. Engagement proposals that promise "strategic financial leadership" without specifying what gets built, when, and at what cost are proposals to be paid for ambiguity. The work should be defined before the engagement starts.</p>
+
+     <p>The third is no operational integration. A fractional CFO who does not engage with the operations of the business &mdash; the team, the systems, the workflows that produce the financial result &mdash; is producing financial reports in isolation from the work that drives them. The reports will be accurate. They will not be useful.</p>
+
+     <p>The fourth is excessive scope expansion. A two-month engagement that drifts into a six-month engagement, or a sprint that absorbs ongoing retainer work without a renegotiated agreement, signals weak scope discipline. Strong fractional CFOs hold scope and recommend either a defined extension or a separate engagement.</p>
+
+     <p>The fifth is unwillingness to provide references. A fractional CFO with strong existing clients can produce two of them for a reference call. An unwillingness to provide references is itself a reference.</p>
+
+     <h2>Step 6: Set Up the First 90 Days for Success</h2>
+
+     <p>The first 90 days determine whether the engagement produces compounding value or stalls.</p>
+
+     <p>Weeks 1 and 2 are diagnostic. The fractional CFO should be assessing the financial infrastructure, the quality of the historical data, the current cash position, and the immediate decisions in front of the business. The output is a diagnostic memo identifying the gaps and the priorities.</p>
+
+     <p>Weeks 3 to 6 are infrastructure. The 13-week cash flow forecast, the KPI dashboard, the monthly reporting package, and the forecast model are built or rebuilt. By week 6, the business has the infrastructure to make forward-looking decisions.</p>
+
+     <p>Weeks 7 to 12 are decision support. The infrastructure is in place, and the engagement shifts to using it &mdash; supporting hiring decisions, pricing decisions, capital allocation decisions, and the ongoing strategic conversations that arise as the business operates.</p>
+
+     <p>A fractional CFO who is still building infrastructure at the 90-day mark is behind schedule. A fractional CFO who is producing only monthly reports at the 90-day mark is delivering compliance work, not strategic work.</p>
+
+     <h2>Step 7: Measure ROI</h2>
+
+     <p>Return on investment for a fractional CFO engagement is measurable, though the metrics differ from a typical hire.</p>
+
+     <p>The direct measure is decision quality. Hiring decisions, pricing decisions, and capital allocation decisions should be made with better information than before the engagement started. Specific examples should be visible within the first six months &mdash; a hire deferred because the cash forecast did not support it, a price increase implemented because the margin analysis surfaced the opportunity, a vendor contract renegotiated because the cost analysis identified the leverage point.</p>
+
+     <p>The indirect measures are operational. Cash position should be more predictable. Monthly closes should be faster and more accurate. The time the founder spends on financial questions should decrease while the quality of financial decisions increases. Each of these is a leading indicator of engagement value.</p>
+
+     <p>The cost benchmark is the alternative. The <a href="https://www.roberthalf.com/us/en/insights/salary-guide/finance-and-accounting" target="_blank" rel="noopener noreferrer">Robert Half 2026 Salary Guide for Finance and Accounting</a>, released in September 2025, projects starting salaries for a first-time CFO at $195,500, a CFO with moderate experience at $269,750, and an experienced CFO at $321,750 &mdash; with finance and accounting salaries projected to rise 2.1% year over year in 2026. Combined with the Datarails research showing that average CFO tenure at large U.S. public companies has fallen to 2.12 years with year-over-year turnover up 17%, the math for a growth-stage business is clear. A full-time CFO is expensive, hard to retain, and often over-scoped for a business between $1 million and $10 million in revenue. A fractional engagement at the right scope and scale delivers comparable strategic value at a fraction of the annual cost. If the engagement does not produce visible decision improvements within six months, the return on investment case is weak regardless of the cost comparison.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>How do I find a fractional CFO?</summary>
+         <p>The highest-quality candidates come from three sources &mdash; referrals from operators who have used a fractional CFO, fractional CFO firms with a partnership model and rigorous engagement scoping, and industry-specific advisor networks for businesses in defined verticals. LinkedIn, generic directories, and cold outreach produce candidates but transfer the diligence burden entirely to the buyer.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Does a fractional CFO need to be a CPA?</summary>
+         <p>No. A CPA credential signals depth in audit, tax, and compliance work, but not the work a growth-stage fractional CFO does day to day. The work is forecasting, scenario modeling, capital allocation, hiring decisions, and the operational integration of financial data. PwC&rsquo;s 2025 CFO Pulse Survey found that 58% of CFOs are focused on cash and liquidity forecasting and 65% are adjusting financial forecasts and budgets in response to market volatility &mdash; none of which are CPA-credential disciplines. Filter for operator experience inside a growth-stage business, not for the CPA letters. Many strong fractional CFOs are CPAs, but the credential should not be the primary filter.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What questions should I ask before hiring a fractional CFO?</summary>
+         <p>Six questions surface the information that matters: What is the specific output in the first 30 days? What does the monthly reporting package look like &mdash; can I see a sample? What technology infrastructure do you build on? Have you operated inside a business at this stage and scale? How is the engagement priced and scoped? Can you connect me with two existing clients for reference checks?</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What are red flags when hiring a fractional CFO?</summary>
+         <p>Five signals predict an underperforming engagement &mdash; hourly billing without defined outputs or scope, generic engagement proposals without specific outputs, no operational integration with the business, excessive scope expansion without renegotiated agreements, and unwillingness to provide client references. Strong fractional CFOs hold scope, define outputs in advance, and produce references on request.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How long does it take to onboard a fractional CFO?</summary>
+         <p>The first 90 days follow a defined arc. Weeks 1 to 2 are diagnostic &mdash; assessing financial infrastructure and immediate priorities. Weeks 3 to 6 are infrastructure build, in which the 13-week cash flow forecast, KPI dashboard, monthly reporting package, and forecast model are completed. Weeks 7 to 12 are decision support, in which the infrastructure is used for hiring, pricing, and capital allocation decisions.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How much does a fractional CFO cost compared to a full-time hire?</summary>
+         <p>The Robert Half 2026 Salary Guide projects starting compensation for a first-time CFO at $195,500, a CFO with moderate experience at $269,750, and an experienced CFO at $321,750 &mdash; base only, before benefits, payroll taxes, and equity. Datarails research from May 2026 found that average CFO tenure at large U.S. public companies is 2.12 years with year-over-year turnover up 17%. A growth-stage business hiring a full-time CFO commits to the full salary, the full ramp, and a real probability of turnover within the first three years. A fractional engagement delivers the strategic work at a fraction of that cost and without the retention risk.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Ready to Evaluate Fractional CFO Candidates?</h3>
+       <p>If your business is between $1 million and $10 million in revenue and you are evaluating fractional CFO candidates, the framework above is the same one we use to scope and structure engagements. Define the work first, filter for operator experience second, and run the diligence conversation as if scope discipline matters &mdash; because it is the single largest predictor of whether the engagement produces compounding value.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="fractional-cfo-cost">2026 Fractional CFO Pricing Guide</a></li>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="signs-you-need-a-fractional-cfo">7 Signs You Need a Fractional CFO</a></li>
+         <li><a href="why-fractional-cfo-not-cpa">Why a Fractional CFO Is Not a CPA</a></li>
+         <li><a href="fractional-cfo-vs-cpa">Fractional CFO vs CPA: What Is the Difference?</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
