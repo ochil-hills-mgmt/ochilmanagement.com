@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-vs-bookkeeper">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fractional CFO vs Bookkeeper: Which Does Your Business Need? | Ochil Hills</title>
+<meta name="description" content="A bookkeeper records your transactions. A fractional CFO turns them into strategy. Here's the difference, when you need each, and when you need both.">
+<meta property="og:title" content="Fractional CFO vs Bookkeeper: Which Does Your Business Actually Need?">
+<meta property="og:description" content="A bookkeeper records your transactions. A fractional CFO turns them into strategy. Here's the difference, when you need each, and when you need both.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-vs-bookkeeper">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fractional CFO vs Bookkeeper: Which Does Your Business Actually Need?">
+<meta name="twitter:description" content="A bookkeeper records your transactions. A fractional CFO turns them into strategy. Here's the difference, when you need each, and when you need both.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Fractional CFO vs Bookkeeper: Which Does Your Business Actually Need?",
+ "description": "A bookkeeper records your transactions. A fractional CFO turns them into strategy. Here's the difference, when you need each, and when you need both.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-05-15",
+ "dateModified": "2026-05-15",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-vs-bookkeeper"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {"@type":"Question","name":"What's the difference between a bookkeeper and a fractional CFO?","acceptedAnswer":{"@type":"Answer","text":"A bookkeeper records and categorizes financial transactions, reconciles accounts, and produces financial statements reflecting historical results. A fractional CFO analyzes those records, builds forward-looking financial models, and provides the strategic financial leadership that drives business decisions. One looks backward. The other looks forward."}},
+   {"@type":"Question","name":"Can a bookkeeper do CFO work?","acceptedAnswer":{"@type":"Answer","text":"No. Bookkeeping is a recording function. CFO work is a strategy function. Some bookkeeping firms offer packages labeled CFO services — these typically consist of enhanced monthly reporting and basic cash flow summaries. That is not the same as the driver-based forecasting, scenario planning, and strategic decision support that constitute genuine CFO-level financial leadership."}},
+   {"@type":"Question","name":"How much does a fractional CFO cost compared to a bookkeeper?","acceptedAnswer":{"@type":"Answer","text":"A bookkeeper for a small business typically costs $300 to $800 per month on an outsourced basis. A fractional CFO engagement for a $500K to $3M business typically runs $3,000 to $8,000 per month depending on scope. The cost difference reflects the difference in function: record-keeping versus strategic financial leadership."}},
+   {"@type":"Question","name":"Do I need a bookkeeper before hiring a fractional CFO?","acceptedAnswer":{"@type":"Answer","text":"Yes, in practice. A fractional CFO builds strategy and forecasts on top of accurate financial records. If the books are not current or reliable, the first step is accurate bookkeeping. Once that foundation is in place, a fractional CFO can immediately add value. Most fractional CFO engagements begin with a brief books review before transitioning to the forward-looking strategic work."}}
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+     <li class="header__nav-mobile-ctas">
+       <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+       <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+     </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing strategic financial growth" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Financial Strategy</p>
+   <h1 class="hero__title" style="max-width:26ch;">Fractional CFO vs Bookkeeper: Which Does Your Business Actually Need?</h1>
+   <p class="hero__subtitle">Two Roles, Two Functions &mdash; and the Moment Each One Becomes the Right Answer</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-05-15">May 15, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">5 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: May 15, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>A bookkeeper records and categorizes your financial transactions. A fractional CFO turns those records into strategy &mdash; forecasting what comes next, identifying financial risks before they materialize, and ensuring your business finances are aligned with your growth goals. Most businesses at the $500K revenue stage need both.</p>
+     </div>
+
+     <p>Most small business owners hire a bookkeeper when the financial complexity of the business exceeds what they can manage personally. That is the right decision. The mistake is assuming the bookkeeper covers the full scope of financial management. Recording what happened is not the same as planning what comes next. The gap between those two functions is where growing businesses either build an advantage or accumulate undetected financial risk.</p>
+
+     <h2>What Does a Bookkeeper Do?</h2>
+
+     <p>A bookkeeper's job is to maintain accurate, current financial records for the business. That work is foundational &mdash; every other financial function depends on it being done well.</p>
+
+     <p>A bookkeeper records revenue and expenses as transactions occur, reconciles bank and credit card accounts monthly, manages accounts payable and receivable, coordinates payroll, and produces the income statement and balance sheet that reflect what the business earned and spent. The <a href="https://www.bls.gov/ooh/business-and-financial/bookkeeping-accounting-and-auditing-clerks.htm" target="_blank" rel="noopener noreferrer">Bureau of Labor Statistics</a> reports that bookkeeping, accounting, and auditing clerks earn a median annual wage of $47,440. An experienced bookkeeper working 10&ndash;15 hours per month for a small business typically costs $400&ndash;$700 per month on an outsourced basis.</p>
+
+     <p>What a bookkeeper does not do is analyze what those records mean, forecast what comes next, or provide decision support for strategic financial choices. That is not a limitation &mdash; it is a scope definition. The bookkeeper's job is to ensure the data is accurate. Building strategy on top of that data is a separate function.</p>
+
+     <h2>What Does a Fractional CFO Do?</h2>
+
+     <p>A fractional CFO provides the financial leadership that translates accurate records into forward-looking strategy. The starting point is always what the bookkeeper has already recorded &mdash; but the work goes substantially further.</p>
+
+     <p>A fractional CFO builds driver-based financial forecasts: 12&ndash;18 month projections tied to actual business activity rather than historical averages. The fractional CFO designs and manages cash flow systems so the business knows its cash position weeks in advance rather than discovering gaps after the fact. Client and product profitability analysis identifies where margin is strong and where it is not. Capital allocation decisions, growth investment modeling, hiring impact analysis, and scenario planning for major business decisions all fall within the fractional CFO's scope.</p>
+
+     <p>The distinction is orientation. A bookkeeper looks backward at what happened. A fractional CFO looks forward at what happens next &mdash; and builds the models that make those outcomes manageable rather than reactive.</p>
+
+     <h2>Fractional CFO vs Bookkeeper: Side-by-Side</h2>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th></th>
+             <th>Bookkeeper</th>
+             <th>Fractional CFO</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><strong>Focus</strong></td>
+             <td>Recording and organizing transactions</td>
+             <td>Strategic financial planning and decision support</td>
+           </tr>
+           <tr>
+             <td><strong>Time orientation</strong></td>
+             <td>Backward-looking (what happened)</td>
+             <td>Forward-looking (what comes next)</td>
+           </tr>
+           <tr>
+             <td><strong>Decision impact</strong></td>
+             <td>None &mdash; reporting function only</td>
+             <td>High &mdash; drives hiring, investment, and growth decisions</td>
+           </tr>
+           <tr>
+             <td><strong>Typical monthly cost</strong></td>
+             <td>$300&ndash;$800</td>
+             <td>$3,000&ndash;$8,000</td>
+           </tr>
+           <tr>
+             <td><strong>Best for</strong></td>
+             <td>All businesses at any revenue stage</td>
+             <td>Growing businesses at $500K+ in revenue</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <h2>When You Need Just a Bookkeeper</h2>
+
+     <p>A bookkeeper is sufficient when revenue is below $300K&ndash;$400K with simple, predictable transactions; there are no immediate plans for growth, capital raises, or major strategic decisions; the business operates a single revenue stream with stable costs; and financial decisions are routine and low-stakes.</p>
+
+     <p>At this stage, a bookkeeper plus a CPA for annual tax filing covers most financial management needs. Adding fractional CFO services before the complexity warrants it adds cost without proportionate value. The inflection point comes when decisions outpace what the historical record can answer.</p>
+
+     <h2>When You Need a Fractional CFO</h2>
+
+     <p>A fractional CFO becomes the right addition when revenue is at $500K or above and the business is growing &mdash; or intends to. Other indicators: cash flow is unpredictable and gaps appear after the fact rather than being forecast weeks in advance; hiring, investment, or expansion decisions are being made without financial models; the business is preparing to raise capital, take on significant debt, or plan an exit; the bookkeeper produces accurate financial statements and no one is analyzing what they mean for future decisions; or the business generates data across multiple systems and no one is connecting it into a coherent financial picture.</p>
+
+     <p>See our full guide to <a href="signs-you-need-a-fractional-cfo">10 signs your business needs a fractional CFO</a> for a self-assessment checklist.</p>
+
+     <h2>When You Need Both</h2>
+
+     <p>This is the most common situation for the businesses OHM works with. A bookkeeper manages the transaction layer with precision. A fractional CFO builds the strategic financial layer on top of that accurate foundation. The roles are complementary by design, not competitive.</p>
+
+     <p>A fractional CFO cannot build reliable forecasts on inaccurate or incomplete books. The first step in any new OHM engagement is a review of existing financial records &mdash; not because bookkeepers do poor work, but because the quality of the strategic analysis is only as good as the data it relies on. If the books are not current or accurate, that is the starting point. Once they are, the fractional CFO layer becomes immediately actionable.</p>
+
+     <p>The bookkeeper's job is to ensure the data is accurate. The fractional CFO's job is to ensure the business knows what to do with it.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What's the difference between a bookkeeper and a fractional CFO?</summary>
+         <p>A bookkeeper records and categorizes financial transactions, reconciles accounts, and produces financial statements reflecting historical results. A fractional CFO analyzes those records, builds forward-looking financial models, and provides the strategic financial leadership that drives business decisions. One looks backward. The other looks forward.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Can a bookkeeper do CFO work?</summary>
+         <p>No. Bookkeeping is a recording function. CFO work is a strategy function. Some bookkeeping firms offer packages labeled &ldquo;CFO services&rdquo; &mdash; these typically consist of enhanced monthly reporting and basic cash flow summaries. That is not the same as the driver-based forecasting, scenario planning, and strategic decision support that constitute genuine CFO-level financial leadership.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How much does a fractional CFO cost compared to a bookkeeper?</summary>
+         <p>A bookkeeper for a small business typically costs $300 to $800 per month on an outsourced basis. A fractional CFO engagement for a $500K to $3M business typically runs $3,000 to $8,000 per month depending on scope. For a full breakdown by revenue stage and pricing model, see our guide to <a href="fractional-cfo-cost">how much a fractional CFO costs</a>.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>Do I need a bookkeeper before hiring a fractional CFO?</summary>
+         <p>Yes, in practice. A fractional CFO builds strategy and forecasts on top of accurate financial records. If the books are not current or reliable, the first step is accurate bookkeeping. Once that foundation is in place, a fractional CFO can immediately add value. Most fractional CFO engagements begin with a brief books review before transitioning to forward-looking strategic work.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Your Business Has the Data. Do You Have the Strategy?</h3>
+       <p>If your business is generating revenue above $500K and your financial records are being maintained but not analyzed &mdash; that is the gap a fractional CFO fills. We build the forward-looking financial infrastructure that turns accurate books into decision intelligence.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+         <li><a href="fractional-cfo-vs-cpa">Fractional CFO vs CPA: A Complete Comparison</a></li>
+         <li><a href="signs-you-need-a-fractional-cfo">10 Signs Your Business Needs a Fractional CFO</a></li>
+         <li><a href="fractional-cfo-cost">How Much Does a Fractional CFO Cost? 2026 Pricing Guide</a></li>
+         <li><a href="cash-flow-management-small-business">Cash Flow Management for Small Business</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
