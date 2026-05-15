@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', function() {
       var revenue = document.getElementById('revenue');
       var services = [];
-      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]  :checked').forEach(function(cb) {
         services.push(cb.value);
       });
       gtag('event', 'form_submission', {
@@ -182,7 +182,8 @@ document.addEventListener('DOMContentLoaded', function() {
    {"@type":"BlogPosting","headline":"Why Your Fractional CFO Doesn't Need to Be a CPA","url":"https://ochilmanagement.com/blog/why-fractional-cfo-not-cpa"},
    {"@type":"BlogPosting","headline":"Fractional CFO for Marketing Agencies: The Financial Strategy Guide for Agency Owners","url":"https://ochilmanagement.com/blog/fractional-cfo-for-marketing-agencies"},
    {"@type":"BlogPosting","headline":"The Power of Integrated C-Suite Leadership for SMBs","url":"https://ochilmanagement.com/blog/integrated-c-suite-leadership-smb"},
-   {"@type":"BlogPosting","headline":"What Is a CFO Strategic Sprint?","url":"https://ochilmanagement.com/blog/cfo-strategic-sprint"}
+   {"@type":"BlogPosting","headline":"What Is a CFO Strategic Sprint?","url":"https://ochilmanagement.com/blog/cfo-strategic-sprint"},
+   {"@type":"BlogPosting","headline":"Financial Forecasting for Small Business: How to Stop Guessing and Start Planning","url":"https://ochilmanagement.com/blog/financial-forecasting-small-business"}
  ]
 }
 </script>
@@ -320,6 +321,13 @@ document.addEventListener('DOMContentLoaded', function() {
      <p class="insight-card__tag">Strategic Sprints</p>
      <h3 class="insight-card__title">What Is a CFO Strategic Sprint?</h3>
      <p class="insight-card__excerpt">One specific financial challenge. Fixed scope. 2 to 6 weeks. How a sprint differs from a fractional CFO retainer &mdash; and the five most common sprint types explained.</p>
+     <span class="insight-card__read-more">Read Article</span>
+   </a>
+
+   <a href="../blog/financial-forecasting-small-business" class="insight-card insight-card--published">
+     <p class="insight-card__tag">Financial Strategy</p>
+     <h3 class="insight-card__title">Financial Forecasting for Small Business: How to Stop Guessing and Start Planning</h3>
+     <p class="insight-card__excerpt">Cash flow timing, not insufficient revenue, is what stalls growing businesses. Learn the 3 forecast types every business needs and how to build a 12-month model.</p>
      <span class="insight-card__read-more">Read Article</span>
    </a>
  </div>
