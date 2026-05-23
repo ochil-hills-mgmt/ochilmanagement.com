@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<meta charset="UTF-8">
+<link rel="canonical" href="https://ochilmanagement.com/blog/financial-reporting-small-business">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Financial Reporting for Small Business: How to Read Your Numbers | Ochil Hills</title>
+<meta name="description" content="The income statement, balance sheet, and cash flow statement each answer a different question about your business. Learn how to read all three and what decisions they should drive.">
+<meta property="og:title" content="Financial Reporting for Small Business: How to Read Your Numbers and Use Them">
+<meta property="og:description" content="The income statement, balance sheet, and cash flow statement each answer a different question about your business. Learn how to read all three and what decisions they should drive.">
+<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:url" content="https://ochilmanagement.com/blog/financial-reporting-small-business">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Financial Reporting for Small Business: How to Read Your Numbers and Use Them">
+<meta name="twitter:description" content="The income statement, balance sheet, and cash flow statement each answer a different question about your business. Learn how to read all three and what decisions they should drive.">
+<meta name="twitter:image" content="../images/hero-services.webp">
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Financial Reporting for Small Business: How to Read Your Numbers and Use Them",
+ "description": "The income statement, balance sheet, and cash flow statement each answer a different question about your business. Learn how to read all three and what decisions they should drive.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://www.ochilmanagement.com"
+ },
+ "datePublished": "2026-05-23",
+ "dateModified": "2026-05-23",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/financial-reporting-small-business"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {"@type":"Question","name":"What are the three main financial statements for a small business?","acceptedAnswer":{"@type":"Answer","text":"The three core financial statements are the income statement (also called the profit and loss, or P&L), the balance sheet, and the statement of cash flows. The income statement shows profitability over a period of time. The balance sheet shows what the business owns and owes at a specific point in time. The cash flow statement shows where cash actually came from and went during a period, regardless of when revenue was earned or expenses were incurred under accrual accounting."}},
+   {"@type":"Question","name":"How often should a small business review its financial reports?","acceptedAnswer":{"@type":"Answer","text":"Monthly at minimum, with reports completed and reviewed within 10 business days of the month-end close. Businesses managing tight cash positions should review cash flow weekly. Waiting until tax season to look at financials means operating 60 to 90 days behind — decisions are being made on stale or missing information throughout the year."}},
+   {"@type":"Question","name":"What is the difference between an income statement and a cash flow statement?","acceptedAnswer":{"@type":"Answer","text":"The income statement records revenue when it is earned and expenses when they are incurred, regardless of when cash actually moves — this is accrual accounting. The cash flow statement records when cash physically changed hands. A business can show strong net income on the income statement while simultaneously having negative cash flow — because clients have not yet paid, because the business is growing fast and incurring costs before revenue is collected, or because significant cash is being used to service debt or fund capital purchases. Reading both reports together is the only way to see the complete financial picture."}},
+   {"@type":"Question","name":"What financial ratios should a small business track?","acceptedAnswer":{"@type":"Answer","text":"The most important ratios for a small business are gross profit margin (delivery efficiency before overhead), net profit margin (overall profitability), current ratio (ability to meet short-term obligations), days sales outstanding (invoice collection speed), and operating cash flow margin (quality of cash generation relative to revenue). Track these monthly and compare each period to the prior period and to your budget or forecast — a single period's ratio tells you less than the trend over time."}},
+   {"@type":"Question","name":"What does a fractional CFO do with financial reports that a bookkeeper does not?","acceptedAnswer":{"@type":"Answer","text":"A bookkeeper produces financial reports accurately. A fractional CFO reads them analytically — comparing to prior periods, benchmarking margins against industry norms, identifying anomalies that warrant investigation, and translating findings into specific operational decisions. The difference is between a report produced for compliance and a report used as a management tool. If your financial reports are reviewed once and filed rather than used to drive decisions, they are functioning as the former."}}
+ ]
+}
+</script>
+</head>
+<body>
+
+<header class="header">
+ <div class="header__inner">
+ <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+ </a>
+ <nav class="header__nav" aria-label="Primary navigation">
+   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <ul class="header__nav-list" role="list">
+     <li><a href="../" class="header__nav-link">Home</a></li>
+     <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+     <li><a href="../pages/about" class="header__nav-link">About</a></li>
+     <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+     <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+     <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+     <li class="header__nav-mobile-ctas">
+       <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+       <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+     </li>
+   </ul>
+ </nav>
+ <div class="header__actions">
+   <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+   <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+   <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+ </div>
+ </div>
+</header>
+
+<section class="hero hero--sub">
+ <div class="hero__bg">
+   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing strategic financial growth" loading="eager"></picture>
+ </div>
+ <div class="hero__overlay"></div>
+ <div class="hero__content">
+   <p class="hero__badge">Financial Strategy</p>
+   <h1 class="hero__title" style="max-width:26ch;">Financial Reporting for Small Business: How to Read Your Numbers and Use Them</h1>
+   <p class="hero__subtitle">Turn Your Monthly Reports Into Management Tools</p>
+ </div>
+</section>
+
+<article class="article">
+ <div class="article__container">
+
+   <div class="article__meta">
+     <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+     <span class="article__sep">&bull;</span>
+     <time class="article__date" datetime="2026-05-23">May 23, 2026</time>
+     <span class="article__sep">&bull;</span>
+     <span class="article__read-time">7 min read</span>
+     <span class="article__sep">&bull;</span>
+     <span class="article__last-updated">Last updated: May 23, 2026</span>
+   </div>
+
+   <div class="article__body">
+
+     <div class="article__answer-capsule">
+       <p>The three core financial reports every small business produces &mdash; income statement, balance sheet, and cash flow statement &mdash; each answer a different question. The income statement shows whether your business was profitable in a period. The balance sheet shows what it owns and owes at a point in time. The cash flow statement shows where cash actually came from and went. Reading all three together is what converts accounting data into decisions.</p>
+     </div>
+
+     <p>Most small business owners see their financial reports twice a year: when the bookkeeper sends the monthly package they scroll past, and in February when the accountant prepares taxes. Neither moment is the point. Financial reports are decision tools. A monthly income statement reviewed 45 days after close and filed without analysis is not a management tool &mdash; it is a compliance artifact.</p>
+
+     <p>The Federal Reserve&rsquo;s <a href="https://www.fedsmallbusiness.org/reports/survey/2025/2025-report-on-employer-firms" target="_blank" rel="noopener noreferrer">2024 Small Business Credit Survey</a>, covering 7,653 small employer firms, found that 51% cited cash flow challenges as a financial problem &mdash; despite the fact that most of those businesses are producing monthly financial reports that, read correctly, would make the timing of those cash gaps predictable and actionable weeks in advance. The reports exist. The reading does not.</p>
+
+     <p>This guide explains what each of the three core financial statements actually shows, the key ratios to track within each, the most common reporting mistakes at the small business level, and when your financial reports require a CFO to become genuinely useful.</p>
+
+     <h2>Why Financial Reports Are Not Just for Tax Season</h2>
+
+     <p>Financial reports serve three distinct functions, none of which is primarily about tax compliance. First, they are the operating scorecard: the income statement tells you whether the business produced a profit in a given period and at what margins. Second, they are the balance sheet: a snapshot of what the business owns, what it owes, and the residual value that belongs to the owner. Third, they are the cash record: the statement of cash flows shows the actual movement of cash independent of the accrual accounting that drives the income statement.</p>
+
+     <p>These three reports answer three different questions about the same business. A business owner who reads only the income statement sees one third of the picture. A business that generated $80,000 in revenue last month, posted a $14,000 net profit, has $3,200 in the bank, and carries $52,000 in current liabilities is not in the financial position the income statement alone suggests. The balance sheet and the cash flow statement provide the context the income statement cannot.</p>
+
+     <p>A business that reviews financial reports monthly, within ten business days of close, and compares them to the prior period and to the annual budget or forecast is operating with a meaningful information advantage over a business that waits for tax season. The decisions about whether to hire, whether to invest in equipment, whether to extend credit to a customer &mdash; those decisions are higher-quality when they are grounded in current, understood financial data.</p>
+
+     <h2>The Three Core Financial Statements</h2>
+
+     <h3>The Income Statement (Profit &amp; Loss)</h3>
+
+     <p>The income statement reports revenue, cost of goods sold or cost of services delivered, gross profit, operating expenses, and net income over a defined time period &mdash; typically a month, quarter, or year. It answers the question: did the business make a profit in this period, and at what margin?</p>
+
+     <p><strong>Key metrics from the income statement:</strong></p>
+     <ul>
+       <li><strong>Gross profit margin:</strong> gross profit divided by revenue. Measures how efficiently the business delivers its product or service before accounting for overhead. A declining gross margin over time indicates rising delivery costs, pricing pressure, or both.</li>
+       <li><strong>Net profit margin:</strong> net income divided by revenue. The percentage of each revenue dollar that becomes profit after all expenses.</li>
+       <li><strong>Operating expense ratio:</strong> total operating expenses divided by revenue. Indicates whether overhead is scaling proportionally with revenue &mdash; a ratio that rises as revenue grows signals cost structure problems.</li>
+     </ul>
+
+     <p><strong>The most common mistake with the income statement</strong> is reading it in isolation. A business can show strong net income while simultaneously having a worsening cash position &mdash; if it is growing rapidly, carrying long receivables cycles, or servicing debt with significant principal payments. Net income is an accrual concept. Cash is not. The income statement cannot tell you whether you can make payroll next Friday.</p>
+
+     <h3>The Balance Sheet</h3>
+
+     <p>The balance sheet is a snapshot of the business&rsquo;s financial position at a single point in time. It has three sections, linked by the accounting equation: <strong>Assets = Liabilities + Equity</strong>.</p>
+
+     <ul>
+       <li><strong>Assets:</strong> everything the business owns or is owed, organized by liquidity. Current assets &mdash; cash, accounts receivable, prepaid expenses &mdash; are expected to convert to cash within 12 months. Long-term assets &mdash; equipment, leasehold improvements, intellectual property &mdash; are held for longer.</li>
+       <li><strong>Liabilities:</strong> everything the business owes, organized by due date. Current liabilities &mdash; accounts payable, accrued expenses, short-term debt &mdash; are due within 12 months. Long-term liabilities are due beyond that horizon.</li>
+       <li><strong>Equity:</strong> the residual &mdash; assets minus liabilities &mdash; representing the owner&rsquo;s stake in the business. In an S-corp or LLC, this includes contributed capital, retained earnings, and the net effect of current-year activity.</li>
+     </ul>
+
+     <p><strong>Key balance sheet ratios:</strong></p>
+     <ul>
+       <li><strong>Current ratio:</strong> current assets divided by current liabilities. A ratio above 1.5 indicates that short-term obligations can be met comfortably from current resources.</li>
+       <li><strong>Quick ratio:</strong> current assets minus inventory, divided by current liabilities. A stricter liquidity test that excludes inventory &mdash; important for businesses with slow-moving or illiquid stock.</li>
+       <li><strong>Accounts receivable as a percentage of revenue:</strong> if AR is growing faster than revenue, customers are taking longer to pay &mdash; a leading indicator of cash flow stress.</li>
+     </ul>
+
+     <h3>The Statement of Cash Flows</h3>
+
+     <p>The cash flow statement shows the actual movement of cash in and out of the business during a period, organized into three categories:</p>
+     <ul>
+       <li><strong>Operating activities:</strong> cash generated or consumed by core business operations. This is the most important section for a small business &mdash; it shows whether the fundamental business model generates cash.</li>
+       <li><strong>Investing activities:</strong> cash spent on or received from assets (equipment purchases, asset sales). Negative investing cash flow is normal for a growing business; it reflects capital reinvestment.</li>
+       <li><strong>Financing activities:</strong> cash from or to lenders and owners &mdash; loan proceeds, debt repayments, owner draws, capital contributions.</li>
+     </ul>
+
+     <p>The statement reconciles net income to actual cash change. A profitable business with negative operating cash flow is consuming cash faster than it is generating it &mdash; a pattern that is unsustainable unless funded by debt or equity. The <a href="https://www.bls.gov/bdm/entrepreneurship/entrepreneurship.htm" target="_blank" rel="noopener noreferrer">Bureau of Labor Statistics</a> reports that 20.4% of businesses fail in their first year and only 34.7% remain after ten years. Cash flow problems &mdash; not insufficient revenue &mdash; are the primary operational cause. The cash flow statement is the only standard financial report that makes cash-versus-profit divergence visible.</p>
+
+     <h2>Key Financial Reporting Ratios and Metrics</h2>
+
+     <div class="article__table-wrap">
+       <table class="article__table">
+         <thead>
+           <tr>
+             <th>Metric</th>
+             <th>Formula</th>
+             <th>What It Tells You</th>
+             <th>Target</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td><strong>Gross Profit Margin</strong></td>
+             <td>Gross Profit &divide; Revenue</td>
+             <td>Delivery efficiency before overhead</td>
+             <td>Stable or improving; benchmark to industry</td>
+           </tr>
+           <tr>
+             <td><strong>Net Profit Margin</strong></td>
+             <td>Net Income &divide; Revenue</td>
+             <td>Overall profitability after all costs</td>
+             <td>Positive; improving trend over time</td>
+           </tr>
+           <tr>
+             <td><strong>Current Ratio</strong></td>
+             <td>Current Assets &divide; Current Liabilities</td>
+             <td>Ability to meet short-term obligations</td>
+             <td>Above 1.5</td>
+           </tr>
+           <tr>
+             <td><strong>Quick Ratio</strong></td>
+             <td>(Current Assets &minus; Inventory) &divide; Current Liabilities</td>
+             <td>Strict liquidity excluding inventory</td>
+             <td>Above 1.0</td>
+           </tr>
+           <tr>
+             <td><strong>Days Sales Outstanding</strong></td>
+             <td>(AR &divide; Revenue) &times; Days in Period</td>
+             <td>Average days to collect an invoice</td>
+             <td>At or below stated payment terms</td>
+           </tr>
+           <tr>
+             <td><strong>Operating Cash Flow Margin</strong></td>
+             <td>Operating Cash Flow &divide; Revenue</td>
+             <td>Quality of cash generation from operations</td>
+             <td>Positive; at or above net margin for mature businesses</td>
+           </tr>
+         </tbody>
+       </table>
+     </div>
+
+     <p>Track these monthly and compare each period to the prior period and to your budget or forecast. A single period&rsquo;s ratio is a data point. The trend over six to twelve months is the signal.</p>
+
+     <h2>Common Financial Reporting Mistakes Small Businesses Make</h2>
+
+     <p><strong>1. Reviewing reports too late.</strong> A monthly income statement reviewed on day 45 of the following month is 45 days stale. By the time the report is in hand, decisions that could have been influenced by it have already been made. Target: financial close completed and reports reviewed within 10 business days of month-end. This requires accurate, current bookkeeping &mdash; which is a prerequisite, not a given.</p>
+
+     <p><strong>2. Not reconciling to the bank.</strong> Bank reconciliation is not optional. Without it, the cash balance on the balance sheet may not match actual cash available, and the income statement may include transactions that have not cleared. An unreconciled set of books is producing numbers that cannot be trusted for decisions. Reconcile monthly at minimum; weekly is better for high-transaction businesses.</p>
+
+     <p><strong>3. Treating the income statement as the only report.</strong> Profit is not cash. A business that evaluates its financial health exclusively by net income will be surprised by cash constraints that were entirely predictable on the cash flow statement. All three reports are required to form a complete picture.</p>
+
+     <p><strong>4. Not comparing to a prior period or budget.</strong> A standalone income statement tells you whether the business was profitable. Comparing it to the same month last year, to the prior month, and to the budget or forecast tells you whether performance is improving, deteriorating, or tracking to plan. Without a benchmark, the number has no context.</p>
+
+     <p><strong>5. Misclassifying expenses.</strong> An owner draw recorded as a business expense overstates costs and understates profit. A capital expenditure treated as an operating expense distorts both the income statement and the balance sheet. These errors compound over time and produce financial reports that misrepresent the business&rsquo;s actual position. Consistent, accurate classification is a bookkeeping discipline that cannot be corrected retroactively at tax time without significant rework.</p>
+
+     <h2>When Financial Reports Need a CFO to Be Useful</h2>
+
+     <p>A bookkeeper produces financial reports. A CFO reads them and converts them into decisions. The distinction becomes operationally important when the business&rsquo;s financial complexity exceeds what a non-finance operator can translate into action.</p>
+
+     <p>For a business at $500K to $3M in revenue, the financial reports might show a 21% net margin without indicating whether that is strong or weak for the industry, or whether it is sustainable as revenue grows. The balance sheet might show $175,000 in accounts receivable without indicating how much of that is actually collectible. Operating cash flow might have been negative last quarter despite strong net income &mdash; and without understanding why, the business cannot address the root cause.</p>
+
+     <p>These are not accounting problems. They are analysis problems. They require someone who understands what the numbers mean in context, not just how to produce them. A fractional CFO reads your financial reports, benchmarks them against relevant industry data, identifies the anomalies worth investigating, and translates the findings into specific decisions: adjust pricing, accelerate collections, defer a hiring decision, or establish a credit facility before the next trough.</p>
+
+     <p>If your financial reports are produced monthly but not driving any specific decisions, they are functioning as compliance artifacts. For more on how financial intelligence operates as a management tool, see our guide to <a href="data-driven-fractional-cfo">data-driven financial management</a> and our overview of <a href="signs-you-need-a-fractional-cfo">10 signs your business needs a fractional CFO</a>.</p>
+
+     <p>For context on how to build the forward-looking complement to these historical reports, see our guides to <a href="financial-forecasting-small-business">financial forecasting for small businesses</a> and <a href="cash-flow-management-small-business">cash flow management</a>.</p>
+
+     <h2>Frequently Asked Questions</h2>
+
+     <div class="article__faq">
+       <details class="article__faq-item">
+         <summary>What are the three main financial statements for a small business?</summary>
+         <p>The three core financial statements are the income statement (also called the profit and loss, or P&amp;L), the balance sheet, and the statement of cash flows. The income statement shows profitability over a period of time. The balance sheet shows what the business owns and owes at a specific point in time. The cash flow statement shows where cash actually came from and went during a period, regardless of when revenue was earned or expenses were incurred under accrual accounting.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>How often should a small business review its financial reports?</summary>
+         <p>Monthly at minimum, with reports completed and reviewed within 10 business days of the month-end close. Businesses managing tight cash positions should review cash flow weekly. Waiting until tax season to look at financials means making decisions throughout the year on information that is 60 to 90 days stale &mdash; or missing entirely.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What is the difference between an income statement and a cash flow statement?</summary>
+         <p>The income statement records revenue when it is earned and expenses when they are incurred, regardless of when cash actually moves &mdash; this is accrual accounting. The cash flow statement records when cash physically changed hands. A business can show strong net income and negative cash flow in the same period &mdash; because clients have not yet paid, because the business is growing fast and incurring costs before revenue is collected, or because significant cash is being used to service debt. Reading both reports together is the only way to see the complete financial picture.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What financial ratios should a small business track?</summary>
+         <p>The most important ratios are gross profit margin (delivery efficiency before overhead), net profit margin (overall profitability), current ratio (ability to meet short-term obligations), days sales outstanding (invoice collection speed), and operating cash flow margin (quality of cash generation relative to revenue). Track these monthly and compare each period to the prior period and to your budget or forecast &mdash; a single period&rsquo;s ratio is a data point; the trend over time is the signal.</p>
+       </details>
+
+       <details class="article__faq-item">
+         <summary>What does a fractional CFO do with financial reports that a bookkeeper does not?</summary>
+         <p>A bookkeeper produces financial reports accurately. A fractional CFO reads them analytically &mdash; comparing to prior periods, benchmarking margins against industry norms, identifying anomalies that warrant investigation, and translating findings into specific operational decisions. The difference is between a report produced for compliance and a report used as a management tool. If your financial reports are reviewed once and filed rather than used to drive decisions, they are functioning as the former.</p>
+       </details>
+     </div>
+
+     <div class="article__cta-box">
+       <h3>Your Financial Reports Should Drive Decisions &mdash; Not Just Satisfy Your Accountant</h3>
+       <p>If your business is between $500K and $7M in revenue and your monthly financial reports are not consistently driving specific operational decisions, the reports are functioning as compliance rather than management. We build the analytical layer that converts accounting data into decision intelligence.</p>
+       <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+     </div>
+
+   </div>
+
+   <aside class="article__sidebar">
+     <div class="article__sidebar-card">
+       <h4>Related Articles</h4>
+       <ul>
+         <li><a href="financial-forecasting-small-business">Financial Forecasting for Small Business</a></li>
+         <li><a href="cash-flow-management-small-business">Cash Flow Management for Small Business</a></li>
+         <li><a href="fractional-cfo-vs-bookkeeper">Fractional CFO vs Bookkeeper: Which Do You Need?</a></li>
+         <li><a href="signs-you-need-a-fractional-cfo">10 Signs Your Business Needs a Fractional CFO</a></li>
+         <li><a href="data-driven-fractional-cfo">The Data-Driven Fractional CFO</a></li>
+       </ul>
+     </div>
+     <div class="article__sidebar-card">
+       <h4>Services</h4>
+       <ul>
+         <li><a href="../pages/services">Fractional CFO</a></li>
+         <li><a href="../pages/services">Fractional COO</a></li>
+         <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+       </ul>
+     </div>
+   </aside>
+
+ </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
