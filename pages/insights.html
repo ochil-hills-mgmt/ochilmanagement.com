@@ -17,7 +17,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
 
-  // ─── CTA Click Tracking ───
   document.querySelectorAll('a.btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       gtag('event', 'cta_click', {
@@ -29,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ─── Contact Form Submission Tracking ───
   var contactForm = document.getElementById('contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function() {
@@ -44,93 +42,61 @@ document.addEventListener('DOMContentLoaded', function() {
         revenue_range: revenue ? revenue.value : 'not_specified',
         services_interested: services.join(', ') || 'not_specified'
       });
-      gtag('event', 'generate_lead', {
-        currency: 'USD',
-        value: 1
-      });
+      gtag('event', 'generate_lead', { currency: 'USD', value: 1 });
     });
   }
 
-  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
   var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
   window.addEventListener('scroll', function() {
     var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
     [25, 50, 75, 100].forEach(function(marker) {
       if (scrollPct >= marker && !scrollMarkers[marker]) {
         scrollMarkers[marker] = true;
-        gtag('event', 'scroll_depth', {
-          event_category: 'engagement',
-          event_label: marker + '_percent',
-          percent_scrolled: marker
-        });
+        gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker });
       }
     });
   });
 
-  // ─── Blog Article Engagement ───
   var articleContent = document.querySelector('article, .blog-content, .article-content');
   if (articleContent) {
-    var timeMarkers = [30, 60, 120, 300];
-    var startTime = Date.now();
-    timeMarkers.forEach(function(seconds) {
+    [30, 60, 120, 300].forEach(function(seconds) {
       setTimeout(function() {
         if (!document.hidden) {
-          gtag('event', 'article_engagement', {
-            event_category: 'content',
-            event_label: document.title,
-            time_on_page: seconds
-          });
+          gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds });
         }
       }, seconds * 1000);
     });
   }
 
-  // ─── External Link Tracking ───
   document.querySelectorAll('a[href^="http"]').forEach(function(link) {
     if (!link.href.includes('ochilmanagement.com')) {
       link.addEventListener('click', function() {
-        gtag('event', 'outbound_click', {
-          event_category: 'engagement',
-          event_label: this.href,
-          link_text: this.textContent.trim()
-        });
+        gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() });
       });
     }
   });
 
-  // ─── Phone/Email Click Tracking ───
   document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
     link.addEventListener('click', function() {
       var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
-      gtag('event', type, {
-        event_category: 'conversion',
-        event_label: this.href
-      });
+      gtag('event', type, { event_category: 'conversion', event_label: this.href });
     });
   });
 
-  // ─── FAQ Accordion Tracking ───
   document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
     faq.addEventListener('click', function() {
       var question = this.querySelector('summary, .faq-question, h3, h4');
       if (question) {
-        gtag('event', 'faq_interaction', {
-          event_category: 'engagement',
-          event_label: question.textContent.trim().substring(0, 100)
-        });
+        gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) });
       }
     });
   });
 
-  // ─── Service Tier Interest Tracking ───
   document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
     card.addEventListener('click', function() {
       var tierName = this.querySelector('h2, h3, .tier-name');
       if (tierName) {
-        gtag('event', 'service_tier_view', {
-          event_category: 'interest',
-          event_label: tierName.textContent.trim()
-        });
+        gtag('event', 'service_tier_view', { event_category: 'interest', event_label: tierName.textContent.trim() });
       }
     });
   });
@@ -186,7 +152,8 @@ document.addEventListener('DOMContentLoaded', function() {
    {"@type":"BlogPosting","headline":"Financial Forecasting for Small Business: How to Stop Guessing and Start Planning","url":"https://ochilmanagement.com/blog/financial-forecasting-small-business"},
    {"@type":"BlogPosting","headline":"Fractional CFO vs Bookkeeper: Which Does Your Business Actually Need?","url":"https://ochilmanagement.com/blog/fractional-cfo-vs-bookkeeper"},
    {"@type":"BlogPosting","headline":"Cash Flow Management for Small Business: The Complete Practical Guide","url":"https://ochilmanagement.com/blog/cash-flow-management-small-business"},
-   {"@type":"BlogPosting","headline":"Financial Reporting for Small Business: How to Read Your Numbers and Use Them","url":"https://ochilmanagement.com/blog/financial-reporting-small-business"}
+   {"@type":"BlogPosting","headline":"Financial Reporting for Small Business: How to Read Your Numbers and Use Them","url":"https://ochilmanagement.com/blog/financial-reporting-small-business"},
+   {"@type":"BlogPosting","headline":"How to Find and Hire a Fractional CFO: A Practical Guide for Business Owners","url":"https://ochilmanagement.com/blog/how-to-hire-a-fractional-cfo"}
  ]
 }
 </script>
@@ -217,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
  <div class="header__actions">
    <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
    <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
-    <a href="contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+   <a href="contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
  </div>
  </div>
 </header>
@@ -352,6 +319,13 @@ document.addEventListener('DOMContentLoaded', function() {
      <p class="insight-card__tag">Financial Strategy</p>
      <h3 class="insight-card__title">Financial Reporting for Small Business: How to Read Your Numbers and Use Them</h3>
      <p class="insight-card__excerpt">The income statement, balance sheet, and cash flow statement each answer a different question. Learn how to read all three and convert your monthly accounting data into decisions.</p>
+     <span class="insight-card__read-more">Read Article</span>
+   </a>
+
+   <a href="../blog/how-to-hire-a-fractional-cfo" class="insight-card insight-card--published">
+     <p class="insight-card__tag">Fractional CFO</p>
+     <h3 class="insight-card__title">How to Find and Hire a Fractional CFO: A Practical Guide for Business Owners</h3>
+     <p class="insight-card__excerpt">The fractional CFO title is unregulated &mdash; anyone can use it. Learn the 6-step hiring process, where to source qualified candidates, what to ask in interviews, and the red flags that disqualify a candidate before you commit.</p>
      <span class="insight-card__read-more">Read Article</span>
    </a>
  </div>
