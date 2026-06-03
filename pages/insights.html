@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', function() {
       var revenue = document.getElementById('revenue');
       var services = [];
-      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]  :checked').forEach(function(cb) {
+      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
         services.push(cb.value);
       });
       gtag('event', 'form_submission', {
@@ -107,15 +107,15 @@ document.addEventListener('DOMContentLoaded', function() {
 <meta charset="UTF-8">
 <link rel="canonical" href="https://ochilmanagement.com/pages/insights">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insights — Financial Strategy &amp; Operations Blog | Ochil Hills Management</title>
+<title>Insights &mdash; Financial Strategy &amp; Operations Blog | Ochil Hills Management</title>
 <meta name="description" content="Operator-level insights on fractional CFO and COO strategy, cash flow management, operational scaling, and the gap between strategy and execution.">
-<meta property="og:title" content="Insights — Financial Strategy & Operations Blog | Ochil Hills Management">
+<meta property="og:title" content="Insights &mdash; Financial Strategy & Operations Blog | Ochil Hills Management">
 <meta property="og:description" content="Operator-level insights on fractional CFO and COO strategy for growth-stage businesses.">
 <meta property="og:image" content="../images/hero-services.webp">
 <meta property="og:url" content="https://ochilmanagement.com/pages/insights">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Insights — Financial Strategy & Operations Blog | Ochil Hills Management">
+<meta name="twitter:title" content="Insights &mdash; Financial Strategy & Operations Blog | Ochil Hills Management">
 <meta name="twitter:description" content="Operator-level insights on fractional CFO and COO strategy for growth-stage businesses.">
 <meta name="twitter:image" content="../images/hero-services.webp">
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
 {
  "@context": "https://schema.org",
  "@type": "Blog",
- "name": "Insights — Financial Strategy & Operations Blog",
+ "name": "Insights &mdash; Financial Strategy & Operations Blog",
  "description": "Actionable insights on fractional CFO and COO strategy, financial operations, and scaling growth-stage businesses.",
  "url": "https://ochilmanagement.com/pages/insights",
  "publisher": {
@@ -154,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function() {
    {"@type":"BlogPosting","headline":"Cash Flow Management for Small Business: The Complete Practical Guide","url":"https://ochilmanagement.com/blog/cash-flow-management-small-business"},
    {"@type":"BlogPosting","headline":"Financial Reporting for Small Business: How to Read Your Numbers and Use Them","url":"https://ochilmanagement.com/blog/financial-reporting-small-business"},
    {"@type":"BlogPosting","headline":"How to Find and Hire a Fractional CFO: A Practical Guide for Business Owners","url":"https://ochilmanagement.com/blog/how-to-hire-a-fractional-cfo"},
-   {"@type":"BlogPosting","headline":"Budget Planning for Small Business: Build a Budget That Actually Drives Decisions","url":"https://ochilmanagement.com/blog/budget-planning-small-business"}
+   {"@type":"BlogPosting","headline":"Budget Planning for Small Business: Build a Budget That Actually Drives Decisions","url":"https://ochilmanagement.com/blog/budget-planning-small-business"},
+   {"@type":"BlogPosting","headline":"Outsourced CFO Services: What They Include, Who They're For, and What They Cost","url":"https://ochilmanagement.com/blog/outsourced-cfo-services"}
  ]
 }
 </script>
@@ -334,6 +335,13 @@ document.addEventListener('DOMContentLoaded', function() {
      <p class="insight-card__tag">Financial Strategy</p>
      <h3 class="insight-card__title">Budget Planning for Small Business: Build a Budget That Actually Drives Decisions</h3>
      <p class="insight-card__excerpt">Most small business budgets fail not because the numbers are wrong &mdash; but because they are built as compliance exercises and never reconciled against actuals. Learn driver-based budgeting and the monthly review process that makes a budget useful.</p>
+     <span class="insight-card__read-more">Read Article</span>
+   </a>
+
+   <a href="../blog/outsourced-cfo-services" class="insight-card insight-card--published">
+     <p class="insight-card__tag">Fractional CFO</p>
+     <h3 class="insight-card__title">Outsourced CFO Services: What They Include, Who They&rsquo;re For, and What They Cost</h3>
+     <p class="insight-card__excerpt">Outsourced CFO services give growing businesses executive-level financial strategy without a full-time hire. Learn what&rsquo;s included, who benefits most, what a proper engagement costs, and how to evaluate whether a provider is actually operating at the CFO level.</p>
      <span class="insight-card__read-more">Read Article</span>
    </a>
  </div>
