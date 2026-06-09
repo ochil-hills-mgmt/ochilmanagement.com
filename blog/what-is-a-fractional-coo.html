@@ -1,158 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Analytics (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-9JNDCJNLH0', {
-    page_title: document.title,
-    send_page_view: true
-  });
-</script>
-
-<!-- OHM Custom Event Tracking -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-
-  // ─── CTA Click Tracking ───
-  document.querySelectorAll('a.btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      gtag('event', 'cta_click', {
-        event_category: 'engagement',
-        event_label: this.textContent.trim(),
-        link_url: this.href,
-        link_location: this.closest('section')?.className || 'unknown'
-      });
-    });
-  });
-
-  // ─── Contact Form Submission Tracking ───
-  var contactForm = document.getElementById('contact-form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function() {
-      var revenue = document.getElementById('revenue');
-      var services = [];
-      document.querySelectorAll('input[name="services"]:checked, input[name="services[]"]:checked').forEach(function(cb) {
-        services.push(cb.value);
-      });
-      gtag('event', 'form_submission', {
-        event_category: 'conversion',
-        event_label: 'contact_form',
-        revenue_range: revenue ? revenue.value : 'not_specified',
-        services_interested: services.join(', ') || 'not_specified'
-      });
-      gtag('event', 'generate_lead', {
-        currency: 'USD',
-        value: 1
-      });
-    });
-  }
-
-  // ─── Scroll Depth Tracking (25%, 50%, 75%, 100%) ───
-  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
-  window.addEventListener('scroll', function() {
-    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
-    [25, 50, 75, 100].forEach(function(marker) {
-      if (scrollPct >= marker && !scrollMarkers[marker]) {
-        scrollMarkers[marker] = true;
-        gtag('event', 'scroll_depth', {
-          event_category: 'engagement',
-          event_label: marker + '_percent',
-          percent_scrolled: marker
-        });
-      }
-    });
-  });
-
-  // ─── Blog Article Engagement ───
-  var articleContent = document.querySelector('article, .blog-content, .article-content');
-  if (articleContent) {
-    // Track time on article (30s, 60s, 120s, 300s)
-    var timeMarkers = [30, 60, 120, 300];
-    var startTime = Date.now();
-    timeMarkers.forEach(function(seconds) {
-      setTimeout(function() {
-        if (!document.hidden) {
-          gtag('event', 'article_engagement', {
-            event_category: 'content',
-            event_label: document.title,
-            time_on_page: seconds
-          });
-        }
-      }, seconds * 1000);
-    });
-  }
-
-  // ─── External Link Tracking ───
-  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
-    if (!link.href.includes('ochilmanagement.com')) {
-      link.addEventListener('click', function() {
-        gtag('event', 'outbound_click', {
-          event_category: 'engagement',
-          event_label: this.href,
-          link_text: this.textContent.trim()
-        });
-      });
-    }
-  });
-
-  // ─── Phone/Email Click Tracking ───
-  document.querySelectorAll('a[href^="tel:"], a[href^="mailto:"]').forEach(function(link) {
-    link.addEventListener('click', function() {
-      var type = this.href.startsWith('tel:') ? 'phone_click' : 'email_click';
-      gtag('event', type, {
-        event_category: 'conversion',
-        event_label: this.href
-      });
-    });
-  });
-
-  // ─── FAQ Accordion Tracking ───
-  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
-    faq.addEventListener('click', function() {
-      var question = this.querySelector('summary, .faq-question, h3, h4');
-      if (question) {
-        gtag('event', 'faq_interaction', {
-          event_category: 'engagement',
-          event_label: question.textContent.trim().substring(0, 100)
-        });
-      }
-    });
-  });
-
-  // ─── Service Tier Interest Tracking ───
-  document.querySelectorAll('[data-tier], .service-card, .tier-card').forEach(function(card) {
-    card.addEventListener('click', function() {
-      var tierName = this.querySelector('h2, h3, .tier-name');
-      if (tierName) {
-        gtag('event', 'service_tier_view', {
-          event_category: 'interest',
-          event_label: tierName.textContent.trim()
-        });
-      }
-    });
-  });
-
-});
-</script>
-
 <meta charset="UTF-8">
-<link rel="canonical" href="https://ochilmanagement.com/blog/what-is-a-fractional-coo">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<link rel="canonical" href="https://ochilmanagement.com/blog/what-is-a-fractional-coo">
 <title>What Is a Fractional COO? Complete 2026 Guide | Ochil Hills</title>
 <meta name="description" content="A fractional COO designs the operational systems, processes, and team structure that let growing businesses scale. Cost, responsibilities, and when to hire one.">
 <meta property="og:title" content="What Is a Fractional COO? The Complete Guide for Growing Businesses">
 <meta property="og:description" content="A fractional COO designs the operational systems, processes, and team structure that let growing businesses scale. Cost, responsibilities, and when to hire one.">
-<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:url" content="https://ochilmanagement.com/blog/what-is-a-fractional-coo">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="What Is a Fractional COO? The Complete Guide for Growing Businesses">
 <meta name="twitter:description" content="A fractional COO designs the operational systems, processes, and team structure that let growing businesses scale. Cost, responsibilities, and when to hire one.">
-<meta name="twitter:image" content="../images/hero-services.webp">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -173,8 +41,9 @@ document.addEventListener('DOMContentLoaded', function() {
  "publisher": {
    "@type": "Organization",
    "name": "Ochil Hills Management",
-   "url": "https://www.ochilmanagement.com"
+   "url": "https://ochilmanagement.com"
  },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
  "datePublished": "2026-04-09",
  "dateModified": "2026-06-05",
  "mainEntityOfPage": "https://ochilmanagement.com/blog/what-is-a-fractional-coo"
@@ -236,17 +105,51 @@ document.addEventListener('DOMContentLoaded', function() {
  ]
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "What Is a Fractional COO? The Complete Guide for Growing Businesses",
+   "item": "https://ochilmanagement.com/blog/what-is-a-fractional-coo"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="header">
  <div class="header__inner">
  <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
-   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
    <div class="header__logo-text">Ochil Hills<span>Management</span></div>
  </a>
  <nav class="header__nav" aria-label="Primary navigation">
-   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
    <ul class="header__nav-list" role="list">
      <li><a href="../" class="header__nav-link">Home</a></li>
      <li><a href="../pages/services" class="header__nav-link">Services</a></li>
@@ -268,9 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
  </div>
 </header>
 
-<section class="hero hero--sub">
+<section id="main" class="hero hero--sub">
  <div class="hero__bg">
-   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing operational systems and business growth" loading="eager"></picture>
+   <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing operational systems and business growth" fetchpriority="high" decoding="async">
  </div>
  <div class="hero__overlay"></div>
  <div class="hero__content">
@@ -628,12 +531,12 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="footer__grid">
       <div class="footer__brand">
         <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
-          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
           <div class="header__logo-text">Ochil Hills<span>Management</span></div>
         </a>
-        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
         <div class="footer__veteran-badge">
-          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
           <span>Washington State Certified<br>Veteran-Owned Business</span>
         </div>
       </div>

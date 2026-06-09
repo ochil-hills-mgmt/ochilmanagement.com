@@ -270,3 +270,32 @@ This site is clearly already being optimized for AI answer engines, and much of 
 ---
 
 *This audit is documentation only. No changes were made to site files; nothing was deployed.*
+
+---
+
+## Remediation Status (implemented on this branch — June 9, 2026)
+
+All changes live on branch `claude/website-audit-review-cv9rdm` only. `main` (the live site) is untouched.
+
+| Audit item | Status | Notes |
+|---|---|---|
+| 1. EXIF/GPS stripped from kylie-kaiser-real.jpg | ✅ Done | Re-encoded clean, resized to 600w (968 KB → 116 KB) |
+| 2. Absolute og:image + dimensions | ✅ Done | New 1200×630 share cards (og-home/services/about/portfolio.jpg) on all 31 pages |
+| 3. Image optimization | ✅ Done | heather 1.2 MB→332 KB, civichire 1.4 MB→20 KB, waterfall 576→320 KB; 5 unused images deleted |
+| 4. Logo resized | ✅ Done | 240 KB → 32 KB (192×144, 3× display size) |
+| 5. Duplicate form handler + fake reCAPTCHA badge | ✅ Done | Legacy handler removed from main.js; badge removed; result styling now theme-aware classes |
+| 6. Favicon set | ✅ Done | favicon.ico, favicon-32.png, apple-touch-icon.png, linked on every page |
+| 7. www→non-www in schema/og; sameAs + logo + @id | ✅ Done | All structured data now uses https://ochilmanagement.com consistently |
+| 8. Local SEO | ◐ Partial | LocalBusiness now has addressRegion WA, areaServed, sameAs, @id; footer says "Based in Washington State, serving clients nationwide." **Needs your input:** city, phone number, Google Business Profile |
+| 9. 769–1024px header overflow | ✅ Done | Client Login hidden 769–1100px (still in footer + mobile menu) |
+| 10. Analytics externalized | ✅ Done | js/analytics.js on all 31 pages incl. the 7 that were missing tracking; scroll-depth Infinity bug fixed; passive listeners |
+| 11. aria-expanded, skip link, contrast | ✅ Done | JS now updates ARIA state; skip-to-content link sitewide; new --color-accent-text (AA) for labels/tags; text-faint darkened |
+| 12. Theme persistence | ✅ Done | localStorage + prefers-color-scheme, applied pre-paint (no flash) |
+| 13. srcset/preload/fetchpriority/dimensions | ✅ Done | 768/1280/1920/2752w hero variants, preload with imagesrcset, width/height on all known images |
+| 14. charset placement, picture tags | ✅ Done | charset/viewport now first in head; redundant/unclosed picture wrappers replaced with responsive img |
+| 15. 404 page + headers | ✅ Done | Branded 404.html (noindex); _headers file (Cloudflare/Netlify format — remove if host differs) |
+| 16. BreadcrumbList + Article image schema | ✅ Done | All 20 blog posts |
+| 17. CTA color consolidation | ◐ Partial | Teal Client Login one-off retired (now brand primary outline); Escape key closes mobile menu; deeper inline-style cleanup deferred |
+| Bonus | ✅ | llms.txt added; fontshare preconnect; hero badge de-duplicated ("Fractional CFO + COO · For $500K–$7M Businesses") |
+
+**Still needs a human decision:** publish a city + phone number (then complete the PostalAddress and add `telephone` to schema), create the Google Business Profile, and confirm the hosting platform so `_headers` can be adapted if needed.
