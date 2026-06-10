@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -34,20 +37,23 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
-<meta charset="UTF-8">
 <link rel="canonical" href="https://ochilmanagement.com/blog/budget-planning-small-business">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Budget Planning for Small Business: A Practical Guide</title>
 <meta name="description" content="Most small business budgets fail because they are built as compliance exercises, not decision tools. Learn driver-based budgeting and the monthly review.">
 <meta property="og:title" content="Budget Planning for Small Business: Build a Budget That Actually Drives Decisions">
 <meta property="og:description" content="Most small business budgets fail not because the numbers are wrong, but because they are built as compliance exercises and never reconciled against actuals. Learn driver-based budgeting and the monthly review process that makes a budget useful.">
-<meta property="og:image" content="../images/hero-services.webp">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
 <meta property="og:url" content="https://ochilmanagement.com/blog/budget-planning-small-business">
 <meta property="og:type" content="article">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Budget Planning for Small Business: Build a Budget That Actually Drives Decisions">
 <meta name="twitter:description" content="Most small business budgets fail not because the numbers are wrong, but because they are built as compliance exercises and never reconciled against actuals.">
-<meta name="twitter:image" content="../images/hero-services.webp">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,8 +74,9 @@ document.addEventListener('DOMContentLoaded', function() {
  "publisher": {
    "@type": "Organization",
    "name": "Ochil Hills Management",
-   "url": "https://www.ochilmanagement.com"
+   "url": "https://ochilmanagement.com"
  },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
  "datePublished": "2026-06-01",
  "dateModified": "2026-06-05",
  "mainEntityOfPage": "https://ochilmanagement.com/blog/budget-planning-small-business"
@@ -103,17 +110,51 @@ document.addEventListener('DOMContentLoaded', function() {
  ]
 }
 </script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Budget Planning for Small Business: Build a Budget That Actually Drives Decisions",
+   "item": "https://ochilmanagement.com/blog/budget-planning-small-business"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="header">
  <div class="header__inner">
  <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
-   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+   <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
    <div class="header__logo-text">Ochil Hills<span>Management</span></div>
  </a>
  <nav class="header__nav" aria-label="Primary navigation">
-   <button class="mobile-toggle" aria-label="Toggle navigation menu"><span></span><span></span><span></span></button>
+   <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
    <ul class="header__nav-list" role="list">
      <li><a href="../" class="header__nav-link">Home</a></li>
      <li><a href="../pages/services" class="header__nav-link">Services</a></li>
@@ -135,9 +176,9 @@ document.addEventListener('DOMContentLoaded', function() {
  </div>
 </header>
 
-<section class="hero hero--sub">
+<section id="main" class="hero hero--sub">
  <div class="hero__bg">
-   <picture><source srcset="../images/hero-services.webp" type="image/webp"><img src="../images/hero-services.webp" alt="Rolling green hills representing strategic financial growth" loading="eager"></picture>
+   <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing strategic financial growth" fetchpriority="high" decoding="async">
  </div>
  <div class="hero__overlay"></div>
  <div class="hero__content">
@@ -345,12 +386,12 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="footer__grid">
       <div class="footer__brand">
         <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
-          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
           <div class="header__logo-text">Ochil Hills<span>Management</span></div>
         </a>
-        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led.</p>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
         <div class="footer__veteran-badge">
-          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
           <span>Washington State Certified<br>Veteran-Owned Business</span>
         </div>
       </div>
