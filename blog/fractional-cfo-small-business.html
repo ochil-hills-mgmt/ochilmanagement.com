@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-small-business">
+<title>Fractional CFO for Small Business: What to Expect</title>
+<meta name="description" content="A fractional CFO gives a small business executive-level financial strategy at a sustainable cost. What it includes, what it costs, and when you are ready.">
+<meta property="og:title" content="Fractional CFO for Small Business: What It Is, What It Costs, and When You Need One">
+<meta property="og:description" content="A fractional CFO gives a small business executive-level financial strategy at a sustainable cost. Learn what the engagement includes, what it costs, and when you are ready.">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-small-business">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fractional CFO for Small Business: What It Is, What It Costs, and When You Need One">
+<meta name="twitter:description" content="A fractional CFO gives a small business executive-level financial strategy at a sustainable cost. Learn what the engagement includes, what it costs, and when you are ready.">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Fractional CFO for Small Business: What It Is, What It Costs, and When You Need One",
+ "description": "A fractional CFO gives a small business executive-level financial strategy at a sustainable cost. Learn what the engagement includes, what it costs, and when you are ready.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://ochilmanagement.com"
+ },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
+ "datePublished": "2026-06-11",
+ "dateModified": "2026-06-11",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-small-business"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "Can a small business afford a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Most small businesses at the $500K–$7M revenue stage can afford a fractional CFO retainer of $3,000–$8,000 per month — particularly when that cost is weighed against the decisions it supports: capital allocation, pricing, hiring, and cash flow management. The engagement is designed specifically for businesses that cannot justify a full-time CFO salary of $200,000–$350,000 per year but need the same quality of financial leadership. At this revenue stage, a single well-supported decision — a pricing change, a capital deployment, an avoided cash crisis — typically recaptures the cost of the engagement many times over."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What is the difference between a fractional CFO and a bookkeeper for a small business?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A bookkeeper records what has already happened: transactions, reconciliations, historical statements. A fractional CFO works forward: building financial models, projecting cash flow, analyzing margin by product or service line, and advising on capital allocation. Both functions are necessary and complement each other. The bookkeeper produces the historical data; the fractional CFO interprets it, builds forward from it, and applies it to the strategic decisions the business owner is actually making. They answer different questions at entirely different levels of analysis."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What size business needs a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO engagement typically delivers the clearest return for businesses between $500K and $7M in annual revenue. Below $500K, a bookkeeper and CPA often cover the financial infrastructure the business needs. Above $7M, depending on complexity, the hours required may begin to approach a full-time hire. Within the $500K–$7M range, the engagement scales to the business: foundational infrastructure at $500K–$1M, growth-stage financial management at $1M–$3M, and strategic financial infrastructure at $3M–$7M."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What does a fractional CFO for a small business actually deliver in the first 90 days?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The first 90 days are primarily diagnostic and foundational. Weeks 1–3 are a discovery phase: reviewing the chart of accounts, historical financials, current reporting cadence, and the owner's top financial questions. Weeks 4–8 produce the first outputs: a rolling 13-week cash flow forecast, a budget-vs-actuals framework, and a financial dashboard covering the metrics that matter most to the business. By day 90, the business has forward-looking financial visibility it likely did not have before, a structured reporting cadence, and the analytical infrastructure for better-informed decisions going forward."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How is a fractional CFO different from an accountant or CPA?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A CPA's primary responsibilities are tax compliance, tax planning, and ensuring financial statements conform to applicable accounting standards. A fractional CFO's responsibility is strategic financial management: cash flow forecasting, financial modeling, capital allocation, budget-vs-actuals analysis, and the forward-looking infrastructure the business needs to grow. Most fractional CFOs do not prepare tax returns. Most CPAs do not build three-year financial models or manage cash flow strategy. The two roles serve different functions — and most businesses at the $500K–$7M stage need both, not one in place of the other."
+     }
+   }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Fractional CFO for Small Business: What It Is, What It Costs, and When You Need One",
+   "item": "https://ochilmanagement.com/blog/fractional-cfo-small-business"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+      <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+      <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+    </a>
+    <nav class="header__nav" aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="header__nav-list" role="list">
+        <li><a href="../" class="header__nav-link">Home</a></li>
+        <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+        <li><a href="../pages/about" class="header__nav-link">About</a></li>
+        <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+        <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+        <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+        <li class="header__nav-mobile-ctas">
+          <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+          <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+      <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+    </div>
+  </div>
+</header>
+
+<section id="main" class="hero hero--sub">
+  <div class="hero__bg">
+    <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing strategic financial growth" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__badge">Fractional CFO</p>
+    <h1 class="hero__title" style="max-width:26ch;">Fractional CFO for Small Business: What It Is, What It Costs, and When You Need One</h1>
+    <p class="hero__subtitle">Executive Financial Strategy at the Revenue Stage That Needs It Most</p>
+  </div>
+</section>
+
+<article class="article">
+  <div class="article__container">
+
+    <div class="article__meta">
+      <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+      <span class="article__sep">&bull;</span>
+      <time class="article__date" datetime="2026-06-11">June 11, 2026</time>
+      <span class="article__sep">&bull;</span>
+      <span class="article__read-time">8 min read</span>
+      <span class="article__sep">&bull;</span>
+      <span class="article__last-updated">Last updated: June 11, 2026</span>
+    </div>
+
+    <div class="article__body">
+
+      <div class="article__answer-capsule">
+        <p>A fractional CFO for a small business is a part-time Chief Financial Officer operating on a defined retainer or project engagement &mdash; building the financial models, cash flow systems, and reporting infrastructure that businesses between $500K and $7M in revenue need to make strategic decisions, at a cost structure their revenue can actually support. The engagement is not a bookkeeper working at a higher level. It is a financial operator working at the strategic level: building forward-looking models, identifying capital allocation trade-offs, and managing the financial infrastructure the business needs to grow without the cash flow gaps that end businesses that should have survived.</p>
+      </div>
+
+      <p>Most small businesses arrive at the fractional CFO conversation the same way: the bookkeeper is doing exactly what a bookkeeper does, the CPA is filing accurate returns, and the owner is still operating without any real financial visibility into what is coming next month or next quarter. Revenue is growing, complexity is growing, and the gap between those two things and the financial infrastructure supporting them is widening. The fractional CFO model exists to close that gap without the overhead of a full-time executive hire.</p>
+
+      <p>This article covers what the engagement actually includes at the $500K&ndash;$7M revenue stage, when the timing is right, what it costs, and what to expect from the first 90 days. If you are still at the stage of defining the role itself, start with <a href="what-is-a-fractional-cfo">our complete guide to what a fractional CFO is</a> before working through the decision criteria here.</p>
+
+      <h2>The Small Business Financial Reality</h2>
+
+      <p>The standard financial infrastructure for a small business &mdash; a bookkeeper plus a CPA &mdash; is designed to record the past and satisfy compliance obligations. It is not designed to manage the future. That gap is not a criticism of bookkeepers or CPAs; it is a structural reality about what those roles are built to do. At the $500K&ndash;$7M revenue stage, the business is making decisions &mdash; on hiring, pricing, capital deployment, and growth &mdash; that require forward-looking financial analysis. The bookkeeper-plus-CPA model cannot provide it.</p>
+
+      <p>The <a href="https://www.fedsmallbusiness.org/reports/survey/2025/2025-report-on-employer-firms" target="_blank" rel="noopener noreferrer">Federal Reserve's 2024 Small Business Credit Survey</a>, drawing on 7,653 small employer firms, found that 51% of respondents reported cash flow challenges as a significant concern &mdash; the most commonly cited financial difficulty across the survey. That figure does not describe businesses in distress. It describes ordinary operating businesses at the stage where financial complexity has outpaced financial infrastructure.</p>
+
+      <p>Business survival data from the <a href="https://www.bls.gov/bdm/entrepreneurship/entrepreneurship.htm" target="_blank" rel="noopener noreferrer">Bureau of Labor Statistics</a> establishes the stakes clearly: 20.4% of new businesses fail within their first year, and only 34.7% survive to the ten-year mark. The businesses that do not survive are not uniformly victims of bad markets or bad products. A significant share fail because cash flow management, capital allocation, and financial decision-making at critical growth inflection points were inadequate. The fractional CFO engagement is not a luxury at the $500K&ndash;$7M stage &mdash; it is the financial infrastructure that determines whether the business makes it through those inflection points intact.</p>
+
+      <p>Demand for this kind of engagement has grown accordingly. Fractionus 2025 research on fractional work trends recorded 68% growth in fractional C-suite demand between 2023 and 2024, driven by exactly the dynamic described here: businesses need executive-level financial leadership, but cannot yet justify or fund a full-time hire at that level. The fractional model is the structural answer to that problem.</p>
+
+      <h2>What a Fractional CFO Does for a Small Business</h2>
+
+      <p>The scope of a fractional CFO engagement at the $500K&ndash;$7M stage is defined by the financial questions the business cannot currently answer well. Those questions cluster around five core areas: cash flow management, financial modeling, reporting cadence, budget-vs-actuals analysis, and capital allocation. Each represents a domain where the standard bookkeeper-plus-CPA infrastructure is structurally limited.</p>
+
+      <h3>Cash Flow Management</h3>
+
+      <p>Cash flow management is the most operationally urgent function at this revenue stage. A rolling 13-week cash flow forecast maps every known inflow and outflow across a three-month horizon, converting cash position from a reactive surprise into a managed variable. When a shortfall is visible three weeks out, there are options: accelerating receivables, timing a draw on a credit line, or adjusting discretionary spend. When it appears as an overdraft on a Wednesday morning, the options are materially worse. The detail on building and maintaining this system is covered in our guide to <a href="cash-flow-management-small-business">cash flow management for small business</a>.</p>
+
+      <h3>Financial Modeling</h3>
+
+      <p>Every major business decision at this revenue stage &mdash; a key hire, a new service line, a pricing restructure, an equipment investment &mdash; has a financial model behind it or it does not. When it does not, the decision is made on intuition against a backdrop of incomplete information. A fractional CFO builds and maintains the financial models that translate business decisions into quantified scenarios: upside, base case, and downside, with the assumptions documented and the sensitivities visible. Financial forecasting at this level is covered in depth in our guide to <a href="financial-forecasting-small-business">financial forecasting for small business</a>.</p>
+
+      <h3>Reporting Cadence</h3>
+
+      <p>Monthly financial reports that arrive on day 25 of the following month are not decision-support tools &mdash; they are historical records. A fractional CFO establishes a close process that produces preliminary results by day 5 and finalized statements by day 10, structured around the metrics that actually inform operating decisions: gross margin by service line, revenue concentration by customer, labor as a percentage of revenue, and cash runway. The goal is a reporting cadence that tells the owner the current state of the business, not the state it was in a month ago. Our guide to <a href="financial-reporting-small-business">financial reporting for small business</a> covers how to structure this.</p>
+
+      <h3>Budget-vs-Actuals Analysis</h3>
+
+      <p>A budget that is set in January and reviewed in December is a compliance exercise. A budget-vs-actuals framework that is reviewed monthly &mdash; with variance explanation, not just variance display &mdash; is a management tool. A fractional CFO builds the annual operating budget and then closes the loop every month: where did actuals diverge from plan, why, and what does the updated forecast look like given that divergence. The detail on building this system is in our guide to <a href="budget-planning-small-business">budget planning for small business</a>.</p>
+
+      <h3>Capital Allocation</h3>
+
+      <p>Capital allocation decisions &mdash; where to invest the cash the business generates &mdash; are the compounding decisions of business ownership. Every dollar deployed toward a low-return use is a dollar not deployed toward a high-return one. A fractional CFO provides the analytical framework for those decisions: contribution margin by product or service line, return on investment analysis for capital expenditures, and the financial model that shows how different allocation choices affect the business's trajectory over 12 to 36 months.</p>
+
+      <h2>When the Timing Is Right</h2>
+
+      <p>Revenue is the most useful single proxy for when a fractional CFO engagement is appropriate, though it is not the only factor. The timing also depends on complexity, growth rate, and whether a high-stakes financial event is approaching. The three revenue bands below describe how the engagement typically scales across the $500K&ndash;$7M range.</p>
+
+      <h3>$500K&ndash;$1M: Foundational Infrastructure</h3>
+
+      <p>At the $500K&ndash;$1M stage, the primary value of a fractional CFO is building the financial infrastructure the business does not yet have: a cash flow forecast, a reporting framework, a chart of accounts organized around management insight rather than just tax compliance, and a budget-vs-actuals cadence. Most businesses at this revenue level are operating primarily on cash position and historical P&amp;L. A fractional CFO converts that into forward-looking financial visibility. An engagement at this stage is typically lighter in hours &mdash; often three to six hours per week &mdash; and focused on foundation-building rather than ongoing strategic analysis.</p>
+
+      <h3>$1M&ndash;$3M: Growth Complexity</h3>
+
+      <p>The $1M&ndash;$3M stage is where financial complexity increases faster than most owners anticipate. The business now has multiple revenue streams or service lines, a larger payroll, more complex vendor relationships, and decisions that are materially harder to reverse. Cash flow patterns become more complex as revenue mix shifts. Hiring decisions carry real risk if the financial model behind them is weak. Pricing decisions are now large enough to move overall margin meaningfully. The fractional CFO engagement at this stage expands into active financial modeling, regular strategic advisory, and the analytical support for decisions that the owner cannot responsibly make on intuition alone.</p>
+
+      <h3>$3M&ndash;$7M: Strategic Financial Infrastructure</h3>
+
+      <p>At the $3M&ndash;$7M stage, the business is operating at a level of complexity where the financial infrastructure is either a competitive asset or a liability. Businesses at this revenue level are typically evaluating capital raises, considering acquisitions or being approached for them, managing multi-year growth trajectories, and making compensation and equity decisions. The fractional CFO engagement at this stage involves the full scope of a CFO function: investor-grade financial reporting, three-year modeling, scenario analysis for strategic alternatives, and direct support for any high-stakes financial events. For the mechanics of evaluating and structuring an engagement at any of these stages, our guide on <a href="how-to-hire-a-fractional-cfo">how to hire a fractional CFO</a> covers the process in detail.</p>
+
+      <h3>What This Is Not</h3>
+
+      <p>A fractional CFO engagement is not the right next step if the business does not yet have clean books. If the chart of accounts is disorganized, transactions are not being reconciled monthly, and historical statements are unreliable, the first priority is a competent bookkeeper &mdash; not a fractional CFO. A fractional CFO cannot build a forward-looking model on top of backward-looking data that is not trustworthy. If clean books are not yet in place, start there and return to this question in six to twelve months. Similarly, a fractional CFO is not a substitute for a CPA at tax time. Both functions serve the business at the $500K&ndash;$7M stage, and they do not overlap in any meaningful way.</p>
+
+      <h2>What to Expect From the Engagement</h2>
+
+      <p>The first 90 days of a fractional CFO engagement follow a consistent pattern regardless of the business's specific situation, because the first task is always the same: understand the current financial state with enough fidelity to build forward from it. What varies is how much remediation the historical data requires and how urgent the business's near-term financial questions are.</p>
+
+      <h3>Discovery Phase (Weeks 1&ndash;3)</h3>
+
+      <p>The discovery phase is a structured assessment of the business's current financial infrastructure. A competent fractional CFO will review the chart of accounts, the last 12&ndash;24 months of P&amp;L and balance sheet statements, the existing reporting cadence, the current banking and credit structure, and any active financial questions the owner is trying to answer. The output of this phase is not a report &mdash; it is a working understanding of where the gaps are and what the first outputs should be. The owner should expect direct questions, direct answers, and a clear picture of what the engagement will address first and why.</p>
+
+      <h3>Foundational Outputs (Weeks 4&ndash;8)</h3>
+
+      <p>The first working outputs in a standard engagement are the rolling cash flow forecast, the financial model or updated budget framework, and the reporting dashboard. These are not permanent documents &mdash; they are living tools that will be revised every month as actuals come in and the forward view is updated. By week 8, the business should have a clear picture of its cash position over the next 90 days, its variance to plan over the last period, and the top two or three financial decisions currently in front of it with the quantitative analysis to support them.</p>
+
+      <h3>Ongoing Cadence</h3>
+
+      <p>After the foundational work is in place, the engagement settles into a monthly rhythm: close support and variance review in the first two weeks of each month, forecast update and strategic advisory in the third week, and ad hoc analysis as decisions arise. The communication rhythm is direct and documented &mdash; the owner receives a written summary of the financial position, the key findings from the variance review, and the forward-looking priorities before each advisory call. Nothing is left to verbal-only. The engagement is accountable by design.</p>
+
+      <div class="article__table-wrap">
+        <table class="article__table">
+          <thead>
+            <tr>
+              <th>Engagement Type</th>
+              <th>Structure</th>
+              <th>Typical Cost</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Retainer</td>
+              <td>Fixed monthly hours at a defined scope; ongoing relationship with consistent advisory cadence</td>
+              <td>$3,000&ndash;$8,000/month</td>
+              <td>Businesses that need ongoing financial leadership: monthly close support, rolling forecasts, and regular strategic advisory</td>
+            </tr>
+            <tr>
+              <td>Project</td>
+              <td>Defined output with a fixed scope and timeline; no ongoing commitment</td>
+              <td>$5,000&ndash;$20,000 per project</td>
+              <td>Specific high-stakes events: fundraising preparation, financial model build, exit readiness, or a one-time diagnostic</td>
+            </tr>
+            <tr>
+              <td>Hybrid</td>
+              <td>Lower baseline retainer supplemented by project work as needs arise</td>
+              <td>$2,000&ndash;$4,000/month base + project fees</td>
+              <td>Businesses that need a consistent presence but have episodic high-intensity needs: periodic capital raises, annual budget builds, or seasonal complexity</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What It Costs at the Small Business Stage</h2>
+
+      <p>A fractional CFO retainer for a business in the $500K&ndash;$7M revenue range typically runs $3,000&ndash;$8,000 per month, depending on scope, hours, and the complexity of the business. Project-based engagements &mdash; for a financial model build, fundraising preparation, or a one-time diagnostic &mdash; typically run $5,000&ndash;$20,000 depending on output scope and timeline. For the detailed cost breakdown by revenue stage, engagement type, and what drives cost up or down, see our complete <a href="fractional-cfo-cost">fractional CFO cost guide</a>.</p>
+
+      <p>The ROI framing for this cost is not theoretical. The value of a fractional CFO engagement at the $500K&ndash;$7M stage lives in the quality of the decisions it supports. A pricing decision made with contribution margin analysis behind it versus one made without it produces a different outcome. A hiring decision made with a financial model versus one made on feel produces a different outcome. A cash shortfall visible three weeks out versus one that arrives as a Friday crisis produces a very different set of options. The $3,000&ndash;$8,000 monthly cost is not being spent on financial reports &mdash; it is being spent on the decision infrastructure that makes those reports useful.</p>
+
+      <p>For context: a full-time CFO at the small-to-mid market level carries a total compensation cost of $200,000&ndash;$350,000 per year, plus benefits and equity. A fractional engagement at $5,000 per month is $60,000 per year &mdash; roughly 20&ndash;30 cents on the dollar for the same quality of financial leadership applied to the scope the business actually needs. That cost structure is the reason the fractional model exists and why demand for it has expanded as rapidly as it has.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="article__faq">
+        <details class="article__faq-item">
+          <summary>Can a small business afford a fractional CFO?</summary>
+          <p>Most small businesses at the $500K&ndash;$7M revenue stage can afford a fractional CFO retainer of $3,000&ndash;$8,000 per month &mdash; particularly when that cost is weighed against the decisions it supports: capital allocation, pricing, hiring, and cash flow management. The engagement is designed specifically for businesses that cannot justify a full-time CFO salary of $200,000&ndash;$350,000 per year but need the same quality of financial leadership. At this revenue stage, a single well-supported decision &mdash; a pricing change, a capital deployment, an avoided cash crisis &mdash; typically recaptures the cost of the engagement many times over.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>What is the difference between a fractional CFO and a bookkeeper for a small business?</summary>
+          <p>A bookkeeper records what has already happened: transactions, reconciliations, historical statements. A fractional CFO works forward: building financial models, projecting cash flow, analyzing margin by product or service line, and advising on capital allocation. Both functions are necessary and complement each other. The bookkeeper produces the historical data; the fractional CFO interprets it, builds forward from it, and applies it to the strategic decisions the business owner is actually making. They answer different questions at entirely different levels of analysis.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>What size business needs a fractional CFO?</summary>
+          <p>A fractional CFO engagement typically delivers the clearest return for businesses between $500K and $7M in annual revenue. Below $500K, a bookkeeper and CPA often cover the financial infrastructure the business needs. Above $7M, depending on complexity, the hours required may begin to approach a full-time hire. Within the $500K&ndash;$7M range, the engagement scales to the business: foundational infrastructure at $500K&ndash;$1M, growth-stage financial management at $1M&ndash;$3M, and strategic financial infrastructure at $3M&ndash;$7M.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>What does a fractional CFO for a small business actually deliver in the first 90 days?</summary>
+          <p>The first 90 days are primarily diagnostic and foundational. Weeks 1&ndash;3 are a discovery phase: reviewing the chart of accounts, historical financials, current reporting cadence, and the owner's top financial questions. Weeks 4&ndash;8 produce the first outputs: a rolling 13-week cash flow forecast, a budget-vs-actuals framework, and a financial dashboard covering the metrics that matter most to the business. By day 90, the business has forward-looking financial visibility it likely did not have before, a structured reporting cadence, and the analytical infrastructure for better-informed decisions going forward.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How is a fractional CFO different from an accountant or CPA?</summary>
+          <p>A CPA's primary responsibilities are tax compliance, tax planning, and ensuring financial statements conform to applicable accounting standards. A fractional CFO's responsibility is strategic financial management: cash flow forecasting, financial modeling, capital allocation, budget-vs-actuals analysis, and the forward-looking infrastructure the business needs to grow. Most fractional CFOs do not prepare tax returns. Most CPAs do not build three-year financial models or manage cash flow strategy. The two roles serve different functions &mdash; and most businesses at the $500K&ndash;$7M stage need both, not one in place of the other.</p>
+        </details>
+      </div>
+
+      <div class="article__cta-box">
+        <h3>Your Revenue Is at the Stage Where This Decision Matters Most</h3>
+        <p>Businesses between $500K and $7M are making the financial decisions that determine whether they reach $10M or stall. If those decisions are being made without a financial model behind them, the risk is not theoretical &mdash; it is operational. We work with businesses at exactly this stage. Let us have a direct conversation about whether a fractional CFO engagement is the right next move.</p>
+        <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+      </div>
+
+    </div>
+
+    <aside class="article__sidebar">
+      <div class="article__sidebar-card">
+        <h4>Related Articles</h4>
+        <ul>
+          <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+          <li><a href="fractional-cfo-cost">How Much Does a Fractional CFO Cost?</a></li>
+          <li><a href="signs-you-need-a-fractional-cfo">10 Signs Your Business Needs a Fractional CFO</a></li>
+          <li><a href="cash-flow-management-small-business">Cash Flow Management for Small Business</a></li>
+          <li><a href="how-to-hire-a-fractional-cfo">How to Find and Hire a Fractional CFO</a></li>
+        </ul>
+      </div>
+      <div class="article__sidebar-card">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../pages/services">Fractional CFO</a></li>
+          <li><a href="../pages/services">Fractional COO</a></li>
+          <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
