@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-for-saas">
+<title>Fractional CFO for SaaS: Strategy for Recurring Revenue</title>
+<meta name="description" content="A fractional CFO for SaaS builds the MRR, retention, and unit-economics infrastructure recurring-revenue businesses need to grow and raise capital.">
+<meta property="og:title" content="Fractional CFO for SaaS: Financial Strategy for Recurring Revenue">
+<meta property="og:description" content="A fractional CFO for SaaS builds the MRR, retention, CAC:LTV, and runway infrastructure that recurring-revenue businesses need to grow and raise capital with confidence.">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-for-saas">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fractional CFO for SaaS: Financial Strategy for Recurring Revenue">
+<meta name="twitter:description" content="A fractional CFO for SaaS builds the MRR, retention, CAC:LTV, and runway infrastructure that recurring-revenue businesses need to grow and raise capital with confidence.">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Fractional CFO for SaaS: Financial Strategy for Recurring Revenue",
+ "description": "A fractional CFO for SaaS builds the MRR, retention, CAC:LTV, and runway infrastructure that recurring-revenue businesses need to grow and raise capital with confidence.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://ochilmanagement.com"
+ },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
+ "datePublished": "2026-06-16",
+ "dateModified": "2026-06-16",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-for-saas"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What does a fractional CFO for a SaaS company actually do?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO for a SaaS company builds and manages the recurring-revenue financial system: MRR and ARR tracking, gross and net revenue retention analysis, CAC to LTV modeling, cash runway management, and investor-grade reporting. The work is forward-looking rather than backward-looking. Standard accounting records cash collected and invoices issued, but SaaS economics live in deferred revenue, cohort behavior, and unit economics that accrual statements alone do not surface. A fractional CFO connects the accounting data to those metrics and turns them into the model that drives pricing, hiring, and capital decisions."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "When is a SaaS company ready for a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Most SaaS companies between $500K and $7M in revenue are ready for a fractional CFO. Below roughly $500K in ARR, a strong bookkeeper and a SaaS-aware CPA often cover the financial infrastructure. Above $500K, the decisions get expensive: pricing changes move ARR materially, hiring against a runway requires a real model, and any conversation with investors requires defensible metrics. A useful trigger is the first time you cannot answer a board or investor question about net revenue retention, CAC payback, or months of runway with a number you trust."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What SaaS metrics should a fractional CFO track first?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The first metrics are MRR and ARR with their movement breakdown into new, expansion, contraction, and churn, then gross and net revenue retention, CAC payback, the LTV to CAC ratio, gross margin, and months of cash runway. These metrics answer the questions that determine whether the business grows efficiently or burns capital inefficiently. Net revenue retention and CAC payback in particular separate a durable SaaS business from one that grows only as long as new funding keeps arriving. A fractional CFO defines each metric precisely so the same number means the same thing every month."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How does a fractional CFO help a SaaS company prepare to raise capital?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO builds the data room and the model that investors expect: a metrics package covering ARR movement, retention by cohort, CAC payback, gross margin, and burn, plus a three-statement model with documented assumptions and clear scenarios. The work also includes preparing the founder to defend those numbers in diligence. Investors do not penalize a SaaS company for honest metrics. They penalize numbers that fall apart under questioning. The value of the engagement is producing metrics that hold up and a story the data actually supports."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Can a fractional CFO use our existing QuickBooks or Xero data for SaaS metrics?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Yes. At Ochil Hills Management we connect your existing QuickBooks or Xero ledger, along with your billing and CRM systems, into a cloud data warehouse and build the SaaS metrics on top of that foundation. The pipeline moves source data through Airbyte into BigQuery, applies a dbt transformation layer that defines each metric consistently, and presents the result through a Streamlit dashboard. You keep the accounting system you already use. We build the recurring-revenue intelligence layer above it so MRR, retention, and runway update from your real data rather than a spreadsheet rebuilt by hand each month."
+     }
+   }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Fractional CFO for SaaS: Financial Strategy for Recurring Revenue",
+   "item": "https://ochilmanagement.com/blog/fractional-cfo-for-saas"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+      <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+      <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+    </a>
+    <nav class="header__nav" aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="header__nav-list" role="list">
+        <li><a href="../" class="header__nav-link">Home</a></li>
+        <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+        <li><a href="../pages/about" class="header__nav-link">About</a></li>
+        <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+        <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+        <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+        <li class="header__nav-mobile-ctas">
+          <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+          <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+      <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+    </div>
+  </div>
+</header>
+
+<section id="main" class="hero hero--sub">
+  <div class="hero__bg">
+    <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing strategic financial growth" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__badge">Fractional CFO</p>
+    <h1 class="hero__title" style="max-width:26ch;">Fractional CFO for SaaS: Financial Strategy for Recurring Revenue</h1>
+    <p class="hero__subtitle">MRR, Retention, Unit Economics, and Runway, Built on Your Real Data</p>
+  </div>
+</section>
+
+<article class="article">
+  <div class="article__container">
+
+    <div class="article__meta">
+      <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+      <span class="article__sep">&bull;</span>
+      <time class="article__date" datetime="2026-06-16">June 16, 2026</time>
+      <span class="article__sep">&bull;</span>
+      <span class="article__read-time">10 min read</span>
+      <span class="article__sep">&bull;</span>
+      <span class="article__last-updated">Last updated: June 16, 2026</span>
+    </div>
+
+    <div class="article__body">
+
+      <div class="article__answer-capsule">
+        <p>A fractional CFO for SaaS is a part-time Chief Financial Officer who builds and runs the recurring-revenue financial system a software business needs to grow efficiently: MRR and ARR tracking, gross and net revenue retention, CAC to LTV modeling, cash runway management, and investor-grade reporting. The role exists because SaaS economics do not live on a standard income statement. They live in deferred revenue, cohort retention, and unit economics that backward-looking accounting was never built to surface. A fractional CFO connects your accounting data to those metrics and turns them into the model that drives pricing, hiring, and capital decisions, at a cost a $500K to $7M business can support.</p>
+      </div>
+
+      <p>Most SaaS founders reach the fractional CFO conversation at the same moment. The bookkeeper is recording transactions correctly, the CPA is filing accurate returns, and the founder still cannot answer a simple investor question with a number they trust: what is net revenue retention, what is CAC payback, how many months of runway remain at the current burn. Revenue is recurring, the metrics that govern a recurring-revenue business are specific, and the standard accounting stack does not produce them. That gap is what a fractional CFO for SaaS closes.</p>
+
+      <p>This article covers the SaaS-specific financial work the role involves, the metrics that matter most, the unit economics that decide whether growth is durable, and how we build the whole system on top of the accounting data you already have. If you are still defining the role itself, start with <a href="what-is-a-fractional-cfo">our complete guide to what a fractional CFO is</a>, then return here for the SaaS detail.</p>
+
+      <h2>Why SaaS Finance Is Different</h2>
+
+      <p>The core problem is that standard accrual accounting and SaaS reality describe two different businesses. When a customer signs a $24,000 annual contract and pays upfront, the income statement recognizes $2,000 of revenue per month while the bank shows $24,000 of cash. Neither number tells you the thing that matters most, which is whether that customer cohort will still be paying in eighteen months. Recurring revenue rewards a different discipline than transactional revenue, and the enemy here is backward-looking accounting that reports what was collected without modeling what will recur.</p>
+
+      <p>The stakes are not abstract. In an analysis of 431 venture-backed companies that shut down, CB Insights found that running out of capital was the most cited cause of failure, named in 70% of cases, with unsustainable unit economics a frequent root cause beneath it (<a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top/" target="_blank" rel="noopener noreferrer">CB Insights, 2024</a>). Running out of cash is rarely the real disease. It is the symptom of unit economics that nobody modeled until the runway was already short.</p>
+
+      <p>Growth alone does not solve the problem, and the growth itself has compressed. SaaS Capital reports that the median growth rate for private B2B SaaS companies fell to 25% in 2024, down from 30% the prior year (<a href="https://www.saas-capital.com/research/private-saas-company-growth-rate-benchmarks/" target="_blank" rel="noopener noreferrer">SaaS Capital, 2025</a>). In a slower-growth market, capital is more expensive and patience is shorter. Efficiency, not top-line momentum alone, is what keeps a SaaS business fundable. A fractional CFO exists to measure and improve that efficiency before it becomes a crisis.</p>
+
+      <h2>The SaaS Metrics That Run the Business</h2>
+
+      <p>A SaaS company is governed by a specific set of numbers. The job of a fractional CFO is to define each one precisely, calculate it consistently from real data, and connect it to the decisions in front of the founder. The five areas below are where the work concentrates.</p>
+
+      <h3>MRR and ARR Movement</h3>
+
+      <p>Monthly recurring revenue and annual recurring revenue are the foundation, but the headline number matters far less than its composition. The useful view breaks the period change into new MRR, expansion MRR from existing customers, contraction MRR from downgrades, and churned MRR from cancellations. Two companies can both report 20% ARR growth while one builds it on expansion within a loyal base and the other masks heavy churn under aggressive new sales. The first is durable. The second is a treadmill. A fractional CFO builds the MRR movement waterfall so the quality of growth, not just its rate, is visible every month.</p>
+
+      <h3>Churn and Net Revenue Retention</h3>
+
+      <p>Net revenue retention is the single metric that best predicts whether a SaaS business compounds. It measures revenue from existing customers over time, including expansion, contraction, and churn, with new customers excluded. When net revenue retention exceeds 100%, the existing base grows on its own before a single new logo is added. ChartMogul data shows that a median SaaS company above $1M ARR carries roughly 5.3% gross MRR churn, while early-stage companies run closer to 9.1% (<a href="https://chartmogul.com/saas-metrics/revenue-churn/" target="_blank" rel="noopener noreferrer">ChartMogul</a>). On the retention side, SaaS Capital places median net revenue retention near 103% for bootstrapped companies in the $3M to $20M ARR range (<a href="https://www.saas-capital.com/blog-posts/benchmarking-metrics-for-bootstrapped-saas-companies/" target="_blank" rel="noopener noreferrer">SaaS Capital, 2026</a>), and the 2024 KeyBanc and Sapphire Ventures survey put private SaaS net retention near 101% with gross retention near 90% (<a href="https://info.sapphireventures.com/2024-keybanc-capital-markets-and-sapphire-ventures-saas-survey" target="_blank" rel="noopener noreferrer">KeyBanc Capital Markets and Sapphire Ventures, 2024</a>). The pattern is consistent across sources: a few points of retention separate a fundable business from a fragile one.</p>
+
+      <p>The retention number also drives growth itself. SaaS Capital found that moving net revenue retention from the 90% to 100% band up to the 100% to 110% band correlated with roughly five additional percentage points of growth (<a href="https://www.saas-capital.com/blog-posts/what-is-a-good-retention-rate-for-a-private-saas-company/" target="_blank" rel="noopener noreferrer">SaaS Capital, 2025</a>). A fractional CFO treats churn and retention as the first place to look when growth stalls, because the leak in the base is usually cheaper to fix than the cost of replacing it with new sales.</p>
+
+      <h3>CAC, LTV, and Payback</h3>
+
+      <p>Customer acquisition cost, lifetime value, and the relationship between them decide whether each dollar of growth creates or destroys value. The two figures that matter most are the LTV to CAC ratio and CAC payback, the number of months of gross-margin revenue required to recover the cost of acquiring a customer. Benchmarkit reports a median LTV to CAC ratio of 3.6 to 1 and a median CAC payback of 18 months in 2024, up from 14 months the year before (<a href="https://www.benchmarkit.ai/2025benchmarks" target="_blank" rel="noopener noreferrer">Benchmarkit, 2025</a>). The lengthening payback period is the quiet story of the current market: acquiring customers costs more and recovers slower, which means a SaaS company can grow its top line while quietly degrading the economics underneath it. A fractional CFO models CAC payback by channel and by segment so spend flows toward the cohorts that actually pay back, and away from the ones that look like growth but function as a subsidy.</p>
+
+      <h3>Cash Runway and Burn</h3>
+
+      <p>Runway is months of cash remaining at the current net burn, and it is the metric that converts every other number into a deadline. The discipline that pairs with it is the burn multiple, net cash burned divided by net new ARR, which measures how much capital it takes to manufacture a dollar of new recurring revenue. A burn multiple near or below 1.0 signals efficient growth, and Bessemer Venture Partners notes that capital discipline has become a defining trait of the strongest cloud businesses, with a large share of the Cloud 100 already cash-flow positive or on track to be (<a href="https://www.bvp.com/atlas/the-cloud-100-benchmarks-report" target="_blank" rel="noopener noreferrer">Bessemer Venture Partners</a>). A fractional CFO maintains a rolling forecast that ties runway, burn multiple, and the hiring plan together, so the founder sees the cash consequence of every growth decision before committing to it rather than after.</p>
+
+      <h3>Gross Margin and the Rule of 40</h3>
+
+      <p>Software gross margin and the balance between growth and profitability complete the picture. The Rule of 40, the sum of growth rate and profit margin, is the shorthand investors use to judge whether a SaaS business is balancing the two well, with 40% as the target. It is a high bar. SaaS Capital and Meritech data indicate that only about 20% of actively traded SaaS companies clear it, with the median sitting closer to the high twenties to mid thirties (<a href="https://www.saas-capital.com/blog-posts/the-rule-of-40-is-dead-long-live-the-rule/" target="_blank" rel="noopener noreferrer">SaaS Capital</a>). Clearing the bar is rewarded directly: Bessemer Venture Partners has found that companies meeting the Rule of 40 command materially higher valuation multiples than those below it (<a href="https://www.bvp.com/atlas/the-cloud-100-benchmarks-report" target="_blank" rel="noopener noreferrer">Bessemer Venture Partners</a>). A fractional CFO uses the Rule of 40 as a steering metric, balancing the pace of investment against margin so the business grows in the way the market actually rewards.</p>
+
+      <h2>Building the SaaS Metrics on Your Real Data</h2>
+
+      <p>Most SaaS founders track these metrics in a spreadsheet that one person rebuilds by hand every month. That approach breaks in two predictable ways. It consumes hours that should go to analysis, and it produces numbers that quietly drift as definitions change between months. When the same metric means something slightly different each quarter, the trend line becomes fiction. The High Alpha and OpenView 2024 SaaS Benchmarks survey, covering more than 800 companies, found that the strongest operators treat clean, consistent metrics as core infrastructure rather than a reporting afterthought (<a href="https://www.highalpha.com/saas-benchmarks/2024" target="_blank" rel="noopener noreferrer">High Alpha and OpenView, 2024</a>). The way to get there is to build the metrics layer once, on top of the systems you already run.</p>
+
+      <p>We do this without asking you to replace your accounting software. We connect your existing QuickBooks or Xero ledger, together with your billing platform and CRM, into a single pipeline. Source data moves through Airbyte into BigQuery, a cloud data warehouse. A dbt transformation layer then defines every SaaS metric in one place, so MRR, net revenue retention, CAC payback, and runway are calculated the same way every time, from the same source records. The result is delivered through a Streamlit dashboard the founder and the board can open on any day of the month and see current numbers, not a month-old PDF.</p>
+
+      <p>The benefit is twofold. The founder stops paying for the spreadsheet rebuild and starts getting time back, and every metric becomes auditable down to the underlying transaction, which is exactly what investors test in diligence. This is the data-driven approach we apply across engagements, described in more detail in our guide to the <a href="data-driven-fractional-cfo">data-driven fractional CFO</a>. The point is not technology for its own sake. The point is that recurring-revenue decisions deserve numbers you can defend, and a hand-built spreadsheet cannot meet that standard at $3M or $5M in revenue.</p>
+
+      <h2>Investor and Board Reporting</h2>
+
+      <p>Whether or not a SaaS company has raised outside capital, it eventually answers to someone: a board, a lender, an acquirer, or a future investor. The reporting that satisfies those audiences is not a longer version of the monthly financials. It is a specific package built around the metrics this article has covered, presented so the numbers hold up under questioning.</p>
+
+      <p>A fractional CFO builds that package: an ARR movement waterfall, retention by cohort, CAC payback by segment, gross margin, burn multiple, runway, and a three-statement model with documented assumptions and clear upside, base, and downside cases. Investors do not penalize honest numbers. They penalize numbers that fall apart in diligence, and the difference between the two is preparation. The discipline matters even before a raise, because the same package that satisfies a board is the package that surfaces the problems early enough to fix. Reporting cadence and structure carry across business models, and our guide to <a href="financial-forecasting-small-business">financial forecasting for small business</a> covers the modeling foundation that supports investor-grade output.</p>
+
+      <p>For founders weighing whether the timing is right at all, the signals are usually specific rather than vague, and we cover them in <a href="signs-you-need-a-fractional-cfo">the signs your business needs a fractional CFO</a>. The clearest SaaS-specific signal is the inability to answer a board question about retention, payback, or runway with a number you trust.</p>
+
+      <h2>What It Costs for a SaaS Company</h2>
+
+      <p>A fractional CFO retainer for a SaaS company in the $500K to $7M revenue range runs $3,000 to $8,000 per month, depending on scope, hours, and complexity. Project engagements, such as a fundraising data room, a metrics rebuild, or a financial model for a specific decision, run roughly $5,000 to $20,000 depending on the output. For the full breakdown by revenue stage and engagement type, see our complete <a href="fractional-cfo-cost">fractional CFO cost guide</a>.</p>
+
+      <p>The comparison that matters is not retainer against zero. It is retainer against the alternatives. A full-time SaaS CFO carries total compensation of roughly $250,000 to $400,000 per year plus equity, which is not justifiable for a business at $2M in revenue. The other alternative, an advisory-only consultant who delivers a slide deck and leaves, names problems without building the system that fixes them. A fractional CFO occupies the space between: an operator who builds the MRR pipeline, owns the model, and sits in the board meeting, at a fraction of a full-time cost. The table below frames the structures.</p>
+
+      <div class="article__table-wrap">
+        <table class="article__table">
+          <thead>
+            <tr>
+              <th>Engagement Type</th>
+              <th>Structure</th>
+              <th>Typical Cost</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Retainer</td>
+              <td>Fixed monthly hours and scope; ongoing ownership of metrics, model, and board reporting</td>
+              <td>$3,000&ndash;$8,000/month</td>
+              <td>SaaS companies that need continuous financial leadership: live MRR and retention tracking, runway management, and a standing board package</td>
+            </tr>
+            <tr>
+              <td>Project</td>
+              <td>Defined output, fixed scope and timeline, no ongoing commitment</td>
+              <td>$5,000&ndash;$20,000 per project</td>
+              <td>Specific events: a fundraising data room, a metrics and dashboard build, a three-statement model, or a unit-economics diagnostic</td>
+            </tr>
+            <tr>
+              <td>Hybrid</td>
+              <td>Lower baseline retainer supplemented by project work as needs arise</td>
+              <td>$2,000&ndash;$4,000/month base plus project fees</td>
+              <td>SaaS companies that want a steady presence with episodic intensity: periodic raises, annual planning, or pricing overhauls</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The return on the spend is measured in the decisions it improves. A pricing change modeled against net revenue retention produces a different outcome than one made on instinct. A hiring plan tied to a runway forecast avoids the layoffs that follow a hire made on optimism. A raise prepared with defensible metrics closes faster and on better terms than one assembled in a panic. The retainer is not the cost of reports. It is the cost of the decision infrastructure that makes recurring revenue compound instead of leak.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="article__faq">
+        <details class="article__faq-item">
+          <summary>What does a fractional CFO for a SaaS company actually do?</summary>
+          <p>A fractional CFO for a SaaS company builds and manages the recurring-revenue financial system: MRR and ARR tracking, gross and net revenue retention analysis, CAC to LTV modeling, cash runway management, and investor-grade reporting. The work is forward-looking rather than backward-looking. Standard accounting records cash collected and invoices issued, but SaaS economics live in deferred revenue, cohort behavior, and unit economics that accrual statements alone do not surface. A fractional CFO connects the accounting data to those metrics and turns them into the model that drives pricing, hiring, and capital decisions.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>When is a SaaS company ready for a fractional CFO?</summary>
+          <p>Most SaaS companies between $500K and $7M in revenue are ready for a fractional CFO. Below roughly $500K in ARR, a strong bookkeeper and a SaaS-aware CPA often cover the financial infrastructure. Above $500K, the decisions get expensive: pricing changes move ARR materially, hiring against a runway requires a real model, and any conversation with investors requires defensible metrics. A useful trigger is the first time you cannot answer a board or investor question about net revenue retention, CAC payback, or months of runway with a number you trust.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>What SaaS metrics should a fractional CFO track first?</summary>
+          <p>The first metrics are MRR and ARR with their movement breakdown into new, expansion, contraction, and churn, then gross and net revenue retention, CAC payback, the LTV to CAC ratio, gross margin, and months of cash runway. These metrics answer the questions that determine whether the business grows efficiently or burns capital inefficiently. Net revenue retention and CAC payback in particular separate a durable SaaS business from one that grows only as long as new funding keeps arriving. A fractional CFO defines each metric precisely so the same number means the same thing every month.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How does a fractional CFO help a SaaS company prepare to raise capital?</summary>
+          <p>A fractional CFO builds the data room and the model that investors expect: a metrics package covering ARR movement, retention by cohort, CAC payback, gross margin, and burn, plus a three-statement model with documented assumptions and clear scenarios. The work also includes preparing the founder to defend those numbers in diligence. Investors do not penalize a SaaS company for honest metrics. They penalize numbers that fall apart under questioning. The value of the engagement is producing metrics that hold up and a story the data actually supports.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>Can a fractional CFO use our existing QuickBooks or Xero data for SaaS metrics?</summary>
+          <p>Yes. At Ochil Hills Management we connect your existing QuickBooks or Xero ledger, along with your billing and CRM systems, into a cloud data warehouse and build the SaaS metrics on top of that foundation. The pipeline moves source data through Airbyte into BigQuery, applies a dbt transformation layer that defines each metric consistently, and presents the result through a Streamlit dashboard. You keep the accounting system you already use. We build the recurring-revenue intelligence layer above it so MRR, retention, and runway update from your real data rather than a spreadsheet rebuilt by hand each month.</p>
+        </details>
+      </div>
+
+      <div class="article__cta-box">
+        <h3>Your Recurring Revenue Deserves Numbers You Can Defend</h3>
+        <p>SaaS companies between $500K and $7M are making the pricing, hiring, and capital decisions that determine whether they reach scale or stall. If those decisions are being made without a live view of retention, unit economics, and runway, the risk is operational, not theoretical. We build the recurring-revenue financial system on top of the data you already have. Let us have a direct conversation about whether a fractional CFO engagement is the right next move.</p>
+        <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+      </div>
+
+    </div>
+
+    <aside class="article__sidebar">
+      <div class="article__sidebar-card">
+        <h4>Related Articles</h4>
+        <ul>
+          <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+          <li><a href="data-driven-fractional-cfo">What Is a Data-Driven Fractional CFO?</a></li>
+          <li><a href="fractional-cfo-cost">How Much Does a Fractional CFO Cost?</a></li>
+          <li><a href="financial-forecasting-small-business">Financial Forecasting for Small Business</a></li>
+          <li><a href="signs-you-need-a-fractional-cfo">10 Signs Your Business Needs a Fractional CFO</a></li>
+        </ul>
+      </div>
+      <div class="article__sidebar-card">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../pages/services">Fractional CFO</a></li>
+          <li><a href="../pages/services">Fractional COO</a></li>
+          <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
