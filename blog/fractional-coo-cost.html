@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-coo-cost">
+<title>Fractional COO Cost: 2026 Pricing Guide | Ochil Hills</title>
+<meta name="description" content="How much does a fractional COO cost? Most charge $200–$350/hour or $5,000–$15,000/month. See 2026 pricing by revenue stage, models, and what drives the cost.">
+<meta property="og:title" content="How Much Does a Fractional COO Cost? 2026 Pricing Guide">
+<meta property="og:description" content="Fractional COO pricing runs $200–$350/hour or $5,000–$15,000/month on retainer. See cost by revenue stage, pricing models, and how it compares to a full-time hire.">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-coo-cost">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How Much Does a Fractional COO Cost? 2026 Pricing Guide">
+<meta name="twitter:description" content="Fractional COO pricing runs $200–$350/hour or $5,000–$15,000/month on retainer. See cost by revenue stage, pricing models, and how it compares to a full-time hire.">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "How Much Does a Fractional COO Cost? 2026 Pricing Guide",
+ "description": "How much does a fractional COO cost? Most charge $200-$350/hour or $5,000-$15,000/month. See 2026 pricing by revenue stage, models, and what drives the cost.",
+ "author": {
+   "@type": "Person",
+   "name": "Kylie Kaiser",
+   "jobTitle": "Fractional COO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://ochilmanagement.com"
+ },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
+ "datePublished": "DRAFT-DATE-TBD",
+ "dateModified": "DRAFT-DATE-TBD",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-coo-cost"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "How much does a fractional COO cost?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional COO costs $200 to $350 per hour, or $5,000 to $15,000 per month on a retainer, with the wider market running from $150 to $500 per hour and $3,000 to $15,000 per month, per ScaleUpExec's 2026 rate analysis. Where you land depends on scope, your revenue stage, and how many hours you need. A founder at $700K buying two days a week of structure pays far less than one at $6M who needs a COO rebuilding the whole delivery system. The price follows the operational outcome you are buying, not the title."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What is the hourly rate for a fractional COO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Hourly rates for fractional COOs run from $150 to $500 across the market, with the most active working range sitting between $200 and $350 per hour, according to ScaleUpExec. Hourly fits a narrow situation: a seasoned operator on call for the occasional hard question or process review, without a standing commitment. I am direct with founders about this. Hourly is the lowest-commitment way to start, and it is also the least likely to change your business, because real operational work is not an hour here and there. It is sustained."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How much is a fractional COO monthly retainer?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Monthly retainers run from $5,000 to $15,000 for ongoing engagements, with lighter scopes starting nearer $3,000, per ScaleUpExec. By revenue stage, a business at $500K to $1M usually pays $3,000 to $6,000 a month, $1M to $3M pays $5,000 to $9,000, and $3M to $7M pays $8,000 to $15,000. The retainer is the standard for ongoing work because the COO shows up every week, builds real context, and owns a defined slice of your operations rather than reacting to whatever lands in the inbox."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Is a fractional COO cheaper than a full-time COO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Yes. A full-time COO base salary runs $150,000 to $300,000 before benefits at the small-business level, and the loaded total commonly reaches $280,000 to $450,000 once recruiting and equity are counted. A fractional COO delivers the same operational rigor for 60 to 75 percent less, per ScaleUpExec, with a first-year cost near $60,000 to $180,000. Below roughly $10M in revenue, the fractional model pays for the work your business actually needs instead of a full-time seat, with the added flexibility of a 30- to 60-day exit and no severance risk."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Is a fractional COO worth the cost?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "For a growth-stage business where operations are breaking faster than you can manage them, yes. The expensive problem is rarely the retainer. It is the bad hire made without a hiring plan, the delivery that slips because no one owns the system, the margin lost to processes nobody designed on purpose. A single avoided bad hire or one margin leak closed often covers the engagement. I will be transparent though: a fractional COO is not right for every business. If operations are already clean and your only gap is finance, you may not need one yet."
+     }
+   }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "How Much Does a Fractional COO Cost? 2026 Pricing Guide",
+   "item": "https://ochilmanagement.com/blog/fractional-coo-cost"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+      <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+      <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+    </a>
+    <nav class="header__nav" aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="header__nav-list" role="list">
+        <li><a href="../" class="header__nav-link">Home</a></li>
+        <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+        <li><a href="../pages/about" class="header__nav-link">About</a></li>
+        <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+        <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+        <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+        <li class="header__nav-mobile-ctas">
+          <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+          <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+      <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+    </div>
+  </div>
+</header>
+
+<section id="main" class="hero hero--sub">
+  <div class="hero__bg">
+    <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing strategic financial growth" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__badge">What Is a Fractional COO?</p>
+    <h1 class="hero__title" style="max-width:24ch;">How Much Does a Fractional COO Cost? 2026 Pricing Guide</h1>
+    <p class="hero__subtitle">What You'll Actually Pay in 2026, by Pricing Model and Revenue Stage</p>
+  </div>
+</section>
+
+<article class="article">
+  <div class="article__container">
+
+    <div class="article__meta">
+      <span class="article__author">By Kylie Kaiser, Fractional COO</span>
+      <span class="article__sep">&bull;</span>
+      <time class="article__date" datetime="DRAFT-DATE-TBD">DRAFT-DATE-TBD</time>
+      <span class="article__sep">&bull;</span>
+      <span class="article__read-time">8 min read</span>
+      <span class="article__sep">&bull;</span>
+      <span class="article__last-updated">Last updated: DRAFT-DATE-TBD</span>
+    </div>
+
+    <div class="article__body">
+
+      <div class="article__answer-capsule">
+        <p>A fractional COO costs $200 to $350 per hour, or $5,000 to $15,000 per month on retainer in 2026. Your price depends on scope, your revenue stage, and how many hours you need, far less than a full-time COO at $280,000 to $450,000 loaded.</p>
+      </div>
+
+      <p>You got a number from one firm and it was $4,000 a month. You got a number from another and it was $18,000. Both said "fractional COO." Now you're staring at a spread that's wide enough to drive a truck through, and you're trying to work out which one is telling you the truth.</p>
+
+      <p>Here's the honest answer: they both probably are. The price of a fractional COO moves with what you actually need, and most firms won't tell you that plainly because vague pricing is easier to sell. I'd rather you have the real ranges and the reasoning behind them. Let me walk you through how this works and what you should expect to pay at your revenue stage.</p>
+
+      <h2>How Much Does a Fractional COO Cost in 2026?</h2>
+
+      <p>A fractional COO costs $200 to $350 per hour, or $5,000 to $15,000 per month on a retainer, with the wider market running from $150 to $500 per hour and $3,000 to $15,000 per month depending on scope. The reason the range is so wide is that <a href="what-is-a-fractional-coo">a fractional COO</a> is not one product. It's a role sized to your business, and a founder at $700K in revenue who needs two days a week of operational structure is buying something different from a founder at $6M who needs a COO rebuilding the entire delivery system.</p>
+
+      <p>So the question isn't really "how much does a fractional COO cost." That's the wrong question, and it leads you straight to a confusing answer. The better question is "what do I need a fractional COO to own, and what does that scope cost." Once you frame it that way, the spread stops looking like chaos and starts looking like a menu.</p>
+
+      <p>Demand for this model is climbing fast, which is part of why the market has gotten clearer about pricing. Demand for fractional executives rose roughly 46% year over year, and 72% of CEOs say they plan to increase their use of fractional executives over the next twelve months, according to <a href="https://www.vendux.org/blog/10-numbers-that-will-reshape-how-you-think-about-fractional-executives-in-2026" target="_blank" rel="noopener noreferrer">Vendux's 2026 fractional executive research</a>. Roughly 25% of U.S. businesses now use fractional hiring, a figure projected to reach 35% by the end of 2026, with Gartner expecting more than 30% of midsize companies to keep at least one fractional executive on retainer by 2027. More buyers means more reference points when you're judging a quote.</p>
+
+      <h2>The Three Ways a Fractional COO Charges</h2>
+
+      <p>There are three pricing models, and the right one depends on whether you need ongoing operational leadership, occasional senior input, or one specific thing built. Let me take them in order.</p>
+
+      <h3>Hourly</h3>
+
+      <p>Hourly billing fits a narrow situation: you want a seasoned operator on call for the occasional hard question, a process review, or help thinking through a single decision, without a standing commitment. Hourly rates for fractional COOs run from $150 to $500 across the market, with the most active working range sitting between $200 and $350 per hour, per <a href="https://scaleupexec.com/fractional-coo-rates/" target="_blank" rel="noopener noreferrer">ScaleUpExec's 2026 rate analysis</a>. It's the lowest-commitment way to start, and it's also the least likely to change your business, because real operational work isn't an hour here and there. It's sustained.</p>
+
+      <h3>Monthly Retainer</h3>
+
+      <p>The retainer is the standard for ongoing fractional COO work, and it's the one I'd point most growth-stage founders toward. You agree on a scope and a rough cadence, the COO shows up every week, builds real context on your business, and owns a defined slice of your operations rather than reacting to whatever lands in the inbox. Monthly retainers run from $5,000 to $15,000 for ongoing engagements, with lighter scopes starting nearer $3,000, again per <a href="https://scaleupexec.com/fractional-coo-rates/" target="_blank" rel="noopener noreferrer">ScaleUpExec</a>. A common shape is roughly one hour a day of senior attention at the startup stage, around $5,000 to $7,000 a month, scaling to two-plus hours a day for a faster-growing company at $10,000 to $13,000.</p>
+
+      <h3>Project or Sprint</h3>
+
+      <p>Sometimes you don't need an ongoing COO. You need one thing built well: an operational playbook, a hiring and team-structure plan for the next twelve months, a delivery system that stops breaking under volume. Project work is scoped to a single output with a fixed timeline, and it runs from $5,000 to $25,000 depending on how complex the build is, based on the project rates ScaleUpExec and other firms report. This is how a lot of founders test the water before committing to a retainer, and it's the model behind our own <a href="strategy-without-execution-fails">strategic sprint</a> approach: one problem, one defined output, one clear win.</p>
+
+      <h2>What Actually Drives the Price</h2>
+
+      <p>Three things move a fractional COO's price, and none of them is the hourly rate on its own. Understanding them is how you read a quote and know whether it's fair.</p>
+
+      <p><strong>Scope is the biggest driver.</strong> A COO who owns your hiring sequence, your process design, your delivery capacity, and your weekly operating rhythm is doing far more than one advising on a single workflow. You're not buying hours. You're buying an operational outcome, and the broader the list of <a href="what-does-a-fractional-coo-do">what a fractional COO actually does</a> in your business, the higher the number. When you see two quotes that differ by $8,000 a month, the first question is almost always: what does each one actually own?</p>
+
+      <p><strong>Your revenue stage sets the complexity.</strong> A $6M business has more moving parts, more people, and more ways for things to break than a $700K business. More complexity means more hours and a more senior operator, which means a higher price. This is why the same role costs one thing at one stage and something else at the next.</p>
+
+      <p><strong>Hours and depth do the rest.</strong> One day a week is not two days a week. A COO embedded deeply enough to change your trajectory costs more than one checking in twice a month, and the cheaper version often changes nothing, which makes it the more expensive choice in the end.</p>
+
+      <p>Can you see why the cheap quote is rarely the bargain it looks like? The expensive problem isn't the retainer. It's the bad hire you made without a hiring plan, or the margin you're losing to processes nobody designed on purpose.</p>
+
+      <h2>Fractional COO Cost by Revenue Stage</h2>
+
+      <p>The clearest way to translate all of this into a number you can plan around is by revenue stage. The figures below are revenue-band subsets of the market retainer range above, sized to the operational load each stage carries. Your exact price will depend on scope, but this is the shape of it.</p>
+
+      <div class="article__table-wrap">
+        <table class="article__table">
+          <thead>
+            <tr>
+              <th>Revenue Stage</th>
+              <th>Typical Monthly Retainer</th>
+              <th>What the Scope Usually Covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>$500K&ndash;$1M</td>
+              <td>$3,000&ndash;$6,000</td>
+              <td>Core systems, hiring plan, basic operating rhythm; lighter hours</td>
+            </tr>
+            <tr>
+              <td>$1M&ndash;$3M</td>
+              <td>$5,000&ndash;$9,000</td>
+              <td>Process design, delivery capacity, team structure, weekly cadence</td>
+            </tr>
+            <tr>
+              <td>$3M&ndash;$7M</td>
+              <td>$8,000&ndash;$15,000</td>
+              <td>Full operational architecture, multi-team coordination, scaling systems</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Most small businesses bring in fractional operational leadership somewhere between $250K and $3M in revenue, and most don't need a full-time COO until they're closing in on eight figures, according to <a href="https://www.hirechore.com/startups/fractional-coo-101" target="_blank" rel="noopener noreferrer">HireChore's fractional COO guide</a>. That band, from early traction to roughly $7M, is exactly where the fractional model earns its place, and it's the range we build for.</p>
+
+      <h2>Fractional vs Full-Time COO: The Cost Comparison</h2>
+
+      <p>This is where the case for fractional gets concrete. A full-time COO is a major commitment, and at the small-business level the base salary alone runs from $150,000 to $300,000 before benefits, with total cash compensation at firms under 50 employees landing around $225,000 to $350,000, per <a href="https://www.salarycube.com/compensation/average-coo-salary-by-company-size" target="_blank" rel="noopener noreferrer">SalaryCube's 2026 COO compensation data</a>. Load in payroll taxes, benefits, equity, and recruiting, and the true cost climbs higher. <a href="https://www.salary.com/research/salary/benchmark/chief-operating-officer-salary" target="_blank" rel="noopener noreferrer">Salary.com</a> puts the average COO salary near $467,000 a year, and <a href="https://www.glassdoor.com/Salaries/coo-salary-SRCH_KO0,3.htm" target="_blank" rel="noopener noreferrer">Glassdoor</a> reports about $319,000, both skewed toward larger companies, which tells you how steep this line gets as you scale.</p>
+
+      <p>A fractional COO delivers the same operational rigor for 60% to 75% less than a full-time hire, per <a href="https://scaleupexec.com/fractional-coo-rates/" target="_blank" rel="noopener noreferrer">ScaleUpExec's 2026 rate analysis</a>. Put in annual terms, a first-year fractional engagement runs roughly $60,000 to $180,000 against $280,000 to $450,000 for a full-time COO once recruiting and equity are counted. That's a 40% to 65% saving, with the added flexibility of a 30- to 60-day exit and no severance risk.</p>
+
+      <div class="article__table-wrap">
+        <table class="article__table">
+          <thead>
+            <tr>
+              <th>Cost Element</th>
+              <th>Full-Time COO</th>
+              <th>Fractional COO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Annual cost (loaded)</td>
+              <td>$280,000&ndash;$450,000+</td>
+              <td>$60,000&ndash;$180,000</td>
+            </tr>
+            <tr>
+              <td>Equity / long-term incentive</td>
+              <td>Common</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Recruiting cost</td>
+              <td>$30,000&ndash;$90,000</td>
+              <td>None</td>
+            </tr>
+            <tr>
+              <td>Exit flexibility</td>
+              <td>Severance risk</td>
+              <td>30&ndash;60 day exit</td>
+            </tr>
+            <tr>
+              <td>Best fit</td>
+              <td>Above ~$10M revenue</td>
+              <td>$500K&ndash;$7M revenue</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The math is the same one I walk every founder through. A full-time COO is paid to fill a seat for 2,000 hours a year. The senior operational work your business actually needs at this stage doesn't fill 2,000 hours. A fractional model pays for the work, not the seat, and below roughly $10M in revenue that's the more disciplined use of your capital. If you're weighing this against the finance side too, our guide to <a href="fractional-cfo-cost">fractional CFO cost</a> breaks down the same comparison for that role, and <a href="fractional-cfo-vs-coo">fractional CFO vs COO</a> helps you decide which gap to close first.</p>
+
+      <h2>Is a Fractional COO Worth the Cost?</h2>
+
+      <p>Cost is only half the question. The other half is what the role returns, and a fractional COO earns its price by removing the things quietly draining your business.</p>
+
+      <p>I'll be transparent about the other side of this, because the trust matters more than the sale: a fractional COO is not the right fit for every business. If your operations are already running clean and your only gap is on the finance side, you may not need one yet. If you're below a few hundred thousand in revenue, a sprint to build one or two systems will serve you better than a retainer. The model fits when growth is creating chaos faster than you can manage it, and when there's a real gap between what your business is supposed to be doing and what it's actually doing day to day.</p>
+
+      <p>When that gap is real, the return shows up fast, because operational drag is expensive and most founders have stopped noticing it. A single avoided bad hire, one delivery system that finally holds, one margin leak closed, and the engagement has paid for itself. That's the standard I'd hold any operational investment to, including ours.</p>
+
+      <h2>How OHM Prices a Fractional COO</h2>
+
+      <p>We don't publish a single sticker price for a fractional COO, and I want to be straight about why. A real price depends on what you need owned, and quoting a flat number before I understand your business would be guessing dressed up as transparency. What I can tell you is how we build the price: it's set by your revenue stage and the scope you actually need, the same way the ranges above work, and it sits inside the market figures, not above them.</p>
+
+      <p>What's different about how we work is that our fractional COO isn't an advisor handing you a report. The role is embedded, and it runs in coordination with the finance side rather than in a silo, because the operational plan and the financial plan break the moment they drift apart. We cap our practice at around 20 clients and work in 6- to 12-month engagements, because changing a company's operational trajectory takes real presence, not a few calls a month. Our piece on <a href="integrated-c-suite-leadership-smb">integrated C-suite leadership</a> walks through how the two functions work together.</p>
+
+      <p>The question isn't whether your operations cost you money right now. They do, every business's do. The question is whether you're going to build the structure that fixes it deliberately, or keep paying for the gap without ever seeing the bill.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="article__faq">
+        <details class="article__faq-item">
+          <summary>How much does a fractional COO cost?</summary>
+          <p>A fractional COO costs $200 to $350 per hour, or $5,000 to $15,000 per month on a retainer, with the wider market running from $150 to $500 per hour and $3,000 to $15,000 per month, per ScaleUpExec's 2026 rate analysis. Where you land depends on scope, your revenue stage, and how many hours you need. A founder at $700K buying two days a week of structure pays far less than one at $6M who needs a COO rebuilding the whole delivery system. The price follows the operational outcome you are buying, not the title.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>What is the hourly rate for a fractional COO?</summary>
+          <p>Hourly rates for fractional COOs run from $150 to $500 across the market, with the most active working range sitting between $200 and $350 per hour, according to ScaleUpExec. Hourly fits a narrow situation: a seasoned operator on call for the occasional hard question or process review, without a standing commitment. I am direct with founders about this. Hourly is the lowest-commitment way to start, and it is also the least likely to change your business, because real operational work is not an hour here and there. It is sustained.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How much is a fractional COO monthly retainer?</summary>
+          <p>Monthly retainers run from $5,000 to $15,000 for ongoing engagements, with lighter scopes starting nearer $3,000, per ScaleUpExec. By revenue stage, a business at $500K to $1M usually pays $3,000 to $6,000 a month, $1M to $3M pays $5,000 to $9,000, and $3M to $7M pays $8,000 to $15,000. The retainer is the standard for ongoing work because the COO shows up every week, builds real context, and owns a defined slice of your operations rather than reacting to whatever lands in the inbox.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>Is a fractional COO cheaper than a full-time COO?</summary>
+          <p>Yes. A full-time COO base salary runs $150,000 to $300,000 before benefits at the small-business level, and the loaded total commonly reaches $280,000 to $450,000 once recruiting and equity are counted. A fractional COO delivers the same operational rigor for 60 to 75 percent less, per ScaleUpExec, with a first-year cost near $60,000 to $180,000. Below roughly $10M in revenue, the fractional model pays for the work your business actually needs instead of a full-time seat, with the added flexibility of a 30- to 60-day exit and no severance risk.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>Is a fractional COO worth the cost?</summary>
+          <p>For a growth-stage business where operations are breaking faster than you can manage them, yes. The expensive problem is rarely the retainer. It is the bad hire made without a hiring plan, the delivery that slips because no one owns the system, the margin lost to processes nobody designed on purpose. A single avoided bad hire or one margin leak closed often covers the engagement. I will be transparent though: a fractional COO is not right for every business. If operations are already clean and your only gap is finance, you may not need one yet.</p>
+        </details>
+      </div>
+
+      <div class="article__cta-box">
+        <h3>Let's Figure Out What Your Operations Actually Need</h3>
+        <p>If your business is between $500K and $7M and growth is outrunning your systems, I'd rather have a direct conversation about scope than send you a generic quote. We size the engagement to where you are, set the price by what you need owned, and run it embedded alongside the finance side, not from the outside. Bring me the gap you're feeling, and I'll tell you honestly whether a fractional COO is the right call right now.</p>
+        <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+      </div>
+    </div>
+
+    <aside class="article__sidebar">
+      <div class="article__sidebar-card">
+        <h4>Related Articles</h4>
+        <ul>
+          <li><a href="what-is-a-fractional-coo">What Is a Fractional COO?</a></li>
+          <li><a href="what-does-a-fractional-coo-do">What Does a Fractional COO Do?</a></li>
+          <li><a href="fractional-cfo-vs-coo">Fractional CFO vs COO</a></li>
+          <li><a href="fractional-cfo-cost">Fractional CFO Cost: 2026 Pricing Guide</a></li>
+          <li><a href="integrated-c-suite-leadership-smb">Integrated C-Suite Leadership for SMBs</a></li>
+        </ul>
+      </div>
+      <div class="article__sidebar-card">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../pages/services">Fractional COO</a></li>
+          <li><a href="../pages/services">Fractional CFO</a></li>
+          <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
