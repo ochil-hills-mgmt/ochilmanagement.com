@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<link rel="canonical" href="https://ochilmanagement.com/blog/business-intelligence-for-small-business">
+<title>Business Intelligence for Small Business Explained</title>
+<meta name="description" content="Business intelligence for small business in plain English: what BI is, what it is not, how the layers work, and how it informs real financial decisions.">
+<meta property="og:title" content="Business Intelligence for Small Business: A Plain-English Guide">
+<meta property="og:description" content="Business intelligence for small business in plain English: what BI is, what it is not, how the layers fit together, and how it informs real financial decisions.">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://ochilmanagement.com/blog/business-intelligence-for-small-business">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Business Intelligence for Small Business: A Plain-English Guide">
+<meta name="twitter:description" content="Business intelligence for small business in plain English: what BI is, what it is not, how the layers fit together, and how it informs real financial decisions.">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Business Intelligence for Small Business: A Plain-English Guide",
+ "description": "Business intelligence for small business in plain English: what BI is, what it is not, how the layers fit together, and how it informs real financial decisions.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://ochilmanagement.com"
+ },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
+ "datePublished": "2026-06-19",
+ "dateModified": "2026-06-19",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/business-intelligence-for-small-business"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What is business intelligence for a small business in simple terms?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Business intelligence is the practice of pulling data out of the tools you already use, organizing it in one place, and turning it into clear answers about your business. For a small business, that means your accounting system, your sales records, and your operational data feed a single, trusted source, and you read the result as a dashboard rather than a stack of exports. The point is not the technology. The point is that you can answer questions like which products make money, which customers are growing, and what your cash position looks like next quarter without rebuilding a spreadsheet every time you ask."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How is business intelligence different from my accounting reports?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Accounting reports answer compliance and historical questions: what did we earn, what did we spend, what is the balance. Business intelligence combines accounting data with sales, operational, and other data to answer management questions: which service line carries the best margin, which customers drive the most profit rather than the most revenue, and how a pricing change would flow through to cash. Accounting reports are one input to business intelligence. They are not the same thing, and a profit and loss statement on its own does not answer the decisions an owner is actually making."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Is business intelligence only for large companies?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "No. The cost structure that once restricted business intelligence to large companies has changed. Cloud data warehouses bill by usage, open-source tools handle data movement and transformation, and a small business can stand up a working pipeline for a fraction of what an enterprise platform cost a decade ago. A business between $500K and $7M in revenue has enough data complexity to benefit from business intelligence and now has access to the same architecture large companies use, scaled to its size and budget."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What does a small business business intelligence setup actually look like?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A practical setup has four layers. Data sources are the systems where your numbers live, such as QuickBooks or Xero, plus sales and operational tools. A pipeline moves that data into a central warehouse on a schedule, so nothing depends on manual exports. A transformation layer cleans and standardizes the data so the numbers agree across sources. A dashboard layer presents the result in views built around decisions. In our approach, those four layers run as a single managed pipeline that we build and operate end to end, from your accounting data through to the dashboard. The owner sees the dashboard. The plumbing runs in the background."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How does business intelligence connect to financial decisions like pricing and hiring?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Business intelligence supplies the evidence behind financial decisions. Pricing improves when you can see true margin by product or customer rather than a blended average. Hiring decisions improve when labor cost is measured against the revenue and capacity it supports. Capital allocation improves when you can compare the return on competing uses of cash. Cash management improves when inflows and outflows are visible weeks ahead rather than discovered at the bank. In each case, business intelligence is the layer that turns raw records into the specific numbers a decision depends on."
+     }
+   }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Business Intelligence for Small Business: A Plain-English Guide",
+   "item": "https://ochilmanagement.com/blog/business-intelligence-for-small-business"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+      <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+      <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+    </a>
+    <nav class="header__nav" aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="header__nav-list" role="list">
+        <li><a href="../" class="header__nav-link">Home</a></li>
+        <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+        <li><a href="../pages/about" class="header__nav-link">About</a></li>
+        <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+        <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+        <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+        <li class="header__nav-mobile-ctas">
+          <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+          <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+      <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+    </div>
+  </div>
+</header>
+
+<section id="main" class="hero hero--sub">
+  <div class="hero__bg">
+    <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing strategic financial growth" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__badge">Data &amp; BI</p>
+    <h1 class="hero__title" style="max-width:26ch;">Business Intelligence for Small Business: A Plain-English Guide</h1>
+    <p class="hero__subtitle">What BI Actually Means at Your Size, and How It Connects to Real Financial Decisions</p>
+  </div>
+</section>
+
+<article class="article">
+  <div class="article__container">
+
+    <div class="article__meta">
+      <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+      <span class="article__sep">&bull;</span>
+      <time class="article__date" datetime="2026-06-19">June 19, 2026</time>
+      <span class="article__sep">&bull;</span>
+      <span class="article__read-time">9 min read</span>
+      <span class="article__sep">&bull;</span>
+      <span class="article__last-updated">Last updated: June 19, 2026</span>
+    </div>
+
+    <div class="article__body">
+
+      <div class="article__answer-capsule">
+        <p>Business intelligence for a small business is the practice of pulling data out of the tools you already use, organizing it in one trusted place, and turning it into clear answers you can act on. It is not a bigger spreadsheet, and it is not your monthly accounting reports. It is the layer that sits above both: it combines your accounting data with your sales and operational data, cleans it so the numbers agree, and presents it as dashboards built around the decisions you make on pricing, hiring, capital, and cash. The technology has become affordable at the small business stage, and the value is not the dashboard itself. The value is the better decision the dashboard supports.</p>
+      </div>
+
+      <p>If you run a business between $500K and $7M in revenue, you have almost certainly heard the term business intelligence, and you may have quietly filed it under things large companies do. That instinct is out of date. The cost structure that once kept business intelligence inside the enterprise has collapsed, and the data your business already generates is now large enough and messy enough that pulling answers out of it by hand has become its own drag on your time. This guide explains what business intelligence is in plain terms, what it is not, how the pieces fit together, and how it connects to the financial decisions you are already making.</p>
+
+      <p>The starting point is the gap between how much data a small business produces and how little of it gets used. In a 2024 Intuit QuickBooks survey of larger small businesses, respondents reported spending, on average, <a href="https://www.intuit.com/enterprise/blog/research/business-solutions-survey-2024/" target="_blank" rel="noopener noreferrer">25 hours a week on manual data entry or reconciling data across applications</a>, and 45% named inadequate reporting and analysis as a direct challenge. That is the problem business intelligence is built to solve.</p>
+
+      <h2>What Business Intelligence Actually Means</h2>
+
+      <p>Strip away the jargon and business intelligence is a simple idea: take the data your business already creates, bring it together in one place, make it trustworthy, and turn it into answers. The answers are the point. A business intelligence setup exists so that when you ask which customers are most profitable, or whether last quarter's price increase actually held, you get a reliable number in seconds instead of a half-day spreadsheet exercise that may or may not be correct.</p>
+
+      <p>This matters now because most decisions are still made without that reliable number. Research from BARC, a respected analyst firm focused on data and business intelligence, found that <a href="https://barc.com/business-decisions-gut-feel/" target="_blank" rel="noopener noreferrer">58% of companies base at least half of their regular business decisions on gut feel or experience rather than on data</a>. Gut feel built from real operating experience is valuable, and a good business intelligence practice does not replace it. It tests it. The owner who believes the flagship product is the profit driver, and then sees the margin data say otherwise, is better off for knowing.</p>
+
+      <p>The broader market confirms how mainstream this has become. Gartner reported that the worldwide data and analytics software market <a href="https://www.gartner.com/en/newsroom/press-releases/2024-04-25-gartner-identifies-the-top-trends-in-data-and-analytics-for-2024" target="_blank" rel="noopener noreferrer">continued to expand sharply through 2024</a>, and McKinsey's global research found that <a href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">65% of organizations now regularly use generative AI in at least one business function</a>, roughly double the share from the year before. The tools that read and explain business data are spreading fast, and they read whatever you feed them. If the underlying data is disorganized, the answers will be too.</p>
+
+      <h2>What Business Intelligence Is Not</h2>
+
+      <p>Two things get mistaken for business intelligence, and clearing up both is the fastest way to understand what it is.</p>
+
+      <h3>It Is Not a Bigger Spreadsheet</h3>
+
+      <p>A spreadsheet is a manual workspace. Someone exports data, pastes it in, builds formulas, and updates the file by hand the next time the numbers change. That process is slow, it breaks quietly when a formula is dragged wrong, and it lives on one person's laptop. Business intelligence automates the part a spreadsheet does by hand: the data flows in on a schedule, the calculations are defined once and applied consistently, and everyone reads the same version. The 25 hours a week that small businesses report losing to manual data work is, in large part, spreadsheet labor that business intelligence is designed to remove. Spreadsheets remain useful for one-off analysis. They are not a reporting system.</p>
+
+      <h3>It Is Not Your Accounting Reports</h3>
+
+      <p>This is the more important distinction, and it is the one most owners get wrong. Your accounting system produces a profit and loss statement, a balance sheet, and a cash flow statement. Those are essential, and they are backward-looking by design: they record what already happened in the format that compliance and tax require. Business intelligence is not a replacement for them. It is a layer that combines accounting data with everything else, your sales records, your project data, your operational metrics, and answers questions accounting reports were never built to answer. A profit and loss statement tells you total revenue. Business intelligence tells you which customers, products, and service lines created that revenue, which of them actually made money after their true costs, and what the trend looks like going forward. For more on the reporting foundation underneath this, see our guide to <a href="financial-reporting-small-business">financial reporting for small business</a>.</p>
+
+      <h2>The Four Layers, in Plain Terms</h2>
+
+      <p>A working business intelligence setup has four layers. You do not need to operate them, any more than you need to understand engine timing to drive. But understanding what each layer does makes the whole thing far less mysterious, and it helps you tell a real setup from an expensive dashboard sitting on a shaky foundation.</p>
+
+      <h3>Layer 1: Data Sources</h3>
+
+      <p>These are the systems where your numbers already live. For most small businesses that means accounting software such as QuickBooks or Xero, plus a sales or point-of-sale system, a customer database, payroll, and perhaps a project or inventory tool. Each of these holds a piece of the truth. None of them holds all of it. The first job of business intelligence is to recognize every place your data lives, because a number that never leaves one system is a number you cannot compare against the others.</p>
+
+      <h3>Layer 2: The Pipeline and Warehouse</h3>
+
+      <p>A pipeline is the automated process that moves data out of those source systems on a schedule and into a central store called a data warehouse. The warehouse is simply a database built to hold large amounts of business data and answer questions against it quickly. The reason this layer exists is consistency: instead of someone exporting files every month, the pipeline does it the same way every time, and the warehouse becomes the single place where all your data sits together. This is the layer that replaces the manual export step, and it is the difference between a report that updates itself and one that waits on a person.</p>
+
+      <h3>Layer 3: Transformation</h3>
+
+      <p>Raw data from different systems rarely agrees. One system calls it a client, another calls it a customer. Dates are formatted three ways. A refund is recorded in one tool but not reflected in another. Transformation is the step that cleans and standardizes all of it so the numbers reconcile and a calculation means the same thing everywhere. This layer matters more than any dashboard, because a polished dashboard built on unreconciled data is worse than no dashboard: it presents wrong answers with the confidence of a chart. Salesforce research found that <a href="https://www.salesforce.com/news/stories/data-skills-research/" target="_blank" rel="noopener noreferrer">73% of business leaders believe data reduces uncertainty and drives better decisions</a>, yet trust in that data has been falling, which is exactly what happens when the transformation layer is skipped. Getting this layer right is what makes the rest trustworthy.</p>
+
+      <h3>Layer 4: Dashboards</h3>
+
+      <p>The dashboard is the only layer you interact with daily. It presents the cleaned, combined data as views organized around decisions: margin by product, profitability by customer, labor as a share of revenue, cash position over the coming weeks. A good dashboard is built backward from the questions you actually ask, not forward from whatever the data happened to contain. The other three layers exist so that this one can be trusted at a glance.</p>
+
+      <h2>How We Build It</h2>
+
+      <p>Our business intelligence platform follows those four layers as a single engineered system that we build and operate end to end, not a loose set of apps wired together by hand. Your accounting data in QuickBooks or Xero is the primary source. From there, an automated pipeline moves your data on a schedule into a cloud data warehouse that bills by usage rather than by a large fixed license, a transformation layer defines every calculation once so the numbers stay consistent and auditable, and a dashboard layer presents the result in views built around your decisions. You see the dashboard. The pipeline, the warehouse, and the transformation logic run in the background, monitored and maintained so that the number you read on a Monday morning is one you can act on.</p>
+
+      <p>This is the architecture large companies use, scaled to the small business stage. The cloud warehouse model is the reason it is now affordable: you pay for what you use rather than buying capacity you will not need for years. This is also where a fractional finance function earns its place, because the stack is only as useful as the financial judgment built into the transformation layer and the dashboards. We cover how that judgment shapes the build in our guide to the <a href="data-driven-fractional-cfo">data-driven fractional CFO</a>.</p>
+
+      <h2>From Dashboards to Real Financial Decisions</h2>
+
+      <p>Business intelligence earns its cost only when it changes a decision. A dashboard nobody acts on is a more expensive version of the monthly report nobody acts on. The connection between the data layer and the financial decision is the entire point, so it is worth making it concrete across the four decisions that most affect a small business.</p>
+
+      <h3>Pricing</h3>
+
+      <p>Most small businesses price against a blended average and a rough sense of the market. Business intelligence replaces the blended average with true margin by product, service line, and customer. When you can see that one service line you assumed was marginal is actually carrying the business, and another you are proud of barely breaks even after its real delivery cost, the pricing conversation changes. A single defensible price change, grounded in margin data rather than a guess, often recovers the cost of the entire setup.</p>
+
+      <h3>Hiring</h3>
+
+      <p>A hire is one of the largest financial commitments a small business makes, and it is frequently made on a feeling that the team is stretched. Business intelligence measures labor cost against the revenue and capacity it supports, so the question shifts from does this feel necessary to does the model show this role paying for itself, and on what timeline. That is a different and far better conversation to have before the offer goes out.</p>
+
+      <h3>Capital Allocation</h3>
+
+      <p>Every dollar the business generates can go to one of several uses: equipment, marketing, headcount, debt paydown, or reserves. Capital allocation is the discipline of comparing the return on those competing uses instead of funding whichever feels most urgent. Business intelligence supplies the comparison, and Deloitte research underscores why the discipline pays: organizations with the strongest data-driven culture were far more likely to exceed their goals, with <a href="https://www.deloitte.com/us/en/insights/topics/analytics/insight-driven-organization.html" target="_blank" rel="noopener noreferrer">48% beating their targets versus 22% among those with a weaker analytics culture</a>. The advantage comes from putting capital where the data says the return is, not where intuition alone points.</p>
+
+      <h3>Cash</h3>
+
+      <p>Cash is where business intelligence is most operationally urgent. A live view of inflows and outflows lets you see a shortfall weeks ahead, when you still have options, rather than discovering it as a low balance on a Friday. That visibility connects directly to the forecasting discipline we cover in our guides to <a href="cash-flow-management-small-business">cash flow management for small business</a> and <a href="financial-forecasting-small-business">financial forecasting for small business</a>, both of which run on exactly the kind of clean, combined data a business intelligence setup produces.</p>
+
+      <div class="article__table-wrap">
+        <table class="article__table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Accounting Reports Alone</th>
+              <th>With Business Intelligence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>What did we earn last month?</td>
+              <td>Answered directly by the profit and loss statement</td>
+              <td>Same answer, available live rather than after the close</td>
+            </tr>
+            <tr>
+              <td>Which customers actually make us money?</td>
+              <td>Not answered; the P&amp;L shows totals, not profit by customer</td>
+              <td>Profit by customer after true cost, ranked and trended</td>
+            </tr>
+            <tr>
+              <td>Did our last price increase hold?</td>
+              <td>Visible only as a blended revenue change</td>
+              <td>Margin by product before and after, isolated from other shifts</td>
+            </tr>
+            <tr>
+              <td>Can we afford the next hire?</td>
+              <td>Requires a manual model built from exports</td>
+              <td>Labor cost measured against supported revenue and capacity</td>
+            </tr>
+            <tr>
+              <td>What is our cash position next quarter?</td>
+              <td>Backward-looking; the statement reports the past</td>
+              <td>Forward view of inflows and outflows, updated continuously</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>What This Costs, and Why It Is Now Within Reach</h2>
+
+      <p>The old objection to business intelligence at the small business stage was cost, and it was a fair one. A decade ago the warehouse, the licenses, and the specialists ran well into six figures, which kept the practice inside large companies. That is no longer true. Usage-based cloud warehouses, open tools for data movement and transformation, and lightweight dashboard frameworks have brought a working setup within reach of a business doing $500K to $7M in revenue. The spend now scales with the data rather than starting at an enterprise price.</p>
+
+      <p>The case for it is the time and the decisions. The 25 hours a week of manual data work that small businesses report is labor a maintained pipeline removes. The 45% who name inadequate reporting as a challenge are describing the exact gap a dashboard layer closes. And the decisions themselves, on pricing, hiring, capital, and cash, are large enough at this revenue stage that a single better one funds the setup several times over. Business intelligence is not an IT expense. It is the infrastructure that makes your financial decisions defensible.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="article__faq">
+        <details class="article__faq-item">
+          <summary>What is business intelligence for a small business in simple terms?</summary>
+          <p>Business intelligence is the practice of pulling data out of the tools you already use, organizing it in one place, and turning it into clear answers about your business. For a small business, that means your accounting system, your sales records, and your operational data feed a single, trusted source, and you read the result as a dashboard rather than a stack of exports. The point is not the technology. The point is that you can answer questions like which products make money, which customers are growing, and what your cash position looks like next quarter without rebuilding a spreadsheet every time you ask.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How is business intelligence different from my accounting reports?</summary>
+          <p>Accounting reports answer compliance and historical questions: what did we earn, what did we spend, what is the balance. Business intelligence combines accounting data with sales, operational, and other data to answer management questions: which service line carries the best margin, which customers drive the most profit rather than the most revenue, and how a pricing change would flow through to cash. Accounting reports are one input to business intelligence. They are not the same thing, and a profit and loss statement on its own does not answer the decisions an owner is actually making.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>Is business intelligence only for large companies?</summary>
+          <p>No. The cost structure that once restricted business intelligence to large companies has changed. Cloud data warehouses bill by usage, open-source tools handle data movement and transformation, and a small business can stand up a working pipeline for a fraction of what an enterprise platform cost a decade ago. A business between $500K and $7M in revenue has enough data complexity to benefit from business intelligence and now has access to the same architecture large companies use, scaled to its size and budget.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>What does a small business business intelligence setup actually look like?</summary>
+          <p>A practical setup has four layers. Data sources are the systems where your numbers live, such as QuickBooks or Xero, plus sales and operational tools. A pipeline moves that data into a central warehouse on a schedule, so nothing depends on manual exports. A transformation layer cleans and standardizes the data so the numbers agree across sources. A dashboard layer presents the result in views built around decisions. In our approach, those four layers run as a single managed pipeline that we build and operate end to end, from your accounting data through to the dashboard. The owner sees the dashboard. The plumbing runs in the background.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How does business intelligence connect to financial decisions like pricing and hiring?</summary>
+          <p>Business intelligence supplies the evidence behind financial decisions. Pricing improves when you can see true margin by product or customer rather than a blended average. Hiring decisions improve when labor cost is measured against the revenue and capacity it supports. Capital allocation improves when you can compare the return on competing uses of cash. Cash management improves when inflows and outflows are visible weeks ahead rather than discovered at the bank. In each case, business intelligence is the layer that turns raw records into the specific numbers a decision depends on.</p>
+        </details>
+      </div>
+
+      <div class="article__cta-box">
+        <h3>Turn the Data You Already Have Into Decisions You Can Defend</h3>
+        <p>Your business already produces the data. What it lacks is the layer that combines it, cleans it, and presents it where you can act on it. We build that layer for businesses between $500K and $7M in revenue, and we tie it directly to the pricing, hiring, capital, and cash decisions that move the business. Let us have a direct conversation about what your data could be telling you.</p>
+        <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+      </div>
+
+    </div>
+
+    <aside class="article__sidebar">
+      <div class="article__sidebar-card">
+        <h4>Related Articles</h4>
+        <ul>
+          <li><a href="data-driven-fractional-cfo">The Data-Driven Fractional CFO</a></li>
+          <li><a href="financial-reporting-small-business">Financial Reporting for Small Business</a></li>
+          <li><a href="cash-flow-management-small-business">Cash Flow Management for Small Business</a></li>
+          <li><a href="financial-forecasting-small-business">Financial Forecasting for Small Business</a></li>
+          <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+        </ul>
+      </div>
+      <div class="article__sidebar-card">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../pages/services">Fractional CFO</a></li>
+          <li><a href="../pages/services">Fractional COO</a></li>
+          <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
