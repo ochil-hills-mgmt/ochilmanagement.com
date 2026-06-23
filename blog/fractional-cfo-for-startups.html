@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-for-startups">
+<title>Fractional CFO for Startups: Strategy Before Profit</title>
+<meta name="description" content="A fractional CFO for startups manages burn, runway, the fundraising model, and unit economics before profitability, without the cost of a full-time hire.">
+<meta property="og:title" content="Fractional CFO for Startups: Why Strategic Finance Matters Before Profitability">
+<meta property="og:description" content="A fractional CFO for startups manages burn, runway, the fundraising model, and unit economics before profitability, without the cost of a full-time hire.">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-for-startups">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fractional CFO for Startups: Why Strategic Finance Matters Before Profitability">
+<meta name="twitter:description" content="A fractional CFO for startups manages burn, runway, the fundraising model, and unit economics before profitability, without the cost of a full-time hire.">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Fractional CFO for Startups: Why Strategic Finance Matters Before Profitability",
+ "description": "A fractional CFO for startups manages burn, runway, the fundraising model, and unit economics before profitability, without the cost of a full-time hire.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://ochilmanagement.com"
+ },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
+ "datePublished": "2026-06-19",
+ "dateModified": "2026-06-19",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-for-startups"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What does a fractional CFO do for a startup?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO installs the financial function a startup needs before it can justify a full-time finance executive. The work centers on a few things that decide whether the company survives: managing burn rate and runway so the company knows exactly how long its cash lasts, building and defending the financial model investors will underwrite, proving unit economics so growth does not destroy value, and preparing the data room ahead of a raise. This is forward-looking strategy and capital discipline, not bookkeeping or tax filing, and it is sized to the stage the company is actually in."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "When should a startup hire a fractional CFO instead of a full-time CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A startup should bring in a fractional CFO when the financial questions have outgrown the founder and the bookkeeper but the company cannot yet justify a full-time executive. Early-stage full-time CFO base salaries run from roughly $150,000 to $250,000, and total cost climbs well past that once benefits, bonus, and equity are added. Few pre-profit startups can defend that spend. A fractional CFO delivers the same strategic function, burn and runway management, the investor model, unit-economics work, at a fraction of the cost, and the engagement scales up as the company grows toward a full-time hire."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How does a fractional CFO help with fundraising and Series A readiness?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO prepares the two things investors actually examine: a defensible financial model and a clean data room. The model has to connect revenue to a real acquisition engine, tie hiring to an operating plan, and survive the assumption-by-assumption scrutiny a diligence process applies. The data room has to present reconciled financials and a clean cap table without contradictions. Series A readiness is the result of months of disciplined work, not a deck assembled the week before the raise, and a fractional CFO owns that preparation so the founder can run the process."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What is the difference between a fractional CFO and a bookkeeper or accountant for a startup?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A bookkeeper records what already happened and an accountant ensures the books and tax filings are correct. Both are backward-looking and both are necessary. A fractional CFO is forward-looking. The CFO takes the clean record those functions produce and turns it into decisions: how fast to spend, when to raise, which customers and products actually create value, and what the model says about the next eighteen months. A startup needs the record-keeping foundation, but the foundation does not answer the strategic questions that determine whether the company reaches profitability."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How does a fractional CFO manage burn rate and runway for a pre-profit startup?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO starts by making burn and runway exact rather than approximate. Gross burn is total monthly spend, net burn is spend minus the cash coming in, and runway is the months of cash remaining at the current net burn. From there the CFO builds a forecast that ties spend to milestones, so the company knows what each dollar is buying and when the next raise must close. Because the median wait between funding rounds has stretched past two years, runway planning now assumes a longer gap than the old eighteen-month rule, and the CFO manages the company to that reality."
+     }
+   }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Fractional CFO for Startups: Why Strategic Finance Matters Before Profitability",
+   "item": "https://ochilmanagement.com/blog/fractional-cfo-for-startups"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+      <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+      <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+    </a>
+    <nav class="header__nav" aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="header__nav-list" role="list">
+        <li><a href="../" class="header__nav-link">Home</a></li>
+        <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+        <li><a href="../pages/about" class="header__nav-link">About</a></li>
+        <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+        <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+        <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+        <li class="header__nav-mobile-ctas">
+          <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+          <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+      <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+    </div>
+  </div>
+</header>
+
+<section id="main" class="hero hero--sub">
+  <div class="hero__bg">
+    <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing strategic financial growth" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__badge">Fractional CFO for Your Industry</p>
+    <h1 class="hero__title" style="max-width:26ch;">Fractional CFO for Startups: Why Strategic Finance Matters Before Profitability</h1>
+    <p class="hero__subtitle">Burn, Runway, the Investor Model, and the Path to Profitability, Without a Full-Time Hire</p>
+  </div>
+</section>
+
+<article class="article">
+  <div class="article__container">
+
+    <div class="article__meta">
+      <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+      <span class="article__sep">&bull;</span>
+      <time class="article__date" datetime="2026-06-19">June 19, 2026</time>
+      <span class="article__sep">&bull;</span>
+      <span class="article__read-time">8 min read</span>
+      <span class="article__sep">&bull;</span>
+      <span class="article__last-updated">Last updated: June 19, 2026</span>
+    </div>
+
+    <div class="article__body">
+
+      <div class="article__answer-capsule">
+        <p>A fractional CFO for startups installs the financial discipline a company needs before it is profitable: managing burn and runway, building the investor-ready model and data room, and proving unit economics, all without the cost of a full-time hire.</p>
+      </div>
+
+      <p>If you run an early-stage company, you have almost certainly heard that you should not hire a CFO until you are much larger, and you have probably also felt the financial questions outrunning what a founder and a bookkeeper can answer between them. Both can be true at once. A startup needs the strategic financial function well before it can justify the salary of a full-time executive, and a fractional CFO exists to fill exactly that gap. This article explains what that function covers at the startup stage, how it differs by whether a company is venture-backed or bootstrapped, and how it is delivered without a full-time hire.</p>
+
+      <p>The hard truth comes first, because it is the reason the role exists. According to a CB Insights analysis of more than four hundred startup post-mortems, <a href="https://www.cbinsights.com/research/report/startup-failure-reasons-top/" target="_blank" rel="noopener noreferrer">70% of failed startups ran out of capital</a>. Running out of cash, however, is the mechanism of death, not the cause. The same analysis traces the underlying reasons to poor product-market fit, bad timing, and weak unit economics. Finance is where all three become visible before they become fatal. The model that shows runway ending, the unit economics that do not close, the spend that is outrunning traction: these are financial signals, and reading them early is the difference between correcting course and writing a post-mortem.</p>
+
+      <h2>Why Strategic Finance Matters Before Profitability</h2>
+
+      <p>Strategic finance matters most precisely when there is no profit, because that is when the margin for error is smallest. A profitable company can absorb a bad month from operating cash flow. A pre-profit startup absorbs it from a finite pool of investor or founder capital, and every month of unplanned spend shortens the time the company has to prove its thesis. The job of the financial function at this stage is not to report the past. It is to make the limited capital last long enough to reach the next milestone that justifies the next dollar.</p>
+
+      <p>This is also where the startup environment has shifted hardest. The era of quick, cheap follow-on funding is over. Carta data shows the median wait between new funding rounds reached <a href="https://carta.com/data/bridge-rounds-q2-2025/" target="_blank" rel="noopener noreferrer">696 days in the second quarter of 2025</a>, the longest interval on record, and the median gap from seed to Series A has stretched to roughly two years. A company that plans its runway on the old eighteen-month assumption is planning to run out of money before it can raise. Therefore, the financial function has to plan for a longer, harder road than founders raising a few years ago ever had to model.</p>
+
+      <p>Furthermore, the bar to raise the next round has risen. Silicon Valley Bank reported that <a href="https://www.svb.com/trends-insights/reports/state-of-the-markets-report/" target="_blank" rel="noopener noreferrer">61% of startups saw their runway shrink year over year</a> in the first half of 2025, with a clear pullback in Series A and B activity and a rise in bridge rounds used to buy time. Carta data tells the same story from the other side: bridge rounds reached <a href="https://carta.com/data/bridge-rounds-q2-2025/" target="_blank" rel="noopener noreferrer">16.6% of all venture capital raised in the second quarter of 2025</a>, up from 11.8% a year earlier. A bridge round is a company buying months because the priced round it wanted is out of reach. The startups that avoid that position are the ones that managed burn and milestones with discipline from the start.</p>
+
+      <h2>Burn Rate and Runway Management</h2>
+
+      <p>Burn rate and runway are the two numbers a startup CFO makes exact, because most founders carry them as approximations and approximations are dangerous when the pool of cash is finite. Gross burn is total monthly spend. Net burn is gross burn minus the cash coming in. Runway is the number of months of cash remaining at the current net burn. Stated plainly, runway is the company's life expectancy at its current rate, and a founder who does not know it to the month is flying without an altimeter.</p>
+
+      <p>The fractional CFO turns those numbers into a forecast that ties spend to milestones. The purpose is to know what each dollar is buying and when the next raise must close to avoid a gap. A disciplined forecast answers concrete questions: if the company hires two engineers in the third quarter, how many weeks of runway does that remove, and does the resulting product milestone arrive before the cash does. This is the forecasting backbone that every other decision rests on, and it is the same discipline we cover in our guide to <a href="financial-forecasting-small-business">financial forecasting for small business</a>, applied to the compressed timelines of a startup.</p>
+
+      <p>Burn discipline is not the same as spending as little as possible. A startup that underspends can starve the very growth it raised money to fund, and a startup that overspends runs out before it proves anything. Rather, the role of the CFO is to hold the company at the deliberate middle: spending fast enough to hit milestones, slow enough to keep a runway buffer for the longer fundraising cycle the market now imposes. That balance is a cash-management problem at its core, and the discipline behind it is the subject of our guide to <a href="cash-flow-management-small-business">cash flow management for small business</a>.</p>
+
+      <h2>Unit Economics and the Path to Profitability</h2>
+
+      <p>Unit economics decide whether growth creates value or destroys it, and a startup that scales before its unit economics work is building a larger version of a losing business. The core question is simple to state and hard to answer honestly: does the company make more from a customer over time than it costs to acquire and serve that customer. The fractional CFO builds the measurement that answers it, because without clean measurement the answer is a guess dressed up as a plan.</p>
+
+      <p>The standard benchmark is the ratio of lifetime value to customer acquisition cost. Across business-to-business software, the median LTV-to-CAC ratio was <a href="https://www.benchmarkit.ai/2025benchmarks" target="_blank" rel="noopener noreferrer">3.6 to 1 in 2024 according to Benchmarkit</a>, with a ratio of 3 to 1 widely treated as the minimum a healthy company should clear. A startup running below that line is spending more to grow than its customers are worth, and growth makes the problem larger, not smaller. Acquisition is also getting more expensive: SaaS Capital found the median software company now spends <a href="https://www.saas-capital.com/research/" target="_blank" rel="noopener noreferrer">about $2.00 to acquire $1.00 of new recurring revenue</a>, up roughly 14% from two years earlier. The role of the CFO is to surface those numbers early, by segment and by product, so the company fixes the economics before it pours capital into scaling them.</p>
+
+      <p>For venture-backed startups, the path runs through efficient growth toward a defensible next round. For bootstrapped startups, the path runs directly to profitability, because there is no outside capital to extend the runway. The two paths share the same arithmetic: a company that knows its true cost to acquire and serve a customer can make deliberate decisions about pricing, channel, and pace. A company that does not is improvising. The vertical specifics differ by business model, and for software companies in particular we go deeper in our guide to the <a href="fractional-cfo-for-saas">fractional CFO for SaaS companies</a>.</p>
+
+      <h2>The Investor Model and the Data Room</h2>
+
+      <p>The financial model and the data room are the two artifacts investors actually examine, and both are engineering problems before they are presentation problems. A model is not a hopeful chart of revenue rising to the right. It is a connected system in which revenue ties to a real acquisition engine, hiring ties to an operating plan, and spend ties to milestones, so that every assumption can be questioned and defended. The most common reasons a model fails diligence are assumption problems, not formula errors: revenue growth with no acquisition logic behind it, or hiring disconnected from the plan it is supposed to support.</p>
+
+      <p>The data room is the second artifact, and it has to present reconciled financials and a clean cap table without contradictions. This is where clean underlying data earns its keep. In a 2024 Intuit QuickBooks survey, businesses reported spending <a href="https://www.intuit.com/enterprise/blog/research/business-solutions-survey-2024/" target="_blank" rel="noopener noreferrer">roughly 25 hours a week on manual data entry or reconciling data across applications</a>, and 45% named inadequate reporting and analysis as a direct challenge. A startup that runs its numbers that way cannot produce a clean data room on demand, and a data room full of contradictions is what turns investor interest into a stalled process.</p>
+
+      <p>This is the part of the work where a financial function built on engineered data, rather than manual exports, changes the outcome. We build the model and the data room on a foundation that moves a company's accounting data from QuickBooks or Xero, along with its sales and operational data, into a central cloud data warehouse, standardizes every calculation in a transformation layer so the numbers reconcile, and presents the result as decision dashboards. The investor sees a model and a data room that hold together because the data underneath them was engineered to. We cover that capability in depth in our guide to the <a href="data-driven-fractional-cfo">data-driven fractional CFO</a>.</p>
+
+      <h2>Series A Readiness Is Earned Over Months, Not Assembled in a Week</h2>
+
+      <p>Series A readiness is a state a company reaches through months of disciplined work, not a deck assembled the week before the raise. By the time a startup raises a Series A, it must show real traction sustained across a long runway, and Carta data puts the <a href="https://carta.com/data/state-of-private-markets-q4-2024/" target="_blank" rel="noopener noreferrer">median gap from seed to Series A at about 774 days, roughly two years</a>, for companies raising recently. A founder who waits until the raise to think about the model, the metrics, and the data room is starting the work far too late, and it shows in diligence.</p>
+
+      <p>The fractional CFO owns that preparation so the founder can run the process. That means the model is current and defensible before the first investor meeting, the unit economics are measured and trending in the right direction, and the data room is assembled and reconciled rather than scrambled together under deadline. The down-round risk makes this discipline more valuable, not less: Carta reported that <a href="https://carta.com/data/state-of-private-markets-q4-2024/" target="_blank" rel="noopener noreferrer">down rounds ran near a quarter of all new rounds at the 2024 peak</a> before easing, and a company that walks into a raise with weak numbers negotiates from weakness. Readiness is the ability to raise on better terms because the numbers earn them.</p>
+
+      <h2>Startup CFO Versus a Bookkeeper or Accountant</h2>
+
+      <p>A startup needs record-keeping and it needs strategy, and confusing the two is a common and expensive mistake. A bookkeeper records what already happened. An accountant ensures the books and the tax filings are correct. Both functions are necessary and both are backward-looking. A fractional CFO is forward-looking, and the table below makes the division of labor explicit.</p>
+
+      <div class="article__table-wrap">
+        <table class="article__table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Bookkeeper or Accountant</th>
+              <th>Fractional CFO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Primary orientation</td>
+              <td>Backward-looking record and compliance</td>
+              <td>Forward-looking strategy and capital decisions</td>
+            </tr>
+            <tr>
+              <td>Core output</td>
+              <td>Accurate books, financial statements, tax filings</td>
+              <td>Burn and runway model, investor model, scenario plans</td>
+            </tr>
+            <tr>
+              <td>Burn and runway</td>
+              <td>Reports cash spent after the fact</td>
+              <td>Projects runway forward and ties spend to milestones</td>
+            </tr>
+            <tr>
+              <td>Fundraising</td>
+              <td>Supplies historical numbers on request</td>
+              <td>Owns the model and the data room for the raise</td>
+            </tr>
+            <tr>
+              <td>Unit economics</td>
+              <td>Not in scope</td>
+              <td>Measures cost to acquire and serve a customer by segment</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>How a Fractional CFO Delivers This Without a Full-Time Hire</h2>
+
+      <p>A startup needs the strategic financial function long before it can justify a full-time CFO, and the cost gap is the reason the fractional model exists. Early-stage full-time CFO base salaries run from roughly <a href="https://k38consulting.com/startup-cfo-salary-guide/" target="_blank" rel="noopener noreferrer">$150,000 to $250,000</a>, and the total cost climbs well beyond that once benefits, bonus, and equity are added. For a pre-profit startup measuring its life in months of runway, a quarter-million-dollar fixed cost is capital that should be funding the path to the next milestone, not sitting in an executive seat the company is not yet large enough to fill.</p>
+
+      <p>A fractional CFO delivers the same function, burn and runway management, the investor model, unit-economics work, and data-room preparation, at a fraction of the cost, and the engagement scales with the company. In the early stage the work concentrates on runway and the next raise. As the company grows, the scope expands toward board reporting and capital strategy, until eventually the company is large enough to bring the role in house. We break down the economics of that trade-off in our guide to <a href="fractional-cfo-cost">fractional CFO cost</a>, and the signals that it is time to bring in this function in our guide to the <a href="signs-you-need-a-fractional-cfo">signs you need a fractional CFO</a>.</p>
+
+      <p>Our own approach reflects how we believe early-stage finance should be run. Ochil Hills Management is a veteran-owned firm with a dual-principal structure, and we hold an intentional cap of roughly twenty clients so that the finance function is embedded rather than spread thin. We work with companies between $500,000 and $7 million in revenue, the stage at which the financial questions have outgrown the founder and the bookkeeper but a full-time executive is still premature. Despite an engineering and program-management background behind the practice rather than a traditional accounting path, the work is built for exactly this stage, applying analytical rigor to the decisions that determine whether a startup reaches profitability. For the foundational definition of the role, our guide to <a href="what-is-a-fractional-cfo">what a fractional CFO is</a> is the place to start.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="article__faq">
+        <details class="article__faq-item">
+          <summary>What does a fractional CFO do for a startup?</summary>
+          <p>A fractional CFO installs the financial function a startup needs before it can justify a full-time finance executive. The work centers on a few things that decide whether the company survives: managing burn rate and runway so the company knows exactly how long its cash lasts, building and defending the financial model investors will underwrite, proving unit economics so growth does not destroy value, and preparing the data room ahead of a raise. This is forward-looking strategy and capital discipline, not bookkeeping or tax filing, and it is sized to the stage the company is actually in.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>When should a startup hire a fractional CFO instead of a full-time CFO?</summary>
+          <p>A startup should bring in a fractional CFO when the financial questions have outgrown the founder and the bookkeeper but the company cannot yet justify a full-time executive. Early-stage full-time CFO base salaries run from roughly $150,000 to $250,000, and total cost climbs well past that once benefits, bonus, and equity are added. Few pre-profit startups can defend that spend. A fractional CFO delivers the same strategic function, burn and runway management, the investor model, unit-economics work, at a fraction of the cost, and the engagement scales up as the company grows toward a full-time hire.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How does a fractional CFO help with fundraising and Series A readiness?</summary>
+          <p>A fractional CFO prepares the two things investors actually examine: a defensible financial model and a clean data room. The model has to connect revenue to a real acquisition engine, tie hiring to an operating plan, and survive the assumption-by-assumption scrutiny a diligence process applies. The data room has to present reconciled financials and a clean cap table without contradictions. Series A readiness is the result of months of disciplined work, not a deck assembled the week before the raise, and a fractional CFO owns that preparation so the founder can run the process.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>What is the difference between a fractional CFO and a bookkeeper or accountant for a startup?</summary>
+          <p>A bookkeeper records what already happened and an accountant ensures the books and tax filings are correct. Both are backward-looking and both are necessary. A fractional CFO is forward-looking. The CFO takes the clean record those functions produce and turns it into decisions: how fast to spend, when to raise, which customers and products actually create value, and what the model says about the next eighteen months. A startup needs the record-keeping foundation, but the foundation does not answer the strategic questions that determine whether the company reaches profitability.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How does a fractional CFO manage burn rate and runway for a pre-profit startup?</summary>
+          <p>A fractional CFO starts by making burn and runway exact rather than approximate. Gross burn is total monthly spend, net burn is spend minus the cash coming in, and runway is the months of cash remaining at the current net burn. From there the CFO builds a forecast that ties spend to milestones, so the company knows what each dollar is buying and when the next raise must close. Because the median wait between funding rounds has stretched past two years, runway planning now assumes a longer gap than the old eighteen-month rule, and the CFO manages the company to that reality.</p>
+        </details>
+      </div>
+
+      <div class="article__cta-box">
+        <h3>Build the Finance Function Your Startup Needs Before It Is Profitable</h3>
+        <p>If you are running a startup between $500,000 and $7 million in revenue and the financial questions have outgrown what a founder and a bookkeeper can answer, you need strategy, not just record-keeping. We manage burn and runway, build the model and the data room investors examine, and prove the unit economics that decide whether growth pays off, without the cost of a full-time hire. Let us have a direct conversation about where your numbers stand.</p>
+        <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+      </div>
+
+    </div>
+
+    <aside class="article__sidebar">
+      <div class="article__sidebar-card">
+        <h4>Related Articles</h4>
+        <ul>
+          <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+          <li><a href="fractional-cfo-cost">Fractional CFO Cost: What You Actually Pay</a></li>
+          <li><a href="fractional-cfo-for-saas">Fractional CFO for SaaS Companies</a></li>
+          <li><a href="financial-forecasting-small-business">Financial Forecasting for Small Business</a></li>
+          <li><a href="signs-you-need-a-fractional-cfo">Signs You Need a Fractional CFO</a></li>
+        </ul>
+      </div>
+      <div class="article__sidebar-card">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../pages/services">Fractional CFO</a></li>
+          <li><a href="../pages/services">Fractional COO</a></li>
+          <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
