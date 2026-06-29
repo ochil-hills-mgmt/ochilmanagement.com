@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-washington-state">
+<title>Fractional CFO Washington State | Ochil Hills</title>
+<meta name="description" content="A fractional CFO for Washington state businesses: how WA's industry mix and gross-receipts B&O tax shape financial strategy, from a WA-based, veteran-owned operator.">
+<meta property="og:title" content="Fractional CFO in Washington State: Financial Strategy for Pacific Northwest Businesses">
+<meta property="og:description" content="A fractional CFO for Washington state businesses: how the state's industry mix and gross-receipts B&O tax shape financial strategy, from a WA-based, veteran-owned operator.">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-washington-state">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fractional CFO in Washington State: Financial Strategy for Pacific Northwest Businesses">
+<meta name="twitter:description" content="A fractional CFO for Washington state businesses: how the state's industry mix and gross-receipts B&O tax shape financial strategy, from a WA-based, veteran-owned operator.">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Fractional CFO in Washington State: Financial Strategy for Pacific Northwest Businesses",
+ "description": "A fractional CFO for Washington state businesses: how the state's industry mix and gross-receipts B&O tax shape financial strategy, from a WA-based, veteran-owned operator.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://ochilmanagement.com"
+ },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
+ "datePublished": "2026-06-29",
+ "dateModified": "2026-06-29",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-washington-state"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What does a fractional CFO do for a Washington business?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO provides senior financial leadership on a part-time basis. The work covers forecasting, margin analysis by product and customer, cash flow planning, pricing, and capital decisions. For a Washington business, that work also accounts for state-specific realities: a gross-receipts tax structure that is owed on revenue, an economy concentrated in trade-exposed industries, and seasonal cash patterns common in agriculture and export-driven sectors. The function gives an owner the financial judgment of a full-time CFO without the full-time salary."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How does Washington's B&O tax affect financial planning?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The Washington Business and Occupation tax is a gross-receipts tax. It is measured on the gross income of the business, and no deduction is allowed for labor, materials, or other costs of doing business. The practical consequence is that the tax is owed on revenue regardless of whether the business made a profit. This is descriptive context, not tax advice, and a business should confirm its own situation with a qualified tax professional. The financial implication a CFO watches is margin: when a tax is tied to revenue rather than profit, thin-margin revenue carries a cost that an owner must see clearly."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Does a fractional CFO need to be located in Washington?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "No. The work is done through your accounting and operating systems, and most of it is remote regardless of where the CFO sits. A Washington base does add genuine value in two ways. First, familiarity with the state's tax structure and its dominant industries shortens the learning curve. Second, a local operator can meet in person when a decision warrants it. We are based in Washington and serve businesses across the state, from the Puget Sound corridor to central and eastern Washington."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "What size Washington business is a fractional CFO right for?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "The model fits businesses between roughly $500,000 and $7 million in revenue. Below that range, a bookkeeper and a part-time accountant usually cover the need. Above it, a full-time CFO may be warranted. In between is the band where the financial decisions have become consequential, pricing, hiring, capital, and cash, but the revenue does not yet support a full-time executive salary. A fractional CFO delivers the senior judgment those decisions require at a fraction of that cost."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Why work with a veteran-owned, Washington-based firm?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Ochil Hills Management is a veteran-owned firm certified in Washington State, led by a principal with a University of Washington MS in Aerospace Engineering and experience managing a defense portfolio exceeding $100 million. The background is operational and analytical rather than accounting-first, which suits owners who need forecasting and decision support more than compliance bookkeeping. We keep an intentionally small practice so that each engagement is an embedded partnership rather than a name on a roster."
+     }
+   }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Fractional CFO in Washington State: Financial Strategy for Pacific Northwest Businesses",
+   "item": "https://ochilmanagement.com/blog/fractional-cfo-washington-state"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+      <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+      <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+    </a>
+    <nav class="header__nav" aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="header__nav-list" role="list">
+        <li><a href="../" class="header__nav-link">Home</a></li>
+        <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+        <li><a href="../pages/about" class="header__nav-link">About</a></li>
+        <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+        <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+        <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+        <li class="header__nav-mobile-ctas">
+          <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+          <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+      <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+    </div>
+  </div>
+</header>
+
+<section id="main" class="hero hero--sub">
+  <div class="hero__bg">
+    <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing strategic financial growth" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__badge">Fractional CFO</p>
+    <h1 class="hero__title" style="max-width:26ch;">Fractional CFO in Washington State: Financial Strategy for Pacific Northwest Businesses</h1>
+    <p class="hero__subtitle">What Washington's Economy and Tax Structure Mean for How You Run Your Numbers</p>
+  </div>
+</section>
+
+<article class="article">
+  <div class="article__container">
+
+    <div class="article__meta">
+      <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+      <span class="article__sep">&bull;</span>
+      <time class="article__date" datetime="2026-06-29">June 29, 2026</time>
+      <span class="article__sep">&bull;</span>
+      <span class="article__read-time">5 min read</span>
+      <span class="article__sep">&bull;</span>
+      <span class="article__last-updated">Last updated: June 29, 2026</span>
+    </div>
+
+    <div class="article__body">
+
+      <div class="article__answer-capsule">
+        <p>A fractional CFO gives a Washington business senior financial leadership part-time: forecasting, margin analysis, and capital decisions without a full-time salary. Washington's trade-exposed economy and its gross-receipts B&amp;O tax, which is owed on revenue rather than profit, make disciplined margin and cash visibility especially important for owners here.</p>
+      </div>
+
+      <p>If you run a business in Washington, your financial questions are shaped by where you operate, not only by what you sell. Washington's economy is concentrated in a handful of trade-exposed industries, and the state funds itself through a tax structure unlike most of the country. Both facts change how an owner should watch the numbers. A fractional CFO is senior financial leadership delivered part-time, and for a Washington business that leadership has to account for the state's specific realities. This article explains what that work covers, why Washington's economy and tax structure matter to it, and why a Washington-based operator is a credible partner for it.</p>
+
+      <h2>Washington's Economy Is Concentrated and Trade-Exposed</h2>
+
+      <p>Washington is a large and unusually concentrated economy. The state produced roughly $856 billion in gross domestic product in 2024, according to <a href="https://usafacts.org/answers/what-is-the-gross-domestic-product-gdp/state/washington-state/" target="_blank" rel="noopener noreferrer">U.S. Bureau of Economic Analysis data</a>, and its population passed eight million people as of April 2024, per the <a href="https://ofm.wa.gov/data-research/population-demographics/estimates/april-1-official/" target="_blank" rel="noopener noreferrer">Washington Office of Financial Management</a>. That output is not spread evenly across sectors. It clusters in technology, aerospace, agriculture, and trade, and each of those concentrations carries a distinct financial profile that an owner in or around it must understand.</p>
+
+      <p>Technology is the clearest example. The sector accounts for roughly 22 percent of the state economy, the highest technology share of any state, and the information and communications technology industry alone directly employed about 360,900 people, according to the <a href="https://www.washingtontechnology.org/new-wtia-report-highlights-tech-sectors-impact-on-washington-states-economy-and-future-growth-potential/" target="_blank" rel="noopener noreferrer">Washington Technology Industry Association</a>. A business that sells into that ecosystem, whether software, services, or supply, inherits its growth expectations and its margin pressures.</p>
+
+      <p>Aerospace is the second pillar and a deeply local one. Washington's aerospace industry generated more than $71 billion in business revenues, supported about 194,000 jobs, and returned $19.4 billion in income to Washington employees in 2023, according to a <a href="https://www.seattlechamber.com/wp-content/uploads/2024/12/CAI.Seattle_Chamber_Aerospace_Impacts.2024_0725.pdf" target="_blank" rel="noopener noreferrer">Seattle Metropolitan Chamber of Commerce analysis</a>. The supply chain underneath that figure is full of small and mid-sized manufacturers whose financial health depends on production schedules they do not control.</p>
+
+      <p>Agriculture and trade complete the picture, and both expose the state to forces beyond its borders. Washington has 32,076 farms selling more than $12.7 billion in products and ranks first in the nation in apples, per the <a href="https://farmflavor.com/washington/washington-crops-livestock/top-washington-agriculture-facts-from-the-2024-census-of-agriculture/" target="_blank" rel="noopener noreferrer">USDA Census of Agriculture</a>. The ports move the result outward: the Northwest Seaport Alliance handled 3.3 million container units in 2024, up more than 12 percent year over year, across nearly $76 billion in waterborne trade, according to the <a href="https://www.nwseaportalliance.com/about-us/cargo-statistics" target="_blank" rel="noopener noreferrer">Northwest Seaport Alliance</a>. The <a href="https://ustr.gov/map/state-benefits/wa" target="_blank" rel="noopener noreferrer">Office of the U.S. Trade Representative</a> reports that Washington exported $65.2 billion in goods in 2025, ranking it the eighth-largest goods-exporting state. Therefore, for many Washington businesses, demand and input costs are set partly by export markets, currency movement, and seasonal harvest cycles, all of which a financial model must anticipate rather than discover.</p>
+
+      <h2>Washington's Tax Structure Changes the Math</h2>
+
+      <p>Washington funds itself differently from most states, and the difference matters to how an owner reads the business. Washington does not levy a personal income tax. Instead, the state imposes a Business and Occupation tax, which is a gross-receipts tax. According to the <a href="https://dor.wa.gov/taxes-rates/business-occupation-tax" target="_blank" rel="noopener noreferrer">Washington Department of Revenue</a>, the B&amp;O tax is measured on the gross income of the business, and no deduction is allowed for labor, materials, taxes, or other costs of doing business.</p>
+
+      <p>The structural consequence is straightforward, and it is the reason this deserves attention in a financial plan rather than only a tax return. A gross-receipts tax is owed on revenue whether or not the business turned a profit. This is descriptive context and not tax advice, and any business should confirm its own position with a qualified tax professional. The financial point a CFO holds onto is this: when a cost is tied to revenue rather than to profit, margin discipline stops being optional. A dollar of low-margin revenue does not arrive cost-free, and an owner who manages on top-line growth alone can grow revenue while the economics underneath it thin out. Thus the question shifts from how much did we sell to how much did each sale actually contribute, which is exactly the question good financial reporting is built to answer. We cover the data side of that discipline in our guide to the <a href="data-driven-fractional-cfo">data-driven fractional CFO</a>.</p>
+
+      <h2>What a Fractional CFO Does for a Washington Business</h2>
+
+      <p>A fractional CFO provides the financial leadership a growing business needs without the cost of a full-time executive. The core of the work is consistent everywhere: forecasting cash and profit forward, measuring true margin by product and customer, pricing against that margin rather than a blended average, and bringing discipline to capital decisions and hiring. We describe the full scope of the role in our guide to <a href="what-is-a-fractional-cfo">what a fractional CFO does</a>. The Washington context shapes how that work is applied.</p>
+
+      <p>Consider the four concentrations above. A technology or supply business inside the state's largest sector needs margin visibility because revenue growth there is often funded ahead of profit. An aerospace supplier needs working-capital planning tuned to production schedules it does not set. An agricultural or food-processing operation needs cash forecasting that respects harvest and export seasonality. A trade-exposed business needs a model that accounts for currency and demand set in other countries. Furthermore, every one of these owners operates under the same gross-receipts structure, which makes the margin question common across all four. The small business base that this serves is large: Washington has 695,695 small businesses, representing 99.5 percent of the state's employers and employing nearly half its private workforce, according to the <a href="https://advocacy.sba.gov/wp-content/uploads/2025/06/Washington_2025-State-Profile.pdf" target="_blank" rel="noopener noreferrer">U.S. Small Business Administration Office of Advocacy</a>.</p>
+
+      <p>This work does not require an on-site executive. Most of it runs through your accounting and operating systems and is delivered remotely, which is why we serve businesses across Washington rather than a single city. When cash is tight or a decision is large, that forward visibility is what separates an option taken early from a problem discovered late, a discipline we cover in our guide to <a href="cash-flow-management-small-business">cash flow management</a>. The model fits businesses between roughly $500,000 and $7 million in revenue, the band where the decisions matter but a full-time salary is hard to justify, and our guide to <a href="fractional-cfo-cost">fractional CFO cost</a> lays out the economics in detail.</p>
+
+      <h2>Why a Washington-Based, Veteran-Owned Operator</h2>
+
+      <p>A location page should answer a fair question: does the base actually matter. It does, on two counts. Familiarity with Washington's tax structure and its dominant industries shortens the learning curve, and a local operator can meet in person when a decision warrants it. Despite the work being largely remote, those two advantages are real.</p>
+
+      <p>Ochil Hills Management is a veteran-owned firm certified in Washington State. I hold a Bachelor of Science in Mechanical Engineering from the United States Military Academy and a Master of Science in Aerospace Engineering from the University of Washington, and I managed a defense portfolio exceeding $100 million before building this practice. That background is analytical and operational rather than accounting-first, which is the point: a growing business usually needs forecasting and decision support more than it needs another set of compliance books. We keep the practice intentionally small so that each engagement is an embedded partnership. If your Washington business is between $500,000 and $7 million in revenue and you need financial strategy rather than bookkeeping, we should talk.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="article__faq">
+        <details class="article__faq-item">
+          <summary>What does a fractional CFO do for a Washington business?</summary>
+          <p>A fractional CFO provides senior financial leadership on a part-time basis. The work covers forecasting, margin analysis by product and customer, cash flow planning, pricing, and capital decisions. For a Washington business, that work also accounts for state-specific realities: a gross-receipts tax structure that is owed on revenue, an economy concentrated in trade-exposed industries, and seasonal cash patterns common in agriculture and export-driven sectors. The function gives an owner the financial judgment of a full-time CFO without the full-time salary.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How does Washington's B&amp;O tax affect financial planning?</summary>
+          <p>The Washington Business and Occupation tax is a gross-receipts tax. It is measured on the gross income of the business, and no deduction is allowed for labor, materials, or other costs of doing business. The practical consequence is that the tax is owed on revenue regardless of whether the business made a profit. This is descriptive context, not tax advice, and a business should confirm its own situation with a qualified tax professional. The financial implication a CFO watches is margin: when a tax is tied to revenue rather than profit, thin-margin revenue carries a cost that an owner must see clearly.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>Does a fractional CFO need to be located in Washington?</summary>
+          <p>No. The work is done through your accounting and operating systems, and most of it is remote regardless of where the CFO sits. A Washington base does add genuine value in two ways. First, familiarity with the state's tax structure and its dominant industries shortens the learning curve. Second, a local operator can meet in person when a decision warrants it. We are based in Washington and serve businesses across the state, from the Puget Sound corridor to central and eastern Washington.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>What size Washington business is a fractional CFO right for?</summary>
+          <p>The model fits businesses between roughly $500,000 and $7 million in revenue. Below that range, a bookkeeper and a part-time accountant usually cover the need. Above it, a full-time CFO may be warranted. In between is the band where the financial decisions have become consequential, pricing, hiring, capital, and cash, but the revenue does not yet support a full-time executive salary. A fractional CFO delivers the senior judgment those decisions require at a fraction of that cost.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>Why work with a veteran-owned, Washington-based firm?</summary>
+          <p>Ochil Hills Management is a veteran-owned firm certified in Washington State, led by a principal with a University of Washington MS in Aerospace Engineering and experience managing a defense portfolio exceeding $100 million. The background is operational and analytical rather than accounting-first, which suits owners who need forecasting and decision support more than compliance bookkeeping. We keep an intentionally small practice so that each engagement is an embedded partnership rather than a name on a roster.</p>
+        </details>
+      </div>
+
+      <div class="article__cta-box">
+        <h3>Financial Strategy for Your Washington Business</h3>
+        <p>Washington's industry concentration and its gross-receipts tax structure put a premium on margin discipline and forward cash visibility. We are a veteran-owned, Washington-based firm, and we build that discipline for businesses between $500,000 and $7 million in revenue across the state. If you need financial strategy rather than bookkeeping, let us have a direct conversation.</p>
+        <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+      </div>
+
+    </div>
+
+    <aside class="article__sidebar">
+      <div class="article__sidebar-card">
+        <h4>Related Articles</h4>
+        <ul>
+          <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+          <li><a href="fractional-cfo-cost">How Much Does a Fractional CFO Cost?</a></li>
+          <li><a href="data-driven-fractional-cfo">The Data-Driven Fractional CFO</a></li>
+          <li><a href="cash-flow-management-small-business">Cash Flow Management for Small Business</a></li>
+          <li><a href="outsourced-cfo-services">Outsourced CFO Services</a></li>
+        </ul>
+      </div>
+      <div class="article__sidebar-card">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../pages/services">Fractional CFO</a></li>
+          <li><a href="../pages/services">Fractional COO</a></li>
+          <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
