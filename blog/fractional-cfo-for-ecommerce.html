@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>(function(){try{var t=localStorage.getItem('ohm-theme');if(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)t='dark';if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9JNDCJNLH0', { page_title: document.title, send_page_view: true });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a.btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { gtag('event', 'cta_click', { event_category: 'engagement', event_label: this.textContent.trim(), link_url: this.href, link_location: this.closest('section')?.className || 'unknown' }); });
+  });
+  var scrollMarkers = { 25: false, 50: false, 75: false, 100: false };
+  window.addEventListener('scroll', function() {
+    var scrollPct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+    [25, 50, 75, 100].forEach(function(marker) {
+      if (scrollPct >= marker && !scrollMarkers[marker]) { scrollMarkers[marker] = true; gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: marker + '_percent', percent_scrolled: marker }); }
+    });
+  });
+  var articleContent = document.querySelector('article, .blog-content, .article-content');
+  if (articleContent) {
+    [30, 60, 120, 300].forEach(function(seconds) {
+      setTimeout(function() { if (!document.hidden) { gtag('event', 'article_engagement', { event_category: 'content', event_label: document.title, time_on_page: seconds }); } }, seconds * 1000);
+    });
+  }
+  document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+    if (!link.href.includes('ochilmanagement.com')) { link.addEventListener('click', function() { gtag('event', 'outbound_click', { event_category: 'engagement', event_label: this.href, link_text: this.textContent.trim() }); }); }
+  });
+  document.querySelectorAll('.faq-item, details, [data-faq]').forEach(function(faq) {
+    faq.addEventListener('click', function() { var question = this.querySelector('summary, .faq-question, h3, h4'); if (question) { gtag('event', 'faq_interaction', { event_category: 'engagement', event_label: question.textContent.trim().substring(0, 100) }); } });
+  });
+});
+</script>
+<link rel="canonical" href="https://ochilmanagement.com/blog/fractional-cfo-for-ecommerce">
+<title>Fractional CFO for Ecommerce: Margins and Cash</title>
+<meta name="description" content="A fractional CFO for ecommerce builds contribution margin by channel and SKU, manages inventory and cash, and turns data into pricing decisions.">
+<meta property="og:title" content="Fractional CFO for Ecommerce: Margins, Inventory, and Profitable Growth">
+<meta property="og:description" content="A fractional CFO for ecommerce builds contribution margin by channel and SKU, manages inventory and the cash conversion cycle, and turns data into pricing and capital decisions.">
+<meta property="og:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:url" content="https://ochilmanagement.com/blog/fractional-cfo-for-ecommerce">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fractional CFO for Ecommerce: Margins, Inventory, and Profitable Growth">
+<meta name="twitter:description" content="A fractional CFO for ecommerce builds contribution margin by channel and SKU, manages inventory and the cash conversion cycle, and turns data into pricing and capital decisions.">
+<meta name="twitter:image" content="https://ochilmanagement.com/images/og-services.jpg">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,500,600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "Fractional CFO for Ecommerce: Margins, Inventory, and Profitable Growth",
+ "description": "A fractional CFO for ecommerce builds contribution margin by channel and SKU, manages inventory and the cash conversion cycle, and turns data into pricing and capital decisions.",
+ "author": {
+   "@type": "Person",
+   "name": "Matt Kaiser",
+   "jobTitle": "Fractional CFO",
+   "worksFor": {"@type": "Organization", "name": "Ochil Hills Management"}
+ },
+ "publisher": {
+   "@type": "Organization",
+   "name": "Ochil Hills Management",
+   "url": "https://ochilmanagement.com"
+ },
+ "image": "https://ochilmanagement.com/images/og-services.jpg",
+ "datePublished": "2026-07-01",
+ "dateModified": "2026-07-01",
+ "mainEntityOfPage": "https://ochilmanagement.com/blog/fractional-cfo-for-ecommerce"
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+   {
+     "@type": "Question",
+     "name": "What does a fractional CFO for an ecommerce business actually do?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A fractional CFO for an ecommerce business builds and runs the channel-level financial system an online seller needs: contribution margin by channel and SKU, landed-cost and COGS tracking, inventory and cash conversion cycle management, and unit economics across Shopify, Amazon, and wholesale. The work is forward-looking rather than backward-looking. Standard accounting records what was sold and what was spent, but ecommerce profit lives in the gap between a blended gross margin and the true cost of selling each product on each channel after fees, shipping, ad spend, and returns. A fractional CFO connects the accounting and sales data, surfaces those numbers, and turns them into pricing, inventory, and capital decisions."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Why is a blended gross margin misleading for an ecommerce business?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "A blended gross margin averages every channel and product into a single number, and that average hides the channels and SKUs that lose money on each order. A product can carry a healthy gross margin and still produce a negative contribution margin once the Amazon referral fee, fulfillment cost, return rate, and paid acquisition for that channel are subtracted. Two sellers can report the same blended margin while one builds profit on a strong direct channel and the other subsidizes a marketplace channel that drains cash. Contribution margin by channel and SKU is the number that separates the two, and it is the number a fractional CFO builds first."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "How does a fractional CFO help with inventory and cash flow?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Inventory is where ecommerce profit turns into cash that the business cannot spend. A seller can be profitable on the income statement and still be unable to fund the next purchase order, because the cash is sitting in boxes. A fractional CFO measures the cash conversion cycle, the number of days between paying a supplier and collecting from a customer, and manages the inputs to it: inventory turns, supplier terms, and the timing of large purchase orders. From there, the CFO decides whether growth is funded by faster turns, better terms, or inventory financing, and models the cash consequence of each before the order is placed rather than after the account is short."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "When is an ecommerce business ready for a fractional CFO?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Most ecommerce businesses between $500K and $7M in revenue are ready for a fractional CFO. Below roughly $500K, a strong bookkeeper and an ecommerce-aware accountant often cover the financial infrastructure. Above $500K, the decisions get expensive: a price change moves margin across thousands of orders, a single purchase order can consume a month of cash, and adding a channel changes the entire cost structure. A useful trigger is the first time you cannot answer which channel or product actually makes money after all of its costs, or the first time a profitable month leaves you unable to fund the next inventory buy."
+     }
+   },
+   {
+     "@type": "Question",
+     "name": "Can a fractional CFO use our existing Shopify, Amazon, and QuickBooks data?",
+     "acceptedAnswer": {
+       "@type": "Answer",
+       "text": "Yes. At Ochil Hills Management we connect your existing QuickBooks or Xero ledger together with your Shopify, Amazon, and other sales data into one engineered pipeline that we build and operate end to end. The source data flows on a schedule into a cloud data warehouse, a transformation layer defines each metric once so contribution margin, cash conversion cycle, and unit economics are calculated the same way every time, and the result is delivered as a live dashboard you can open on any day. You keep the platforms you already sell on. We build the channel-level financial layer above them so the numbers update from your real data rather than a spreadsheet rebuilt by hand each month."
+     }
+   }
+ ]
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://ochilmanagement.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Insights",
+   "item": "https://ochilmanagement.com/pages/insights"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Fractional CFO for Ecommerce: Margins, Inventory, and Profitable Growth",
+   "item": "https://ochilmanagement.com/blog/fractional-cfo-for-ecommerce"
+  }
+ ]
+}
+</script>
+<link rel="icon" href="../favicon.ico" sizes="32x32">
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+<link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+<link rel="preload" as="image" imagesrcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" imagesizes="100vw" fetchpriority="high">
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9JNDCJNLH0"></script>
+<script src="../js/analytics.js" defer></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="header">
+  <div class="header__inner">
+    <a href="../" class="header__logo" aria-label="Ochil Hills Management home">
+      <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+      <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+    </a>
+    <nav class="header__nav" aria-label="Primary navigation">
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false"><span></span><span></span><span></span></button>
+      <ul class="header__nav-list" role="list">
+        <li><a href="../" class="header__nav-link">Home</a></li>
+        <li><a href="../pages/services" class="header__nav-link">Services</a></li>
+        <li><a href="../pages/about" class="header__nav-link">About</a></li>
+        <li><a href="../pages/portfolio" class="header__nav-link">Portfolio</a></li>
+        <li><a href="../pages/insights" class="header__nav-link header__nav-link--active">Insights</a></li>
+        <li><a href="../pages/contact" class="header__nav-link">Contact</a></li>
+        <li class="header__nav-mobile-ctas">
+          <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login">Client Login</a>
+          <a href="../pages/contact" class="btn btn--primary">Schedule Call</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="header__actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="Switch to dark mode"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      <a href="https://dashboard.ochilmanagement.com" target="_blank" rel="noopener noreferrer" class="btn btn--client-login header__cta--desktop">Client Login</a>
+      <a href="../pages/contact" class="btn btn--primary header__cta--desktop">Schedule Call</a>
+    </div>
+  </div>
+</header>
+
+<section id="main" class="hero hero--sub">
+  <div class="hero__bg">
+    <img src="../images/hero-services-1920.webp" srcset="../images/hero-services-768.webp 768w, ../images/hero-services-1280.webp 1280w, ../images/hero-services-1920.webp 1920w, ../images/hero-services.webp 2752w" sizes="100vw" width="2752" height="1536" alt="Rolling green hills representing strategic financial growth" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__badge">Fractional CFO for Your Industry</p>
+    <h1 class="hero__title" style="max-width:26ch;">Fractional CFO for Ecommerce: Margins, Inventory, and Profitable Growth</h1>
+    <p class="hero__subtitle">Contribution Margin by Channel, the Cash Tied Up in Inventory, and the Unit Economics That Decide Whether Growth Pays</p>
+  </div>
+</section>
+
+<article class="article">
+  <div class="article__container">
+
+    <div class="article__meta">
+      <span class="article__author">By Matt Kaiser, Fractional CFO</span>
+      <span class="article__sep">&bull;</span>
+      <time class="article__date" datetime="2026-07-01">July 1, 2026</time>
+      <span class="article__sep">&bull;</span>
+      <span class="article__read-time">9 min read</span>
+      <span class="article__sep">&bull;</span>
+      <span class="article__last-updated">Last updated: July 1, 2026</span>
+    </div>
+
+    <div class="article__body">
+
+      <div class="article__answer-capsule">
+        <p>A fractional CFO for ecommerce builds the channel-level financial system an online business needs to grow without running out of cash: contribution margin by channel and SKU, landed-cost and COGS discipline, inventory and cash conversion cycle management, and unit economics across Shopify, Amazon, and wholesale. It exists because the blended gross margin hides which channels actually make money.</p>
+      </div>
+
+      <p>A fractional CFO for ecommerce closes a specific gap. The bookkeeper records the orders, the accountant files accurate returns, the revenue grows, and the owner still cannot answer the question that decides everything: which channel and which product actually make money after every cost of selling them. Ecommerce reads as a revenue business and behaves as a margin-and-cash business, and the standard accounting stack does not produce the channel-level numbers that govern it. That gap is what a fractional CFO for ecommerce closes.</p>
+
+      <p>This article covers the financial realities specific to ecommerce: contribution margin by channel and SKU, the cash tied up in inventory, landed cost and COGS, the marketplace fees and ad spend that erode margin order by order, returns, and the true unit economics across Shopify, Amazon, and direct-to-consumer channels. If you are still defining the role itself, start with <a href="what-is-a-fractional-cfo">our complete guide to what a fractional CFO is</a>, then return here for the ecommerce detail.</p>
+
+      <h2>Why Ecommerce Finance Is Different</h2>
+
+      <p>The core problem is that the income statement describes one business and the cash account describes another. Ecommerce in the United States is large and still growing: Digital Commerce 360 reported that US ecommerce sales reached $1.192 trillion in 2024, up 7.5% over the prior year (<a href="https://www.digitalcommerce360.com/2025/03/03/us-ecommerce-sales-2024/" target="_blank" rel="noopener noreferrer">Digital Commerce 360, 2025</a>), and the Census Bureau put online sales at 16.1% of all US retail for the full year, rising to 17.9% in the fourth quarter (<a href="https://www.census.gov/retail/ecommerce.html" target="_blank" rel="noopener noreferrer">US Census Bureau, 2025</a>). Growth is not the scarce resource. Margin and cash are, and they are the two things a backward-looking accounting system was never built to manage at the channel level.</p>
+
+      <p>The starting margin looks comfortable and then erodes. An analysis of public direct-to-consumer brands found a median gross margin of 57%, with the middle of the range running from 46% to 64% (<a href="https://eightx.co/blog/average-dtc-gross-margin-public-companies" target="_blank" rel="noopener noreferrer">Eightx, 2026</a>). That gross margin is the beginning of the story, not the end of it. After fulfillment, payment processing, returns, discounts, and paid acquisition, the contribution margin that a brand actually keeps benchmarks closer to 30% to 40%, and a contribution margin below roughly 20% is too thin to fund scaling (<a href="https://www.sarasanalytics.com/blog/ecommerce-contribution-margin" target="_blank" rel="noopener noreferrer">Saras Analytics</a>). Thus, the distance between a 57% gross margin and a sub-20% contribution margin is the entire job. The enemy here is the blended average that reports the first number and conceals the second.</p>
+
+      <h2>The Number That Decides Everything: Contribution Margin by Channel and SKU</h2>
+
+      <p>The single most misleading figure an ecommerce owner reads is the blended gross margin on the income statement. It averages every channel and every product into one number, and that average hides the channels and SKUs that lose money on each order. A fractional CFO replaces the blended average with contribution margin measured by channel and by SKU, because that is the number that separates a business that compounds from one that subsidizes its own decline.</p>
+
+      <p>Contribution margin is revenue minus the costs that vary with each sale: product cost, inbound freight and duties, the marketplace or platform fee, fulfillment and shipping, payment processing, returns, and the paid acquisition spent to win the order. The reason it must be measured per channel is that each channel carries a different load. A direct sale through Shopify carries payment processing and the full cost of acquisition. The same unit sold on Amazon carries a referral fee of 15% in most categories, plus fulfillment, storage, and placement fees, in exchange for demand the brand did not have to buy (<a href="https://sellercentral.amazon.com/help/hub/reference/external/G201411300" target="_blank" rel="noopener noreferrer">Amazon Seller Central</a>). A wholesale order carries almost no acquisition cost and a much lower price. Three channels, three cost structures, one product, and a blended margin that tells the owner none of it.</p>
+
+      <p>The consequence is concrete. A product can carry a 55% gross margin and a negative contribution margin on a single channel once that channel's fees, return rate, and acquisition cost are subtracted. The owner sees a healthy blended number and keeps scaling the channel that is quietly draining cash. When contribution margin is visible by channel and SKU, the decision reverses: pricing rises where the margin is thin, inventory flows to the products and channels that actually pay, and acquisition spend follows contribution rather than revenue. This is the same channel-level discipline a fractional CFO applies in any business with mixed economics, and we cover the parallel for software in <a href="fractional-cfo-for-saas">our guide to the fractional CFO for SaaS</a>.</p>
+
+      <h2>The Cash Tied Up in Inventory</h2>
+
+      <p>Inventory is where ecommerce profit becomes cash the business cannot spend. A seller can be profitable on the income statement and unable to fund the next purchase order, because the profit is sitting in boxes in a warehouse. This is the failure mode that surprises owners most, because it does not look like a problem on the profit and loss statement. It looks like success right up until the account is short.</p>
+
+      <p>The mechanism is the cash conversion cycle, the number of days between paying a supplier and collecting the cash from the customer who eventually buys the product. For direct-to-consumer brands that cycle commonly runs 60 to 120 days, while Amazon sellers often sit at 30 to 90 days depending on payout timing and inventory turns (<a href="https://wayflyer.com/blog/ecommerce-cash-conversion-cycle-working-capital-management" target="_blank" rel="noopener noreferrer">Wayflyer</a>). The longer the cycle, the more cash the business must carry to stand still, and inventory has been sitting longer across the economy, with days inventory outstanding rising from 42 to 47 days between 2022 and 2024 (<a href="https://www.centime.com/posts/a-comprehensive-guide-to-cash-conversion-cycles" target="_blank" rel="noopener noreferrer">Centime</a>). Consider an online retailer selling $1M a year that turns its inventory every 90 days. That seller carries roughly $250,000 in inventory at any moment, capital that is committed and unavailable until the goods sell.</p>
+
+      <p>Furthermore, that tied-up cash is dangerous because ecommerce runs on a thin buffer. The JPMorgan Chase Institute, in a landmark study of 597,000 small businesses, found that the median small business holds 27 cash buffer days, and retail specifically holds closer to 19 days of buffer (<a href="https://www.jpmorganchase.com/institute/all-topics/business-growth-and-entrepreneurship/insight-cash-is-king" target="_blank" rel="noopener noreferrer">JPMorgan Chase Institute</a>). Nineteen days of cushion against a 90-day cash conversion cycle is the structural tension at the center of ecommerce finance. A fractional CFO manages the inputs to that cycle, inventory turns, supplier terms, and the timing of large purchase orders, and then decides whether growth is funded by faster turns, better terms, or inventory financing. Inventory bought on borrowed money must earn more than it costs, and that calculation belongs to the CFO. The discipline connects directly to the practice we describe in <a href="cash-flow-management-small-business">our guide to cash flow management for small business</a> and the forward view in <a href="financial-forecasting-small-business">our guide to financial forecasting for small business</a>.</p>
+
+      <h2>Landed Cost and COGS: The True Cost of a Product</h2>
+
+      <p>Most ecommerce owners underprice because they do not know the true cost of their product. The supplier invoice is only the first line of it. Landed cost is the full delivered cost of a unit, and it includes the product price, inbound freight, customs duties and tariffs, insurance, and the handling required to get the goods into a sellable position. A fractional CFO builds COGS on landed cost rather than the invoice, because a margin calculated on the invoice price alone is fiction.</p>
+
+      <p>Landed cost has risen sharply, and the change is recent. The $800 de minimis exemption that allowed low-value imports to enter the United States without duties ended on August 29, 2025, and duties now apply to shipments that previously crossed the border free of charge, with rates that vary widely by country of origin (<a href="https://tacticallogistic.com/resources/blog/understanding-product-landed-cost-in-2025-what-it-is-and-how-its-changing/" target="_blank" rel="noopener noreferrer">Tactical Logistics, 2025</a>). For a brand that built its pricing on the old structure, the landed cost of every imported unit moved, and the contribution margin moved with it. This is a cost-management problem rather than a tax question, and a fractional CFO addresses it by recalculating landed cost per SKU, repricing where the math requires it, and modeling the cash and margin effect of where inventory is held. Rather than hunting for a cheaper supplier, the work is to price and stock against the real number.</p>
+
+      <h2>Marketplace Fees, Ad Spend, and Returns</h2>
+
+      <p>Three structural costs erode ecommerce margin order by order, and all three are invisible on a standard gross margin line. A fractional CFO measures contribution margin after all of them, because they are not occasional events. They are the cost of doing business on each channel.</p>
+
+      <p>The first is the marketplace and platform fee. Selling on Amazon means paying a referral fee, fulfillment fees, storage fees, and, since 2024, an inbound placement fee, and the total take is what matters rather than the headline referral rate (<a href="https://sellingpartners.aboutamazon.com/Update%20to%20US%20referral%20and%20Fulfillment%20by%20Amazon%20fees" target="_blank" rel="noopener noreferrer">Amazon Selling Partners, 2024</a>). The second is paid acquisition, and it has grown more expensive every year. One analysis found that average retail customer acquisition cost has risen roughly 60% over five years, climbing about 40% in the most recent two years alone (<a href="https://focus-digital.co/customer-acquisition-cost-trends/" target="_blank" rel="noopener noreferrer">Focus Digital, 2024</a>). When the cost to win a customer rises faster than price, contribution margin compresses even though revenue grows. The third is returns, which are a structural feature of ecommerce rather than a rounding error. The National Retail Federation reported that returns reached roughly 17% of total US retail sales, and online returns run materially higher than the in-store rate (<a href="https://capitaloneshopping.com/research/average-retail-return-rate/" target="_blank" rel="noopener noreferrer">CapitalOne Shopping Research, 2026</a>). A 20% return rate on a product with a 30% contribution margin is not a customer-service detail. It is a direct and recurring subtraction from profit. A fractional CFO models all three so the price and the channel decision reflect what the order actually nets.</p>
+
+      <h2>Building Channel-Level Visibility on Your Real Data</h2>
+
+      <p>Most ecommerce owners track these numbers in a spreadsheet that one person rebuilds by hand every month, pulling exports from Shopify, Amazon, the accounting system, and the ad platforms and stitching them together. That approach breaks in two predictable ways. It consumes the hours that should go to analysis, and it produces numbers that drift as definitions change between months, so the trend line becomes fiction. Channel-level finance cannot run on a monthly rebuild. It has to run on a system.</p>
+
+      <p>We build that system without asking you to replace the platforms you already sell on. We connect your existing QuickBooks or Xero ledger together with your Shopify, Amazon, and other sales data into one engineered pipeline that we build and operate end to end. The source data flows on a schedule into a cloud data warehouse, a transformation layer defines every metric in one place so contribution margin, cash conversion cycle, and unit economics are calculated the same way every time, and the result is delivered through a live dashboard the owner can open on any day of the month rather than a report assembled after the close. You see the dashboard. The pipeline and the transformation logic run in the background, monitored and maintained, so the number you read on a Monday is one you can act on.</p>
+
+      <p>The benefit is twofold. The owner stops paying for the monthly spreadsheet rebuild and gets the time back, and every number becomes traceable to the underlying order and cost. This is the data-driven approach we apply across engagements, described in more detail in <a href="data-driven-fractional-cfo">our guide to the data-driven fractional CFO</a> and in plain terms in <a href="business-intelligence-for-small-business">our guide to business intelligence for small business</a>. The point is not technology for its own sake. The point is that pricing, inventory, and capital decisions deserve numbers you can defend, and a hand-built spreadsheet cannot meet that standard at $3M or $5M in revenue.</p>
+
+      <h2>From Numbers to Decisions</h2>
+
+      <p>Channel-level financial data earns its cost only when it changes a decision. The table below maps the questions an ecommerce owner is already asking to what a blended view answers and what a channel-level view answers instead.</p>
+
+      <div class="article__table-wrap">
+        <table class="article__table">
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Blended View</th>
+              <th>Channel-Level View</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Which channel makes money?</td>
+              <td>One average margin across all channels</td>
+              <td>Contribution margin per channel after fees, shipping, returns, and acquisition</td>
+            </tr>
+            <tr>
+              <td>Should we raise prices?</td>
+              <td>A guess against the market</td>
+              <td>The exact SKUs and channels where contribution margin is too thin to fund</td>
+            </tr>
+            <tr>
+              <td>Can we fund the next purchase order?</td>
+              <td>Cash balance today</td>
+              <td>Cash conversion cycle and a forecast of cash through the inventory cycle</td>
+            </tr>
+            <tr>
+              <td>Where should ad spend go?</td>
+              <td>Toward the channels with the most revenue</td>
+              <td>Toward the channels and products with the highest contribution after acquisition</td>
+            </tr>
+            <tr>
+              <td>Is this product worth keeping?</td>
+              <td>Gross margin on the invoice price</td>
+              <td>Contribution margin on landed cost, net of returns, by channel</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Each row is a decision that a fractional CFO improves by replacing an average with a specific number. A single defensible price increase on an underpriced channel, or a single purchase order resized to the cash the business actually has, often recovers the cost of the engagement. For the signals that indicate your business has reached this stage, see <a href="signs-you-need-a-fractional-cfo">our guide to the signs your business needs a fractional CFO</a>.</p>
+
+      <h2>What It Costs for an Ecommerce Business</h2>
+
+      <p>A fractional CFO retainer for an ecommerce business in the $500K to $7M revenue range runs $3,000 to $8,000 per month, depending on scope, channel complexity, and hours. Project engagements, such as a contribution-margin and unit-economics build, an inventory and cash model, or a pricing overhaul, run roughly $5,000 to $20,000 depending on the output. For the full breakdown by revenue stage and engagement type, see our complete <a href="fractional-cfo-cost">fractional CFO cost guide</a>.</p>
+
+      <p>The comparison that matters is not the retainer against zero. It is the retainer against the alternatives. A full-time ecommerce CFO carries total compensation of roughly $250,000 to $400,000 per year, which is not justifiable for a business at $2M in revenue. The other alternative, an advisory-only consultant who delivers a slide deck and leaves, names the problem without building the system that fixes it. A fractional CFO occupies the space between: an operator who builds the channel-level model, owns it, and sits in the decision, at a fraction of a full-time cost. For most ecommerce businesses between $500K and $7M, that is 90% of the strategic value of a full-time hire at 20% to 40% of the fully loaded cost.</p>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="article__faq">
+        <details class="article__faq-item">
+          <summary>What does a fractional CFO for an ecommerce business actually do?</summary>
+          <p>A fractional CFO for an ecommerce business builds and runs the channel-level financial system an online seller needs: contribution margin by channel and SKU, landed-cost and COGS tracking, inventory and cash conversion cycle management, and unit economics across Shopify, Amazon, and wholesale. The work is forward-looking rather than backward-looking. Standard accounting records what was sold and what was spent, but ecommerce profit lives in the gap between a blended gross margin and the true cost of selling each product on each channel after fees, shipping, ad spend, and returns. A fractional CFO connects the accounting and sales data, surfaces those numbers, and turns them into pricing, inventory, and capital decisions.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>Why is a blended gross margin misleading for an ecommerce business?</summary>
+          <p>A blended gross margin averages every channel and product into a single number, and that average hides the channels and SKUs that lose money on each order. A product can carry a healthy gross margin and still produce a negative contribution margin once the Amazon referral fee, fulfillment cost, return rate, and paid acquisition for that channel are subtracted. Two sellers can report the same blended margin while one builds profit on a strong direct channel and the other subsidizes a marketplace channel that drains cash. Contribution margin by channel and SKU is the number that separates the two, and it is the number a fractional CFO builds first.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>How does a fractional CFO help with inventory and cash flow?</summary>
+          <p>Inventory is where ecommerce profit turns into cash that the business cannot spend. A seller can be profitable on the income statement and still be unable to fund the next purchase order, because the cash is sitting in boxes. A fractional CFO measures the cash conversion cycle, the number of days between paying a supplier and collecting from a customer, and manages the inputs to it: inventory turns, supplier terms, and the timing of large purchase orders. From there, the CFO decides whether growth is funded by faster turns, better terms, or inventory financing, and models the cash consequence of each before the order is placed rather than after the account is short.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>When is an ecommerce business ready for a fractional CFO?</summary>
+          <p>Most ecommerce businesses between $500K and $7M in revenue are ready for a fractional CFO. Below roughly $500K, a strong bookkeeper and an ecommerce-aware accountant often cover the financial infrastructure. Above $500K, the decisions get expensive: a price change moves margin across thousands of orders, a single purchase order can consume a month of cash, and adding a channel changes the entire cost structure. A useful trigger is the first time you cannot answer which channel or product actually makes money after all of its costs, or the first time a profitable month leaves you unable to fund the next inventory buy.</p>
+        </details>
+
+        <details class="article__faq-item">
+          <summary>Can a fractional CFO use our existing Shopify, Amazon, and QuickBooks data?</summary>
+          <p>Yes. At Ochil Hills Management we connect your existing QuickBooks or Xero ledger together with your Shopify, Amazon, and other sales data into one engineered pipeline that we build and operate end to end. The source data flows on a schedule into a cloud data warehouse, a transformation layer defines each metric once so contribution margin, cash conversion cycle, and unit economics are calculated the same way every time, and the result is delivered as a live dashboard you can open on any day. You keep the platforms you already sell on. We build the channel-level financial layer above them so the numbers update from your real data rather than a spreadsheet rebuilt by hand each month.</p>
+        </details>
+      </div>
+
+      <div class="article__cta-box">
+        <h3>Your Ecommerce Margins Deserve Numbers You Can Defend</h3>
+        <p>Ecommerce businesses between $500K and $7M are making pricing, inventory, and channel decisions on a blended margin that hides where the money is actually made and lost. If those decisions are being made without contribution margin by channel and a live view of the cash tied up in inventory, the risk is operational, not theoretical. We build the channel-level financial system on top of the platforms you already sell on. Let us have a direct conversation about whether a fractional CFO engagement is the right next move.</p>
+        <a href="../pages/contact" class="btn btn--primary btn--lg">Schedule a Conversation</a>
+      </div>
+
+    </div>
+
+    <aside class="article__sidebar">
+      <div class="article__sidebar-card">
+        <h4>Related Articles</h4>
+        <ul>
+          <li><a href="what-is-a-fractional-cfo">What Is a Fractional CFO? The Complete 2026 Guide</a></li>
+          <li><a href="fractional-cfo-for-saas">Fractional CFO for SaaS: Financial Strategy for Recurring Revenue</a></li>
+          <li><a href="data-driven-fractional-cfo">The Data-Driven Fractional CFO</a></li>
+          <li><a href="fractional-cfo-cost">How Much Does a Fractional CFO Cost? 2026 Pricing Guide</a></li>
+          <li><a href="signs-you-need-a-fractional-cfo">10 Signs Your Business Needs a Fractional CFO</a></li>
+        </ul>
+      </div>
+      <div class="article__sidebar-card">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../pages/services">Fractional CFO</a></li>
+          <li><a href="../pages/services">Fractional COO</a></li>
+          <li><a href="../pages/services">Integrated CFO &amp; COO</a></li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</article>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../" class="header__logo" style="margin-bottom:var(--space-2);">
+          <img src="../images/logo.png" alt="Ochil Hills Management" class="logo-img" width="192" height="144" decoding="async">
+          <div class="header__logo-text">Ochil Hills<span>Management</span></div>
+        </a>
+        <p>Fractional CFO &amp; COO for growth-stage businesses. Veteran-owned. Operator-led. Based in Washington State, serving clients nationwide.</p>
+        <div class="footer__veteran-badge">
+          <img src="../images/wa-veteran-badge.jpg" alt="Washington State Certified Veteran-Owned Business" class="footer__veteran-logo" width="219" height="168" loading="lazy" decoding="async">
+          <span>Washington State Certified<br>Veteran-Owned Business</span>
+        </div>
+      </div>
+      <div class="footer__col"><h4 class="footer__col-title">Navigate</h4><ul role="list"><li><a href="../">Home</a></li><li><a href="../pages/services">Services</a></li><li><a href="../pages/about">About</a></li><li><a href="../pages/portfolio">Portfolio</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Resources</h4><ul role="list"><li><a href="../pages/insights">Insights</a></li><li><a href="../pages/faq">FAQ</a></li><li><a href="../pages/contact">Contact</a></li><li><a href="../pages/client-portal">Client Portal</a></li><li><a href="../pages/terms">Terms of Service</a></li><li><a href="../pages/privacy">Privacy Policy</a></li></ul></div>
+      <div class="footer__col"><h4 class="footer__col-title">Connect</h4><ul role="list"><li><a href="mailto:info@ochilmanagement.com">info@ochilmanagement.com</a></li><li><a href="https://www.linkedin.com/in/matthew-kaiser-721447167/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Matt Kaiser</a></li><li><a href="https://www.linkedin.com/in/kylie-kaiser-3a37a2232/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:middle;margin-right:6px;"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>Kylie Kaiser</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&copy; 2026 Ochil Hills Management LLC. All rights reserved.</p></div>
+  </div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
